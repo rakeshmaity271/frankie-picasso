@@ -50,6 +50,19 @@ export default function Nav() {
           <img src="/logo.png" alt="Frankie Picasso" className={styles.logoImage} />
         </button>
 
+        {/* Desktop Navigation */}
+        <nav className={styles.desktopNav} aria-label="Main navigation">
+          {navLinks.map((link) => (
+            <button
+              key={link.id}
+              className={`${styles.desktopLink} ${activeId === link.id ? styles.active : ''}`}
+              onClick={() => scrollTo(link.id)}
+            >
+              {link.label}
+            </button>
+          ))}
+        </nav>
+
         <button
           className={`${styles.hamburger} ${mobileOpen ? styles.open : ''}`}
           onClick={() => setMobileOpen(!mobileOpen)}
