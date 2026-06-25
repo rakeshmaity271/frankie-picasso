@@ -1,3 +1,0 @@
-- Vite as the build tool and dev server (`vite.config.js`).
-- GSAP with ScrollTrigger and `@gsap/react` for advanced timeline and scroll-based animations (`src/hooks/useGsap.js`).
-- CSS Modules for component-level style encapsulation (e.g., `*.module.css` files).

@@ -17,6 +17,9 @@
 - [src/components/awards/AwardsRecognition.module.css](file://src/components/awards/AwardsRecognition.module.css)
 - [src/components/common/SectionHeading.jsx](file://src/components/common/SectionHeading.jsx)
 - [src/components/common/SectionHeading.module.css](file://src/components/common/SectionHeading.module.css)
+- [src/components/common/SectionIndicator.jsx](file://src/components/common/SectionIndicator.jsx)
+- [src/components/common/SectionIndicator.module.css](file://src/components/common/SectionIndicator.module.css)
+- [src/hooks/useActiveSection.js](file://src/hooks/useActiveSection.js)
 - [src/hooks/useGsap.js](file://src/hooks/useGsap.js)
 - [src/data/content.js](file://src/data/content.js)
 - [src/styles/_variables.css](file://src/styles/_variables.css)
@@ -26,11 +29,11 @@
 
 ## Update Summary
 **Changes Made**
-- Updated Navigation system documentation to reflect enhanced desktop navigation features with desktopNav class and improved cross-device functionality
-- Enhanced Hero section documentation to reflect improved desktop layout, responsive padding, and overflow fixes
-- Added documentation for new responsive typography system using clamp functions for fluid scaling
-- Updated styling architecture to reflect enhanced responsive design patterns and improved visual design systems
-- Enhanced component documentation to reflect recent improvements in CSS styling and responsive behavior
+- Added documentation for new SectionIndicator component and useActiveSection hook
+- Enhanced Nav component documentation to reflect integration with useActiveSection hook
+- Updated component architecture to include new floating section navigation system
+- Enhanced HeroExperience component documentation to reflect recent improvements
+- Updated state management documentation to include new Intersection Observer-based active section tracking
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -51,7 +54,7 @@
 16. [Conclusion](#conclusion)
 
 ## Introduction
-This document provides comprehensive documentation for the React frontend components and development setup. The project features a modular component-based architecture with 11 distinct content sections, sophisticated animation integration using GSAP, and a robust CSS Modules styling system. The application showcases a professional portfolio-style website with smooth scrolling navigation, interactive animations, responsive design patterns, and a refined typography system using Cormorant Garamond and Inter fonts. Recent enhancements include improved desktop layouts, enhanced responsive typography using clamp functions, and refined cross-device functionality.
+This document provides comprehensive documentation for the React frontend components and development setup. The project features a modular component-based architecture with 11 distinct content sections, sophisticated animation integration using GSAP, and a robust CSS Modules styling system. The application showcases a professional portfolio-style website with smooth scrolling navigation, interactive animations, responsive design patterns, and a refined typography system using Cormorant Garamond and Inter fonts. Recent enhancements include improved desktop layouts, enhanced responsive typography using clamp functions, refined cross-device functionality, and a new floating section navigation system.
 
 ## Project Structure
 The project follows a structured React + Vite setup with a comprehensive component hierarchy organized into logical modules:
@@ -74,6 +77,7 @@ Components --> Awards["awards/"]
 Components --> Common["common/"]
 Data --> Content["content.js"]
 Hooks --> GSAP["useGsap.js"]
+Hooks --> ActiveSection["useActiveSection.js"]
 Styles --> Variables["_variables.css"]
 Styles --> Global["_global.css"]
 Styles --> Typography["_typography.css"]
@@ -81,13 +85,14 @@ Styles --> Typography["_typography.css"]
 
 **Diagram sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-51](file://src/App.jsx#L1-L51)
-- [src/components/layout/Nav.jsx:1-98](file://src/components/layout/Nav.jsx#L1-L98)
+- [src/App.jsx:1-55](file://src/App.jsx#L1-L55)
+- [src/components/layout/Nav.jsx:1-152](file://src/components/layout/Nav.jsx#L1-L152)
 - [src/components/hero/HeroExperience.jsx:1-140](file://src/components/hero/HeroExperience.jsx#L1-L140)
+- [src/hooks/useActiveSection.js:1-36](file://src/hooks/useActiveSection.js#L1-L36)
 
 **Section sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-51](file://src/App.jsx#L1-L51)
+- [src/App.jsx:1-55](file://src/App.jsx#L1-L55)
 - [vite.config.js:1-11](file://vite.config.js#L1-L11)
 - [package.json:1-23](file://package.json#L1-L23)
 
@@ -98,18 +103,18 @@ The application is structured around several key architectural components that w
 The application bootstraps through a minimal entry point that creates the React root and renders the main App component within strict mode for enhanced error detection.
 
 ### Primary Component: App.jsx
-The main App component orchestrates the entire application layout, managing the loading sequence and coordinating all content sections. It implements sophisticated loading animations and accessibility features.
+The main App component orchestrates the entire application layout, managing the loading sequence and coordinating all content sections. It implements sophisticated loading animations and accessibility features. The App component now includes the new SectionIndicator component for enhanced navigation.
 
 ### Layout System
 The layout system consists of reusable components that provide consistent navigation, branding, and footer functionality across all pages.
 
 **Section sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:17-51](file://src/App.jsx#L17-L51)
+- [src/App.jsx:19-55](file://src/App.jsx#L19-L55)
 - [src/App.module.css:1-23](file://src/App.module.css#L1-L23)
 
 ## Component Architecture
-The application employs a hierarchical component architecture with clear separation of concerns:
+The application employs a hierarchical component architecture with clear separation of concerns and enhanced active section tracking:
 
 ```mermaid
 graph TD
@@ -117,9 +122,11 @@ App["App.jsx"] --> Nav["Nav.jsx"]
 App --> Footer["Footer.jsx"]
 App --> Hero["HeroExperience.jsx"]
 App --> Awards["AwardsRecognition.jsx"]
+App --> SectionIndicator["SectionIndicator.jsx"]
 App --> SectionHeading["SectionHeading.jsx"]
 Nav --> GSAP["useGsap.js"]
-Nav --> ActiveSection["useActiveSection.js"]
+Nav --> ActiveSectionHook["useActiveSection.js"]
+SectionIndicator --> ActiveSectionHook
 Hero --> GSAP
 Hero --> Parallax["useParallax.js"]
 Awards --> GSAP
@@ -128,28 +135,36 @@ SectionHeading --> GSAP
 ```
 
 **Diagram sources**
-- [src/App.jsx:2-14](file://src/App.jsx#L2-L14)
+- [src/App.jsx:2-16](file://src/App.jsx#L2-L16)
 - [src/components/layout/Nav.jsx:1-5](file://src/components/layout/Nav.jsx#L1-L5)
-- [src/components/common/SectionHeading.jsx:1-12](file://src/components/common/SectionHeading.jsx#L1-L12)
+- [src/components/common/SectionIndicator.jsx:1-43](file://src/components/common/SectionIndicator.jsx#L1-L43)
+- [src/hooks/useActiveSection.js:1-36](file://src/hooks/useActiveSection.js#L1-L36)
 
 **Section sources**
-- [src/App.jsx:1-51](file://src/App.jsx#L1-L51)
-- [src/components/layout/Nav.jsx:1-98](file://src/components/layout/Nav.jsx#L1-L98)
+- [src/App.jsx:1-55](file://src/App.jsx#L1-L55)
+- [src/components/layout/Nav.jsx:1-152](file://src/components/layout/Nav.jsx#L1-L152)
+- [src/components/common/SectionIndicator.jsx:1-43](file://src/components/common/SectionIndicator.jsx#L1-L43)
+- [src/hooks/useActiveSection.js:1-36](file://src/hooks/useActiveSection.js#L1-L36)
 
 ## Layout Components
-The layout system provides consistent navigation and structural elements across all pages.
+The layout system provides consistent navigation and structural elements across all pages with enhanced active section tracking.
 
 ### Navigation Component (Nav.jsx)
-**Updated** Features responsive design with mobile-first approach, scroll-aware styling, and animated navigation items. Integrates with GSAP for smooth animations and uses custom hooks for active section detection. The navigation now includes a comprehensive mobile menu with social links and contact button, featuring sophisticated GSAP animations for menu item entrance and exit. The desktop navigation system has been enhanced with a dedicated `desktopNav` class for improved cross-device functionality and better separation of desktop vs mobile styling.
+**Updated** Features responsive design with mobile-first approach, scroll-aware styling, and animated navigation items. Integrates with GSAP for smooth animations and uses the new useActiveSection hook for intelligent active section detection. The navigation now includes a comprehensive mobile menu with social links and contact button, featuring sophisticated GSAP animations for menu item entrance and exit. The desktop navigation system has been enhanced with a dedicated `desktopNav` class for improved cross-device functionality and better separation of desktop vs mobile styling. The component now uses Intersection Observer technology to automatically detect which section is currently in view.
 
 ### Footer Component (Footer.jsx)
 **Updated** Provides comprehensive footer navigation with brand information, copyright details, and accessible navigation controls. The footer has been transformed into a comprehensive brand showcase featuring a three-column grid layout on desktop with centered layout on mobile, including brand identity, navigation sections, and social media links.
 
+### Section Indicator Component (SectionIndicator.jsx)
+**New** A floating navigation component that appears on mobile devices to provide quick access to different sections of the page. Features a vertical list of clickable dots that correspond to each major section, with automatic highlighting of the currently active section. Includes smooth scrolling functionality and responsive visibility control based on scroll position.
+
 **Section sources**
 - [src/components/layout/Nav.jsx:1-152](file://src/components/layout/Nav.jsx#L1-L152)
-- [src/components/layout/Nav.module.css:1-331](file://src/components/layout/Nav.module.css#L1-L331)
+- [src/components/layout/Nav.module.css:1-349](file://src/components/layout/Nav.module.css#L1-L349)
 - [src/components/layout/Footer.jsx:1-59](file://src/components/layout/Footer.jsx#L1-L59)
 - [src/components/layout/Footer.module.css:1-102](file://src/components/layout/Footer.module.css#L1-L102)
+- [src/components/common/SectionIndicator.jsx:1-43](file://src/components/common/SectionIndicator.jsx#L1-L43)
+- [src/components/common/SectionIndicator.module.css:1-60](file://src/components/common/SectionIndicator.module.css#L1-L60)
 
 ## Content Components
 The application features 11 specialized content components, each designed to showcase specific aspects of Frankie Picasso's work and achievements.
@@ -164,8 +179,8 @@ The application features 11 specialized content components, each designed to sho
 **Updated** Reusable component for consistent heading presentation across all content sections. The component has been refactored to remove the decorative numbering system, simplifying the design to focus purely on title and subtitle presentation. Supports light/dark theme variants for different background contexts.
 
 **Section sources**
-- [src/components/hero/HeroExperience.jsx:1-139](file://src/components/hero/HeroExperience.jsx#L1-L139)
-- [src/components/hero/HeroExperience.module.css:1-227](file://src/components/hero/HeroExperience.module.css#L1-L227)
+- [src/components/hero/HeroExperience.jsx:1-140](file://src/components/hero/HeroExperience.jsx#L1-L140)
+- [src/components/hero/HeroExperience.module.css:1-328](file://src/components/hero/HeroExperience.module.css#L1-L328)
 - [src/components/awards/AwardsRecognition.jsx:1-70](file://src/components/awards/AwardsRecognition.jsx#L1-L70)
 - [src/components/awards/AwardsRecognition.module.css:1-295](file://src/components/awards/AwardsRecognition.module.css#L1-L295)
 - [src/components/common/SectionHeading.jsx:1-12](file://src/components/common/SectionHeading.jsx#L1-L12)
@@ -174,32 +189,43 @@ The application features 11 specialized content components, each designed to sho
 ## Shared Utilities
 The application leverages several shared utility components and hooks to maintain consistency and reduce code duplication.
 
+### Section Indicator Component (SectionIndicator.jsx)
+**New** A floating navigation component that provides quick access to different sections of the page. Features a vertical list of clickable dots that correspond to each major section, with automatic highlighting of the currently active section. Includes smooth scrolling functionality and responsive visibility control based on scroll position.
+
 ### Section Heading (SectionHeading.jsx)
 **Updated** Reusable component for consistent heading presentation across all content sections. The component has been refactored to remove the decorative numbering system, simplifying the design to focus purely on title and subtitle presentation. Supports light/dark theme variants for different background contexts.
 
 ### GSAP Hook (useGsap.js)
 Centralized GSAP configuration with ScrollTrigger registration, default settings, and useGSAP wrapper for consistent animation behavior.
 
+### Active Section Hook (useActiveSection.js)
+**New** A custom React hook that tracks the currently active section using Intersection Observer technology. Automatically detects which section is currently in view based on scroll position and provides real-time updates to connected components.
+
 **Section sources**
+- [src/components/common/SectionIndicator.jsx:1-43](file://src/components/common/SectionIndicator.jsx#L1-L43)
+- [src/components/common/SectionIndicator.module.css:1-60](file://src/components/common/SectionIndicator.module.css#L1-L60)
 - [src/components/common/SectionHeading.jsx:1-12](file://src/components/common/SectionHeading.jsx#L1-L12)
 - [src/components/common/SectionHeading.module.css:1-32](file://src/components/common/SectionHeading.module.css#L1-L32)
 - [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
+- [src/hooks/useActiveSection.js:1-36](file://src/hooks/useActiveSection.js#L1-L36)
 
 ## State Management and Hooks
 The application implements a sophisticated state management approach using React hooks and custom hooks for enhanced functionality.
 
 ### Custom Hooks
 - **useGsap**: Centralized GSAP configuration with ScrollTrigger support
-- **useActiveSection**: Tracks active navigation section based on scroll position
+- **useActiveSection**: **New** Tracks active navigation section using Intersection Observer technology
 - **useParallax**: Implements parallax scrolling effects
 - **useScrollReveal**: Manages scroll-triggered reveal animations
 
 ### State Patterns
-Components utilize useState for UI state management (mobile menu, scroll awareness), useEffect for side effects and cleanup, and useRef for DOM manipulation and animation references.
+Components utilize useState for UI state management (mobile menu, scroll awareness), useEffect for side effects and cleanup, and useRef for DOM manipulation and animation references. The new useActiveSection hook uses Intersection Observer for efficient, low-overhead active section detection.
 
 **Section sources**
 - [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
+- [src/hooks/useActiveSection.js:1-36](file://src/hooks/useActiveSection.js#L1-L36)
 - [src/components/layout/Nav.jsx:1-152](file://src/components/layout/Nav.jsx#L1-L152)
+- [src/components/common/SectionIndicator.jsx:1-43](file://src/components/common/SectionIndicator.jsx#L1-L43)
 
 ## CSS Modules and Styling
 **Updated** The application employs CSS Modules for scoped styling, ensuring component isolation and preventing style conflicts.
@@ -218,9 +244,18 @@ The styling system utilizes:
 - Accessibility-focused color schemes
 - Consistent spacing and typography scales
 
+### New Mobile Navigation Styling
+The SectionIndicator component features specialized mobile-first styling with:
+- Fixed positioning on the right side of the screen
+- Vertical column layout with gap spacing
+- Smooth fade-in/out transitions
+- Responsive visibility based on scroll position
+- Gold accent colors for active states
+
 **Section sources**
 - [src/App.module.css:1-23](file://src/App.module.css#L1-L23)
 - [src/components/layout/Nav.jsx:5](file://src/components/layout/Nav.jsx#L5)
+- [src/components/common/SectionIndicator.module.css:1-60](file://src/components/common/SectionIndicator.module.css#L1-L60)
 
 ## Typography System
 **Updated** The application now features a refined typography system with two distinct font families and advanced responsive scaling using clamp functions:
@@ -283,7 +318,7 @@ The content.js file organizes all application data into logical categories with 
 
 ### Navigation Data
 Separate arrays manage:
-- sectionIds for scroll positioning
+- sectionIds for scroll positioning and active section tracking
 - navLinks for navigation structure with enhanced desktop navigation support
 - Consistent labeling and routing
 
@@ -341,6 +376,12 @@ The application implements several performance optimization strategies:
 - Efficient GSAP usage patterns
 - Cleanup of event listeners and observers
 
+### Intersection Observer Usage
+- **New** Efficient active section tracking using Intersection Observer API
+- Low overhead compared to scroll event listeners
+- Automatic cleanup of observers on component unmount
+- Improved performance on mobile devices
+
 ### Loading Strategies
 - Sequential component loading
 - Lazy loading for non-critical resources
@@ -360,11 +401,13 @@ Common development and runtime issues with solutions:
 - **Blank screen on startup**: Verify DOM element existence and React version compatibility
 - **Animation not working**: Check GSAP plugin registration and ScrollTrigger initialization
 - **Navigation not responding**: Ensure section IDs match between content and navigation
+- **Section indicator not appearing**: Verify mobile breakpoint conditions and scroll position detection
 
 ### Styling Problems
 - **Styles not applying**: Verify CSS Modules import syntax and class name matching
 - **Animation conflicts**: Check for conflicting CSS properties and z-index stacking
 - **Responsive issues**: Review media query breakpoints and viewport meta tags
+- **Floating indicator positioning**: Check fixed positioning and z-index values
 
 ### Typography Issues
 - **Font not loading**: Verify Google Fonts import and network connectivity
@@ -376,10 +419,18 @@ Common development and runtime issues with solutions:
 - **Build errors**: Verify Node.js version compatibility and dependency installation
 - **Port conflicts**: Change server port in Vite configuration or kill conflicting processes
 
+### New Feature Issues
+- **Active section detection not working**: Verify Intersection Observer support and section ID matching
+- **Mobile navigation not visible**: Check scroll position threshold and media query conditions
+- **Smooth scrolling not functioning**: Verify element ID existence and scroll offset calculations
+
 **Section sources**
 - [src/main.jsx:6-10](file://src/main.jsx#L6-L10)
 - [src/hooks/useGsap.js:6](file://src/hooks/useGsap.js#L6)
+- [src/hooks/useActiveSection.js:6-32](file://src/hooks/useActiveSection.js#L6-L32)
 - [vite.config.js:7-8](file://vite.config.js#L7-L8)
 
 ## Conclusion
-The React frontend components demonstrate a mature, scalable architecture with comprehensive animation integration, modular component design, and robust development tooling. The recent comprehensive redesign enhancements showcase the evolution toward a more sophisticated and visually engaging digital portfolio. The enhanced mobile-first navigation system with GSAP animations, improved desktop layout for the hero section with responsive padding and overflow fixes, redesigned awards recognition with laurel decorations, comprehensive brand-focused footer, and enhanced global styling system with improved CSS variables and responsive typography using clamp functions represent significant improvements in user experience and visual appeal. The 11-content component structure provides excellent organization for showcasing diverse aspects of Frankie Picasso's work while maintaining consistency and performance. The combination of CSS Modules, custom hooks, GSAP animations, and the refined responsive typography system creates a polished user experience with smooth interactions and professional presentation quality.
+The React frontend components demonstrate a mature, scalable architecture with comprehensive animation integration, modular component design, and robust development tooling. The recent comprehensive redesign enhancements showcase the evolution toward a more sophisticated and visually engaging digital portfolio. The enhanced mobile-first navigation system with GSAP animations, improved desktop layout for the hero section with responsive padding and overflow fixes, redesigned awards recognition with laurel decorations, comprehensive brand-focused footer, and enhanced global styling system with improved CSS variables and responsive typography using clamp functions represent significant improvements in user experience and visual appeal. 
+
+The addition of the new SectionIndicator component and useActiveSection hook introduces a sophisticated floating navigation system that enhances mobile usability with quick section access and intelligent active section highlighting. The Intersection Observer-based active section tracking provides efficient, low-overhead section detection that improves performance and user experience across all devices. The 11-content component structure provides excellent organization for showcasing diverse aspects of Frankie Picasso's work while maintaining consistency and performance. The combination of CSS Modules, custom hooks, GSAP animations, and the refined responsive typography system creates a polished user experience with smooth interactions and professional presentation quality.

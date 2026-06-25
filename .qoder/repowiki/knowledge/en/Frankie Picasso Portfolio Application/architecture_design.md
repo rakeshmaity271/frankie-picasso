@@ -1,5 +1,0 @@
-- Entry point: `src/main.jsx` bootstraps the React root and imports global styles.
-- Core layout: `src/App.jsx` orchestrates a linear sequence of thematic sections (Hero, Story, Entrepreneurship, etc.) wrapped by `Nav` and `Footer`.
-- Component structure: Feature-specific components in `src/components/` (e.g., `hero`, `books`) are paired with CSS Modules for scoped styling, while `src/components/common` provides reusable UI primitives like `ScrollReveal`.
-- Data layer: A centralized static data file (`src/data/content.js`) supplies all textual content, decoupling copy from presentation logic.
-- Animation system: Custom hooks in `src/hooks/` (e.g., `useGsap`, `useScrollReveal`) encapsulate GSAP logic, enabling declarative scroll-triggered animations across components.

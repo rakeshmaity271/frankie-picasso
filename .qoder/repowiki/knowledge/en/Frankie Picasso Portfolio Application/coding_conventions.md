@@ -1,3 +1,0 @@
-- Feature components are implemented as default exports in dedicated directories with co-located CSS Modules (e.g., `ComponentName.jsx` and `ComponentName.module.css`).
-- Scroll-triggered reveal animations are abstracted into a reusable `ScrollReveal` wrapper component that accepts animation types and delegates to the `useScrollReveal` hook.
-- All hardcoded textual content is externalized into a single `content.js` object, which is imported by components to render dynamic sections.

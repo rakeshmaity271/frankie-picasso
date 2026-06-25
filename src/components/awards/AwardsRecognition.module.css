@@ -1,5 +1,6 @@
 .section {
   background: linear-gradient(180deg, var(--color-warm-ivory) 0%, #f0e8df 100%);
+  padding: var(--space-section) 0;
 }
 
 .featured {
