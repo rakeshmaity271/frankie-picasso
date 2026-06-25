@@ -13,15 +13,17 @@
 - [src/components/layout/Footer.jsx](file://src/components/layout/Footer.jsx)
 - [.github/workflows/deploy.yml](file://.github/workflows/deploy.yml)
 - [scripts/deploy.sh](file://scripts/deploy.sh)
-- [scripts/setup_server.py](file://scripts/setup_server.py)
+- [scripts/check_server.py](file://scripts/check_server.py)
+- [scripts/fix_server.py](file://scripts/fix_server.py)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Enhanced deployment infrastructure with root SSH user configuration for improved security
-- Added setup_server.py to .gitignore for security compliance and credential protection
-- Improved deployment workflow with automated server setup and verification processes
-- Updated security practices to prevent accidental credential exposure in version control
+- Added new Python diagnostic and repair scripts (check_server.py, fix_server.py) for enhanced server troubleshooting
+- Enhanced deployment automation with CloudPanel placeholder detection and automatic handling
+- Improved deployment workflow security with enhanced credential protection measures
+- Updated GitHub Actions workflow to automatically handle CloudPanel index.php placeholders during deployment
+- Added comprehensive server health checking and automated repair capabilities
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -32,22 +34,25 @@
 6. [Dependency Analysis](#dependency-analysis)
 7. [Performance Considerations](#performance-considerations)
 8. [Security and Deployment Infrastructure](#security-and-deployment-infrastructure)
-9. [Troubleshooting Guide](#troubleshooting-guide)
-10. [Conclusion](#conclusion)
+9. [Python Diagnostic and Repair Tools](#python-diagnostic-and-repair-tools)
+10. [Troubleshooting Guide](#troubleshooting-guide)
+11. [Conclusion](#conclusion)
 
 ## Introduction
-This document provides comprehensive documentation for the modern React/Vite development environment used in the project. It covers Vite configuration for development server settings, build optimization, and plugin integration; .gitignore configuration and its impact on development workflow; environment variable usage; development server hot reloading capabilities; debugging techniques; and the relationship between Vite and React development, build process optimization, and production deployment preparation. The project now follows a pure frontend development approach with React components, modern CSS modules, and automated deployment workflows with enhanced security measures.
+This document provides comprehensive documentation for the modern React/Vite development environment used in the project. It covers Vite configuration for development server settings, build optimization, and plugin integration; .gitignore configuration and its impact on development workflow; environment variable usage; development server hot reloading capabilities; debugging techniques; and the relationship between Vite and React development, build process optimization, and production deployment preparation. The project now follows a pure frontend development approach with React components, modern CSS modules, and automated deployment workflows with enhanced security measures and comprehensive server management tools.
 
 ## Project Structure
 The project follows a modern React + Vite setup optimized for frontend development. Key files and their roles:
 - package.json defines scripts, dependencies, and devDependencies for development and build tasks
 - vite.config.js configures Vite with React plugin and development server settings
-- .gitignore excludes build artifacts, environment files, and sensitive configuration including setup scripts
+- .gitignore excludes build artifacts, environment files, and sensitive configuration including Python diagnostic scripts
 - index.html serves as the HTML template for the application with loading screen
 - src/main.jsx is the React application entry point with strict mode
 - src/App.jsx is the primary React component orchestrating all page sections
 - src/styles/_global.css provides global styling with CSS variables and utilities
-- scripts/setup_server.py provides automated server setup with root SSH user configuration
+- scripts/deploy.sh provides automated deployment with rsync and verification
+- scripts/check_server.py provides comprehensive server diagnostics and health checking
+- scripts/fix_server.py provides automated server repair and troubleshooting capabilities
 
 ```mermaid
 graph TB
@@ -58,11 +63,13 @@ D --> E["src/App.jsx<br/>Primary component"]
 F[".gitignore<br/>Exclusions for dev workflow"] --> G["Build artifacts<br/>(dist/)"]
 F --> H["Environment files<br/>(.env*)"]
 F --> I["Node modules<br/>(node_modules/)"]
-F --> J["Setup scripts<br/>(scripts/setup_server.py)"]
+F --> J["Python diagnostic scripts<br/>(scripts/check_server.py, fix_server.py)"]
 K["src/styles/_global.css<br/>Global styling"] --> L["CSS Variables & Utilities"]
 M["src/components/layout/<br/>Navigation & Footer"] --> N["Responsive Design"]
 O["scripts/deploy.sh<br/>Manual deployment"] --> P["SSH Deployment"]
 Q["GitHub Actions<br/>Automated deployment"] --> R["Production Pipeline"]
+S["scripts/check_server.py<br/>Server diagnostics"] --> T["Health monitoring"]
+U["scripts/fix_server.py<br/>Server repair"] --> V["Automated troubleshooting"]
 ```
 
 **Diagram sources**
@@ -73,8 +80,9 @@ Q["GitHub Actions<br/>Automated deployment"] --> R["Production Pipeline"]
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
 - [src/App.jsx:1-51](file://src/App.jsx#L1-L51)
 - [src/styles/_global.css:1-46](file://src/styles/_global.css#L1-L46)
-- [scripts/setup_server.py:1-45](file://scripts/setup_server.py#L1-L45)
 - [scripts/deploy.sh:1-81](file://scripts/deploy.sh#L1-L81)
+- [scripts/check_server.py:1-45](file://scripts/check_server.py#L1-L45)
+- [scripts/fix_server.py:1-46](file://scripts/fix_server.py#L1-L46)
 
 **Section sources**
 - [package.json:1-23](file://package.json#L1-L23)
@@ -84,7 +92,6 @@ Q["GitHub Actions<br/>Automated deployment"] --> R["Production Pipeline"]
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
 - [src/App.jsx:1-51](file://src/App.jsx#L1-L51)
 - [src/styles/_global.css:1-46](file://src/styles/_global.css#L1-L46)
-- [scripts/setup_server.py:1-45](file://scripts/setup_server.py#L1-L45)
 
 ## Core Components
 This section documents the core development tools and configurations that drive the project's modern React/Vite development environment.
@@ -107,7 +114,7 @@ This section documents the core development tools and configurations that drive 
 - Environment Management
   - .env and .env.local are ignored by .gitignore to prevent committing sensitive credentials
   - Node modules are excluded to avoid committing installed packages
-  - Setup scripts are excluded to prevent credential exposure
+  - Python diagnostic scripts are excluded to prevent credential exposure
 
 - Build and Preview Scripts
   - Scripts defined in package.json enable development, building, and previewing the application
@@ -121,7 +128,7 @@ This section documents the core development tools and configurations that drive 
 - [src/styles/_global.css:1-46](file://src/styles/_global.css#L1-L46)
 
 ## Architecture Overview
-The development architecture integrates Vite for fast development and build processes, React for UI rendering, and modern CSS methodologies. The configuration ensures a streamlined workflow with automatic hot reloading and efficient production builds. The deployment infrastructure now includes enhanced security measures with root SSH user configuration and automated server setup.
+The development architecture integrates Vite for fast development and build processes, React for UI rendering, and modern CSS methodologies. The configuration ensures a streamlined workflow with automatic hot reloading and efficient production builds. The deployment infrastructure now includes enhanced security measures with root SSH user configuration, automated server setup, and comprehensive Python-based diagnostic and repair tools for server maintenance.
 
 ```mermaid
 graph TB
@@ -144,7 +151,12 @@ end
 subgraph "Deployment Infrastructure"
 DEPLOY["scripts/deploy.sh<br/>Manual Deployment"]
 GITHUB["GitHub Actions<br/>Automated Deployment"]
-SETUP["scripts/setup_server.py<br/>Server Setup"]
+DIAG["scripts/check_server.py<br/>Server Diagnostics"]
+REPAIR["scripts/fix_server.py<br/>Server Repair"]
+end
+subgraph "Security Measures"
+SECURE["Enhanced Security<br/>Credential Protection"]
+CLOUD["CloudPanel Detection<br/>Automatic Handling"]
 end
 V --> P
 P --> R
@@ -154,8 +166,10 @@ V --> L
 A --> NAV
 A --> FOOTER
 A --> COMP
-DEPLOY --> SETUP
-GITHUB --> SETUP
+DEPLOY --> SECURE
+GITHUB --> CLOUD
+DIAG --> SECURE
+REPAIR --> SECURE
 ```
 
 **Diagram sources**
@@ -166,7 +180,8 @@ GITHUB --> SETUP
 - [src/components/layout/Nav.jsx:1-102](file://src/components/layout/Nav.jsx#L1-L102)
 - [src/components/layout/Footer.jsx:1-52](file://src/components/layout/Footer.jsx#L1-L52)
 - [scripts/deploy.sh:1-81](file://scripts/deploy.sh#L1-L81)
-- [scripts/setup_server.py:1-45](file://scripts/setup_server.py#L1-L45)
+- [scripts/check_server.py:1-45](file://scripts/check_server.py#L1-L45)
+- [scripts/fix_server.py:1-46](file://scripts/fix_server.py#L1-L46)
 
 ## Detailed Component Analysis
 
@@ -295,7 +310,7 @@ B --> I["scripts/setup_server.py"]
 
 ### Environment Variables and Secrets
 - Environment Files: .env and .env.local are ignored by .gitignore to prevent committing secrets
-- Setup Scripts: scripts/setup_server.py is excluded to prevent credential exposure
+- Python Scripts: scripts/check_server.py and scripts/fix_server.py are excluded to prevent credential exposure
 - Best Practice: Store secrets in environment files and ensure they remain uncommitted
 
 **Section sources**
@@ -316,11 +331,12 @@ B --> I["scripts/setup_server.py"]
 - Optimization: Vite performs tree-shaking, code splitting, and asset optimization by default
 - Automated Deployment: GitHub Actions workflow deploys to production server via SSH with root user configuration
 - Manual Deployment: Shell script handles local deployment with rsync and verification
-- Enhanced Security: Setup scripts are excluded from version control to prevent credential exposure
+- Enhanced Security: Python diagnostic and repair scripts are excluded from version control to prevent credential exposure
+- CloudPanel Integration: Automatic detection and handling of CloudPanel placeholder files during deployment
 
 **Section sources**
 - [package.json:8-9](file://package.json#L8-L9)
-- [.github/workflows/deploy.yml:1-94](file://.github/workflows/deploy.yml#L1-L94)
+- [.github/workflows/deploy.yml:1-100](file://.github/workflows/deploy.yml#L1-L100)
 - [scripts/deploy.sh:1-81](file://scripts/deploy.sh#L1-L81)
 
 ## Dependency Analysis
@@ -365,40 +381,49 @@ D2 --> D1
 The project now implements enhanced security measures for deployment infrastructure:
 
 - Root SSH User Configuration: Both manual and automated deployment scripts use root user for server access
-- Credential Protection: Setup scripts are excluded from version control to prevent credential exposure
-- Automated Server Setup: Python-based setup script automates server preparation with proper permissions
+- Credential Protection: Python diagnostic and repair scripts are excluded from version control to prevent credential exposure
+- Automated Server Setup: Python-based diagnostic and repair scripts automate server preparation with proper permissions
 - Multi-layered Verification: Deployment processes include multiple verification steps to ensure successful deployment
+- CloudPanel Security: Automatic detection and handling of CloudPanel placeholder files prevents serving incorrect content
 
 ### Server Setup Automation
-The setup_server.py script provides automated server preparation:
-- SSH Connection: Establishes secure connection to target server
-- Directory Creation: Creates project directory structure with proper permissions
-- Environment Verification: Checks for required tools (git, node, npm, php)
-- Permission Management: Sets appropriate file permissions for deployment
-- Status Reporting: Provides detailed status information throughout the setup process
+The deployment infrastructure includes comprehensive Python-based server management tools:
+
+- **check_server.py**: Comprehensive server diagnostics that verifies project files, configuration, and service status
+- **fix_server.py**: Automated server repair that handles CloudPanel placeholder detection and Nginx configuration fixes
+- **Paramiko Integration**: Secure SSH connections with automatic policy handling for server communication
+- **Multi-stage Verification**: Systematic checking of file presence, configuration correctness, and service availability
 
 ```mermaid
 flowchart TD
-A["Server Setup Initiated"] --> B["SSH Connection Attempt"]
+A["Server Management Initiated"] --> B["SSH Connection Attempt"]
 B --> C{"Connection Success?"}
-C --> |Yes| D["Execute Setup Commands"]
+C --> |Yes| D["Execute Diagnostic Commands"]
 C --> |No| E["Report Error & Exit"]
-D --> F["Create Project Directory"]
-D --> G["Verify Required Tools"]
-D --> H["Set Permissions"]
-D --> I["Report Completion"]
-F --> J["Setup Complete"]
-G --> J
-H --> J
-E --> K["Process Failed"]
-I --> K
+D --> F["Check Project Files"]
+D --> G["Verify Configuration"]
+D --> H["Test Services"]
+F --> I["Generate Health Report"]
+G --> I
+H --> I
+I --> J{"Issues Found?"}
+J --> |Yes| K["Apply Automated Fixes"]
+J --> |No| L["Report Healthy Status"]
+K --> M["Fix CloudPanel Placeholders"]
+M --> N["Restart Services"]
+N --> O["Final Verification"]
+L --> P["Process Complete"]
+O --> P
+E --> Q["Process Failed"]
 ```
 
 **Diagram sources**
-- [scripts/setup_server.py:24-44](file://scripts/setup_server.py#L24-L44)
+- [scripts/check_server.py:28-44](file://scripts/check_server.py#L28-L44)
+- [scripts/fix_server.py:26-45](file://scripts/fix_server.py#L26-L45)
 
 **Section sources**
-- [scripts/setup_server.py:1-45](file://scripts/setup_server.py#L1-L45)
+- [scripts/check_server.py:1-45](file://scripts/check_server.py#L1-L45)
+- [scripts/fix_server.py:1-46)
 - [.gitignore:27](file://.gitignore#L27)
 
 ### Deployment Workflow Enhancements
@@ -406,14 +431,62 @@ The deployment infrastructure now includes several enhancements:
 
 - Root User Access: Both manual and automated deployments use root user for elevated permissions
 - Enhanced Verification: Multiple verification steps ensure deployment success
-- Security Compliance: Setup scripts are excluded from version control for security
+- Security Compliance: Python diagnostic and repair scripts are excluded from version control for security
 - Automated Setup: Server preparation is automated through Python-based scripts
+- CloudPanel Integration: Automatic detection and handling of CloudPanel placeholder files during deployment
+- Service Management: Automated Nginx service restarts and configuration validation
 
 **Section sources**
 - [scripts/deploy.sh:14](file://scripts/deploy.sh#L14)
 - [scripts/deploy.sh:54](file://scripts/deploy.sh#L54)
 - [scripts/deploy.sh:68](file://scripts/deploy.sh#L68)
-- [.github/workflows/deploy.yml:54](file://.github/workflows/deploy.yml#L54)
+- [.github/workflows/deploy.yml:76-80](file://.github/workflows/deploy.yml#L76-L80)
+
+## Python Diagnostic and Repair Tools
+
+### Server Health Checking
+The check_server.py script provides comprehensive server diagnostics:
+
+- **File System Verification**: Checks for presence of index.html, index.php, and assets directory
+- **Configuration Inspection**: Validates Nginx/Apache virtual host configurations
+- **Service Monitoring**: Verifies CloudPanel vhost configurations and web root locations
+- **Remote Execution**: Uses Paramiko SSH client to execute commands on remote servers
+- **Structured Output**: Provides organized reporting of server status and configuration
+
+### Automated Server Repair
+The fix_server.py script provides automated server troubleshooting:
+
+- **Placeholder Detection**: Automatically detects and renames CloudPanel index.php placeholders
+- **Configuration Validation**: Verifies React app index.html is correctly served
+- **Asset Verification**: Ensures all build assets are present and accessible
+- **Service Restart**: Automatically restarts Nginx service to apply changes
+- **Verification Loop**: Tests HTTP response codes and content to confirm fixes
+
+```mermaid
+sequenceDiagram
+participant Admin as "Admin"
+participant Check as "check_server.py"
+participant Fix as "fix_server.py"
+participant Server as "Target Server"
+Admin->>Check : Run diagnostics
+Check->>Server : SSH connect & execute checks
+Server-->>Check : Health report
+Check-->>Admin : Detailed status
+Admin->>Fix : Apply repairs if needed
+Fix->>Server : Detect & rename placeholders
+Fix->>Server : Verify assets & config
+Fix->>Server : Restart services
+Server-->>Fix : Confirmation
+Fix-->>Admin : Repair complete
+```
+
+**Diagram sources**
+- [scripts/check_server.py:28-44](file://scripts/check_server.py#L28-L44)
+- [scripts/fix_server.py:26-45](file://scripts/fix_server.py#L26-L45)
+
+**Section sources**
+- [scripts/check_server.py:1-45](file://scripts/check_server.py#L1-L45)
+- [scripts/fix_server.py:1-46](file://scripts/fix_server.py#L1-L46)
 
 ## Troubleshooting Guide
 Common issues and resolutions:
@@ -425,12 +498,16 @@ Common issues and resolutions:
 - CSS Module Problems: Ensure proper import syntax and file naming conventions
 - Component Rendering Issues: Check React component imports and export statements
 - Deployment Issues: Verify SSH credentials and server connectivity for both manual and automated deployments
-- Setup Script Errors: Ensure setup_server.py is not committed to version control and has proper execution permissions
+- Python Script Errors: Ensure check_server.py and fix_server.py are not committed to version control and have proper execution permissions
+- CloudPanel Issues: Use fix_server.py to automatically detect and resolve CloudPanel placeholder conflicts
+- Server Health: Use check_server.py to diagnose server configuration problems and service status
+- Nginx Service Problems: The fix_server.py script automatically restarts Nginx after making configuration changes
 
 **Section sources**
 - [vite.config.js:7](file://vite.config.js#L7)
 - [package.json:18-21](file://package.json#L18-L21)
-- [scripts/setup_server.py:24](file://scripts/setup_server.py#L24)
+- [scripts/check_server.py:24](file://scripts/check_server.py#L24)
+- [scripts/fix_server.py:26](file://scripts/fix_server.py#L26)
 
 ## Conclusion
-This project provides a modern, streamlined development environment powered by Vite and React, with optimized performance and efficient development workflows. The configuration emphasizes simplicity, security (via .gitignore exclusions), and automated deployment processes. Recent enhancements include root SSH user configuration for improved deployment security, automated server setup through Python scripts, and enhanced credential protection measures. By leveraging Vite's hot reloading, React Fast Refresh, and modern CSS methodologies, developers can iterate quickly while maintaining a secure and organized development environment. The automated deployment workflows ensure reliable production deployments through both GitHub Actions and manual shell scripts, with enhanced security practices preventing credential exposure and unauthorized access.
+This project provides a modern, streamlined development environment powered by Vite and React, with optimized performance and efficient development workflows. The configuration emphasizes simplicity, security (via .gitignore exclusions), and automated deployment processes. Recent enhancements include comprehensive Python-based diagnostic and repair tools (check_server.py, fix_server.py) for server maintenance, enhanced deployment security with CloudPanel placeholder detection and automatic handling, and improved credential protection measures. The automated deployment workflows ensure reliable production deployments through both GitHub Actions and manual shell scripts, with enhanced security practices preventing credential exposure and unauthorized access. The addition of Python-based server management tools provides developers with powerful diagnostic capabilities and automated repair mechanisms, significantly improving the reliability and maintainability of the production deployment pipeline.

@@ -6,11 +6,11 @@ import { content } from '../../data/content'
 import styles from './LegacyTimeline.module.css'
 
 const categoryColors = {
-  community: '#B87333',
-  media: '#722F37',
-  entrepreneurship: '#C5A55A',
-  creativity: '#5C2D5E',
-  awards: '#3D1C3E'
+  community: '#E8A87C',
+  media: '#D4756B',
+  entrepreneurship: '#E8D5A3',
+  creativity: '#B8A9C9',
+  awards: '#C9A0DC'
 }
 
 const categoryIcons = {

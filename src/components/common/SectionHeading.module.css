@@ -1,25 +1,30 @@
 .heading {
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
   position: relative;
+  text-align: center;
 }
 
 .title {
   margin: 0;
+  font-size: var(--fs-h2);
 }
 
 .subtitle {
-  font-size: var(--fs-body-lg);
+  font-size: var(--fs-body);
   color: var(--color-charcoal);
-  margin: var(--space-sm) 0 0;
-  max-width: 600px;
+  margin: var(--space-sm) auto 0;
+  max-width: 500px;
   opacity: 0.8;
+  line-height: 1.5;
 }
 
 .line {
-  width: 60px;
-  height: 3px;
+  width: 50px;
+  height: 2px;
   background: var(--color-gold);
   margin-top: var(--space-md);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .light .title {
@@ -28,4 +33,23 @@
 
 .light .subtitle {
   color: rgba(250, 246, 240, 0.8);
+}
+
+/* Tablet and Desktop */
+@media (min-width: 768px) {
+  .heading {
+    margin-bottom: var(--space-2xl);
+    text-align: left;
+  }
+
+  .subtitle {
+    margin-left: 0;
+    font-size: var(--fs-body-lg);
+  }
+
+  .line {
+    margin-left: 0;
+    width: 60px;
+    height: 3px;
+  }
 }

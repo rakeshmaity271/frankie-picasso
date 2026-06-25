@@ -5,7 +5,7 @@ export default function Footer() {
   const scrollTo = (id) => {
     const el = document.getElementById(id)
     if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - 72
+      const y = el.getBoundingClientRect().top + window.scrollY - 60
       window.scrollTo({ top: y, behavior: 'smooth' })
     }
   }
@@ -15,8 +15,10 @@ export default function Footer() {
       <div className={styles.goldLine} aria-hidden="true" />
       <div className={`container ${styles.inner}`}>
         <div className={styles.brand}>
+          <img src="/logo.png" alt="Frankie Picasso" className={styles.brandLogo} />
           <h3 className={styles.brandName}>Frankie Picasso</h3>
           <p className={styles.tagline}>Building Platforms for People, Ideas, and Impact.</p>
+          <a href="https://frankiepicasso.com" className={styles.websiteUrl}>frankiepicasso.com</a>
         </div>
 
         <nav aria-label="Footer navigation" className={styles.links}>
@@ -39,6 +41,11 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+          <div className={styles.socialLinks}>
+            <a href="#" aria-label="LinkedIn" className={styles.socialIcon}>LinkedIn</a>
+            <a href="#" aria-label="Twitter" className={styles.socialIcon}>Twitter</a>
+            <a href="#" aria-label="Instagram" className={styles.socialIcon}>Instagram</a>
+          </div>
         </div>
       </div>
 

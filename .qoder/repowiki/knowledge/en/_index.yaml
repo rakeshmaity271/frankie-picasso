@@ -3,7 +3,7 @@ schema_version: 1
 locale: en-US
 branch: dev
 nodes_managed: true
-exported_at: "2026-06-25T05:38:34Z"
+exported_at: "2026-06-25T07:07:11Z"
 modules:
     "":
         dir_name: Frankie Picasso Portfolio Application
@@ -47,6 +47,21 @@ modules:
             - package-lock.json
             - vite.config.js
             - .gitignore
+        children: []
+        depends_on: []
+        related_to: []
+    error_handling:
+        dir_name: Minimal Error Handling — Basic Try_Catch in Deployment Scripts Only
+        title: Minimal Error Handling — Basic Try/Catch in Deployment Scripts Only
+        scope: []
+        source_files:
+            - scripts/check_server.py
+            - scripts/fix_server.py
+            - scripts/setup_server.py
+            - scripts/deploy.sh
+            - .github/workflows/deploy.yml
+            - src/main.jsx
+            - src/App.jsx
         children: []
         depends_on: []
         related_to: []

@@ -5,7 +5,7 @@
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, var(--color-deep-plum) 0%, #2a1229 50%, var(--color-burgundy) 100%);
-  padding: calc(var(--nav-height) + var(--space-2xl)) 0 var(--space-2xl);
+  padding: 60px var(--space-md) var(--space-xl);
 }
 
 .decor .dot {
@@ -17,67 +17,27 @@
   opacity: 0.2;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 55% 45%;
-  gap: var(--space-2xl);
+.heroContent {
+  width: 100%;
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   position: relative;
   z-index: var(--z-content);
 }
 
-.eyebrow {
-  font-family: var(--font-sans);
-  font-size: var(--fs-small);
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  color: var(--color-gold);
-  text-transform: uppercase;
-  margin: 0 0 var(--space-md);
-}
-
-.headline {
-  font-family: var(--font-serif);
-  font-size: var(--fs-display);
-  font-weight: 700;
-  color: var(--color-warm-ivory);
-  line-height: 1.15;
-  margin: 0 0 var(--space-lg);
-  perspective: 600px;
-}
-
-.sub {
-  font-size: var(--fs-body-lg);
-  color: rgba(250, 246, 240, 0.75);
-  line-height: 1.7;
-  margin: 0 0 var(--space-lg);
-  max-width: 520px;
-}
-
-.line {
-  width: 80px;
-  height: 3px;
-  background: var(--color-gold);
-  margin-bottom: var(--space-md);
-  transform-origin: left;
-}
-
-.tagline {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: var(--fs-body-lg);
-  color: var(--color-gold);
-  margin: 0;
-}
-
 .portraitWrap {
+  width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: var(--space-xl);
 }
 
 .portrait {
   width: 100%;
-  max-width: 380px;
+  max-width: 280px;
 }
 
 .portraitInner {
@@ -105,6 +65,136 @@
   letter-spacing: 0.15em;
 }
 
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.taglineBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: var(--space-lg);
+}
+
+.taglineDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: var(--space-sm);
+}
+
+.taglineDivider::before,
+.taglineDivider::after {
+  content: '';
+  flex: 1;
+  max-width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+.taglineDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  margin: 0 var(--space-sm);
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+}
+
+.eyebrowLine {
+  display: block;
+}
+
+.headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--color-warm-ivory);
+  line-height: 1.15;
+  margin: 0 0 var(--space-md);
+  perspective: 600px;
+}
+
+.sub {
+  font-size: var(--fs-body);
+  color: rgba(250, 246, 240, 0.75);
+  line-height: 1.6;
+  margin: 0 0 var(--space-xl);
+  max-width: 400px;
+}
+
+.ctaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 320px;
+}
+
+.ctaPrimary {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dim) 100%);
+  color: var(--color-deep-plum);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  min-height: 56px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.ctaPrimary:active {
+  transform: scale(0.98);
+  box-shadow: 0 8px 30px rgba(197, 165, 90, 0.4);
+}
+
+.ctaSecondary {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  background: transparent;
+  color: var(--color-warm-ivory);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(250, 246, 240, 0.3);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  min-height: 56px;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.ctaSecondary:active {
+  background: rgba(250, 246, 240, 0.1);
+  border-color: var(--color-gold);
+}
+
 .scrollIndicator {
   position: absolute;
   bottom: var(--space-lg);
@@ -124,33 +214,75 @@
   50% { opacity: 1; transform: scaleY(1); }
 }
 
-@media (max-width: 1023px) {
-  .grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .portraitWrap {
-    order: -1;
+/* Tablet */
+@media (min-width: 768px) {
+  .hero {
+    padding: 72px var(--space-xl) var(--space-2xl);
   }
 
   .portrait {
-    max-width: 280px;
+    max-width: 320px;
+  }
+
+  .headline {
+    font-size: clamp(2.5rem, 6vw, 4rem);
   }
 
   .sub {
-    margin-left: auto;
-    margin-right: auto;
+    font-size: var(--fs-body-lg);
+    max-width: 500px;
   }
 
-  .line {
-    margin-left: auto;
-    margin-right: auto;
+  .ctaGroup {
+    flex-direction: row;
+    max-width: 400px;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    flex: 1;
   }
 }
 
-@media (max-width: 479px) {
-  .headline {
-    font-size: clamp(2rem, 8vw, 3rem);
+/* Desktop */
+@media (min-width: 1024px) {
+  .heroContent {
+    flex-direction: row;
+    gap: var(--space-3xl);
+    text-align: left;
+  }
+
+  .content {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .taglineBlock {
+    align-items: flex-start;
+  }
+
+  .taglineDivider::before {
+    max-width: 80px;
+  }
+
+  .taglineDivider::after {
+    display: none;
+  }
+
+  .eyebrow {
+    align-items: flex-start;
+  }
+
+  .portraitWrap {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .portrait {
+    max-width: 360px;
+  }
+
+  .ctaGroup {
+    max-width: none;
   }
 }

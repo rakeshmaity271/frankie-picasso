@@ -33,7 +33,7 @@ export default function BooksPublications() {
   return (
     <section id="books" className={`section-padding ${styles.section}`} ref={sectionRef} aria-label="Books and Publications">
       <div className="container">
-        <SectionHeading title="Books & Publications" subtitle={data.intro} />
+        <SectionHeading title="Books and Publications" subtitle={data.intro} />
 
         <div className={styles.featured} ref={bookRef}>
           <div className={styles.bookCover}>

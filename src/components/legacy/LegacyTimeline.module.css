@@ -17,10 +17,11 @@
 
 .legend {
   display: flex;
-  gap: var(--space-md);
-  margin-bottom: var(--space-3xl);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-2xl);
   flex-wrap: wrap;
   justify-content: center;
+  padding: 0 var(--space-sm);
 }
 
 .legendItem {
@@ -28,7 +29,7 @@
   align-items: center;
   gap: 6px;
   font-family: var(--font-sans);
-  font-size: var(--fs-small);
+  font-size: 0.75rem;
   text-transform: capitalize;
   color: rgba(250, 246, 240, 0.7);
 }
@@ -39,54 +40,42 @@
   border-radius: 50%;
 }
 
-/* Timeline */
+/* Timeline - Mobile First */
 .timeline {
   position: relative;
-  padding: var(--space-xl) 0;
+  padding: var(--space-lg) 0;
 }
 
 .timelineLine {
   position: absolute;
-  left: 50%;
+  left: var(--space-md);
   top: 0;
   bottom: 0;
   width: 2px;
   background: linear-gradient(180deg, transparent, var(--color-gold) 10%, var(--color-gold) 90%, transparent);
   opacity: 0.3;
-  transform: translateX(-50%);
 }
 
 .card {
   position: relative;
-  width: 45%;
-  margin-bottom: var(--space-xl);
-}
-
-.cardLeft {
-  margin-right: auto;
-  padding-right: var(--space-2xl);
-}
-
-.cardRight {
-  margin-left: auto;
-  padding-left: var(--space-2xl);
+  width: 100%;
+  margin-bottom: var(--space-lg);
+  padding-left: var(--space-3xl);
 }
 
 .cardInner {
   background: rgba(250, 246, 240, 0.05);
   border: 1px solid rgba(197, 165, 90, 0.15);
   border-radius: var(--border-radius-md);
-  padding: var(--space-lg);
+  padding: var(--space-md);
   position: relative;
   overflow: hidden;
   transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-fast);
   backdrop-filter: blur(10px);
 }
 
-.cardInner:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-  border-color: rgba(197, 165, 90, 0.4);
+.cardInner:active {
+  transform: scale(0.99);
 }
 
 .cardAccent {
@@ -105,12 +94,12 @@
 }
 
 .cardIcon {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .cardYear {
   font-family: var(--font-sans);
-  font-size: var(--fs-small);
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -129,14 +118,15 @@
   font-size: var(--fs-body);
   color: rgba(250, 246, 240, 0.7);
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .cardDot {
   position: absolute;
-  top: var(--space-lg);
-  width: 16px;
-  height: 16px;
+  top: var(--space-md);
+  left: calc(var(--space-md) - 8px);
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   border: 3px solid;
   background: var(--color-deep-plum);
@@ -144,179 +134,72 @@
   z-index: 2;
 }
 
-.cardLeft .cardDot {
-  right: calc(-1 * var(--space-2xl) - 8px);
-}
+/* Tablet */
+@media (min-width: 768px) {
+  .legend {
+    gap: var(--space-md);
+    margin-bottom: var(--space-3xl);
+    padding: 0;
+  }
 
-.cardRight .cardDot {
-  left: calc(-1 * var(--space-2xl) - 8px);
-}
+  .legendItem {
+    font-size: var(--fs-small);
+  }
 
-/* Mobile */
-@media (max-width: 767px) {
+  .timeline {
+    padding: var(--space-xl) 0;
+  }
+
   .timelineLine {
-    left: var(--space-md);
+    left: 50%;
+    transform: translateX(-50%);
   }
 
-  .card,
-  .cardLeft,
+  .card {
+    width: 45%;
+    padding-left: 0;
+  }
+
+  .cardLeft {
+    margin-right: auto;
+    padding-right: var(--space-2xl);
+  }
+
   .cardRight {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: var(--space-3xl);
-    padding-right: 0;
+    margin-left: auto;
+    padding-left: var(--space-2xl);
   }
 
-  .cardDot,
-  .cardLeft .cardDot,
+  .cardInner {
+    padding: var(--space-lg);
+  }
+
+  .cardInner:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(197, 165, 90, 0.4);
+  }
+
+  .cardIcon {
+    font-size: 1.5rem;
+  }
+
+  .cardYear {
+    font-size: var(--fs-small);
+  }
+
+  .cardDot {
+    width: 16px;
+    height: 16px;
+    top: var(--space-lg);
+  }
+
+  .cardLeft .cardDot {
+    left: auto;
+    right: calc(-1 * var(--space-2xl) - 8px);
+  }
+
   .cardRight .cardDot {
-    left: calc(var(--space-md) - 8px);
-    right: auto;
+    left: calc(-1 * var(--space-2xl) - 8px);
   }
-}
-.section {
-  background: var(--color-warm-ivory);
-}
-
-.legend {
-  display: flex;
-  gap: var(--space-md);
-  margin-bottom: var(--space-xl);
-  flex-wrap: wrap;
-}
-
-.legendItem {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-sans);
-  font-size: var(--fs-small);
-  text-transform: capitalize;
-  color: var(--color-charcoal);
-  opacity: 0.7;
-}
-
-.legendDot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-/* Horizontal */
-.horizontalWrap {
-  overflow: hidden;
-  padding: var(--space-xl) 0 var(--space-2xl);
-}
-
-.track {
-  display: flex;
-  gap: var(--space-xl);
-  padding: 0 var(--space-2xl);
-  position: relative;
-  width: max-content;
-}
-
-.line {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-dim));
-  opacity: 0.3;
-}
-
-.event {
-  position: relative;
-  min-width: 250px;
-  max-width: 280px;
-  padding-top: 50px;
-  flex-shrink: 0;
-}
-
-.event:nth-child(odd) {
-  padding-top: 0;
-  padding-bottom: 50px;
-  align-self: flex-start;
-}
-
-.eventDot {
-  position: absolute;
-  top: -6px;
-  left: 0;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 3px solid var(--color-warm-ivory);
-  box-shadow: 0 0 0 2px var(--color-gold);
-}
-
-.event:nth-child(odd) .eventDot {
-  top: auto;
-  bottom: -6px;
-}
-
-.eventYear {
-  font-family: var(--font-sans);
-  font-size: var(--fs-small);
-  font-weight: 600;
-  color: var(--color-gold);
-  letter-spacing: 0.1em;
-  display: block;
-  margin-bottom: 4px;
-}
-
-.eventTitle {
-  font-size: var(--fs-h3);
-  margin: 0 0 var(--space-xs);
-}
-
-.eventDesc {
-  font-size: var(--fs-body);
-  opacity: 0.8;
-  margin: 0;
-}
-
-/* Vertical (mobile) */
-.verticalTimeline {
-  position: relative;
-  padding-left: var(--space-lg);
-  border-left: 2px solid var(--color-gold);
-}
-
-.vEvent {
-  position: relative;
-  padding-bottom: var(--space-xl);
-}
-
-.vDot {
-  position: absolute;
-  left: calc(-1 * var(--space-lg) - 1px);
-  top: 4px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 3px solid var(--color-warm-ivory);
-  box-shadow: 0 0 0 2px var(--color-gold);
-}
-
-.vYear {
-  font-family: var(--font-sans);
-  font-size: var(--fs-small);
-  font-weight: 600;
-  color: var(--color-gold);
-  display: block;
-  margin-bottom: 4px;
-}
-
-.vTitle {
-  font-size: var(--fs-h3);
-  margin: 0 0 4px;
-}
-
-.vDesc {
-  font-size: var(--fs-body);
-  opacity: 0.8;
-  margin: 0;
 }

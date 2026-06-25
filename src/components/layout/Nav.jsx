@@ -12,7 +12,7 @@ export default function Nav() {
   const menuRef = useRef(null)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 80)
+    const handleScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -21,7 +21,7 @@ export default function Nav() {
     if (!menuRef.current) return
     const items = menuRef.current.querySelectorAll('li')
     if (mobileOpen) {
-      gsap.fromTo(items, { opacity: 0, x: 40 }, { opacity: 1, x: 0, stagger: 0.06, duration: 0.4, ease: 'power2.out' })
+      gsap.fromTo(items, { opacity: 0, y: 30 }, { opacity: 1, y: 0, stagger: 0.08, duration: 0.5, ease: 'power3.out' })
     }
   }, [mobileOpen])
 
@@ -38,7 +38,7 @@ export default function Nav() {
     setMobileOpen(false)
     const el = document.getElementById(id)
     if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - 72
+      const y = el.getBoundingClientRect().top + window.scrollY - 60
       window.scrollTo({ top: y, behavior: 'smooth' })
     }
   }
@@ -49,22 +49,6 @@ export default function Nav() {
         <button className={styles.logo} onClick={() => scrollTo('hero')} aria-label="Go to top">
           <img src="/logo.png" alt="Frankie Picasso" className={styles.logoImage} />
         </button>
-
-        <nav aria-label="Main navigation" className={styles.desktopNav}>
-          <ul>
-            {navLinks.slice(1).map((link) => (
-              <li key={link.id}>
-                <button
-                  className={`${styles.navLink} ${activeId === link.id ? styles.active : ''}`}
-                  onClick={() => scrollTo(link.id)}
-                  aria-current={activeId === link.id ? 'true' : undefined}
-                >
-                  {link.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
 
         <button
           className={`${styles.hamburger} ${mobileOpen ? styles.open : ''}`}
@@ -83,18 +67,30 @@ export default function Nav() {
         role="navigation"
         aria-label="Mobile navigation"
       >
-        <ul ref={menuRef}>
-          {navLinks.map((link) => (
-            <li key={link.id}>
-              <button
-                className={`${styles.mobileLink} ${activeId === link.id ? styles.active : ''}`}
-                onClick={() => scrollTo(link.id)}
-              >
-                {link.label}
-              </button>
-            </li>
-          ))}
-        </ul>
+        <div className={styles.menuContent}>
+          <ul ref={menuRef}>
+            {navLinks.map((link) => (
+              <li key={link.id}>
+                <button
+                  className={`${styles.mobileLink} ${activeId === link.id ? styles.active : ''}`}
+                  onClick={() => scrollTo(link.id)}
+                >
+                  {link.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+          <div className={styles.menuFooter}>
+            <div className={styles.socialLinks}>
+              <a href="#" aria-label="LinkedIn" className={styles.socialIcon}>LinkedIn</a>
+              <a href="#" aria-label="Twitter" className={styles.socialIcon}>Twitter</a>
+              <a href="#" aria-label="Instagram" className={styles.socialIcon}>Instagram</a>
+            </div>
+            <button className={styles.contactBtn} onClick={() => scrollTo('contact')}>
+              Get in Touch
+            </button>
+          </div>
+        </div>
       </div>
     </header>
   )
