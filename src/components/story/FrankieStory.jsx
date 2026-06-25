@@ -52,7 +52,7 @@ export default function FrankieStory() {
   return (
     <section id="story" className={`section-padding ${styles.section}`} ref={sectionRef} aria-label="The Frankie Story">
       <div className="container">
-        <SectionHeading number="02" title="The Frankie Story" subtitle={story.intro} />
+        <SectionHeading title="The Frankie Story" subtitle={story.intro} />
 
         <div className={styles.content}>
           <div className={styles.narrative}>

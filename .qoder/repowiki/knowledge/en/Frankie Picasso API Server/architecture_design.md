@@ -1,4 +1,0 @@
-- Entry point: `src/index.js` initializes an Express app, configures JSON/url-encoded body parsing, and serves static assets from `public/`.
-- Routing: Defines a root route (`/`) returning a JSON welcome message and a health check endpoint (`/api/health`).
-- Static Assets: `public/index.html` is served via `express.static` for the frontend landing page.
-- Configuration: Port is configurable via `process.env.PORT`, defaulting to 3000.

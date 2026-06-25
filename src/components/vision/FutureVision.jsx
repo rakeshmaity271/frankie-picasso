@@ -24,7 +24,7 @@ export default function FutureVision() {
       </div>
 
       <div className="container">
-        <SectionHeading number="10" title="Future Vision" subtitle={data.intro} light />
+        <SectionHeading title="Future Vision" subtitle={data.intro} light />
 
         <div className={`reveal-item ${styles.mission}`}>
           <p className={styles.missionText}>{data.mission}</p>

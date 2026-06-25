@@ -35,7 +35,7 @@ export default function AwardsRecognition() {
   return (
     <section id="awards" className={`section-padding ${styles.section}`} ref={sectionRef} aria-label="Awards and Recognition">
       <div className="container">
-        <SectionHeading number="08" title="Awards & Recognition" subtitle={data.intro} />
+        <SectionHeading title="Awards & Recognition" subtitle={data.intro} />
 
         <div className={`featured-award ${styles.featured}`}>
           <div className={styles.featuredFrame}>

@@ -23,7 +23,7 @@ export default function MediaHub() {
   return (
     <section id="media" className={`section-padding ${styles.section}`} ref={sectionRef} aria-label="Media Hub">
       <div className="container">
-        <SectionHeading number="06" title="Media Hub" subtitle={data.intro} />
+        <SectionHeading title="Media Hub" subtitle={data.intro} />
 
         <div className={styles.filters} role="tablist" aria-label="Filter media">
           {filters.map((f) => (

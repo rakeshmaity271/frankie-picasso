@@ -11,7 +11,7 @@
   --color-overlay-dark: rgba(44, 44, 44, 0.7);
 
   /* Typography */
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
   --fs-display: clamp(3rem, 6vw, 6rem);

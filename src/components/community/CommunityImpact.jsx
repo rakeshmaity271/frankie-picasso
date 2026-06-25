@@ -39,7 +39,7 @@ export default function CommunityImpact() {
   return (
     <section id="community" className={`section-padding ${styles.section}`} ref={sectionRef} aria-label="Community Impact">
       <div className="container">
-        <SectionHeading number="05" title="Community Impact" subtitle={data.intro} />
+        <SectionHeading title="Community Impact" subtitle={data.intro} />
 
         <div className={styles.layout}>
           <div className={styles.imageCol} ref={imageRef}>

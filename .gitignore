@@ -22,3 +22,6 @@ dist/
 
 # MCP (contains secrets)
 .mcp.json
+
+# Scripts with credentials
+scripts/setup_server.py

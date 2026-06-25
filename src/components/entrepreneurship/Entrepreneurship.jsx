@@ -35,7 +35,7 @@ export default function Entrepreneurship() {
   return (
     <section id="entrepreneurship" className={`section-padding ${styles.section}`} ref={sectionRef} aria-label="Entrepreneurship">
       <div className="container">
-        <SectionHeading number="03" title="Entrepreneurship" subtitle={data.intro} />
+        <SectionHeading title="Entrepreneurship" subtitle={data.intro} />
 
         <div className={styles.grid}>
           {data.ventures.map((venture, i) => (

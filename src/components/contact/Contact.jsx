@@ -19,7 +19,7 @@ export default function Contact() {
   return (
     <section id="contact" className={`section-padding ${styles.section}`} ref={sectionRef} aria-label="Contact">
       <div className="container">
-        <SectionHeading number="11" title="Get in Touch" subtitle={data.intro} />
+        <SectionHeading title="Get in Touch" subtitle={data.intro} />
 
         <div className={styles.layout}>
           <div className={styles.info}>

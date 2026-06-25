@@ -4,33 +4,58 @@
 **Referenced Files in This Document**
 - [package.json](file://package.json)
 - [vite.config.js](file://vite.config.js)
-- [README.md](file://README.md)
-- [public/index.html](file://public/index.html)
 - [src/main.jsx](file://src/main.jsx)
 - [src/App.jsx](file://src/App.jsx)
 - [src/App.module.css](file://src/App.module.css)
+- [src/components/layout/Nav.jsx](file://src/components/layout/Nav.jsx)
+- [src/components/layout/Footer.jsx](file://src/components/layout/Footer.jsx)
+- [src/components/hero/HeroExperience.jsx](file://src/components/hero/HeroExperience.jsx)
+- [src/components/story/FrankieStory.jsx](file://src/components/story/FrankieStory.jsx)
+- [src/components/entrepreneurship/Entrepreneurship.jsx](file://src/components/entrepreneurship/Entrepreneurship.jsx)
+- [src/components/creativity/Creativity.jsx](file://src/components/creativity/Creativity.jsx)
+- [src/components/community/CommunityImpact.jsx](file://src/components/community/CommunityImpact.jsx)
+- [src/components/media/MediaHub.jsx](file://src/components/media/MediaHub.jsx)
+- [src/components/books/BooksPublications.jsx](file://src/components/books/BooksPublications.jsx)
+- [src/components/awards/AwardsRecognition.jsx](file://src/components/awards/AwardsRecognition.jsx)
+- [src/components/legacy/LegacyTimeline.jsx](file://src/components/legacy/LegacyTimeline.jsx)
+- [src/components/vision/FutureVision.jsx](file://src/components/vision/FutureVision.jsx)
+- [src/components/contact/Contact.jsx](file://src/components/contact/Contact.jsx)
+- [src/components/common/SectionHeading.jsx](file://src/components/common/SectionHeading.jsx)
+- [src/hooks/useGsap.js](file://src/hooks/useGsap.js)
+- [src/data/content.js](file://src/data/content.js)
 </cite>
+
+## Update Summary
+**Changes Made**
+- Expanded documentation to cover the comprehensive component-based architecture
+- Added detailed analysis of all 11 core content components
+- Documented the modular component structure with CSS Modules usage
+- Enhanced component composition patterns and state management approaches
+- Updated architecture diagrams to reflect the new component hierarchy
+- Added coverage of shared utilities and hooks integration
 
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Project Structure](#project-structure)
 3. [Core Components](#core-components)
-4. [Architecture Overview](#architecture-overview)
-5. [Detailed Component Analysis](#detailed-component-analysis)
-6. [Dependency Analysis](#dependency-analysis)
-7. [Performance Considerations](#performance-considerations)
-8. [Troubleshooting Guide](#troubleshooting-guide)
-9. [Conclusion](#conclusion)
+4. [Component Architecture](#component-architecture)
+5. [Layout Components](#layout-components)
+6. [Content Components](#content-components)
+7. [Shared Utilities](#shared-utilities)
+8. [State Management and Hooks](#state-management-and-hooks)
+9. [CSS Modules and Styling](#css-modules-and-styling)
+10. [Data Management](#data-management)
+11. [Vite Integration](#vite-integration)
+12. [Development Workflow](#development-workflow)
+13. [Performance Considerations](#performance-considerations)
+14. [Troubleshooting Guide](#troubleshooting-guide)
+15. [Conclusion](#conclusion)
 
 ## Introduction
-This document describes the React frontend components and development setup for the project. It focuses on the entry point and primary component, the component hierarchy, state management approach, and styling methodology using CSS modules. It also explains Vite integration for development and build processes, including hot module replacement and fast refresh capabilities. Guidance is provided on component composition, prop handling, styling patterns, and best practices for React development in this project context.
+This document provides comprehensive documentation for the React frontend components and development setup. The project features a modular component-based architecture with 11 distinct content sections, sophisticated animation integration using GSAP, and a robust CSS Modules styling system. The application showcases a professional portfolio-style website with smooth scrolling navigation, interactive animations, and responsive design patterns.
 
 ## Project Structure
-The project follows a minimal React + Vite setup with a single-page application structure:
-- Entry point initializes the React root and renders the primary App component.
-- The App component uses CSS modules for scoped styling.
-- Vite handles development server, fast refresh, and production builds.
-- Public assets include a basic HTML template.
+The project follows a structured React + Vite setup with a comprehensive component hierarchy organized into logical modules:
 
 ```mermaid
 graph TB
@@ -40,211 +65,316 @@ Root --> Config["vite.config.js"]
 Root --> Package["package.json"]
 Src --> Main["main.jsx"]
 Src --> App["App.jsx"]
-Src --> Styles["App.module.css"]
-Public --> IndexHTML["index.html"]
-Config --> VitePlugin["Vite Plugin: @vitejs/plugin-react"]
-Package --> Scripts["Scripts: dev, build, preview"]
-Package --> Deps["Dependencies: react, react-dom, gsap, normalize.css"]
-Package --> DevDeps["Dev Dependencies: vite, @vitejs/plugin-react"]
+Src --> Styles["styles/"]
+Src --> Components["components/"]
+Src --> Data["data/"]
+Src --> Hooks["hooks/"]
+Components --> Layout["layout/"]
+Components --> Hero["hero/"]
+Components --> Story["story/"]
+Components --> Entrepreneurship["entrepreneurship/"]
+Components --> Creativity["creativity/"]
+Components --> Community["community/"]
+Components --> Media["media/"]
+Components --> Books["books/"]
+Components --> Awards["awards/"]
+Components --> Legacy["legacy/"]
+Components --> Vision["vision/"]
+Components --> Contact["contact/"]
+Components --> Common["common/"]
+Data --> Content["content.js"]
+Hooks --> GSAP["useGsap.js"]
 ```
 
 **Diagram sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-12](file://src/App.jsx#L1-L12)
-- [src/App.module.css:1-4](file://src/App.module.css#L1-L4)
-- [vite.config.js:1-11](file://vite.config.js#L1-L11)
-- [package.json:1-23](file://package.json#L1-L23)
-- [public/index.html:1-21](file://public/index.html#L1-L21)
+- [src/App.jsx:1-51](file://src/App.jsx#L1-L51)
+- [src/components/layout/Nav.jsx:1-102](file://src/components/layout/Nav.jsx#L1-L102)
+- [src/components/hero/HeroExperience.jsx:1-114](file://src/components/hero/HeroExperience.jsx#L1-L114)
 
 **Section sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-12](file://src/App.jsx#L1-L12)
-- [src/App.module.css:1-4](file://src/App.module.css#L1-L4)
+- [src/App.jsx:1-51](file://src/App.jsx#L1-L51)
 - [vite.config.js:1-11](file://vite.config.js#L1-L11)
 - [package.json:1-23](file://package.json#L1-L23)
-- [public/index.html:1-21](file://public/index.html#L1-L21)
 
 ## Core Components
-- Entry Point: Initializes the React root and renders the App component inside a strict mode wrapper. It also imports global styles.
-- App Component: A functional component that renders a top-level container using CSS modules for scoping.
-- CSS Modules: Scoped styles applied via a module import, ensuring local class names and predictable styling.
+The application is structured around several key architectural components that work together to create a cohesive user experience:
 
-Key implementation references:
-- Entry point render and imports: [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- App component definition and export: [src/App.jsx:1-12](file://src/App.jsx#L1-L12)
-- App component scoped styles: [src/App.module.css:1-4](file://src/App.module.css#L1-L4)
+### Entry Point: main.jsx
+The application bootstraps through a minimal entry point that creates the React root and renders the main App component within strict mode for enhanced error detection.
+
+### Primary Component: App.jsx
+The main App component orchestrates the entire application layout, managing the loading sequence and coordinating all content sections. It implements sophisticated loading animations and accessibility features.
+
+### Layout System
+The layout system consists of reusable components that provide consistent navigation, branding, and footer functionality across all pages.
 
 **Section sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-12](file://src/App.jsx#L1-L12)
-- [src/App.module.css:1-4](file://src/App.module.css#L1-L4)
+- [src/App.jsx:17-51](file://src/App.jsx#L17-L51)
+- [src/App.module.css:1-23](file://src/App.module.css#L1-L23)
 
-## Architecture Overview
-The runtime architecture centers around the React root and the App component. The Vite development server injects modules and enables fast refresh. CSS modules are processed at build time to provide scoped styles.
+## Component Architecture
+The application employs a hierarchical component architecture with clear separation of concerns:
 
 ```mermaid
-graph TB
-Browser["Browser"] --> HTML["public/index.html"]
-HTML --> RootDiv["<div id='root'>"]
-RootDiv --> ReactRoot["ReactDOM.createRoot(root)"]
-ReactRoot --> StrictMode["<React.StrictMode>"]
-StrictMode --> AppComp["App component"]
-AppComp --> CSSModule["App.module.css (scoped)"]
-Browser --> ViteServer["Vite Dev Server"]
-ViteServer --> FastRefresh["Fast Refresh"]
-ViteServer --> Build["Build Pipeline"]
+graph TD
+App["App.jsx"] --> Nav["Nav.jsx"]
+App --> Footer["Footer.jsx"]
+App --> Hero["HeroExperience.jsx"]
+App --> Story["FrankieStory.jsx"]
+App --> Entrepreneurship["Entrepreneurship.jsx"]
+App --> Creativity["Creativity.jsx"]
+App --> Community["CommunityImpact.jsx"]
+App --> Media["MediaHub.jsx"]
+App --> Books["BooksPublications.jsx"]
+App --> Awards["AwardsRecognition.jsx"]
+App --> Legacy["LegacyTimeline.jsx"]
+App --> Vision["FutureVision.jsx"]
+App --> Contact["Contact.jsx"]
+Story --> SectionHeading["SectionHeading.jsx"]
+Entrepreneurship --> SectionHeading
+Community --> SectionHeading
+Media --> SectionHeading
+Books --> SectionHeading
+Awards --> SectionHeading
+Legacy --> SectionHeading
+Vision --> SectionHeading
+Contact --> SectionHeading
+Nav --> GSAP["useGsap.js"]
+Nav --> ActiveSection["useActiveSection.js"]
+Hero --> GSAP
+Hero --> Parallax["useParallax.js"]
+Story --> GSAP
+Story --> ScrollReveal["useScrollReveal.js"]
+Entrepreneurship --> GSAP
+Entrepreneurship --> ScrollReveal
 ```
 
 **Diagram sources**
-- [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-12](file://src/App.jsx#L1-L12)
-- [src/App.module.css:1-4](file://src/App.module.css#L1-L4)
-- [vite.config.js:1-11](file://vite.config.js#L1-L11)
-- [public/index.html:1-21](file://public/index.html#L1-L21)
-
-## Detailed Component Analysis
-
-### Entry Point: main.jsx
-Responsibilities:
-- Creates the React root targeting the DOM element with id "root".
-- Renders the App component wrapped in React.StrictMode.
-- Imports global styles to establish baseline styles.
-
-Rendering pattern:
-- Single render call with the root element and the App component tree.
-
-Best practices:
-- Keep the entry point minimal and focused on mounting the app.
-- Ensure the target DOM element exists in the HTML template.
-
-References:
-- [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
+- [src/App.jsx:2-14](file://src/App.jsx#L2-L14)
+- [src/components/layout/Nav.jsx:1-5](file://src/components/layout/Nav.jsx#L1-L5)
+- [src/components/common/SectionHeading.jsx:1-15](file://src/components/common/SectionHeading.jsx#L1-L15)
 
 **Section sources**
-- [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
+- [src/App.jsx:1-51](file://src/App.jsx#L1-L51)
+- [src/components/layout/Nav.jsx:1-102](file://src/components/layout/Nav.jsx#L1-L102)
 
-### Primary Component: App.jsx
-Responsibilities:
-- Provides the top-level layout container for the application.
-- Uses CSS modules to apply scoped styles.
+## Layout Components
+The layout system provides consistent navigation and structural elements across all pages.
 
-Composition and props:
-- Stateless functional component returning JSX.
-- No props are currently used; can accept props for future expansion.
+### Navigation Component (Nav.jsx)
+Features responsive design with mobile hamburger menu, scroll-aware styling, and animated navigation items. Integrates with GSAP for smooth animations and uses custom hooks for active section detection.
 
-Styling approach:
-- Imports styles from a CSS module file and applies a scoped class to the root element.
-
-References:
-- [src/App.jsx:1-12](file://src/App.jsx#L1-L12)
-- [src/App.module.css:1-4](file://src/App.module.css#L1-L4)
+### Footer Component (Footer.jsx)
+Provides comprehensive footer navigation with brand information, copyright details, and accessible navigation controls.
 
 **Section sources**
-- [src/App.jsx:1-12](file://src/App.jsx#L1-L12)
-- [src/App.module.css:1-4](file://src/App.module.css#L1-L4)
+- [src/components/layout/Nav.jsx:1-102](file://src/components/layout/Nav.jsx#L1-L102)
+- [src/components/layout/Footer.jsx:1-52](file://src/components/layout/Footer.jsx#L1-L52)
 
-### CSS Modules: App.module.css
-Responsibilities:
-- Defines scoped styles for the App component.
-- Ensures class names do not leak into the global stylesheet.
+## Content Components
+The application features 11 specialized content components, each designed to showcase specific aspects of Frankie Picasso's work and achievements.
 
-Usage:
-- Imported in the App component and applied to the root element.
+### Hero Experience (HeroExperience.jsx)
+Implements sophisticated animations including headline word-by-word reveal, parallax effects, and decorative motion elements. Uses GSAP for timeline-based animations and responsive design considerations.
 
-References:
-- [src/App.module.css:1-4](file://src/App.module.css#L1-L4)
+### Frankie Story (FrankieStory.jsx)
+Features interactive timeline with scroll-triggered animations, fade-in effects, and quote presentation. Combines GSAP ScrollTrigger with scroll reveal animations.
+
+### Entrepreneurship (Entrepreneurship.jsx)
+Showcases venture cards with animated impact counters, SVG graphics, and responsive grid layouts. Implements scroll-triggered number animations.
+
+### Creativity (Creativity.jsx)
+Displays creative works in an organized grid format with SVG placeholders and category-based organization.
+
+### Community Impact (CommunityImpact.jsx)
+Highlights community initiatives with card-based layout, SVG graphics, and inspirational quotes.
+
+### Media Hub (MediaHub.jsx)
+Organizes media appearances, shows, and press coverage in categorized sections with timeline presentation.
+
+### Books Publications (BooksPublications.jsx)
+Features book showcase with prominent featured book display and additional publications listing.
+
+### Awards Recognition (AwardsRecognition.jsx)
+Presents award history with prominent featured award and comprehensive award list.
+
+### Legacy Timeline (LegacyTimeline.jsx)
+Chronological presentation of career milestones with category-based filtering and responsive design.
+
+### Future Vision (FutureVision.jsx)
+Outlines current projects and future initiatives with mission statement and project descriptions.
+
+### Contact (Contact.jsx)
+Provides contact information, email, speaking topics, and social media links with form integration.
 
 **Section sources**
-- [src/App.module.css:1-4](file://src/App.module.css#L1-L4)
+- [src/components/hero/HeroExperience.jsx:1-114](file://src/components/hero/HeroExperience.jsx#L1-L114)
+- [src/components/story/FrankieStory.jsx:1-84](file://src/components/story/FrankieStory.jsx#L1-L84)
+- [src/components/entrepreneurship/Entrepreneurship.jsx:1-63](file://src/components/entrepreneurship/Entrepreneurship.jsx#L1-L63)
 
-### Vite Integration and Development Workflow
-Development server:
-- Vite runs on port 3000 and automatically opens the browser.
-- The plugin for React enables JSX transforms and fast refresh.
+## Shared Utilities
+The application leverages several shared utility components and hooks to maintain consistency and reduce code duplication.
 
-Build process:
-- Production builds are generated via the configured build script.
-- Preview serves the built assets locally.
+### Section Heading (SectionHeading.jsx)
+Reusable component for consistent heading presentation across all content sections, supporting number indicators, subtitles, and light/dark themes.
 
-Fast refresh:
-- Changes to components trigger selective updates without full reloads.
-- The browser reflects updates instantly during development.
+### GSAP Hook (useGsap.js)
+Centralized GSAP configuration with ScrollTrigger registration, default settings, and useGSAP wrapper for consistent animation behavior.
 
-References:
+**Section sources**
+- [src/components/common/SectionHeading.jsx:1-15](file://src/components/common/SectionHeading.jsx#L1-L15)
+- [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
+
+## State Management and Hooks
+The application implements a sophisticated state management approach using React hooks and custom hooks for enhanced functionality.
+
+### Custom Hooks
+- **useGsap**: Centralized GSAP configuration with ScrollTrigger support
+- **useActiveSection**: Tracks active navigation section based on scroll position
+- **useParallax**: Implements parallax scrolling effects
+- **useScrollReveal**: Manages scroll-triggered reveal animations
+
+### State Patterns
+Components utilize useState for UI state management (mobile menu, scroll awareness), useEffect for side effects and cleanup, and useRef for DOM manipulation and animation references.
+
+**Section sources**
+- [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
+- [src/components/layout/Nav.jsx:1-102](file://src/components/layout/Nav.jsx#L1-L102)
+
+## CSS Modules and Styling
+The application employs CSS Modules for scoped styling, ensuring component isolation and preventing style conflicts.
+
+### Styling Architecture
+Each component maintains its own CSS Module file with component-specific classes, enabling:
+- Local class name scoping
+- Predictable styling inheritance
+- Easy maintenance and modification
+- Theme variable integration
+
+### Design System
+The styling system utilizes:
+- CSS custom properties for theming
+- Responsive design patterns
+- Accessibility-focused color schemes
+- Consistent spacing and typography scales
+
+**Section sources**
+- [src/App.module.css:1-23](file://src/App.module.css#L1-L23)
+- [src/components/layout/Nav.jsx:5](file://src/components/layout/Nav.jsx#L5)
+
+## Data Management
+The application uses a centralized content management system through a dedicated data module.
+
+### Content Structure
+The content.js file organizes all application data into logical categories:
+- Hero content with headline and tagline
+- Personal story with timeline and philosophy
+- Entrepreneurship ventures with impact metrics
+- Creative works across multiple mediums
+- Community initiatives and impact
+- Media appearances and press coverage
+- Published works and awards
+- Legacy timeline with categorized events
+- Future vision and current projects
+- Contact information and social links
+
+### Navigation Data
+Separate arrays manage:
+- sectionIds for scroll positioning
+- navLinks for navigation structure
+- Consistent labeling and routing
+
+**Section sources**
+- [src/data/content.js:1-185](file://src/data/content.js#L1-L185)
+
+## Vite Integration
+The project leverages Vite for modern development workflow with optimized build processes.
+
+### Development Server
+- Automatic browser opening on startup
+- Hot module replacement for instant updates
+- Fast refresh for React components
+- Port configuration (default 3000)
+
+### Build Process
+- Optimized production builds
+- Asset optimization and minification
+- Environment-specific configurations
+- Preview server for build validation
+
+**Section sources**
 - [vite.config.js:1-11](file://vite.config.js#L1-L11)
 - [package.json:6-10](file://package.json#L6-L10)
-- [README.md:5-12](file://README.md#L5-L12)
+
+## Development Workflow
+The development environment supports rapid iteration and efficient debugging.
+
+### Fast Refresh
+- Instant component updates without full page reload
+- Preserves component state during development
+- Seamless integration with React DevTools
+
+### Animation Development
+- GSAP timeline testing and debugging
+- Scroll-triggered animation development
+- Responsive design testing across breakpoints
+
+### Component Development
+- Modular component creation and testing
+- CSS Modules hot reloading
+- Data-driven content updates
+- Accessibility testing integration
 
 **Section sources**
-- [vite.config.js:1-11](file://vite.config.js#L1-L11)
-- [package.json:6-10](file://package.json#L6-L10)
-- [README.md:5-12](file://README.md#L5-L12)
-
-### HTML Template: public/index.html
-Responsibilities:
-- Provides the base HTML scaffold with a div element whose id matches the React root mount target.
-- Includes basic inline styles for a centered layout and dark theme.
-
-References:
-- [public/index.html:1-21](file://public/index.html#L1-L21)
-
-**Section sources**
-- [public/index.html:1-21](file://public/index.html#L1-L21)
-
-## Dependency Analysis
-External dependencies:
-- React and ReactDOM: Core libraries for building the UI.
-- GSAP and @gsap/react: Animation library integrations.
-- normalize.css: Cross-browser baseline normalization.
-
-Dev dependencies:
-- vite: Build tool and dev server.
-- @vitejs/plugin-react: Enables JSX transforms and fast refresh.
-
-Script commands:
-- dev: Starts the Vite development server.
-- build: Produces optimized production assets.
-- preview: Serves the built assets locally.
-
-References:
-- [package.json:11-22](file://package.json#L11-L22)
-
-**Section sources**
-- [package.json:11-22](file://package.json#L11-L22)
+- [vite.config.js:6-9](file://vite.config.js#L6-L9)
+- [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
 
 ## Performance Considerations
-- Keep the entry point minimal to reduce initial load overhead.
-- Prefer CSS modules for component-scoped styles to avoid global conflicts and improve maintainability.
-- Use Vite’s fast refresh to iterate quickly without full reloads.
-- Avoid unnecessary re-renders by keeping components pure and passing only required props.
+The application implements several performance optimization strategies:
+
+### Animation Optimization
+- Reduced motion preference detection
+- Scroll-triggered animations for performance
+- Efficient GSAP usage patterns
+- Cleanup of event listeners and observers
+
+### Loading Strategies
+- Sequential component loading
+- Lazy loading for non-critical resources
+- Optimized image handling
+- CSS animation performance
+
+### Bundle Optimization
+- Tree shaking for unused imports
+- Component splitting for large sections
+- Minimal dependency footprint
+- Efficient CSS Modules compilation
 
 ## Troubleshooting Guide
-Common issues and resolutions:
-- Blank screen after starting the dev server:
-  - Verify the HTML template contains a div with id "root".
-  - Confirm the entry point targets the correct DOM element.
-  - References: [public/index.html:14-18](file://public/index.html#L14-L18), [src/main.jsx:6-10](file://src/main.jsx#L6-L10)
+Common development and runtime issues with solutions:
 
-- Styles not applying:
-  - Ensure the CSS module is imported and the class name matches the expected scope.
-  - References: [src/App.jsx](file://src/App.jsx#L1), [src/App.module.css:1-4](file://src/App.module.css#L1-L4)
+### Component Rendering Issues
+- **Blank screen on startup**: Verify DOM element existence and React version compatibility
+- **Animation not working**: Check GSAP plugin registration and ScrollTrigger initialization
+- **Navigation not responding**: Ensure section IDs match between content and navigation
 
-- Development server not starting:
-  - Check that the dev script is configured and dependencies are installed.
-  - References: [package.json:6-10](file://package.json#L6-L10), [README.md:7-12](file://README.md#L7-L12)
+### Styling Problems
+- **Styles not applying**: Verify CSS Modules import syntax and class name matching
+- **Animation conflicts**: Check for conflicting CSS properties and z-index stacking
+- **Responsive issues**: Review media query breakpoints and viewport meta tags
 
-- Port conflicts:
-  - Adjust the server port in the Vite configuration if needed.
-  - References: [vite.config.js:6-9](file://vite.config.js#L6-L9)
+### Development Environment
+- **Hot reload not working**: Restart Vite server and check plugin configurations
+- **Build errors**: Verify Node.js version compatibility and dependency installation
+- **Port conflicts**: Change server port in Vite configuration or kill conflicting processes
 
 **Section sources**
-- [public/index.html:14-18](file://public/index.html#L14-L18)
 - [src/main.jsx:6-10](file://src/main.jsx#L6-L10)
-- [src/App.jsx](file://src/App.jsx#L1)
-- [src/App.module.css:1-4](file://src/App.module.css#L1-L4)
-- [package.json:6-10](file://package.json#L6-L10)
-- [README.md:7-12](file://README.md#L7-L12)
-- [vite.config.js:6-9](file://vite.config.js#L6-L9)
+- [src/hooks/useGsap.js:6](file://src/hooks/useGsap.js#L6)
+- [vite.config.js:7-8](file://vite.config.js#L7-L8)
 
 ## Conclusion
-The project employs a clean and minimal React + Vite setup. The entry point mounts the App component, which uses CSS modules for scoped styling. Vite provides a fast development experience with automatic server startup and hot module replacement. By adhering to the outlined patterns—keeping the entry point minimal, leveraging CSS modules, and using Vite’s fast refresh—the team can efficiently develop and scale the frontend while maintaining clarity and performance.
+The React frontend components demonstrate a mature, scalable architecture with comprehensive animation integration, modular component design, and robust development tooling. The 11-content component structure provides excellent organization for showcasing diverse aspects of Frankie Picasso's work while maintaining consistency and performance. The combination of CSS Modules, custom hooks, and GSAP animations creates a polished user experience with smooth interactions and professional presentation quality.

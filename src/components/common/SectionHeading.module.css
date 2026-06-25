@@ -3,24 +3,7 @@
   position: relative;
 }
 
-.number {
-  font-family: var(--font-serif);
-  font-size: clamp(4rem, 8vw, 8rem);
-  font-weight: 700;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--color-gold-dim);
-  opacity: 0.3;
-  position: absolute;
-  top: -2rem;
-  left: -0.5rem;
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-}
-
 .title {
-  position: relative;
-  z-index: 1;
   margin: 0;
 }
 
@@ -45,8 +28,4 @@
 
 .light .subtitle {
   color: rgba(250, 246, 240, 0.8);
-}
-
-.light .number {
-  -webkit-text-stroke-color: rgba(197, 165, 90, 0.3);
 }

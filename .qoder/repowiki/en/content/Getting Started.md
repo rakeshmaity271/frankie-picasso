@@ -3,13 +3,22 @@
 <cite>
 **Referenced Files in This Document**
 - [package.json](file://package.json)
-- [README.md](file://README.md)
 - [vite.config.js](file://vite.config.js)
-- [src/index.js](file://src/index.js)
-- [.mcp.json](file://.mcp.json)
+- [src/main.jsx](file://src/main.jsx)
+- [src/App.jsx](file://src/App.jsx)
+- [index.html](file://index.html)
+- [scripts/deploy.sh](file://scripts/deploy.sh)
+- [.github/workflows/deploy.yml](file://.github/workflows/deploy.yml)
 - [.gitignore](file://.gitignore)
-- [public/index.html](file://public/index.html)
 </cite>
+
+## Update Summary
+**Changes Made**
+- Complete rewrite of setup instructions for React/Vite development environment
+- Removed Node.js server setup, Express installation, and backend configuration steps
+- Updated to document React development setup, Vite installation, and modern frontend development workflow
+- Added new deployment instructions for the React SPA and GitHub Actions CI/CD pipeline
+- Updated prerequisites to focus on modern JavaScript and React ecosystem requirements
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -20,48 +29,54 @@
 6. [Verification Steps](#verification-steps)
 7. [Troubleshooting Guide](#troubleshooting-guide)
 8. [Environment Setup Notes](#environment-setup-notes)
-9. [Conclusion](#conclusion)
+9. [Deployment Guide](#deployment-guide)
+10. [Conclusion](#conclusion)
 
 ## Introduction
-This guide helps you set up and run the Frankie Picasso project locally. It covers prerequisites, installation, first-run steps, and verification. The project is a Node.js application that serves a React frontend via Vite and exposes a small Express API.
+This guide helps you set up and run the Frankie Picasso project locally. It covers prerequisites, installation, first-run steps, and verification. The project is a modern React Single Page Application (SPA) built with Vite, designed for frontend development and deployment.
+
+**Updated** The project has been completely rewritten to use a pure React/Vite frontend stack without any backend server requirements.
 
 ## Prerequisites
-- Node.js: The project uses modern JavaScript features and requires a recent LTS or current Node.js version compatible with the specified dependencies. Ensure your local Node.js version meets the requirements declared by the project’s dependencies.
-- npm: The project uses npm scripts and packages managed via npm.
+- Node.js: The project requires Node.js 18 or higher for optimal compatibility with modern JavaScript features and Vite.
+- npm: The project uses npm 9 or higher for package management and script execution.
+- Modern web browser: Chrome, Firefox, Safari, or Edge for development and testing.
 
 Key indicators in the repository:
-- The project declares a module type and uses ES modules, which are supported by modern Node.js versions.
-- The package.json lists React and Vite as dependencies and devDependencies, indicating a React + Vite stack.
+- The project uses ES modules (`"type": "module"` in package.json)
+- React 18.3.1 and React DOM 18.3.1 are declared as dependencies
+- Vite 6.0.0 is used as the development server and build tool
+- The React plugin for Vite is configured in the build system
 
 **Section sources**
-- [package.json:11-18](file://package.json#L11-L18)
-- [package.json:5](file://package.json#L5)
+- [package.json:1-23](file://package.json#L1-L23)
+- [vite.config.js:1-11](file://vite.config.js#L1-L11)
 
 ## Installation
 Follow these steps to install the project locally:
 
 1. Open a terminal in the project root directory.
 2. Install dependencies using npm:
-   - Command: npm install
+   - Command: `npm install`
    - Purpose: Installs production and development dependencies defined in package.json.
 
 What gets installed:
-- Production dependencies include React and React DOM.
-- Development dependencies include Vite and the React plugin for Vite.
+- Production dependencies include React, React DOM, GSAP, @gsap/react, normalize.css, and other frontend libraries
+- Development dependencies include Vite, @vitejs/plugin-react, and build tools
 
 **Section sources**
-- [package.json:11-18](file://package.json#L11-L18)
-- [README.md:7-10](file://README.md#L7-L10)
+- [package.json:11-21](file://package.json#L11-L21)
 
 ## First Run
 After installing dependencies, start the development server:
 
-- Command: npm run dev
-- Purpose: Starts the Vite development server configured to serve the React app and proxy API requests if needed.
+- Command: `npm run dev`
+- Purpose: Starts the Vite development server configured to serve the React app
 
 Port configuration:
-- The Vite server listens on port 3000 by default.
-- The configuration explicitly sets the port to 3000 and opens the browser automatically.
+- The Vite server listens on port 3000 by default
+- The configuration explicitly sets the port to 3000 and opens the browser automatically
+- The development server provides hot module replacement (HMR) for instant feedback
 
 **Section sources**
 - [package.json:6-10](file://package.json#L6-L10)
@@ -70,88 +85,116 @@ Port configuration:
 ## Expected Startup Behavior
 When you run the development server, you should observe the following:
 
-- Vite starts and opens the browser to http://localhost:3000.
-- The React app loads and displays the landing page defined in the public HTML file.
-- The Express backend is ready to handle API routes (e.g., health checks).
+- Vite starts and opens the browser to http://localhost:3000
+- The React app loads with a beautiful loading animation
+- The homepage displays the hero section with animated typography
+- Navigation controls are fully functional
+- All interactive components respond to user input
+- Console shows no errors or warnings
 
-The Express server:
-- Initializes middleware for JSON and URL-encoded bodies.
-- Serves static assets from the public directory.
-- Exposes two routes: a root route returning a welcome message and a health endpoint returning status information.
-- Listens on the configured port (default 3000).
+The application architecture:
+- Single-page application built with React 18
+- Component-based architecture with modular CSS
+- GSAP integration for advanced animations
+- Responsive design optimized for all devices
 
 **Section sources**
-- [vite.config.js:6-9](file://vite.config.js#L6-L9)
-- [src/index.js:11-28](file://src/index.js#L11-L28)
-- [public/index.html:1-21](file://public/index.html#L1-L21)
+- [index.html:55-59](file://index.html#L55-L59)
+- [src/App.jsx:28-48](file://src/App.jsx#L28-L48)
+- [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
 
 ## Verification Steps
 Confirm the setup is working by performing these checks:
 
-- Browser: Visit http://localhost:3000 and verify the React app renders.
-- API Health: Call the health endpoint to confirm the backend is reachable.
-  - Endpoint: GET /api/health
-  - Expected response: A JSON object containing a status field and a timestamp.
-- Root Route: Call the root endpoint to confirm basic routing.
-  - Endpoint: GET /
-  - Expected response: A JSON object with a welcome message and a running status.
-
-These endpoints are defined in the Express server.
+- Browser: Visit http://localhost:3000 and verify the React app renders correctly
+- Animation: Check that the hero animation plays and GSAP effects work
+- Navigation: Test all navigation links and smooth scrolling functionality
+- Components: Verify all sections load (Hero, Story, Ventures, Creativity, etc.)
+- Responsiveness: Test on different screen sizes and orientations
+- Console: Open browser developer tools and ensure no JavaScript errors
 
 **Section sources**
-- [src/index.js:17-23](file://src/index.js#L17-L23)
+- [src/App.jsx:17-48](file://src/App.jsx#L17-L48)
+- [index.html:25-53](file://index.html#L25-L53)
 
 ## Troubleshooting Guide
 Common issues and resolutions:
 
 - Port 3000 in use
-  - Symptom: The development server fails to start or reports a port conflict.
-  - Resolution: Stop the conflicting process or configure a different port in the Vite configuration.
-  - Reference: The Vite server port is set to 3000 in the configuration.
+  - Symptom: The development server fails to start or reports a port conflict
+  - Resolution: Stop the conflicting process or configure a different port in the Vite configuration
+  - Reference: The Vite server port is set to 3000 in the configuration
   
   **Section sources**
   - [vite.config.js:7](file://vite.config.js#L7)
 
 - Node.js version mismatch
-  - Symptom: Errors during installation or runtime related to unsupported syntax.
-  - Resolution: Update Node.js to a version compatible with the project’s dependencies.
-  - Reference: The project uses ES modules and modern React/Vite features.
-
+  - Symptom: Errors during installation or runtime related to unsupported syntax
+  - Resolution: Update Node.js to version 18 or higher, preferably the latest LTS
+  - Reference: The project uses modern ES modules and React features
+  
   **Section sources**
   - [package.json:5](file://package.json#L5)
-  - [package.json:11-18](file://package.json#L11-L18)
+  - [package.json:11-17](file://package.json#L11-L17)
 
 - Missing dependencies
-  - Symptom: Errors indicating missing modules after cloning or clearing node_modules.
-  - Resolution: Reinstall dependencies using npm install.
-
+  - Symptom: Errors indicating missing modules after cloning or clearing node_modules
+  - Resolution: Reinstall dependencies using `npm install`
+  
   **Section sources**
-  - [package.json:11-18](file://package.json#L11-L18)
+  - [package.json:11-21](file://package.json#L11-L21)
 
-- Static assets not loading
-  - Symptom: Blank page or missing styles on the homepage.
-  - Resolution: Confirm the public directory is served and the HTML file exists.
-  - Reference: Express serves static files from the public directory.
-
+- Build errors
+  - Symptom: Errors during `npm run build` or development server startup
+  - Resolution: Clear node_modules and reinstall, ensure Node.js version compatibility
+  - Reference: The project requires modern JavaScript features
+  
   **Section sources**
-  - [src/index.js:14](file://src/index.js#L14)
-  - [public/index.html:1-21](file://public/index.html#L1-L21)
+  - [package.json:18-21](file://package.json#L18-L21)
 
-- MCP-related configuration warnings
-  - Symptom: Warnings about MCP server configuration or GitHub token.
-  - Resolution: Review the MCP configuration file if you intend to use Model Context Protocol features. Otherwise, ignore or remove the configuration if not needed.
-  - Reference: The MCP configuration defines a GitHub server command and environment variable.
-
+- Animation issues
+  - Symptom: GSAP animations not working or performance issues
+  - Resolution: Check browser console for GSAP errors, ensure proper internet connection
+  - Reference: GSAP is integrated for advanced scroll animations
+  
   **Section sources**
-  - [.mcp.json:1-12](file://.mcp.json#L1-L12)
+  - [package.json:12-13](file://package.json#L12-L13)
 
 ## Environment Setup Notes
-- Environment variables: The project does not require custom environment variables for basic operation. The Express server reads the PORT from the environment with a fallback to 3000.
-- Git ignore: The repository includes a .gitignore that excludes node_modules, logs, IDE folders, and build artifacts. It also excludes .mcp.json to protect sensitive tokens.
+- Environment variables: The project does not require custom environment variables for basic operation
+- Git ignore: The repository includes a .gitignore that excludes node_modules, logs, IDE folders, and build artifacts
+- Development tools: Recommended VS Code extensions include ES7+ React/Redux/React-Native snippets, Prettier, and ESLint
 
 **Section sources**
-- [src/index.js:9](file://src/index.js#L9)
 - [.gitignore:1-25](file://.gitignore#L1-L25)
 
+## Deployment Guide
+The project supports multiple deployment methods for production:
+
+### Manual Deployment
+1. Build the production bundle: `npm run build`
+2. Deploy the contents of the `dist` folder to any static hosting service
+3. Configure your web server to serve `index.html` for all routes (SPA routing)
+
+### GitHub Actions CI/CD Pipeline
+The repository includes a complete automated deployment pipeline:
+
+- Trigger: Push to the `dev` branch
+- Node.js version: 20.x (configured in workflow)
+- Process: Install dependencies → Build → Deploy via SSH
+- Target: Remote server with automatic verification
+
+### Deployment Script
+The repository includes a manual deployment script (`scripts/deploy.sh`) that:
+- Validates Node.js, npm, and SSH availability
+- Installs dependencies using `npm ci`
+- Builds the production bundle
+- Deploys to a remote server via rsync
+- Verifies deployment completion
+
+**Section sources**
+- [.github/workflows/deploy.yml:1-94](file://.github/workflows/deploy.yml#L1-L94)
+- [scripts/deploy.sh:1-81](file://scripts/deploy.sh#L1-L81)
+
 ## Conclusion
-You now have the essentials to install, run, and verify the Frankie Picasso project. Use npm install to fetch dependencies, npm run dev to start the development server, and verify both the React UI and API endpoints. If you encounter issues, consult the troubleshooting section and ensure your Node.js version and ports meet the requirements.
+You now have the essentials to install, run, and deploy the Frankie Picasso React/Vite project. Use `npm install` to fetch dependencies, `npm run dev` to start the development server, and verify the React UI renders correctly. The project is designed as a modern single-page application with no backend requirements, making it easy to deploy to any static hosting service or automate with GitHub Actions.

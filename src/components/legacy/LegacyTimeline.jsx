@@ -1,5 +1,5 @@
-import { useRef, useEffect, useState } from 'react'
-import { gsap, ScrollTrigger, useGSAP } from '../../hooks/useGsap'
+import { useRef } from 'react'
+import { gsap, useGSAP } from '../../hooks/useGsap'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import SectionHeading from '../common/SectionHeading'
 import { content } from '../../data/content'
@@ -13,63 +13,46 @@ const categoryColors = {
   awards: '#3D1C3E'
 }
 
+const categoryIcons = {
+  community: '',
+  media: '',
+  entrepreneurship: '🚀',
+  creativity: '🎨',
+  awards: '🏆'
+}
+
 export default function LegacyTimeline() {
   const sectionRef = useRef(null)
-  const horizontalRef = useRef(null)
-  const [isMobile, setIsMobile] = useState(false)
   useScrollReveal(sectionRef, { animation: 'fade-up' })
 
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 1024)
-    check()
-    window.addEventListener('resize', check)
-    return () => window.removeEventListener('resize', check)
-  }, [])
-
   useGSAP(() => {
-    if (!horizontalRef.current || isMobile) return
+    if (!sectionRef.current) return
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (prefersReducedMotion) return
 
-    const container = horizontalRef.current
-    const scrollableWidth = container.scrollWidth - container.clientWidth
-
-    gsap.to(container, {
-      x: -scrollableWidth,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top top',
-        end: () => `+=${scrollableWidth}`,
-        pin: true,
-        scrub: 1,
-        invalidateOnRefresh: true
-      }
-    })
-
-    const events = container.querySelectorAll('.legacy-event')
-    events.forEach((event) => {
-      gsap.from(event, {
+    const cards = sectionRef.current.querySelectorAll('.timeline-card')
+    cards.forEach((card, i) => {
+      gsap.from(card, {
         opacity: 0,
-        y: 30,
+        y: 40,
+        duration: 0.8,
+        delay: i * 0.05,
+        ease: 'power3.out',
         scrollTrigger: {
-          trigger: event,
-          start: 'left 80%',
-          end: 'left 50%',
-          containerAnimation: gsap.getById?.('legacy-scroll') || undefined,
-          toggleActions: 'play none none none',
-          horizontal: true
+          trigger: card,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
         }
       })
     })
-  }, { scope: sectionRef, dependencies: [isMobile] })
+  }, { scope: sectionRef })
 
   const data = content.legacy
 
   return (
-    <section id="legacy" className={`section-padding ${styles.section}`} ref={sectionRef} aria-label="Legacy Timeline">
+    <section id="legacy" className={styles.section} ref={sectionRef} aria-label="Legacy Timeline">
       <div className="container">
-        <SectionHeading number="09" title="Legacy Timeline" subtitle={data.intro} />
+        <SectionHeading title="Legacy Timeline" subtitle={data.intro} light />
 
         <div className={styles.legend} aria-hidden="true">
           {Object.entries(categoryColors).map(([cat, color]) => (
@@ -79,34 +62,32 @@ export default function LegacyTimeline() {
             </span>
           ))}
         </div>
-      </div>
 
-      {isMobile ? (
-        <div className={`container ${styles.verticalTimeline}`}>
-          {data.events.map((event, i) => (
-            <div key={i} className={`reveal-item ${styles.vEvent}`}>
-              <div className={styles.vDot} style={{ background: categoryColors[event.category] || '#C5A55A' }} aria-hidden="true" />
-              <time className={styles.vYear}>{event.year}</time>
-              <h3 className={styles.vTitle}>{event.title}</h3>
-              <p className={styles.vDesc}>{event.description}</p>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className={styles.horizontalWrap} ref={horizontalRef}>
-          <div className={styles.track}>
-            <div className={styles.line} aria-hidden="true" />
-            {data.events.map((event, i) => (
-              <div key={i} className={`legacy-event ${styles.event}`}>
-                <div className={styles.eventDot} style={{ background: categoryColors[event.category] || '#C5A55A' }} aria-hidden="true" />
-                <time className={styles.eventYear}>{event.year}</time>
-                <h3 className={styles.eventTitle}>{event.title}</h3>
-                <p className={styles.eventDesc}>{event.description}</p>
+        <div className={styles.timeline}>
+          <div className={styles.timelineLine} aria-hidden="true" />
+          {data.events.map((event, i) => {
+            const isLeft = i % 2 === 0
+            const color = categoryColors[event.category] || '#C5A55A'
+            return (
+              <div
+                key={i}
+                className={`timeline-card ${styles.card} ${isLeft ? styles.cardLeft : styles.cardRight}`}
+              >
+                <div className={styles.cardInner}>
+                  <div className={styles.cardHeader}>
+                    <span className={styles.cardIcon} aria-hidden="true">{categoryIcons[event.category] || '✦'}</span>
+                    <time className={styles.cardYear} style={{ color }}>{event.year}</time>
+                  </div>
+                  <h3 className={styles.cardTitle}>{event.title}</h3>
+                  <p className={styles.cardDesc}>{event.description}</p>
+                  <div className={styles.cardAccent} style={{ background: color }} aria-hidden="true" />
+                </div>
+                <div className={styles.cardDot} style={{ background: color, borderColor: color }} aria-hidden="true" />
               </div>
-            ))}
-          </div>
+            )
+          })}
         </div>
-      )}
+      </div>
     </section>
   )
 }

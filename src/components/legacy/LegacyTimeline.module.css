@@ -1,4 +1,181 @@
 .section {
+  background: linear-gradient(180deg, var(--color-deep-plum) 0%, #2a1229 40%, var(--color-burgundy) 100%);
+  padding: var(--space-section) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+.legend {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-3xl);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  text-transform: capitalize;
+  color: rgba(250, 246, 240, 0.7);
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding: var(--space-xl) 0;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--color-gold) 10%, var(--color-gold) 90%, transparent);
+  opacity: 0.3;
+  transform: translateX(-50%);
+}
+
+.card {
+  position: relative;
+  width: 45%;
+  margin-bottom: var(--space-xl);
+}
+
+.cardLeft {
+  margin-right: auto;
+  padding-right: var(--space-2xl);
+}
+
+.cardRight {
+  margin-left: auto;
+  padding-left: var(--space-2xl);
+}
+
+.cardInner {
+  background: rgba(250, 246, 240, 0.05);
+  border: 1px solid rgba(197, 165, 90, 0.15);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-fast);
+  backdrop-filter: blur(10px);
+}
+
+.cardInner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(197, 165, 90, 0.4);
+}
+
+.cardAccent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.cardIcon {
+  font-size: 1.5rem;
+}
+
+.cardYear {
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.cardTitle {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  color: var(--color-warm-ivory);
+  margin: 0 0 var(--space-xs);
+  line-height: 1.3;
+}
+
+.cardDesc {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  color: rgba(250, 246, 240, 0.7);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.cardDot {
+  position: absolute;
+  top: var(--space-lg);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid;
+  background: var(--color-deep-plum);
+  box-shadow: 0 0 0 4px rgba(197, 165, 90, 0.2);
+  z-index: 2;
+}
+
+.cardLeft .cardDot {
+  right: calc(-1 * var(--space-2xl) - 8px);
+}
+
+.cardRight .cardDot {
+  left: calc(-1 * var(--space-2xl) - 8px);
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .timelineLine {
+    left: var(--space-md);
+  }
+
+  .card,
+  .cardLeft,
+  .cardRight {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: var(--space-3xl);
+    padding-right: 0;
+  }
+
+  .cardDot,
+  .cardLeft .cardDot,
+  .cardRight .cardDot {
+    left: calc(var(--space-md) - 8px);
+    right: auto;
+  }
+}
+.section {
   background: var(--color-warm-ivory);
 }
 

@@ -1,1 +1,0 @@
-Run `npm install` followed by `npm run dev` (uses `node --watch`) or `npm start` to launch the server on port 3000.

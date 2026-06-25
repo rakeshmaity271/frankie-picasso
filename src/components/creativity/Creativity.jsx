@@ -38,7 +38,7 @@ export default function Creativity() {
   return (
     <section id="creativity" className={`section-padding ${styles.section}`} ref={sectionRef} aria-label="Creativity">
       <div className="container">
-        <SectionHeading number="04" title="Creativity" subtitle={data.intro} />
+        <SectionHeading title="Creativity" subtitle={data.intro} />
 
         <div className={styles.grid}>
           {data.works.map((work, i) => (
