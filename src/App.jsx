@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import Nav from './components/layout/Nav'
 import Footer from './components/layout/Footer'
 import SectionIndicator from './components/common/SectionIndicator'
+import SiteLoader from './components/common/SiteLoader'
 import HeroExperience from './components/hero/HeroExperience'
 import FrankieStory from './components/story/FrankieStory'
 import Entrepreneurship from './components/entrepreneurship/Entrepreneurship'
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <div className={styles.app}>
+      <SiteLoader />
       <a href="#main" className={styles.skipLink}>Skip to main content</a>
       <Nav />
       <SectionIndicator />

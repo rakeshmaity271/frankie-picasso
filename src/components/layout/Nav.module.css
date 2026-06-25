@@ -329,12 +329,12 @@
 @media (max-width: 479px) {
   .logo {
     margin-left: var(--space-xs);
-    gap: 4px;
+    gap: 6px;
   }
 
   .logoImage {
-    height: 28px;
-    max-width: 28px;
+    height: 40px;
+    max-width: 40px;
   }
 
   .logoWordmark {
@@ -342,7 +342,7 @@
   }
 
   .logoText {
-    font-size: 0.55rem;
-    letter-spacing: 0.15em;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
   }
 }

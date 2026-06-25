@@ -269,8 +269,8 @@
 @media (max-width: 479px) {
   .hero {
     min-height: auto;
-    padding-top: 120px;
-    padding-bottom: var(--space-md);
+    padding-top: 100px;
+    padding-bottom: var(--space-sm);
     padding-left: 0;
     padding-right: 0;
     align-items: flex-start;
@@ -281,8 +281,9 @@
   }
 
   .headline {
-    font-size: clamp(1.35rem, 5.5vw, 2rem);
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
     margin-bottom: var(--space-xs);
+    line-height: 1.2;
   }
 
   .eyebrow {
@@ -296,26 +297,28 @@
   }
 
   .sub {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     max-width: 300px;
+    line-height: 1.5;
   }
 
   .portrait {
-    max-width: 180px;
+    max-width: 160px;
   }
 
   .ctaPrimary,
   .ctaSecondary {
     padding: var(--space-xs) var(--space-sm);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     white-space: normal;
-    min-height: 44px;
+    min-height: 42px;
   }
 
   .ctaGroup {
     max-width: 100%;
     margin-top: var(--space-xs);
     padding: 0 var(--space-sm);
+    gap: var(--space-xs);
   }
 
   .scrollIndicator {
