@@ -8,41 +8,29 @@
 - [src/App.jsx](file://src/App.jsx)
 - [src/App.module.css](file://src/App.module.css)
 - [src/components/layout/Nav.jsx](file://src/components/layout/Nav.jsx)
+- [src/components/layout/Nav.module.css](file://src/components/layout/Nav.module.css)
 - [src/components/layout/Footer.jsx](file://src/components/layout/Footer.jsx)
+- [src/components/layout/Footer.module.css](file://src/components/layout/Footer.module.css)
 - [src/components/hero/HeroExperience.jsx](file://src/components/hero/HeroExperience.jsx)
 - [src/components/hero/HeroExperience.module.css](file://src/components/hero/HeroExperience.module.css)
-- [src/components/story/FrankieStory.jsx](file://src/components/story/FrankieStory.jsx)
-- [src/components/story/FrankieStory.module.css](file://src/components/story/FrankieStory.module.css)
-- [src/components/entrepreneurship/Entrepreneurship.jsx](file://src/components/entrepreneurship/Entrepreneurship.jsx)
-- [src/components/creativity/Creativity.jsx](file://src/components/creativity/Creativity.jsx)
-- [src/components/community/CommunityImpact.jsx](file://src/components/community/CommunityImpact.jsx)
-- [src/components/media/MediaHub.jsx](file://src/components/media/MediaHub.jsx)
-- [src/components/books/BooksPublications.jsx](file://src/components/books/BooksPublications.jsx)
-- [src/components/books/BooksPublications.module.css](file://src/components/books/BooksPublications.module.css)
 - [src/components/awards/AwardsRecognition.jsx](file://src/components/awards/AwardsRecognition.jsx)
-- [src/components/legacy/LegacyTimeline.jsx](file://src/components/legacy/LegacyTimeline.jsx)
-- [src/components/legacy/LegacyTimeline.module.css](file://src/components/legacy/LegacyTimeline.module.css)
-- [src/components/vision/FutureVision.jsx](file://src/components/vision/FutureVision.jsx)
-- [src/components/contact/Contact.jsx](file://src/components/contact/Contact.jsx)
+- [src/components/awards/AwardsRecognition.module.css](file://src/components/awards/AwardsRecognition.module.css)
 - [src/components/common/SectionHeading.jsx](file://src/components/common/SectionHeading.jsx)
 - [src/components/common/SectionHeading.module.css](file://src/components/common/SectionHeading.module.css)
 - [src/hooks/useGsap.js](file://src/hooks/useGsap.js)
 - [src/data/content.js](file://src/data/content.js)
-- [src/styles/_typography.css](file://src/styles/_typography.css)
 - [src/styles/_variables.css](file://src/styles/_variables.css)
 - [src/styles/_global.css](file://src/styles/_global.css)
+- [src/styles/_typography.css](file://src/styles/_typography.css)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Updated Biography Narrative documentation to reflect enhanced storytelling with expanded timeline content
-- Enhanced Entrepreneurship section documentation to reflect expanded venture listings and impact metrics
-- Updated Creativity section documentation to reflect expanded creative works and category organization
-- Updated Books Publications component documentation to reflect enhanced visual presentation with SVG book covers
-- Updated Legacy Timeline component documentation to reflect simplified vertical layout
-- Updated SectionHeading component documentation to reflect removal of decorative numbering system
-- Updated typography documentation to reflect Cormorant Garamond font family adoption
-- Enhanced CSS Modules styling documentation with new typography system and responsive design patterns
+- Updated Navigation system documentation to reflect enhanced desktop navigation features with desktopNav class and improved cross-device functionality
+- Enhanced Hero section documentation to reflect improved desktop layout, responsive padding, and overflow fixes
+- Added documentation for new responsive typography system using clamp functions for fluid scaling
+- Updated styling architecture to reflect enhanced responsive design patterns and improved visual design systems
+- Enhanced component documentation to reflect recent improvements in CSS styling and responsive behavior
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -63,7 +51,7 @@
 16. [Conclusion](#conclusion)
 
 ## Introduction
-This document provides comprehensive documentation for the React frontend components and development setup. The project features a modular component-based architecture with 11 distinct content sections, sophisticated animation integration using GSAP, and a robust CSS Modules styling system. The application showcases a professional portfolio-style website with smooth scrolling navigation, interactive animations, responsive design patterns, and a refined typography system using Cormorant Garamond and Inter fonts.
+This document provides comprehensive documentation for the React frontend components and development setup. The project features a modular component-based architecture with 11 distinct content sections, sophisticated animation integration using GSAP, and a robust CSS Modules styling system. The application showcases a professional portfolio-style website with smooth scrolling navigation, interactive animations, responsive design patterns, and a refined typography system using Cormorant Garamond and Inter fonts. Recent enhancements include improved desktop layouts, enhanced responsive typography using clamp functions, and refined cross-device functionality.
 
 ## Project Structure
 The project follows a structured React + Vite setup with a comprehensive component hierarchy organized into logical modules:
@@ -82,29 +70,20 @@ Src --> Data["data/"]
 Src --> Hooks["hooks/"]
 Components --> Layout["layout/"]
 Components --> Hero["hero/"]
-Components --> Story["story/"]
-Components --> Entrepreneurship["entrepreneurship/"]
-Components --> Creativity["creativity/"]
-Components --> Community["community/"]
-Components --> Media["media/"]
-Components --> Books["books/"]
 Components --> Awards["awards/"]
-Components --> Legacy["legacy/"]
-Components --> Vision["vision/"]
-Components --> Contact["contact/"]
 Components --> Common["common/"]
 Data --> Content["content.js"]
 Hooks --> GSAP["useGsap.js"]
 Styles --> Variables["_variables.css"]
-Styles --> Typography["_typography.css"]
 Styles --> Global["_global.css"]
+Styles --> Typography["_typography.css"]
 ```
 
 **Diagram sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
 - [src/App.jsx:1-51](file://src/App.jsx#L1-L51)
-- [src/components/layout/Nav.jsx:1-102](file://src/components/layout/Nav.jsx#L1-L102)
-- [src/components/hero/HeroExperience.jsx:1-114](file://src/components/hero/HeroExperience.jsx#L1-L114)
+- [src/components/layout/Nav.jsx:1-98](file://src/components/layout/Nav.jsx#L1-L98)
+- [src/components/hero/HeroExperience.jsx:1-140](file://src/components/hero/HeroExperience.jsx#L1-L140)
 
 **Section sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
@@ -137,33 +116,15 @@ graph TD
 App["App.jsx"] --> Nav["Nav.jsx"]
 App --> Footer["Footer.jsx"]
 App --> Hero["HeroExperience.jsx"]
-App --> Story["FrankieStory.jsx"]
-App --> Entrepreneurship["Entrepreneurship.jsx"]
-App --> Creativity["Creativity.jsx"]
-App --> Community["CommunityImpact.jsx"]
-App --> Media["MediaHub.jsx"]
-App --> Books["BooksPublications.jsx"]
 App --> Awards["AwardsRecognition.jsx"]
-App --> Legacy["LegacyTimeline.jsx"]
-App --> Vision["FutureVision.jsx"]
-App --> Contact["Contact.jsx"]
-Story --> SectionHeading["SectionHeading.jsx"]
-Entrepreneurship --> SectionHeading
-Community --> SectionHeading
-Media --> SectionHeading
-Books --> SectionHeading
-Awards --> SectionHeading
-Legacy --> SectionHeading
-Vision --> SectionHeading
-Contact --> SectionHeading
+App --> SectionHeading["SectionHeading.jsx"]
 Nav --> GSAP["useGsap.js"]
 Nav --> ActiveSection["useActiveSection.js"]
 Hero --> GSAP
 Hero --> Parallax["useParallax.js"]
-Story --> GSAP
-Story --> ScrollReveal["useScrollReveal.js"]
-Entrepreneurship --> GSAP
-Entrepreneurship --> ScrollReveal
+Awards --> GSAP
+Awards --> ScrollReveal["useScrollReveal.js"]
+SectionHeading --> GSAP
 ```
 
 **Diagram sources**
@@ -173,66 +134,42 @@ Entrepreneurship --> ScrollReveal
 
 **Section sources**
 - [src/App.jsx:1-51](file://src/App.jsx#L1-L51)
-- [src/components/layout/Nav.jsx:1-102](file://src/components/layout/Nav.jsx#L1-L102)
+- [src/components/layout/Nav.jsx:1-98](file://src/components/layout/Nav.jsx#L1-L98)
 
 ## Layout Components
 The layout system provides consistent navigation and structural elements across all pages.
 
 ### Navigation Component (Nav.jsx)
-Features responsive design with mobile hamburger menu, scroll-aware styling, and animated navigation items. Integrates with GSAP for smooth animations and uses custom hooks for active section detection.
+**Updated** Features responsive design with mobile-first approach, scroll-aware styling, and animated navigation items. Integrates with GSAP for smooth animations and uses custom hooks for active section detection. The navigation now includes a comprehensive mobile menu with social links and contact button, featuring sophisticated GSAP animations for menu item entrance and exit. The desktop navigation system has been enhanced with a dedicated `desktopNav` class for improved cross-device functionality and better separation of desktop vs mobile styling.
 
 ### Footer Component (Footer.jsx)
-Provides comprehensive footer navigation with brand information, copyright details, and accessible navigation controls.
+**Updated** Provides comprehensive footer navigation with brand information, copyright details, and accessible navigation controls. The footer has been transformed into a comprehensive brand showcase featuring a three-column grid layout on desktop with centered layout on mobile, including brand identity, navigation sections, and social media links.
 
 **Section sources**
-- [src/components/layout/Nav.jsx:1-102](file://src/components/layout/Nav.jsx#L1-L102)
-- [src/components/layout/Footer.jsx:1-52](file://src/components/layout/Footer.jsx#L1-L52)
+- [src/components/layout/Nav.jsx:1-152](file://src/components/layout/Nav.jsx#L1-L152)
+- [src/components/layout/Nav.module.css:1-331](file://src/components/layout/Nav.module.css#L1-L331)
+- [src/components/layout/Footer.jsx:1-59](file://src/components/layout/Footer.jsx#L1-L59)
+- [src/components/layout/Footer.module.css:1-102](file://src/components/layout/Footer.module.css#L1-L102)
 
 ## Content Components
 The application features 11 specialized content components, each designed to showcase specific aspects of Frankie Picasso's work and achievements.
 
 ### Hero Experience (HeroExperience.jsx)
-Implements sophisticated animations including headline word-by-word reveal, parallax effects, and decorative motion elements. Uses GSAP for timeline-based animations and responsive design considerations. Features the new typography system with Cormorant Garamond for headings and Inter for body text.
-
-### Frankie Story (FrankieStory.jsx)
-**Updated** Features interactive timeline with scroll-triggered animations, fade-in effects, and quote presentation. The biography narrative has been enhanced with expanded timeline content covering four decades of impact. Combines GSAP ScrollTrigger with scroll reveal animations. Utilizes the refined typography system throughout.
-
-### Entrepreneurship (Entrepreneurship.jsx)
-**Updated** Showcases expanded venture cards with animated impact counters, SVG graphics, and responsive grid layouts. The entrepreneurship section now includes six comprehensive ventures with detailed impact metrics. Implements scroll-triggered number animations and enhanced visual presentation.
-
-### Creativity (Creativity.jsx)
-**Updated** Displays expanded creative works in an organized grid format with SVG placeholders and category-based organization. The creativity section now features six distinct creative endeavors organized into categories including books, radio, art, writing, executive coaching, and event production. Each work includes type-specific icons and badges.
-
-### Community Impact (CommunityImpact.jsx)
-Highlights community initiatives with card-based layout, SVG graphics, and inspirational quotes.
-
-### Media Hub (MediaHub.jsx)
-Organizes media appearances, shows, and press coverage in categorized sections with timeline presentation.
-
-### Books Publications (BooksPublications.jsx)
-**Updated** Features enhanced visual presentation with prominent featured book display and additional publications listing. The component now includes sophisticated 3D book cover animations using GSAP ScrollTrigger, featuring an SVG-based book cover with gradient backgrounds and typography. The design includes hover effects with subtle 3D transformations and reduced motion support for accessibility.
+**Updated** Implements sophisticated animations including headline word-by-word reveal, parallax effects, and decorative motion elements. Uses GSAP for timeline-based animations and responsive design considerations. Features the new typography system with Cormorant Garamond for headings and Inter for body text. The hero section now uses enhanced desktop layout with improved CSS styling, responsive padding that adapts to navigation height, and overflow fixes for better cross-device presentation. The component includes sophisticated responsive design patterns with optimized spacing and alignment for both desktop and mobile views.
 
 ### Awards Recognition (AwardsRecognition.jsx)
-Presents award history with prominent featured award and comprehensive award list.
+**Updated** Completely redesigned with new CSS styling featuring laurel decoration system, featured award highlighting, and responsive grid layout. The component now includes sophisticated GSAP ScrollTrigger animations for the featured award card with back.ease effect and scroll-triggered entrance animations.
 
-### Legacy Timeline (LegacyTimeline.jsx)
-Chronological presentation of career milestones with category-based filtering and responsive design. The component has been modernized to use a simplified vertical layout that removes horizontal scrolling complexity. Events are now arranged vertically with alternating left/right positioning for improved readability and mobile responsiveness.
-
-### Future Vision (FutureVision.jsx)
-Outlines current projects and future initiatives with mission statement and project descriptions.
-
-### Contact (Contact.jsx)
-Provides contact information, email, speaking topics, and social media links with form integration.
+### Section Heading (SectionHeading.jsx)
+**Updated** Reusable component for consistent heading presentation across all content sections. The component has been refactored to remove the decorative numbering system, simplifying the design to focus purely on title and subtitle presentation. Supports light/dark theme variants for different background contexts.
 
 **Section sources**
-- [src/components/hero/HeroExperience.jsx:1-114](file://src/components/hero/HeroExperience.jsx#L1-L114)
-- [src/components/hero/HeroExperience.module.css:1-157](file://src/components/hero/HeroExperience.module.css#L1-L157)
-- [src/components/story/FrankieStory.jsx:1-84](file://src/components/story/FrankieStory.jsx#L1-L84)
-- [src/components/story/FrankieStory.module.css:1-119](file://src/components/story/FrankieStory.module.css#L1-L119)
-- [src/components/entrepreneurship/Entrepreneurship.jsx:1-41](file://src/components/entrepreneurship/Entrepreneurship.jsx#L1-L41)
-- [src/components/creativity/Creativity.jsx:1-61](file://src/components/creativity/Creativity.jsx#L1-L61)
-- [src/components/books/BooksPublications.jsx:1-73](file://src/components/books/BooksPublications.jsx#L1-L73)
-- [src/components/books/BooksPublications.module.css:1-125](file://src/components/books/BooksPublications.module.css#L1-L125)
+- [src/components/hero/HeroExperience.jsx:1-139](file://src/components/hero/HeroExperience.jsx#L1-L139)
+- [src/components/hero/HeroExperience.module.css:1-227](file://src/components/hero/HeroExperience.module.css#L1-L227)
+- [src/components/awards/AwardsRecognition.jsx:1-70](file://src/components/awards/AwardsRecognition.jsx#L1-L70)
+- [src/components/awards/AwardsRecognition.module.css:1-295](file://src/components/awards/AwardsRecognition.module.css#L1-L295)
+- [src/components/common/SectionHeading.jsx:1-12](file://src/components/common/SectionHeading.jsx#L1-L12)
+- [src/components/common/SectionHeading.module.css:1-32](file://src/components/common/SectionHeading.module.css#L1-L32)
 
 ## Shared Utilities
 The application leverages several shared utility components and hooks to maintain consistency and reduce code duplication.
@@ -262,10 +199,10 @@ Components utilize useState for UI state management (mobile menu, scroll awarene
 
 **Section sources**
 - [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
-- [src/components/layout/Nav.jsx:1-102](file://src/components/layout/Nav.jsx#L1-L102)
+- [src/components/layout/Nav.jsx:1-152](file://src/components/layout/Nav.jsx#L1-L152)
 
 ## CSS Modules and Styling
-The application employs CSS Modules for scoped styling, ensuring component isolation and preventing style conflicts.
+**Updated** The application employs CSS Modules for scoped styling, ensuring component isolation and preventing style conflicts.
 
 ### Styling Architecture
 Each component maintains its own CSS Module file with component-specific classes, enabling:
@@ -277,7 +214,7 @@ Each component maintains its own CSS Module file with component-specific classes
 ### Design System
 The styling system utilizes:
 - CSS custom properties for theming
-- Responsive design patterns
+- Responsive design patterns with clamp functions for fluid typography
 - Accessibility-focused color schemes
 - Consistent spacing and typography scales
 
@@ -286,11 +223,26 @@ The styling system utilizes:
 - [src/components/layout/Nav.jsx:5](file://src/components/layout/Nav.jsx#L5)
 
 ## Typography System
-**Updated** The application now features a refined typography system with two distinct font families:
+**Updated** The application now features a refined typography system with two distinct font families and advanced responsive scaling using clamp functions:
 
 ### Font Families
 - **Serif Font**: Cormorant Garamond - Used for headings (h1-h3), quotes, and emphasized text
 - **Sans-serif Font**: Inter - Used for body text, navigation, and interface elements
+
+### Responsive Typography with Clamp Functions
+The typography system implements fluid scaling using CSS clamp functions for optimal responsiveness:
+
+```css
+--fs-display: clamp(3rem, 6vw, 6rem);
+--fs-h1: clamp(2.25rem, 4vw, 4rem);
+--fs-h2: clamp(1.75rem, 3vw, 2.75rem);
+--fs-h3: clamp(1.25rem, 2vw, 1.75rem);
+```
+
+These clamp functions provide:
+- **Minimum size**: Prevents text from becoming too small on mobile devices
+- **Fluid scaling**: Uses viewport-relative units for smooth scaling across devices
+- **Maximum size**: Ensures text remains readable on larger screens
 
 ### Typography Implementation
 The typography system is implemented through CSS custom properties in the variables file, providing consistent font sizing and spacing across all components:
@@ -301,16 +253,16 @@ The typography system is implemented through CSS custom properties in the variab
 ```
 
 ### Component Integration
-All content components now utilize the new typography system:
-- Headings use Cormorant Garamond for elegant serif typography
-- Body text uses Inter for excellent readability
+All content components now utilize the new responsive typography system:
+- Headings use Cormorant Garamond for elegant serif typography with fluid scaling
+- Body text uses Inter for excellent readability with clamp-based sizing
 - Quotes and emphasized text use the serif font for visual distinction
 - Navigation and interface elements use the sans-serif font for clarity
 
 **Section sources**
-- [src/styles/_typography.css:1-41](file://src/styles/_typography.css#L1-L41)
-- [src/styles/_variables.css:13-15](file://src/styles/_variables.css#L13-L15)
+- [src/styles/_variables.css:13-25](file://src/styles/_variables.css#L13-L25)
 - [src/styles/_global.css:10-19](file://src/styles/_global.css#L10-L19)
+- [src/styles/_typography.css:1-41](file://src/styles/_typography.css#L1-L41)
 
 ## Data Management
 **Updated** The application uses a centralized content management system through a dedicated data module with enhanced biography narrative and expanded sections.
@@ -332,7 +284,7 @@ The content.js file organizes all application data into logical categories with 
 ### Navigation Data
 Separate arrays manage:
 - sectionIds for scroll positioning
-- navLinks for navigation structure
+- navLinks for navigation structure with enhanced desktop navigation support
 - Consistent labeling and routing
 
 **Section sources**
@@ -430,4 +382,4 @@ Common development and runtime issues with solutions:
 - [vite.config.js:7-8](file://vite.config.js#L7-L8)
 
 ## Conclusion
-The React frontend components demonstrate a mature, scalable architecture with comprehensive animation integration, modular component design, and robust development tooling. The recent updates to the content structure, particularly the enhanced biography narrative, expanded entrepreneurship and creativity sections, and sophisticated visual presentation in the Books Publications component, showcase the evolution toward a more comprehensive and visually engaging digital portfolio. The 11-content component structure provides excellent organization for showcasing diverse aspects of Frankie Picasso's work while maintaining consistency and performance. The combination of CSS Modules, custom hooks, GSAP animations, and the refined typography system creates a polished user experience with smooth interactions and professional presentation quality.
+The React frontend components demonstrate a mature, scalable architecture with comprehensive animation integration, modular component design, and robust development tooling. The recent comprehensive redesign enhancements showcase the evolution toward a more sophisticated and visually engaging digital portfolio. The enhanced mobile-first navigation system with GSAP animations, improved desktop layout for the hero section with responsive padding and overflow fixes, redesigned awards recognition with laurel decorations, comprehensive brand-focused footer, and enhanced global styling system with improved CSS variables and responsive typography using clamp functions represent significant improvements in user experience and visual appeal. The 11-content component structure provides excellent organization for showcasing diverse aspects of Frankie Picasso's work while maintaining consistency and performance. The combination of CSS Modules, custom hooks, GSAP animations, and the refined responsive typography system creates a polished user experience with smooth interactions and professional presentation quality.

@@ -33,12 +33,13 @@ export default function HeroExperience() {
 
     gsap.from('.hero-eyebrow', { opacity: 0, y: 20, duration: 0.6, delay: 0.1 })
     gsap.from('.hero-sub', { opacity: 0, y: 30, duration: 0.8, delay: 1.2 })
+    gsap.from('.hero-cta', { opacity: 0, y: 30, duration: 0.8, delay: 1.4 })
     gsap.from('.hero-line', { scaleX: 0, duration: 1, delay: 1.5, ease: 'power2.inOut' })
     gsap.from('.hero-tagline', { opacity: 0, duration: 0.8, delay: 1.8 })
-    gsap.from(`.${styles.ctaGroup}`, { opacity: 0, y: 30, duration: 0.8, delay: 2 })
   }, { scope: sectionRef })
 
-  useParallax(portraitParallax, { speed: 0.3, direction: 'up' })
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+  useParallax(portraitParallax, { speed: isMobile ? 0 : 0.3, direction: 'up' })
 
   useEffect(() => {
     if (!decorRef.current) return
@@ -64,7 +65,7 @@ export default function HeroExperience() {
   const scrollTo = (id) => {
     const el = document.getElementById(id)
     if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - 60
+      const y = el.getBoundingClientRect().top + window.scrollY - 72
       window.scrollTo({ top: y, behavior: 'smooth' })
     }
   }
@@ -79,7 +80,28 @@ export default function HeroExperience() {
         <div className="dot" style={{ top: '50%', left: '50%' }} />
       </div>
 
-      <div className={styles.heroContent}>
+      <div className={`container ${styles.grid}`}>
+        <div className={styles.content}>
+          <h1 ref={headlineRef} className={styles.headline}>
+            {headlineWords.map((word, i) => (
+              <span key={i} className="word" style={{ display: 'inline-block', marginRight: '0.25em' }}>
+                {word}
+              </span>
+            ))}
+          </h1>
+
+          <p className={`hero-sub ${styles.sub}`}>{hero.subheadline}</p>
+
+          <div className={`hero-cta ${styles.ctaGroup}`}>
+            <button className={styles.ctaPrimary} onClick={() => scrollTo('story')}>
+              Explore My Journey
+            </button>
+            <button className={styles.ctaSecondary} onClick={() => scrollTo('contact')}>
+              Contact
+            </button>
+          </div>
+        </div>
+
         <div className={styles.portraitWrap} ref={portraitParallax}>
           <div className={styles.portrait}>
             <div className={styles.portraitInner}>
@@ -97,9 +119,6 @@ export default function HeroExperience() {
               <span className={styles.portraitLabel}>Portrait</span>
             </div>
           </div>
-        </div>
-
-        <div className={styles.content}>
           <div className={styles.taglineBlock}>
             <div className={styles.taglineDivider}>
               <span className={styles.taglineDot} />
@@ -108,25 +127,6 @@ export default function HeroExperience() {
               <span className={styles.eyebrowLine}>Media Executive • Broadcaster • Social Impact Entrepreneur</span>
               <span className={styles.eyebrowLine}>Community Architect • Author</span>
             </p>
-          </div>
-
-          <h1 ref={headlineRef} className={styles.headline}>
-            {headlineWords.map((word, i) => (
-              <span key={i} className="word" style={{ display: 'inline-block', marginRight: '0.25em' }}>
-                {word}
-              </span>
-            ))}
-          </h1>
-
-          <p className={`hero-sub ${styles.sub}`}>{hero.subheadline}</p>
-
-          <div className={styles.ctaGroup}>
-            <button className={styles.ctaPrimary} onClick={() => scrollTo('story')}>
-              Explore My Journey
-            </button>
-            <button className={styles.ctaSecondary} onClick={() => scrollTo('contact')}>
-              Contact
-            </button>
           </div>
         </div>
       </div>

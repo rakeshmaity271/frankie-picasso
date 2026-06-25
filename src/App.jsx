@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import Nav from './components/layout/Nav'
 import Footer from './components/layout/Footer'
+import SectionIndicator from './components/common/SectionIndicator'
 import HeroExperience from './components/hero/HeroExperience'
 import FrankieStory from './components/story/FrankieStory'
 import Entrepreneurship from './components/entrepreneurship/Entrepreneurship'
@@ -29,6 +30,7 @@ function App() {
     <div className={styles.app}>
       <a href="#main" className={styles.skipLink}>Skip to main content</a>
       <Nav />
+      <SectionIndicator />
       <main id="main">
         <HeroExperience />
         <FrankieStory />

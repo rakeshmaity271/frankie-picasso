@@ -25,3 +25,9 @@ dist/
 
 # Scripts with credentials
 scripts/setup_server.py
+
+# Audit/design screenshots
+audit_*.png
+desktop_*.png
+mobile_*.png
+ssl_error*.png
