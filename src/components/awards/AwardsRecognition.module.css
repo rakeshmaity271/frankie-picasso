@@ -1,6 +1,8 @@
 .section {
   background: linear-gradient(180deg, var(--color-warm-ivory) 0%, #f0e8df 100%);
-  padding: var(--space-section) 0;
+  padding-top: var(--space-lg);
+  margin-bottom: 0;
+  padding-bottom: 8rem;
 }
 
 .featured {
@@ -79,7 +81,9 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-md);
+  column-gap: var(--space-3xl);
+  row-gap: var(--space-md);
+  align-items: stretch;
 }
 
 .awardCard {
@@ -90,6 +94,11 @@
   position: relative;
   overflow: hidden;
   transition: transform var(--transition-fast);
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .awardCard::before {

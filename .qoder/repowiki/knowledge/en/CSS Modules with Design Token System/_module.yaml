@@ -1,0 +1,16 @@
+schema_version: 1
+module_path: frontend_style
+title: CSS Modules with Design Token System
+scope: []
+source_files:
+    - src/styles/_variables.css
+    - src/styles/_global.css
+    - src/styles/_typography.css
+    - src/styles/_utilities.css
+    - src/App.module.css
+    - src/components/hero/HeroExperience.module.css
+    - src/components/layout/Nav.module.css
+    - src/components/common/SectionHeading.module.css
+    - src/main.jsx
+depends_on: []
+related_to: []

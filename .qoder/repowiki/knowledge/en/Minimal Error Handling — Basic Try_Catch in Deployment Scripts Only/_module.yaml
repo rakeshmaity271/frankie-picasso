@@ -1,0 +1,14 @@
+schema_version: 1
+module_path: error_handling
+title: Minimal Error Handling — Basic Try/Catch in Deployment Scripts Only
+scope: []
+source_files:
+    - scripts/check_server.py
+    - scripts/fix_server.py
+    - scripts/setup_server.py
+    - scripts/deploy.sh
+    - .github/workflows/deploy.yml
+    - src/main.jsx
+    - src/App.jsx
+depends_on: []
+related_to: []

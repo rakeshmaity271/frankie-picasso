@@ -19,6 +19,8 @@
 - [src/components/common/SectionHeading.module.css](file://src/components/common/SectionHeading.module.css)
 - [src/components/common/SectionIndicator.jsx](file://src/components/common/SectionIndicator.jsx)
 - [src/components/common/SectionIndicator.module.css](file://src/components/common/SectionIndicator.module.css)
+- [src/components/common/SiteLoader.jsx](file://src/components/common/SiteLoader.jsx)
+- [src/components/common/SiteLoader.module.css](file://src/components/common/SiteLoader.module.css)
 - [src/hooks/useActiveSection.js](file://src/hooks/useActiveSection.js)
 - [src/hooks/useGsap.js](file://src/hooks/useGsap.js)
 - [src/data/content.js](file://src/data/content.js)
@@ -29,11 +31,11 @@
 
 ## Update Summary
 **Changes Made**
-- Added documentation for new SectionIndicator component and useActiveSection hook
-- Enhanced Nav component documentation to reflect integration with useActiveSection hook
-- Updated component architecture to include new floating section navigation system
-- Enhanced HeroExperience component documentation to reflect recent improvements
-- Updated state management documentation to include new Intersection Observer-based active section tracking
+- Added documentation for new SiteLoader component with 45 lines and corresponding CSS styling
+- Enhanced Awards section layout with laurel decorations and responsive grid improvements
+- Updated HeroExperience component with enhanced mobile responsiveness and parallax effects
+- Improved Navigation mobile styling with refined responsive design patterns
+- Integrated SiteLoader component into the main App component for enhanced loading experience
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -54,7 +56,7 @@
 16. [Conclusion](#conclusion)
 
 ## Introduction
-This document provides comprehensive documentation for the React frontend components and development setup. The project features a modular component-based architecture with 11 distinct content sections, sophisticated animation integration using GSAP, and a robust CSS Modules styling system. The application showcases a professional portfolio-style website with smooth scrolling navigation, interactive animations, responsive design patterns, and a refined typography system using Cormorant Garamond and Inter fonts. Recent enhancements include improved desktop layouts, enhanced responsive typography using clamp functions, refined cross-device functionality, and a new floating section navigation system.
+This document provides comprehensive documentation for the React frontend components and development setup. The project features a modular component-based architecture with 11 distinct content sections, sophisticated animation integration using GSAP, and a robust CSS Modules styling system. The application showcases a professional portfolio-style website with smooth scrolling navigation, interactive animations, responsive design patterns, and a refined typography system using Cormorant Garamond and Inter fonts. Recent enhancements include improved desktop layouts, enhanced responsive typography using clamp functions, refined cross-device functionality, a new floating section navigation system, and a sophisticated site loading experience with the new SiteLoader component.
 
 ## Project Structure
 The project follows a structured React + Vite setup with a comprehensive component hierarchy organized into logical modules:
@@ -103,22 +105,25 @@ The application is structured around several key architectural components that w
 The application bootstraps through a minimal entry point that creates the React root and renders the main App component within strict mode for enhanced error detection.
 
 ### Primary Component: App.jsx
-The main App component orchestrates the entire application layout, managing the loading sequence and coordinating all content sections. It implements sophisticated loading animations and accessibility features. The App component now includes the new SectionIndicator component for enhanced navigation.
+The main App component orchestrates the entire application layout, managing the loading sequence and coordinating all content sections. It implements sophisticated loading animations and accessibility features. The App component now includes the new SiteLoader component for enhanced loading experience and the SectionIndicator component for improved navigation.
 
-### Layout System
-The layout system consists of reusable components that provide consistent navigation, branding, and footer functionality across all pages.
+### SiteLoader Component (SiteLoader.jsx)
+**New** A sophisticated loading component that provides an elegant transition experience for first-time visitors. Features a fixed-position loader with fade-out animation, brand logo display, and gradient wordmark with decorative divider elements. Implements session storage to track visitor status and ensures optimal loading experience across visits.
 
 **Section sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
 - [src/App.jsx:19-55](file://src/App.jsx#L19-L55)
 - [src/App.module.css:1-23](file://src/App.module.css#L1-L23)
+- [src/components/common/SiteLoader.jsx:1-45](file://src/components/common/SiteLoader.jsx#L1-L45)
+- [src/components/common/SiteLoader.module.css:1-86](file://src/components/common/SiteLoader.module.css#L1-L86)
 
 ## Component Architecture
 The application employs a hierarchical component architecture with clear separation of concerns and enhanced active section tracking:
 
 ```mermaid
 graph TD
-App["App.jsx"] --> Nav["Nav.jsx"]
+App["App.jsx"] --> SiteLoader["SiteLoader.jsx"]
+App --> Nav["Nav.jsx"]
 App --> Footer["Footer.jsx"]
 App --> Hero["HeroExperience.jsx"]
 App --> Awards["AwardsRecognition.jsx"]
@@ -132,6 +137,7 @@ Hero --> Parallax["useParallax.js"]
 Awards --> GSAP
 Awards --> ScrollReveal["useScrollReveal.js"]
 SectionHeading --> GSAP
+SiteLoader --> GSAP
 ```
 
 **Diagram sources**
@@ -147,7 +153,7 @@ SectionHeading --> GSAP
 - [src/hooks/useActiveSection.js:1-36](file://src/hooks/useActiveSection.js#L1-L36)
 
 ## Layout Components
-The layout system provides consistent navigation and structural elements across all pages with enhanced active section tracking.
+The layout system provides consistent navigation and structural elements across all pages with enhanced active section tracking and improved mobile responsiveness.
 
 ### Navigation Component (Nav.jsx)
 **Updated** Features responsive design with mobile-first approach, scroll-aware styling, and animated navigation items. Integrates with GSAP for smooth animations and uses the new useActiveSection hook for intelligent active section detection. The navigation now includes a comprehensive mobile menu with social links and contact button, featuring sophisticated GSAP animations for menu item entrance and exit. The desktop navigation system has been enhanced with a dedicated `desktopNav` class for improved cross-device functionality and better separation of desktop vs mobile styling. The component now uses Intersection Observer technology to automatically detect which section is currently in view.
@@ -158,6 +164,9 @@ The layout system provides consistent navigation and structural elements across 
 ### Section Indicator Component (SectionIndicator.jsx)
 **New** A floating navigation component that appears on mobile devices to provide quick access to different sections of the page. Features a vertical list of clickable dots that correspond to each major section, with automatic highlighting of the currently active section. Includes smooth scrolling functionality and responsive visibility control based on scroll position.
 
+### SiteLoader Component (SiteLoader.jsx)
+**New** A sophisticated loading component that provides an elegant transition experience for first-time visitors. Features a fixed-position loader with fade-out animation, brand logo display, and gradient wordmark with decorative divider elements. Implements session storage to track visitor status and ensures optimal loading experience across visits.
+
 **Section sources**
 - [src/components/layout/Nav.jsx:1-152](file://src/components/layout/Nav.jsx#L1-L152)
 - [src/components/layout/Nav.module.css:1-349](file://src/components/layout/Nav.module.css#L1-L349)
@@ -165,26 +174,33 @@ The layout system provides consistent navigation and structural elements across 
 - [src/components/layout/Footer.module.css:1-102](file://src/components/layout/Footer.module.css#L1-L102)
 - [src/components/common/SectionIndicator.jsx:1-43](file://src/components/common/SectionIndicator.jsx#L1-L43)
 - [src/components/common/SectionIndicator.module.css:1-60](file://src/components/common/SectionIndicator.module.css#L1-L60)
+- [src/components/common/SiteLoader.jsx:1-45](file://src/components/common/SiteLoader.jsx#L1-L45)
+- [src/components/common/SiteLoader.module.css:1-86](file://src/components/common/SiteLoader.module.css#L1-L86)
 
 ## Content Components
 The application features 11 specialized content components, each designed to showcase specific aspects of Frankie Picasso's work and achievements.
 
 ### Hero Experience (HeroExperience.jsx)
-**Updated** Implements sophisticated animations including headline word-by-word reveal, parallax effects, and decorative motion elements. Uses GSAP for timeline-based animations and responsive design considerations. Features the new typography system with Cormorant Garamond for headings and Inter for body text. The hero section now uses enhanced desktop layout with improved CSS styling, responsive padding that adapts to navigation height, and overflow fixes for better cross-device presentation. The component includes sophisticated responsive design patterns with optimized spacing and alignment for both desktop and mobile views.
+**Updated** Implements sophisticated animations including headline word-by-word reveal, parallax effects, and decorative motion elements. Uses GSAP for timeline-based animations and responsive design considerations. Features the new typography system with Cormorant Garamond for headings and Inter for body text. The hero section now uses enhanced desktop layout with improved CSS styling, responsive padding that adapts to navigation height, and overflow fixes for better cross-device presentation. The component includes sophisticated responsive design patterns with optimized spacing and alignment for both desktop and mobile views. Enhanced mobile responsiveness with improved parallax effects and reduced motion support.
 
 ### Awards Recognition (AwardsRecognition.jsx)
-**Updated** Completely redesigned with new CSS styling featuring laurel decoration system, featured award highlighting, and responsive grid layout. The component now includes sophisticated GSAP ScrollTrigger animations for the featured award card with back.ease effect and scroll-triggered entrance animations.
+**Updated** Completely redesigned with new CSS styling featuring laurel decoration system, featured award highlighting, and responsive grid layout. The component now includes sophisticated GSAP ScrollTrigger animations for the featured award card with back.ease effect and scroll-triggered entrance animations. Features a decorative laurel wreath SVG element positioned absolutely behind the featured award content, creating a sense of celebration and achievement.
 
 ### Section Heading (SectionHeading.jsx)
 **Updated** Reusable component for consistent heading presentation across all content sections. The component has been refactored to remove the decorative numbering system, simplifying the design to focus purely on title and subtitle presentation. Supports light/dark theme variants for different background contexts.
+
+### SiteLoader Component (SiteLoader.jsx)
+**New** A sophisticated loading component that provides an elegant transition experience for first-time visitors. Features a fixed-position loader with fade-out animation, brand logo display, and gradient wordmark with decorative divider elements. Implements session storage to track visitor status and ensures optimal loading experience across visits.
 
 **Section sources**
 - [src/components/hero/HeroExperience.jsx:1-140](file://src/components/hero/HeroExperience.jsx#L1-L140)
 - [src/components/hero/HeroExperience.module.css:1-328](file://src/components/hero/HeroExperience.module.css#L1-L328)
 - [src/components/awards/AwardsRecognition.jsx:1-70](file://src/components/awards/AwardsRecognition.jsx#L1-L70)
-- [src/components/awards/AwardsRecognition.module.css:1-295](file://src/components/awards/AwardsRecognition.module.css#L1-L295)
+- [src/components/awards/AwardsRecognition.module.css:1-147](file://src/components/awards/AwardsRecognition.module.css#L1-L147)
 - [src/components/common/SectionHeading.jsx:1-12](file://src/components/common/SectionHeading.jsx#L1-L12)
 - [src/components/common/SectionHeading.module.css:1-32](file://src/components/common/SectionHeading.module.css#L1-L32)
+- [src/components/common/SiteLoader.jsx:1-45](file://src/components/common/SiteLoader.jsx#L1-L45)
+- [src/components/common/SiteLoader.module.css:1-86](file://src/components/common/SiteLoader.module.css#L1-L86)
 
 ## Shared Utilities
 The application leverages several shared utility components and hooks to maintain consistency and reduce code duplication.
@@ -194,6 +210,9 @@ The application leverages several shared utility components and hooks to maintai
 
 ### Section Heading (SectionHeading.jsx)
 **Updated** Reusable component for consistent heading presentation across all content sections. The component has been refactored to remove the decorative numbering system, simplifying the design to focus purely on title and subtitle presentation. Supports light/dark theme variants for different background contexts.
+
+### SiteLoader Component (SiteLoader.jsx)
+**New** A sophisticated loading component that provides an elegant transition experience for first-time visitors. Features a fixed-position loader with fade-out animation, brand logo display, and gradient wordmark with decorative divider elements. Implements session storage to track visitor status and ensures optimal loading experience across visits.
 
 ### GSAP Hook (useGsap.js)
 Centralized GSAP configuration with ScrollTrigger registration, default settings, and useGSAP wrapper for consistent animation behavior.
@@ -206,6 +225,8 @@ Centralized GSAP configuration with ScrollTrigger registration, default settings
 - [src/components/common/SectionIndicator.module.css:1-60](file://src/components/common/SectionIndicator.module.css#L1-L60)
 - [src/components/common/SectionHeading.jsx:1-12](file://src/components/common/SectionHeading.jsx#L1-L12)
 - [src/components/common/SectionHeading.module.css:1-32](file://src/components/common/SectionHeading.module.css#L1-L32)
+- [src/components/common/SiteLoader.jsx:1-45](file://src/components/common/SiteLoader.jsx#L1-L45)
+- [src/components/common/SiteLoader.module.css:1-86](file://src/components/common/SiteLoader.module.css#L1-L86)
 - [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
 - [src/hooks/useActiveSection.js:1-36](file://src/hooks/useActiveSection.js#L1-L36)
 
@@ -252,10 +273,20 @@ The SectionIndicator component features specialized mobile-first styling with:
 - Responsive visibility based on scroll position
 - Gold accent colors for active states
 
+### SiteLoader Styling
+**New** The SiteLoader component features sophisticated loading animations with:
+- Fixed positioning covering entire viewport
+- Fade-out animation with delayed removal
+- Scale-in entrance animation for content
+- Gradient text effects for brand wordmark
+- Decorative divider elements with gold accents
+- Responsive typography using CSS clamp functions
+
 **Section sources**
 - [src/App.module.css:1-23](file://src/App.module.css#L1-L23)
 - [src/components/layout/Nav.jsx:5](file://src/components/layout/Nav.jsx#L5)
 - [src/components/common/SectionIndicator.module.css:1-60](file://src/components/common/SectionIndicator.module.css#L1-L60)
+- [src/components/common/SiteLoader.module.css:1-86](file://src/components/common/SiteLoader.module.css#L1-L86)
 
 ## Typography System
 **Updated** The application now features a refined typography system with two distinct font families and advanced responsive scaling using clamp functions:
@@ -382,11 +413,11 @@ The application implements several performance optimization strategies:
 - Automatic cleanup of observers on component unmount
 - Improved performance on mobile devices
 
-### Loading Strategies
-- Sequential component loading
-- Lazy loading for non-critical resources
-- Optimized image handling
-- CSS animation performance
+### Loading Strategy Optimization
+- **New** Session storage-based visitor tracking reduces unnecessary loading animations
+- Optimized loader timing with minimum display duration
+- Efficient fade-out animations using CSS transitions
+- Minimal JavaScript overhead for loading experience
 
 ### Bundle Optimization
 - Tree shaking for unused imports
@@ -402,12 +433,14 @@ Common development and runtime issues with solutions:
 - **Animation not working**: Check GSAP plugin registration and ScrollTrigger initialization
 - **Navigation not responding**: Ensure section IDs match between content and navigation
 - **Section indicator not appearing**: Verify mobile breakpoint conditions and scroll position detection
+- **SiteLoader not displaying**: Check session storage availability and loader div presence
 
 ### Styling Problems
 - **Styles not applying**: Verify CSS Modules import syntax and class name matching
 - **Animation conflicts**: Check for conflicting CSS properties and z-index stacking
 - **Responsive issues**: Review media query breakpoints and viewport meta tags
 - **Floating indicator positioning**: Check fixed positioning and z-index values
+- **SiteLoader overlay issues**: Verify z-index stacking and transform properties
 
 ### Typography Issues
 - **Font not loading**: Verify Google Fonts import and network connectivity
@@ -423,6 +456,7 @@ Common development and runtime issues with solutions:
 - **Active section detection not working**: Verify Intersection Observer support and section ID matching
 - **Mobile navigation not visible**: Check scroll position threshold and media query conditions
 - **Smooth scrolling not functioning**: Verify element ID existence and scroll offset calculations
+- **Session storage issues**: Verify browser compatibility and privacy settings
 
 **Section sources**
 - [src/main.jsx:6-10](file://src/main.jsx#L6-L10)
@@ -431,6 +465,10 @@ Common development and runtime issues with solutions:
 - [vite.config.js:7-8](file://vite.config.js#L7-L8)
 
 ## Conclusion
-The React frontend components demonstrate a mature, scalable architecture with comprehensive animation integration, modular component design, and robust development tooling. The recent comprehensive redesign enhancements showcase the evolution toward a more sophisticated and visually engaging digital portfolio. The enhanced mobile-first navigation system with GSAP animations, improved desktop layout for the hero section with responsive padding and overflow fixes, redesigned awards recognition with laurel decorations, comprehensive brand-focused footer, and enhanced global styling system with improved CSS variables and responsive typography using clamp functions represent significant improvements in user experience and visual appeal. 
+The React frontend components demonstrate a mature, scalable architecture with comprehensive animation integration, modular component design, and robust development tooling. The recent comprehensive redesign enhancements showcase the evolution toward a more sophisticated and visually engaging digital portfolio. The enhanced mobile-first navigation system with GSAP animations, improved desktop layout for the hero section with responsive padding and overflow fixes, redesigned awards recognition with laurel decorations, comprehensive brand-focused footer, and enhanced global styling system with improved CSS variables and responsive typography using clamp functions represent significant improvements in user experience and visual appeal.
 
-The addition of the new SectionIndicator component and useActiveSection hook introduces a sophisticated floating navigation system that enhances mobile usability with quick section access and intelligent active section highlighting. The Intersection Observer-based active section tracking provides efficient, low-overhead section detection that improves performance and user experience across all devices. The 11-content component structure provides excellent organization for showcasing diverse aspects of Frankie Picasso's work while maintaining consistency and performance. The combination of CSS Modules, custom hooks, GSAP animations, and the refined responsive typography system creates a polished user experience with smooth interactions and professional presentation quality.
+The addition of the new SiteLoader component introduces a sophisticated loading experience that enhances user perception and engagement. The session storage-based visitor tracking ensures optimal loading performance while maintaining brand consistency. The enhanced mobile navigation styling with refined responsive design patterns provides excellent cross-device functionality.
+
+The Intersection Observer-based active section tracking provides efficient, low-overhead section detection that improves performance and user experience across all devices. The 11-content component structure provides excellent organization for showcasing diverse aspects of Frankie Picasso's work while maintaining consistency and performance. The combination of CSS Modules, custom hooks, GSAP animations, and the refined responsive typography system creates a polished user experience with smooth interactions and professional presentation quality.
+
+The new SiteLoader component, combined with the enhanced Awards section layout, improved HeroExperience mobile responsiveness, and refined Navigation mobile styling updates, represents a comprehensive enhancement to the application's user experience and technical architecture.
