@@ -1,0 +1,1 @@
+Express.js v5 for HTTP server, ES Modules (`type: module`) for import syntax.

@@ -1,0 +1,30 @@
+.placeholder {
+  background: linear-gradient(135deg, var(--color-deep-plum), var(--color-burgundy));
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-gold);
+  opacity: 0.5;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}

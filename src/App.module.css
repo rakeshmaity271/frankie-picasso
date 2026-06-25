@@ -1,0 +1,22 @@
+.app {
+  min-height: 100vh;
+}
+
+.skipLink {
+  position: absolute;
+  top: -100%;
+  left: var(--space-md);
+  background: var(--color-gold);
+  color: var(--color-deep-plum);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-body);
+  z-index: 10000;
+  transition: top var(--transition-fast);
+}
+
+.skipLink:focus {
+  top: var(--space-sm);
+}

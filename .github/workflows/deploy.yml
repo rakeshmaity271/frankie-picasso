@@ -1,0 +1,93 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - dev
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+    environment: production
+    concurrency:
+      group: production
+      cancel-in-progress: false
+
+    steps:
+      # ── Checkout ──────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── Node.js setup ─────────────────────────────────────────
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      # ── Install dependencies ──────────────────────────────────
+      - name: Install dependencies
+        run: npm ci
+
+      # ── Build ─────────────────────────────────────────────────
+      - name: Build production bundle
+        run: npm run build
+
+      # ── Verify build output ───────────────────────────────────
+      - name: Verify dist exists
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "Build failed: dist/ directory not found"
+            exit 1
+          fi
+          echo "Build output size: $(du -sh dist)"
+
+      # ── Deploy via SSH ────────────────────────────────────────
+      - name: Deploy to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SERVER_PORT }}
+          source: "dist/"
+          target: "${{ secrets.PROJECT_PATH }}"
+          strip_components: 1
+          overwrite: true
+
+      # ── Post-deploy: verify & cleanup ─────────────────────────
+      - name: Verify deployment
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SERVER_PORT }}
+          script: |
+            set -e
+            PROJECT_PATH="${{ secrets.PROJECT_PATH }}"
+
+            echo "=== Verifying deployment ==="
+
+            # Check index.html exists
+            if [ ! -f "$PROJECT_PATH/index.html" ]; then
+              echo "ERROR: index.html not found at $PROJECT_PATH"
+              exit 1
+            fi
+
+            echo "✓ index.html found"
+            echo "✓ Files deployed: $(ls -1 $PROJECT_PATH | wc -l) items"
+            echo "✓ Deployed at: $(date)"
+
+      # ── Deployment status ─────────────────────────────────────
+      - name: Report success
+        if: success()
+        run: echo "✅ Deployment to frankie-picasso.kodeclouds.com succeeded!"
+
+      - name: Report failure
+        if: failure()
+        run: echo "❌ Deployment to frankie-picasso.kodeclouds.com failed!"

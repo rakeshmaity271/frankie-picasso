@@ -1,0 +1,118 @@
+.section {
+  background: var(--color-warm-ivory);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.narrative {
+  position: sticky;
+  top: calc(var(--nav-height) + var(--space-xl));
+}
+
+.philosophy {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--color-deep-plum);
+  margin: 0;
+}
+
+.timeline {
+  position: relative;
+  padding-left: var(--space-2xl);
+}
+
+.timeline-line {
+  position: absolute;
+  left: 11px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-gold);
+}
+
+.timelineList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.timelineItem {
+  position: relative;
+}
+
+.timeline-node {
+  position: absolute;
+  left: calc(-1 * var(--space-2xl) + 4px);
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  border: 3px solid var(--color-warm-ivory);
+  box-shadow: 0 0 0 2px var(--color-gold);
+}
+
+.year {
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.timelineTitle {
+  font-size: var(--fs-h3);
+  margin: 0 0 var(--space-xs);
+}
+
+.timelineDesc {
+  font-size: var(--fs-body);
+  color: var(--color-charcoal);
+  opacity: 0.8;
+  margin: 0;
+}
+
+.pullQuote {
+  margin-top: var(--space-3xl);
+  font-size: var(--fs-h2);
+  max-width: 700px;
+}
+
+.pullQuote p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: inherit;
+  color: var(--color-deep-plum);
+}
+
+@media (max-width: 767px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .narrative {
+    position: static;
+  }
+
+  .timeline {
+    padding-left: var(--space-lg);
+  }
+
+  .timeline-node {
+    left: calc(-1 * var(--space-lg) + 4px);
+  }
+}

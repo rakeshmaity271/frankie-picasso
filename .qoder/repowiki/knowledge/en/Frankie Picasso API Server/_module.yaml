@@ -1,0 +1,16 @@
+schema_version: 1
+module_path: ""
+title: Frankie Picasso API Server
+scope:
+    - .gitignore
+    - .mcp.json
+    - README.md
+    - package-lock.json
+    - package.json
+    - public/
+    - src/
+    - public\index.html
+    - src\index.js
+source_files: []
+depends_on: []
+related_to: []

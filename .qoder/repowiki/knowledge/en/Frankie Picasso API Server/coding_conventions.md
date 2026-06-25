@@ -1,0 +1,2 @@
+- Uses ES module syntax (`import`/`export`) instead of CommonJS.
+- Defines routes inline within the main entry file rather than using separate router modules.

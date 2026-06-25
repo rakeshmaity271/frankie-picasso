@@ -1,0 +1,1 @@
+A minimal Node.js Express server serving a static landing page and basic API health endpoints.

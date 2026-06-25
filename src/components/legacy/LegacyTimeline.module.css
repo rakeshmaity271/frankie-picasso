@@ -1,0 +1,145 @@
+.section {
+  background: var(--color-warm-ivory);
+}
+
+.legend {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  text-transform: capitalize;
+  color: var(--color-charcoal);
+  opacity: 0.7;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* Horizontal */
+.horizontalWrap {
+  overflow: hidden;
+  padding: var(--space-xl) 0 var(--space-2xl);
+}
+
+.track {
+  display: flex;
+  gap: var(--space-xl);
+  padding: 0 var(--space-2xl);
+  position: relative;
+  width: max-content;
+}
+
+.line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-dim));
+  opacity: 0.3;
+}
+
+.event {
+  position: relative;
+  min-width: 250px;
+  max-width: 280px;
+  padding-top: 50px;
+  flex-shrink: 0;
+}
+
+.event:nth-child(odd) {
+  padding-top: 0;
+  padding-bottom: 50px;
+  align-self: flex-start;
+}
+
+.eventDot {
+  position: absolute;
+  top: -6px;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 3px solid var(--color-warm-ivory);
+  box-shadow: 0 0 0 2px var(--color-gold);
+}
+
+.event:nth-child(odd) .eventDot {
+  top: auto;
+  bottom: -6px;
+}
+
+.eventYear {
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-gold);
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.eventTitle {
+  font-size: var(--fs-h3);
+  margin: 0 0 var(--space-xs);
+}
+
+.eventDesc {
+  font-size: var(--fs-body);
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* Vertical (mobile) */
+.verticalTimeline {
+  position: relative;
+  padding-left: var(--space-lg);
+  border-left: 2px solid var(--color-gold);
+}
+
+.vEvent {
+  position: relative;
+  padding-bottom: var(--space-xl);
+}
+
+.vDot {
+  position: absolute;
+  left: calc(-1 * var(--space-lg) - 1px);
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 3px solid var(--color-warm-ivory);
+  box-shadow: 0 0 0 2px var(--color-gold);
+}
+
+.vYear {
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.vTitle {
+  font-size: var(--fs-h3);
+  margin: 0 0 4px;
+}
+
+.vDesc {
+  font-size: var(--fs-body);
+  opacity: 0.8;
+  margin: 0;
+}

@@ -1,0 +1,23 @@
+# 知识卡导出索引文件
+schema_version: 1
+locale: en-US
+branch: dev
+exported_at: "2026-06-24T14:03:57Z"
+modules:
+    "":
+        dir_name: Frankie Picasso API Server
+        title: Frankie Picasso API Server
+        scope:
+            - .gitignore
+            - .mcp.json
+            - README.md
+            - package-lock.json
+            - package.json
+            - public/
+            - src/
+            - public\index.html
+            - src\index.js
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []

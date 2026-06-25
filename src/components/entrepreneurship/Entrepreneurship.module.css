@@ -1,0 +1,77 @@
+.section {
+  background: var(--color-warm-ivory);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.card {
+  background: white;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  border-left: 3px solid var(--color-gold);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(61, 28, 62, 0.12);
+}
+
+.cardImage {
+  overflow: hidden;
+}
+
+.cardImage svg {
+  width: 100%;
+  display: block;
+  transition: transform var(--transition-smooth);
+}
+
+.card:hover .cardImage svg {
+  transform: scale(1.05);
+}
+
+.cardBody {
+  padding: var(--space-md);
+}
+
+.cardTitle {
+  font-size: var(--fs-h3);
+  margin: 0 0 var(--space-xs);
+}
+
+.cardRole {
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 var(--space-sm);
+}
+
+.cardDesc {
+  font-size: var(--fs-body);
+  opacity: 0.8;
+  margin: 0 0 var(--space-sm);
+}
+
+.impact {
+  font-family: var(--font-serif);
+  font-size: var(--fs-body-lg);
+  font-weight: 600;
+  color: var(--color-burgundy);
+  margin: 0;
+}
+
+@media (max-width: 1023px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 599px) {
+  .grid { grid-template-columns: 1fr; }
+}
