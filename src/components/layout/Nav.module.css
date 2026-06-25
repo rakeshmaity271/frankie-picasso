@@ -25,15 +25,18 @@
 }
 
 .logo {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--color-gold);
   background: none;
   border: none;
   cursor: pointer;
   padding: var(--space-xs);
-  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
 }
 
 .desktopNav ul {

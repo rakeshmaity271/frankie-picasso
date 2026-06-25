@@ -1,5 +1,4 @@
 import { useRef } from 'react'
-import { gsap, useGSAP } from '../../hooks/useGsap'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import SectionHeading from '../common/SectionHeading'
 import { content } from '../../data/content'
@@ -8,27 +7,6 @@ import styles from './Entrepreneurship.module.css'
 export default function Entrepreneurship() {
   const sectionRef = useRef(null)
   useScrollReveal(sectionRef, { animation: 'fade-up' })
-
-  useGSAP(() => {
-    if (!sectionRef.current) return
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReducedMotion) return
-
-    const impacts = sectionRef.current.querySelectorAll('.impact-number')
-    impacts.forEach((el) => {
-      gsap.from(el, {
-        textContent: 0,
-        duration: 2,
-        ease: 'power2.out',
-        snap: { textContent: 1 },
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 85%',
-          toggleActions: 'play none none none'
-        }
-      })
-    })
-  }, { scope: sectionRef })
 
   const data = content.entrepreneurship
 

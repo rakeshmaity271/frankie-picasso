@@ -47,7 +47,7 @@ export default function Nav() {
     <header className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`} ref={navRef}>
       <div className={styles.inner}>
         <button className={styles.logo} onClick={() => scrollTo('hero')} aria-label="Go to top">
-          Frankie Picasso
+          <img src="/logo.png" alt="Frankie Picasso" className={styles.logoImage} />
         </button>
 
         <nav aria-label="Main navigation" className={styles.desktopNav}>
