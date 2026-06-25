@@ -1,56 +1,56 @@
 export const content = {
   hero: {
-    eyebrow: 'PLATFORM BUILDER · LEADER · LEGACY',
+    eyebrow: 'Media Executive • Broadcaster • Social Impact Entrepreneur • Community Architect • Author',
     headline: 'Built Platforms. Created Opportunities. Developed Partnerships. Led Teams. Amplified Impact.',
-    subheadline: 'A lifetime of entrepreneurship, creativity, and community building — told through the story of one remarkable woman.',
-    tagline: 'Building Platforms for People, Ideas, and Impact.'
+    subheadline: 'Award-winning broadcaster, media executive, entrepreneur, coach, author, artist, and community builder with experience spanning media, government, entrepreneurship, coaching, event production, organizational development, and social impact leadership.',
+    tagline: 'Known for creating platforms, building partnerships, developing communities, and amplifying voices.'
   },
 
   story: {
-    intro: 'Frankie Picasso\'s journey is one of vision, resilience, and unwavering commitment to creating opportunities where none existed. From her earliest days, she saw possibilities where others saw limitations — and built the platforms to turn those possibilities into reality.',
-    philosophy: 'I believe that every person has the power to create change. My life\'s work has been about building the stages, the networks, and the communities where that power can be unleashed.',
+    intro: 'Frankie Picasso\'s journey is one of vision, resilience, and unwavering commitment to creating opportunities where none existed. From kickboxing promotion to international media networks, she has built platforms that amplify voices and transform communities.',
+    philosophy: 'As Founder & CEO of The Good Radio Network, Co-Founder of G-Woman Media, and Founder of Rent A Believer, Frankie has consistently created spaces for leadership, personal development, and transformational growth. Her work spans media, government, entrepreneurship, and community building.',
     pullQuote: 'The measure of a life is not in the titles we hold, but in the doors we open for others.',
     timeline: [
-      { year: '1980s', title: 'The Beginning', description: 'Started with a vision to create platforms that would amplify voices and build communities.' },
-      { year: '1990s', title: 'Media Pioneer', description: 'Entered the broadcasting world, creating shows and formats that connected with diverse audiences.' },
-      { year: '2000s', title: 'Entrepreneurial Expansion', description: 'Founded multiple ventures across media, technology, and community development.' },
-      { year: '2010s', title: 'Global Recognition', description: 'Received international acclaim including WEF Woman of the Decade for platform building and social impact.' },
-      { year: '2020s', title: 'Legacy Building', description: 'Continues to build, mentor, and create — focusing on the next generation of leaders and platform builders.' }
+      { year: 'Early Career', title: 'Entrepreneurial Beginnings', description: 'Founded Condom Sense, L\'esthétique, Connalin Development Corporation, and Franko Investigations — building diverse business experience across health promotion, aesthetics, development, and investigations.' },
+      { year: '1990s', title: 'Sports Promotion Pioneer', description: 'Founded Roundhouse Promotions, becoming the first professional female kickboxing promoter in the world. Produced championship events, secured media exposure, and managed an ISKA World Champion.' },
+      { year: '2000s', title: 'Government & Organizational Leadership', description: 'Led strategic planning, organizational development, and employee engagement across multiple Ontario government ministries including Solicitor General, Cabinet Office, and Ministry of Labour.' },
+      { year: '2010s', title: 'Media Empire Building', description: 'Founded The Good Radio Network, an international positive-impact media platform. Host of Mission Unstoppable and FrankieSense & More. Co-founded G-Woman Media as VP, Americas.' },
+      { year: '2020s', title: 'Recognition & Legacy', description: 'Named Woman of the Decade by Women\'s Economic Forum (2024). Continues to build, mentor, and create through coaching, publishing, and community leadership.' }
     ]
   },
 
   entrepreneurship: {
-    intro: 'Throughout her career, Frankie has founded and led ventures that create lasting impact — building platforms that serve communities, amplify voices, and drive innovation.',
+    intro: 'Throughout her career, Frankie has founded and led ventures that create lasting impact — from international media networks to pioneering sports promotion and executive coaching.',
     ventures: [
-      { name: 'Media Ventures', role: 'Founder & CEO', description: 'Built multimedia platforms reaching millions, creating content that informs, inspires, and connects communities.', impact: '10M+ audience reached' },
-      { name: 'Community Development', role: 'Executive Director', description: 'Launched initiatives that brought together diverse stakeholders to solve complex social challenges.', impact: '50+ communities served' },
-      { name: 'Broadcasting Network', role: 'President', description: 'Created and scaled a broadcasting network that gave voice to underrepresented communities and stories.', impact: '25 years on air' },
-      { name: 'Digital Platforms', role: 'Co-Founder', description: 'Pioneered digital community platforms that connected people and ideas across geographic boundaries.', impact: '100K+ active members' },
-      { name: 'Leadership Institute', role: 'Founder', description: 'Established a leadership development program mentoring the next generation of community builders.', impact: '500+ leaders mentored' },
-      { name: 'Social Enterprise Fund', role: 'Managing Partner', description: 'Created a fund supporting social entrepreneurs building solutions in underserved communities.', impact: '$5M+ deployed' }
+      { name: 'The Good Radio Network', role: 'Founder & CEO', description: 'International positive-impact media platform. Host of Mission Unstoppable and FrankieSense & More.', impact: 'International reach' },
+      { name: 'G-Woman Media', role: 'Co-Founder & VP, Americas', description: 'Global multimedia platform focused on women\'s leadership, publishing, media, and community initiatives. Home to Conversation with My Shoes and Thoughtatudes.', impact: 'Global platform' },
+      { name: 'Rent A Believer', role: 'Founder • Executive Coach • Master Coach Trainer', description: 'Executive coaching and master coach training focused on leadership, personal development, and transformational growth.', impact: 'Leaders transformed' },
+      { name: 'Roundhouse Promotions', role: 'Founder & Owner', description: 'First professional female kickboxing promoter in the world. Produced championship events, secured media exposure, and managed an ISKA World Champion.', impact: 'World first' },
+      { name: 'Traffic Marketing', role: 'Contractor', description: 'Professional boxing management, fight promotion, sponsorship development, and event marketing.', impact: 'Events promoted' },
+      { name: 'Government of Ontario', role: 'Strategic Planning & Organizational Development Leader', description: 'Led strategic planning, organizational development, and employee engagement across Ministry of Solicitor General, Cabinet Office, and Ministry of Labour.', impact: 'Multiple ministries' }
     ]
   },
 
   creativity: {
-    intro: 'Creativity runs through everything Frankie does — from broadcasting and publishing to art and writing. Each creative endeavor has been a platform for connection and expression.',
+    intro: 'Creativity runs through everything Frankie does — from publishing and broadcasting to visual art and coaching. Each creative endeavor has been a platform for connection and expression.',
     works: [
-      { type: 'book', title: 'Published Author', description: 'Multiple books exploring leadership, community, and the power of platform building.' },
-      { type: 'radio', title: 'Radio Broadcasting', description: 'Created and hosted shows that became cultural touchstones for diverse audiences.' },
-      { type: 'art', title: 'Visual Arts', description: 'Expressed the journey of community and connection through mixed media and visual storytelling.' },
-      { type: 'writing', title: 'Thought Leadership', description: 'Articles, essays, and commentary on entrepreneurship, social impact, and the future of community.' },
-      { type: 'radio', title: 'Podcast Pioneer', description: 'Early adopter of podcasting as a medium for deep storytelling and community connection.' },
-      { type: 'art', title: 'Creative Direction', description: 'Led creative teams to develop visual identities and campaigns for social impact organizations.' }
+      { type: 'book', title: 'International Bestselling Author', description: 'Midlife Mojo, For Want of 40 Pounds, and I Bared My Chest — all international bestsellers. Plus No Bull Allowed and contributing author to Business, Life & The Universe, Volume 3.' },
+      { type: 'radio', title: 'Radio Broadcasting', description: 'Host of Mission Unstoppable and FrankieSense & More on The Good Radio Network, creating positive-impact programming.' },
+      { type: 'art', title: 'Professional Artist', description: 'Original and commissioned works featured through Fine Art America. Creator of custom pet portraits and artwork supporting animal welfare and children\'s causes.' },
+      { type: 'writing', title: 'Thought Leadership', description: 'Creator of Conversation with My Shoes and Thoughtatudes — platforms for voice, reflection, and community dialogue.' },
+      { type: 'radio', title: 'Executive Coaching', description: 'Master Coach Trainer and ICF Accredited Coach, developing leaders and facilitating transformational growth through Rent A Believer.' },
+      { type: 'art', title: 'Event Production', description: 'From championship kickboxing events to media productions, creating experiences that engage, inspire, and leave lasting impact.' }
     ]
   },
 
   community: {
     intro: 'At the heart of Frankie\'s work is an unwavering commitment to community — building connections, creating opportunities, and empowering others to lead.',
     initiatives: [
-      { name: 'Community Builders Network', role: 'Founder', description: 'A network connecting community leaders across sectors to share strategies and amplify impact.' },
-      { name: 'Youth Empowerment Program', role: 'Executive Sponsor', description: 'Programs providing young people with the tools, mentorship, and platforms to become leaders in their communities.' },
-      { name: 'Arts & Culture Initiative', role: 'Board Chair', description: 'Bringing arts and cultural programming to underserved communities, recognizing creativity as a catalyst for change.' },
-      { name: 'Women\'s Leadership Forum', role: 'Co-Founder', description: 'Creating spaces for women leaders to connect, share, and amplify each other\'s impact.' },
-      { name: 'Digital Equity Project', role: 'Advisory Board', description: 'Working to ensure all community members have access to digital tools and connectivity.' }
+      { name: 'The Good Radio Network', role: 'Founder & CEO', description: 'International positive-impact media platform amplifying voices and creating opportunities for meaningful dialogue.' },
+      { name: 'G-Woman Media', role: 'Co-Founder & VP, Americas', description: 'Global multimedia platform focused on women\'s leadership, publishing, media, and community initiatives.' },
+      { name: 'Rent A Believer', role: 'Founder & Executive Coach', description: 'Leadership development and transformational coaching empowering individuals to achieve personal and professional growth.' },
+      { name: 'Women\'s Leadership Initiatives', role: 'Platform Builder', description: 'Creating spaces through G-Woman Media and other ventures for women leaders to connect, share, and amplify each other\'s impact.' },
+      { name: 'Health Promotion', role: 'Founder', description: 'Through Condom Sense, developed health promotion initiatives supporting safer-sex awareness and education.' }
     ],
     quote: 'Community is not just about being together — it\'s about building together, creating together, and rising together.'
   },
@@ -58,82 +58,80 @@ export const content = {
   media: {
     intro: 'Through radio, podcasts, interviews, and press features, Frankie has used media as a platform to connect, inform, and inspire.',
     shows: [
-      { title: 'The Frankie Picasso Show', type: 'radio', description: 'Flagship radio program featuring conversations with leaders, artists, and community builders.', years: '2005–2020' },
-      { title: 'Voices of Impact', type: 'podcast', description: 'Podcast series highlighting stories of social entrepreneurs and community leaders.', years: '2018–Present' },
-      { title: 'Community Conversations', type: 'radio', description: 'Weekly call-in show connecting community members with decision-makers.', years: '2000–2010' }
+      { title: 'Mission Unstoppable', type: 'radio', description: 'Flagship show on The Good Radio Network featuring conversations with leaders, artists, and community builders.', years: 'Ongoing' },
+      { title: 'FrankieSense & More', type: 'radio', description: 'Dynamic radio program exploring leadership, personal development, and social impact.', years: 'Ongoing' },
+      { title: 'Conversation with My Shoes', type: 'podcast', description: 'Intimate podcast series sharing personal stories of transformation and growth.', years: 'G-Woman Media' },
+      { title: 'Thoughtatudes', type: 'podcast', description: 'Thought-provoking content exploring ideas, perspectives, and community dialogue.', years: 'G-Woman Media' }
     ],
     interviews: [
-      { title: 'Building Platforms in the Digital Age', outlet: 'Media Leadership Summit', year: '2023' },
-      { title: 'The Art of Community Building', outlet: 'Social Impact Forum', year: '2022' },
-      { title: 'Women in Media: A Conversation', outlet: 'Global Media Conference', year: '2021' }
+      { title: 'Women\'s Economic Forum Recognition', outlet: 'WEF', year: '2024' },
+      { title: 'Top 50 Writers You Should Be Reading', outlet: 'Literary Recognition', year: '2015' },
+      { title: 'Mission Unstoppable Guest Interviews', outlet: 'The Good Radio Network', year: 'Ongoing' }
     ],
     press: [
-      { title: 'The Platform Builder', outlet: 'Leadership Magazine', year: '2023' },
-      { title: '40 Years of Impact', outlet: 'Community Journal', year: '2022' },
-      { title: 'A Life in Media', outlet: 'Broadcasting World', year: '2021' }
+      { title: 'Woman of the Decade', outlet: 'Women\'s Economic Forum', year: '2024' },
+      { title: 'International Bestselling Author', outlet: 'Multiple Publications', year: '2020s' },
+      { title: 'First Female Kickboxing Promoter', outlet: 'Sports Media', year: '1990s' }
     ]
   },
 
   books: {
     intro: 'Through writing, Frankie has shared the lessons, insights, and philosophies that have guided a lifetime of platform building and community leadership.',
     featured: {
-      title: 'Building Platforms: A Life of Purpose and Impact',
-      description: 'A memoir and manifesto that chronicles four decades of entrepreneurship, creativity, and community building. Part personal journey, part leadership guide, this book offers wisdom for anyone looking to create meaningful impact in their community.',
+      title: 'Midlife Mojo',
+      description: 'An international bestseller that offers wisdom, insight, and inspiration for navigating life\'s transitions with power and purpose. Part personal journey, part empowerment guide, this book speaks to anyone ready to embrace their next chapter.',
       quote: 'Every platform we build becomes a stage for someone else\'s breakthrough moment.'
     },
     other: [
-      { title: 'Voices of the Community', year: '2018', description: 'Stories of everyday leaders who transformed their communities through creativity and connection.' },
-      { title: 'The Art of Amplification', year: '2015', description: 'A guide to using media and platforms to amplify underrepresented voices and ideas.' },
-      { title: 'Leading with Purpose', year: '2012', description: 'Reflections on purpose-driven leadership and building organizations that serve communities.' }
+      { title: 'For Want of 40 Pounds', year: 'International Bestseller', description: 'A compelling narrative exploring transformation and the power of small changes.' },
+      { title: 'I Bared My Chest', year: 'International Bestseller', description: 'A vulnerable and powerful exploration of authenticity and courage.' },
+      { title: 'No Bull Allowed', year: 'Published', description: 'A direct, no-nonsense guide to living authentically and leading with integrity.' },
+      { title: 'Business, Life & The Universe, Volume 3', year: 'Contributing Author', description: 'Collaborative work exploring the intersections of business, life, and broader perspectives.' }
     ]
   },
 
   awards: {
     intro: 'Recognition for a lifetime of building platforms, creating opportunities, and amplifying impact across media, community, and entrepreneurship.',
     featured: {
-      title: 'WEF Woman of the Decade',
-      org: 'World Entrepreneurship Forum',
+      title: 'Woman of the Decade',
+      org: 'Women\'s Economic Forum',
       description: 'Recognized for exceptional leadership in platform building, community development, and social impact entrepreneurship.',
-      year: '2020'
+      year: '2024'
     },
     items: [
-      { title: 'Lifetime Achievement in Broadcasting', org: 'National Broadcasting Association', year: '2022' },
-      { title: 'Community Builder of the Year', org: 'Social Impact Alliance', year: '2021' },
-      { title: 'Excellence in Media Leadership', org: 'Media Leaders Forum', year: '2019' },
-      { title: 'Innovation in Social Entrepreneurship', org: 'Global Social Enterprise Council', year: '2018' },
-      { title: 'Arts & Culture Leadership Award', org: 'National Arts Foundation', year: '2017' },
-      { title: 'Women Who Lead', org: 'Leadership Excellence Institute', year: '2016' }
+      { title: 'Top 50 Writers You Should Be Reading', org: 'Literary Recognition', year: '2015' },
+      { title: 'Communicator Achievement Recognition', org: 'Media Excellence', year: '2020s' },
+      { title: 'Riipen Level UP Project Facilitator', org: 'Riipen', year: '2020s' },
+      { title: 'Advance Ontario Project Facilitator', org: 'Advance Ontario', year: '2020s' },
+      { title: 'International Bestselling Author', org: 'Multiple Titles', year: '2020s' },
+      { title: 'First Female Kickboxing Promoter', org: 'Roundhouse Promotions', year: '1990s' }
     ]
   },
 
   legacy: {
     intro: 'Four decades of impact — a visual journey through the milestones, moments, and movements that define a legacy of platform building and community leadership.',
     events: [
-      { year: '1982', title: 'First Community Initiative', description: 'Launched first community program connecting local artists with audiences.', category: 'community' },
-      { year: '1986', title: 'Entered Broadcasting', description: 'Began career in radio, creating shows that served diverse communities.', category: 'media' },
-      { year: '1990', title: 'Founded First Company', description: 'Established media company focused on community-centered content.', category: 'entrepreneurship' },
-      { year: '1994', title: 'Expanded to Multiple Markets', description: 'Grew broadcasting presence to serve communities across multiple regions.', category: 'entrepreneurship' },
-      { year: '1998', title: 'Published First Book', description: 'Released debut book on community leadership and platform building.', category: 'creativity' },
-      { year: '2002', title: 'Launched Youth Program', description: 'Created mentorship program for young community leaders.', category: 'community' },
-      { year: '2005', title: 'Flagship Radio Show', description: 'Premiered The Frankie Picasso Show, reaching millions of listeners.', category: 'media' },
-      { year: '2008', title: 'Digital Innovation', description: 'Pioneered digital community platforms connecting people across boundaries.', category: 'entrepreneurship' },
-      { year: '2012', title: 'Leadership Institute', description: 'Founded institute dedicated to developing next-generation leaders.', category: 'community' },
-      { year: '2015', title: 'International Recognition', description: 'Received global awards for media innovation and social impact.', category: 'awards' },
-      { year: '2018', title: 'Podcast Launch', description: 'Expanded into podcasting with Voices of Impact series.', category: 'media' },
-      { year: '2020', title: 'WEF Woman of the Decade', description: 'Honored by World Entrepreneurship Forum for decade of impact.', category: 'awards' },
-      { year: '2023', title: 'Legacy Projects', description: 'Launched initiatives ensuring continued impact for future generations.', category: 'community' },
-      { year: '2025', title: 'Continuing the Journey', description: 'Still building, still creating, still connecting — the legacy continues.', category: 'entrepreneurship' }
+      { year: '1990s', title: 'Roundhouse Promotions', description: 'Founded first professional female kickboxing promotion company, producing championship events and managing an ISKA World Champion.', category: 'entrepreneurship' },
+      { year: '1990s', title: 'Traffic Marketing', description: 'Expanded into professional boxing management, fight promotion, and event marketing.', category: 'entrepreneurship' },
+      { year: '2000s', title: 'Government Leadership', description: 'Led strategic planning and organizational development across multiple Ontario government ministries.', category: 'community' },
+      { year: '2000s', title: 'Rent A Believer', description: 'Founded executive coaching practice focused on leadership and transformational growth.', category: 'entrepreneurship' },
+      { year: '2010s', title: 'The Good Radio Network', description: 'Launched international positive-impact media platform hosting Mission Unstoppable and FrankieSense & More.', category: 'media' },
+      { year: '2010s', title: 'G-Woman Media', description: 'Co-founded global multimedia platform as VP, Americas, focusing on women\'s leadership and community.', category: 'media' },
+      { year: '2015', title: 'Top 50 Writers Recognition', description: 'Named to Top 50 Writers You Should Be Reading.', category: 'awards' },
+      { year: '2020s', title: 'International Bestsellers', description: 'Published Midlife Mojo, For Want of 40 Pounds, and I Bared My Chest — all international bestsellers.', category: 'creativity' },
+      { year: '2024', title: 'Woman of the Decade', description: 'Honored by Women\'s Economic Forum for decade of impact in leadership and social impact.', category: 'awards' },
+      { year: 'Present', title: 'Continuing the Journey', description: 'Still building, still creating, still connecting — through coaching, writing, art, and community leadership.', category: 'entrepreneurship' }
     ]
   },
 
   vision: {
     intro: 'The work continues. Frankie\'s current projects and future vision carry forward the mission of building platforms, creating opportunities, and amplifying impact.',
-    mission: 'To continue building platforms that empower people, amplify ideas, and create lasting impact — while mentoring the next generation of community builders and platform leaders.',
+    mission: 'To continue building platforms that empower people, amplify ideas, and create lasting impact — while mentoring the next generation of leaders through coaching, media, and community development.',
     currentProjects: [
-      { title: 'Next Gen Leaders Program', description: 'Expanding mentorship initiatives to reach 1,000 young leaders by 2030.' },
-      { title: 'Digital Community Platform', description: 'Building the next evolution of community connection tools for the digital age.' },
-      { title: 'Oral History Project', description: 'Documenting the stories of community builders across four decades.' },
-      { title: 'Creative Incubator', description: 'A space for artists, writers, and creators to develop work that serves community.' }
+      { title: 'The Good Radio Network', description: 'Continuing to expand international positive-impact media programming and amplify voices that matter.' },
+      { title: 'Executive Coaching', description: 'Developing leaders and facilitating transformational growth through Rent A Believer and master coach training.' },
+      { title: 'Writing & Publishing', description: 'Continuing to share wisdom and insight through books, articles, and thought leadership.' },
+      { title: 'Visual Art', description: 'Creating original and commissioned artwork supporting animal welfare and children\'s causes through Fine Art America.' }
     ]
   },
 

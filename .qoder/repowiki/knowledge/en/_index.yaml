@@ -3,11 +3,11 @@ schema_version: 1
 locale: en-US
 branch: dev
 nodes_managed: true
-exported_at: "2026-06-25T05:09:09Z"
+exported_at: "2026-06-25T05:38:34Z"
 modules:
     "":
-        dir_name: Frankie Picasso Personal Brand Platform
-        title: Frankie Picasso Personal Brand Platform
+        dir_name: Frankie Picasso Portfolio Application
+        title: Frankie Picasso Portfolio Application
         scope: []
         source_files: []
         children: []
@@ -47,6 +47,23 @@ modules:
             - package-lock.json
             - vite.config.js
             - .gitignore
+        children: []
+        depends_on: []
+        related_to: []
+    frontend_style:
+        dir_name: CSS Modules with Design Token System
+        title: CSS Modules with Design Token System
+        scope: []
+        source_files:
+            - src/styles/_variables.css
+            - src/styles/_global.css
+            - src/styles/_typography.css
+            - src/styles/_utilities.css
+            - src/App.module.css
+            - src/components/hero/HeroExperience.module.css
+            - src/components/layout/Nav.module.css
+            - src/components/common/SectionHeading.module.css
+            - src/main.jsx
         children: []
         depends_on: []
         related_to: []

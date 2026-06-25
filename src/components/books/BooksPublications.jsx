@@ -40,8 +40,8 @@ export default function BooksPublications() {
             <svg viewBox="0 0 300 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <rect width="300" height="420" rx="4" fill="url(#bg)" />
               <rect x="20" y="20" width="260" height="380" rx="2" stroke="rgba(197,165,90,0.3)" strokeWidth="1" fill="none" />
-              <text x="150" y="180" textAnchor="middle" fill="rgba(197,165,90,0.6)" fontFamily="Georgia, serif" fontSize="18" fontWeight="600">BUILDING</text>
-              <text x="150" y="210" textAnchor="middle" fill="rgba(197,165,90,0.6)" fontFamily="Georgia, serif" fontSize="18" fontWeight="600">PLATFORMS</text>
+              <text x="150" y="180" textAnchor="middle" fill="rgba(197,165,90,0.6)" fontFamily="Georgia, serif" fontSize="18" fontWeight="600">MIDLIFE</text>
+              <text x="150" y="210" textAnchor="middle" fill="rgba(197,165,90,0.6)" fontFamily="Georgia, serif" fontSize="18" fontWeight="600">MOJO</text>
               <line x1="100" y1="230" x2="200" y2="230" stroke="rgba(197,165,90,0.3)" />
               <text x="150" y="260" textAnchor="middle" fill="rgba(197,165,90,0.4)" fontFamily="system-ui" fontSize="12">Frankie Picasso</text>
               <defs><linearGradient id="bg" x1="0" y1="0" x2="300" y2="420"><stop offset="0%" stopColor="#3D1C3E" /><stop offset="100%" stopColor="#722F37" /></linearGradient></defs>

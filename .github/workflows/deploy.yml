@@ -73,6 +73,12 @@ jobs:
 
             echo "=== Verifying deployment ==="
 
+            # Rename index.php if present (CloudPanel placeholder)
+            if [ -f "$PROJECT_PATH/index.php" ]; then
+              mv "$PROJECT_PATH/index.php" "$PROJECT_PATH/index.php.bak"
+              echo "✓ Renamed index.php to index.php.bak"
+            fi
+
             # Check index.html exists
             if [ ! -f "$PROJECT_PATH/index.html" ]; then
               echo "ERROR: index.html not found at $PROJECT_PATH"

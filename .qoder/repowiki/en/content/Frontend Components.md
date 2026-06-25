@@ -10,7 +10,9 @@
 - [src/components/layout/Nav.jsx](file://src/components/layout/Nav.jsx)
 - [src/components/layout/Footer.jsx](file://src/components/layout/Footer.jsx)
 - [src/components/hero/HeroExperience.jsx](file://src/components/hero/HeroExperience.jsx)
+- [src/components/hero/HeroExperience.module.css](file://src/components/hero/HeroExperience.module.css)
 - [src/components/story/FrankieStory.jsx](file://src/components/story/FrankieStory.jsx)
+- [src/components/story/FrankieStory.module.css](file://src/components/story/FrankieStory.module.css)
 - [src/components/entrepreneurship/Entrepreneurship.jsx](file://src/components/entrepreneurship/Entrepreneurship.jsx)
 - [src/components/creativity/Creativity.jsx](file://src/components/creativity/Creativity.jsx)
 - [src/components/community/CommunityImpact.jsx](file://src/components/community/CommunityImpact.jsx)
@@ -18,21 +20,25 @@
 - [src/components/books/BooksPublications.jsx](file://src/components/books/BooksPublications.jsx)
 - [src/components/awards/AwardsRecognition.jsx](file://src/components/awards/AwardsRecognition.jsx)
 - [src/components/legacy/LegacyTimeline.jsx](file://src/components/legacy/LegacyTimeline.jsx)
+- [src/components/legacy/LegacyTimeline.module.css](file://src/components/legacy/LegacyTimeline.module.css)
 - [src/components/vision/FutureVision.jsx](file://src/components/vision/FutureVision.jsx)
 - [src/components/contact/Contact.jsx](file://src/components/contact/Contact.jsx)
 - [src/components/common/SectionHeading.jsx](file://src/components/common/SectionHeading.jsx)
+- [src/components/common/SectionHeading.module.css](file://src/components/common/SectionHeading.module.css)
 - [src/hooks/useGsap.js](file://src/hooks/useGsap.js)
 - [src/data/content.js](file://src/data/content.js)
+- [src/styles/_typography.css](file://src/styles/_typography.css)
+- [src/styles/_variables.css](file://src/styles/_variables.css)
+- [src/styles/_global.css](file://src/styles/_global.css)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Expanded documentation to cover the comprehensive component-based architecture
-- Added detailed analysis of all 11 core content components
-- Documented the modular component structure with CSS Modules usage
-- Enhanced component composition patterns and state management approaches
-- Updated architecture diagrams to reflect the new component hierarchy
-- Added coverage of shared utilities and hooks integration
+- Updated Legacy Timeline component documentation to reflect simplified vertical layout
+- Updated SectionHeading component documentation to reflect removal of decorative numbering system
+- Updated typography documentation to reflect Cormorant Garamond font family adoption
+- Enhanced CSS Modules styling documentation with new typography system
+- Updated component architecture diagrams to reflect current implementation
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -44,15 +50,16 @@
 7. [Shared Utilities](#shared-utilities)
 8. [State Management and Hooks](#state-management-and-hooks)
 9. [CSS Modules and Styling](#css-modules-and-styling)
-10. [Data Management](#data-management)
-11. [Vite Integration](#vite-integration)
-12. [Development Workflow](#development-workflow)
-13. [Performance Considerations](#performance-considerations)
-14. [Troubleshooting Guide](#troubleshooting-guide)
-15. [Conclusion](#conclusion)
+10. [Typography System](#typography-system)
+11. [Data Management](#data-management)
+12. [Vite Integration](#vite-integration)
+13. [Development Workflow](#development-workflow)
+14. [Performance Considerations](#performance-considerations)
+15. [Troubleshooting Guide](#troubleshooting-guide)
+16. [Conclusion](#conclusion)
 
 ## Introduction
-This document provides comprehensive documentation for the React frontend components and development setup. The project features a modular component-based architecture with 11 distinct content sections, sophisticated animation integration using GSAP, and a robust CSS Modules styling system. The application showcases a professional portfolio-style website with smooth scrolling navigation, interactive animations, and responsive design patterns.
+This document provides comprehensive documentation for the React frontend components and development setup. The project features a modular component-based architecture with 11 distinct content sections, sophisticated animation integration using GSAP, and a robust CSS Modules styling system. The application showcases a professional portfolio-style website with smooth scrolling navigation, interactive animations, responsive design patterns, and a refined typography system using Cormorant Garamond and Inter fonts.
 
 ## Project Structure
 The project follows a structured React + Vite setup with a comprehensive component hierarchy organized into logical modules:
@@ -84,6 +91,9 @@ Components --> Contact["contact/"]
 Components --> Common["common/"]
 Data --> Content["content.js"]
 Hooks --> GSAP["useGsap.js"]
+Styles --> Variables["_variables.css"]
+Styles --> Typography["_typography.css"]
+Styles --> Global["_global.css"]
 ```
 
 **Diagram sources**
@@ -155,7 +165,7 @@ Entrepreneurship --> ScrollReveal
 **Diagram sources**
 - [src/App.jsx:2-14](file://src/App.jsx#L2-L14)
 - [src/components/layout/Nav.jsx:1-5](file://src/components/layout/Nav.jsx#L1-L5)
-- [src/components/common/SectionHeading.jsx:1-15](file://src/components/common/SectionHeading.jsx#L1-L15)
+- [src/components/common/SectionHeading.jsx:1-12](file://src/components/common/SectionHeading.jsx#L1-L12)
 
 **Section sources**
 - [src/App.jsx:1-51](file://src/App.jsx#L1-L51)
@@ -178,10 +188,10 @@ Provides comprehensive footer navigation with brand information, copyright detai
 The application features 11 specialized content components, each designed to showcase specific aspects of Frankie Picasso's work and achievements.
 
 ### Hero Experience (HeroExperience.jsx)
-Implements sophisticated animations including headline word-by-word reveal, parallax effects, and decorative motion elements. Uses GSAP for timeline-based animations and responsive design considerations.
+Implements sophisticated animations including headline word-by-word reveal, parallax effects, and decorative motion elements. Uses GSAP for timeline-based animations and responsive design considerations. Features the new typography system with Cormorant Garamond for headings and Inter for body text.
 
 ### Frankie Story (FrankieStory.jsx)
-Features interactive timeline with scroll-triggered animations, fade-in effects, and quote presentation. Combines GSAP ScrollTrigger with scroll reveal animations.
+Features interactive timeline with scroll-triggered animations, fade-in effects, and quote presentation. Combines GSAP ScrollTrigger with scroll reveal animations. Utilizes the refined typography system throughout.
 
 ### Entrepreneurship (Entrepreneurship.jsx)
 Showcases venture cards with animated impact counters, SVG graphics, and responsive grid layouts. Implements scroll-triggered number animations.
@@ -202,7 +212,7 @@ Features book showcase with prominent featured book display and additional publi
 Presents award history with prominent featured award and comprehensive award list.
 
 ### Legacy Timeline (LegacyTimeline.jsx)
-Chronological presentation of career milestones with category-based filtering and responsive design.
+**Updated** Chronological presentation of career milestones with category-based filtering and responsive design. The component has been modernized to use a simplified vertical layout that removes horizontal scrolling complexity. Events are now arranged vertically with alternating left/right positioning for improved readability and mobile responsiveness.
 
 ### Future Vision (FutureVision.jsx)
 Outlines current projects and future initiatives with mission statement and project descriptions.
@@ -212,20 +222,23 @@ Provides contact information, email, speaking topics, and social media links wit
 
 **Section sources**
 - [src/components/hero/HeroExperience.jsx:1-114](file://src/components/hero/HeroExperience.jsx#L1-L114)
+- [src/components/hero/HeroExperience.module.css:1-157](file://src/components/hero/HeroExperience.module.css#L1-L157)
 - [src/components/story/FrankieStory.jsx:1-84](file://src/components/story/FrankieStory.jsx#L1-L84)
+- [src/components/story/FrankieStory.module.css:1-119](file://src/components/story/FrankieStory.module.css#L1-L119)
 - [src/components/entrepreneurship/Entrepreneurship.jsx:1-63](file://src/components/entrepreneurship/Entrepreneurship.jsx#L1-L63)
 
 ## Shared Utilities
 The application leverages several shared utility components and hooks to maintain consistency and reduce code duplication.
 
 ### Section Heading (SectionHeading.jsx)
-Reusable component for consistent heading presentation across all content sections, supporting number indicators, subtitles, and light/dark themes.
+**Updated** Reusable component for consistent heading presentation across all content sections. The component has been refactored to remove the decorative numbering system, simplifying the design to focus purely on title and subtitle presentation. Supports light/dark theme variants for different background contexts.
 
 ### GSAP Hook (useGsap.js)
 Centralized GSAP configuration with ScrollTrigger registration, default settings, and useGSAP wrapper for consistent animation behavior.
 
 **Section sources**
-- [src/components/common/SectionHeading.jsx:1-15](file://src/components/common/SectionHeading.jsx#L1-L15)
+- [src/components/common/SectionHeading.jsx:1-12](file://src/components/common/SectionHeading.jsx#L1-L12)
+- [src/components/common/SectionHeading.module.css:1-32](file://src/components/common/SectionHeading.module.css#L1-L32)
 - [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
 
 ## State Management and Hooks
@@ -264,6 +277,33 @@ The styling system utilizes:
 **Section sources**
 - [src/App.module.css:1-23](file://src/App.module.css#L1-L23)
 - [src/components/layout/Nav.jsx:5](file://src/components/layout/Nav.jsx#L5)
+
+## Typography System
+**Updated** The application now features a refined typography system with two distinct font families:
+
+### Font Families
+- **Serif Font**: Cormorant Garamond - Used for headings (h1-h3), quotes, and emphasized text
+- **Sans-serif Font**: Inter - Used for body text, navigation, and interface elements
+
+### Typography Implementation
+The typography system is implemented through CSS custom properties in the variables file, providing consistent font sizing and spacing across all components:
+
+```css
+--font-serif: 'Cormorant Garamond', Georgia, serif;
+--font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+```
+
+### Component Integration
+All content components now utilize the new typography system:
+- Headings use Cormorant Garamond for elegant serif typography
+- Body text uses Inter for excellent readability
+- Quotes and emphasized text use the serif font for visual distinction
+- Navigation and interface elements use the sans-serif font for clarity
+
+**Section sources**
+- [src/styles/_typography.css:1-41](file://src/styles/_typography.css#L1-L41)
+- [src/styles/_variables.css:13-15](file://src/styles/_variables.css#L13-L15)
+- [src/styles/_global.css:10-19](file://src/styles/_global.css#L10-L19)
 
 ## Data Management
 The application uses a centralized content management system through a dedicated data module.
@@ -366,6 +406,11 @@ Common development and runtime issues with solutions:
 - **Animation conflicts**: Check for conflicting CSS properties and z-index stacking
 - **Responsive issues**: Review media query breakpoints and viewport meta tags
 
+### Typography Issues
+- **Font not loading**: Verify Google Fonts import and network connectivity
+- **Font fallback not working**: Check CSS font stack ordering
+- **Typography inconsistencies**: Ensure CSS custom properties are properly defined
+
 ### Development Environment
 - **Hot reload not working**: Restart Vite server and check plugin configurations
 - **Build errors**: Verify Node.js version compatibility and dependency installation
@@ -377,4 +422,4 @@ Common development and runtime issues with solutions:
 - [vite.config.js:7-8](file://vite.config.js#L7-L8)
 
 ## Conclusion
-The React frontend components demonstrate a mature, scalable architecture with comprehensive animation integration, modular component design, and robust development tooling. The 11-content component structure provides excellent organization for showcasing diverse aspects of Frankie Picasso's work while maintaining consistency and performance. The combination of CSS Modules, custom hooks, and GSAP animations creates a polished user experience with smooth interactions and professional presentation quality.
+The React frontend components demonstrate a mature, scalable architecture with comprehensive animation integration, modular component design, and robust development tooling. The recent updates to the Legacy Timeline component, SectionHeading component, and typography system showcase the evolution toward a more streamlined and visually cohesive design. The 11-content component structure provides excellent organization for showcasing diverse aspects of Frankie Picasso's work while maintaining consistency and performance. The combination of CSS Modules, custom hooks, GSAP animations, and the refined typography system creates a polished user experience with smooth interactions and professional presentation quality.

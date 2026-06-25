@@ -1,0 +1,11 @@
+schema_version: 1
+module_path: build_system
+title: Vite-based Build and CI/CD Deployment
+scope: []
+source_files:
+    - package.json
+    - vite.config.js
+    - .github/workflows/deploy.yml
+    - scripts/deploy.sh
+depends_on: []
+related_to: []
