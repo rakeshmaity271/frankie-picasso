@@ -33,7 +33,7 @@ export default function AwardsRecognition() {
   const data = content.awards
 
   return (
-    <section id="awards" className={`section-padding ${styles.section}`} ref={sectionRef} aria-label="Awards and Recognition">
+    <section id="awards" className={styles.section} ref={sectionRef} aria-label="Awards and Recognition">
       <div className="container">
         <SectionHeading title="Awards and Recognition" subtitle={data.intro} />
 

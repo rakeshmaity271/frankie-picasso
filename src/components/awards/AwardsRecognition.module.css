@@ -1,7 +1,6 @@
 .section {
   background: linear-gradient(180deg, var(--color-warm-ivory) 0%, #f0e8df 100%);
-  padding-top: var(--space-lg);
-  margin-bottom: 0;
+  padding-top: var(--space-section);
   padding-bottom: 10rem;
 }
 

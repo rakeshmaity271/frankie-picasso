@@ -3,12 +3,18 @@ schema_version: 1
 locale: en-US
 branch: dev
 nodes_managed: true
-exported_at: "2026-06-25T18:02:29Z"
+exported_at: "2026-06-25T18:33:08Z"
 modules:
     "":
-        dir_name: Frankie Picasso Portfolio Application
-        title: Frankie Picasso Portfolio Application
-        scope: []
+        dir_name: Frankie Picasso Portfolio & Storytelling Platform
+        title: Frankie Picasso Portfolio & Storytelling Platform
+        scope:
+            - .gitignore
+            - index.html
+            - package.json
+            - package-lock.json
+            - vite.config.js
+            - src/
         source_files: []
         children: []
         depends_on: []

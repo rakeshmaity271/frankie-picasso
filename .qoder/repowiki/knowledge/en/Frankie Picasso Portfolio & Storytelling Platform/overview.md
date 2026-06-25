@@ -1,0 +1,1 @@
+A React-based single-page application showcasing Frankie Picasso's professional journey through animated, scroll-driven storytelling and modular content sections.
