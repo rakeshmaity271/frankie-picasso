@@ -11,7 +11,7 @@ set -euo pipefail
 
 # ── Configuration ───────────────────────────────────────────────
 SERVER_HOST="194.163.151.182"
-SERVER_USER="kodeclouds-frankie-picasso"
+SERVER_USER="root"
 SERVER_PORT="22"
 PROJECT_PATH="/home/kodeclouds-frankie-picasso/htdocs/frankie-picasso.kodeclouds.com"
 
