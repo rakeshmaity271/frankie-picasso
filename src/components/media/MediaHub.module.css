@@ -1,5 +1,7 @@
-.section {
-  background: #f5f0ea;
+.content {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
 }
 
 .filters {
@@ -13,9 +15,9 @@
   font-family: var(--font-sans);
   font-size: var(--fs-small);
   font-weight: 500;
-  color: var(--color-charcoal);
+  color: var(--act-text, var(--color-charcoal));
   background: transparent;
-  border: 1px solid rgba(44, 44, 44, 0.2);
+  border: 1px solid rgba(250, 246, 240, 0.25);
   padding: var(--space-xs) var(--space-md);
   border-radius: 24px;
   cursor: pointer;
@@ -24,14 +26,14 @@
 }
 
 .filterBtn:hover {
-  border-color: var(--color-gold);
-  color: var(--color-deep-plum);
+  border-color: var(--act-accent, var(--color-gold));
+  color: var(--act-accent, var(--color-gold));
 }
 
 .activeFilter {
-  background: var(--color-deep-plum);
-  color: var(--color-warm-ivory);
-  border-color: var(--color-deep-plum);
+  background: var(--act-accent, var(--color-gold));
+  color: var(--act-bg, var(--color-warm-ivory));
+  border-color: var(--act-accent, var(--color-gold));
 }
 
 .grid {
@@ -41,15 +43,16 @@
 }
 
 .card {
-  background: white;
+  background: var(--act-bg-subtle, rgba(255, 255, 255, 0.08));
   border-radius: var(--border-radius-md);
   overflow: hidden;
+  border: 1px solid rgba(250, 246, 240, 0.1);
   transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
 .cardImage {
@@ -77,7 +80,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-gold);
+  color: var(--act-accent, var(--color-gold));
   background: rgba(197, 165, 90, 0.1);
   padding: 3px 8px;
   border-radius: 4px;
@@ -87,18 +90,56 @@
 
 .cardTitle {
   font-size: var(--fs-h3);
+  color: var(--act-heading, var(--color-deep-plum));
   margin: 0 0 var(--space-xs);
 }
 
 .cardDesc {
   font-size: var(--fs-body);
-  opacity: 0.8;
+  color: var(--act-text, var(--color-charcoal));
+  opacity: 0.85;
   margin: 0 0 var(--space-xs);
 }
 
 .cardMeta {
   font-size: var(--fs-small);
-  color: var(--color-muted-copper);
+  color: var(--act-accent, var(--color-gold));
+  margin: 0;
+}
+
+.timeline {
+  display: flex;
+  gap: var(--space-2xl);
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid rgba(250, 246, 240, 0.15);
+}
+
+.timelineItem {
+  flex: 1;
+}
+
+.timelineYear {
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--act-accent, var(--color-gold));
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.timelineTitle {
+  font-size: var(--fs-h3);
+  color: var(--act-heading, var(--color-deep-plum));
+  margin: 0 0 var(--space-xs);
+}
+
+.timelineDesc {
+  font-size: var(--fs-body);
+  color: var(--act-text, var(--color-charcoal));
+  opacity: 0.85;
   margin: 0;
 }
 
@@ -108,4 +149,5 @@
 
 @media (max-width: 599px) {
   .grid { grid-template-columns: 1fr; }
+  .timeline { flex-direction: column; gap: var(--space-lg); }
 }

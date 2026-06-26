@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react'
 import { gsap, useGSAP } from '../../hooks/useGsap'
 import { useParallax } from '../../hooks/useParallax'
-import { content } from '../../data/content'
+import { content, actColors } from '../../data/content'
 import styles from './HeroExperience.module.css'
 
 export default function HeroExperience() {
@@ -34,8 +34,7 @@ export default function HeroExperience() {
     gsap.from('.hero-eyebrow', { opacity: 0, y: 20, duration: 0.6, delay: 0.1 })
     gsap.from('.hero-sub', { opacity: 0, y: 30, duration: 0.8, delay: 1.2 })
     gsap.from('.hero-cta', { opacity: 0, y: 30, duration: 0.8, delay: 1.4 })
-    gsap.from('.hero-line', { scaleX: 0, duration: 1, delay: 1.5, ease: 'power2.inOut' })
-    gsap.from('.hero-tagline', { opacity: 0, duration: 0.8, delay: 1.8 })
+    gsap.from('.hero-act-dots', { opacity: 0, y: 10, duration: 0.6, delay: 2.0 })
   }, { scope: sectionRef })
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
@@ -70,6 +69,8 @@ export default function HeroExperience() {
     }
   }
 
+  const actEntries = Object.entries(actColors)
+
   return (
     <section id="hero" className={styles.hero} ref={sectionRef} aria-label="Hero">
       <div className={styles.decor} ref={decorRef} aria-hidden="true">
@@ -93,12 +94,24 @@ export default function HeroExperience() {
           <p className={`hero-sub ${styles.sub}`}>{hero.subheadline}</p>
 
           <div className={`hero-cta ${styles.ctaGroup}`}>
-            <button className={styles.ctaPrimary} onClick={() => scrollTo('story')}>
-              Explore My Journey
+            <button className={styles.ctaPrimary} onClick={() => scrollTo('becoming')}>
+              {hero.ctaPrimary}
             </button>
             <button className={styles.ctaSecondary} onClick={() => scrollTo('contact')}>
-              Contact
+              {hero.ctaSecondary}
             </button>
+          </div>
+
+          <div className={`hero-act-dots ${styles.actDots}`}>
+            {actEntries.map(([act, color]) => (
+              <span
+                key={act}
+                className={styles.actDot}
+                style={{ background: color }}
+                title={act.charAt(0).toUpperCase() + act.slice(1)}
+                aria-hidden="true"
+              />
+            ))}
           </div>
         </div>
 
@@ -124,8 +137,7 @@ export default function HeroExperience() {
               <span className={styles.taglineDot} />
             </div>
             <p className={`hero-eyebrow ${styles.eyebrow}`}>
-              <span className={styles.eyebrowLine}>Media Executive • Broadcaster • Social Impact Entrepreneur</span>
-              <span className={styles.eyebrowLine}>Community Architect • Author</span>
+              <span className={styles.eyebrowLine}>{hero.eyebrow}</span>
             </p>
           </div>
         </div>

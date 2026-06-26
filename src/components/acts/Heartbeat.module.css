@@ -1,0 +1,49 @@
+.heartbeat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding: clamp(4rem, 10vh, 7rem) var(--space-lg);
+  text-align: center;
+  background: var(--color-warm-ivory);
+  position: relative;
+}
+
+.dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  opacity: 0.6;
+}
+
+.line {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-deep-plum);
+  max-width: 600px;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 767px) {
+  .heartbeat {
+    padding: var(--space-2xl) var(--space-lg);
+    gap: var(--space-md);
+  }
+
+  .line {
+    font-size: var(--fs-h3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heartbeat {
+    opacity: 1;
+  }
+}

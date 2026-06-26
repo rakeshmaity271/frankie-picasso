@@ -1,5 +1,7 @@
-.section {
-  background: var(--color-warm-ivory);
+.content {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
 }
 
 .grid {
@@ -9,16 +11,16 @@
 }
 
 .card {
-  background: white;
+  background: var(--act-bg-subtle, rgba(255, 255, 255, 0.08));
   border-radius: var(--border-radius-md);
   overflow: hidden;
-  border-left: 3px solid var(--color-gold);
+  border-left: 3px solid var(--act-accent, var(--color-gold));
   transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(61, 28, 62, 0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 .cardImage {
@@ -41,6 +43,7 @@
 
 .cardTitle {
   font-size: var(--fs-h3);
+  color: var(--act-heading, var(--color-deep-plum));
   margin: 0 0 var(--space-xs);
 }
 
@@ -48,7 +51,7 @@
   font-family: var(--font-sans);
   font-size: var(--fs-small);
   font-weight: 600;
-  color: var(--color-gold);
+  color: var(--act-accent, var(--color-gold));
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin: 0 0 var(--space-sm);
@@ -56,7 +59,8 @@
 
 .cardDesc {
   font-size: var(--fs-body);
-  opacity: 0.8;
+  color: var(--act-text, var(--color-charcoal));
+  opacity: 0.85;
   margin: 0 0 var(--space-sm);
 }
 
@@ -64,7 +68,43 @@
   font-family: var(--font-serif);
   font-size: var(--fs-body-lg);
   font-weight: 600;
-  color: var(--color-burgundy);
+  color: var(--act-accent, var(--color-gold));
+  margin: 0;
+}
+
+.timeline {
+  display: flex;
+  gap: var(--space-2xl);
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid rgba(197, 165, 90, 0.2);
+}
+
+.timelineItem {
+  flex: 1;
+}
+
+.timelineYear {
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--act-accent, var(--color-gold));
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.timelineTitle {
+  font-size: var(--fs-h3);
+  color: var(--act-heading, var(--color-deep-plum));
+  margin: 0 0 var(--space-xs);
+}
+
+.timelineDesc {
+  font-size: var(--fs-body);
+  color: var(--act-text, var(--color-charcoal));
+  opacity: 0.85;
   margin: 0;
 }
 
@@ -74,4 +114,5 @@
 
 @media (max-width: 599px) {
   .grid { grid-template-columns: 1fr; }
+  .timeline { flex-direction: column; gap: var(--space-lg); }
 }

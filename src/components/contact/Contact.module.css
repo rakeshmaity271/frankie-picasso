@@ -30,6 +30,10 @@
   font-size: var(--fs-h3);
   color: var(--color-deep-plum);
   transition: color var(--transition-fast);
+  display: inline-block;
+  padding: 8px 0;
+  min-height: 44px;
+  line-height: 1.4;
 }
 
 .email:hover {
@@ -64,6 +68,7 @@
 .socials {
   display: flex;
   gap: var(--space-sm);
+  flex-wrap: wrap;
 }
 
 .socialLink {

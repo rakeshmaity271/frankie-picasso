@@ -32,3 +32,6 @@ desktop_*.png
 mobile_*.png
 ssl_error*.png
 screenshot_*.png
+test_*.png
+verify_*.png
+workflow_status.png

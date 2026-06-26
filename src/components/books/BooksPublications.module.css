@@ -1,5 +1,13 @@
-.section {
-  background: var(--color-warm-ivory);
+.content {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(197, 165, 90, 0.3), transparent);
+  margin: var(--space-3xl) 0;
 }
 
 .featured {
@@ -37,24 +45,26 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--color-gold);
+  color: var(--act-accent, var(--color-gold));
   display: block;
   margin-bottom: var(--space-sm);
 }
 
 .bookTitle {
   font-size: var(--fs-h2);
+  color: var(--act-heading, var(--color-deep-plum));
   margin: 0 0 var(--space-md);
 }
 
 .bookDesc {
   font-size: var(--fs-body-lg);
-  opacity: 0.8;
+  color: var(--act-text, var(--color-charcoal));
+  opacity: 0.85;
   margin: 0 0 var(--space-lg);
 }
 
 .bookQuote {
-  border-left: 3px solid var(--color-gold);
+  border-left: 3px solid var(--act-accent, var(--color-gold));
   padding-left: var(--space-md);
 }
 
@@ -62,45 +72,105 @@
   font-family: var(--font-serif);
   font-style: italic;
   font-size: var(--fs-h3);
-  color: var(--color-deep-plum);
+  color: var(--act-heading, var(--color-deep-plum));
 }
 
-.otherBooks {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
+.carousel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.carouselBtn {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--act-accent, var(--color-gold));
+  background: transparent;
+  color: var(--act-accent, var(--color-gold));
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.carouselBtn:hover {
+  background: var(--act-accent, var(--color-gold));
+  color: var(--act-bg, var(--color-warm-ivory));
+}
+
+.carouselViewport {
+  flex: 1;
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carouselSlide {
+  min-width: 100%;
+  padding: 0 var(--space-xs);
 }
 
 .otherCard {
-  background: white;
-  padding: var(--space-lg);
+  background: var(--act-bg-subtle, rgba(255, 255, 255, 0.08));
+  padding: var(--space-xl);
   border-radius: var(--border-radius-md);
-  border-top: 3px solid var(--color-gold);
-  transition: transform var(--transition-fast);
-}
-
-.otherCard:hover {
-  transform: translateY(-4px);
+  border-top: 3px solid var(--act-accent, var(--color-gold));
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .bookYear {
   font-family: var(--font-sans);
   font-size: var(--fs-small);
   font-weight: 600;
-  color: var(--color-muted-copper);
+  color: var(--act-heading, var(--color-deep-plum));
   display: block;
   margin-bottom: var(--space-xs);
 }
 
 .otherTitle {
   font-size: var(--fs-h3);
+  color: var(--act-heading, var(--color-deep-plum));
   margin: 0 0 var(--space-sm);
 }
 
 .otherDesc {
   font-size: var(--fs-body);
-  opacity: 0.8;
+  color: var(--act-text, var(--color-charcoal));
+  opacity: 0.85;
   margin: 0;
+}
+
+.carouselDots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--act-accent, var(--color-gold));
+  background: transparent;
+  cursor: pointer;
+  padding: 17px;
+  transition: all var(--transition-fast);
+}
+
+.dotActive {
+  background: var(--act-accent, var(--color-gold));
 }
 
 @media (max-width: 767px) {
@@ -118,7 +188,8 @@
     width: 200px;
   }
 
-  .otherBooks {
-    grid-template-columns: 1fr;
+  .carouselBtn {
+    width: 44px;
+    height: 44px;
   }
 }

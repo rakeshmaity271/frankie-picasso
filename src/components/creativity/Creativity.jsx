@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { gsap, useGSAP } from '../../hooks/useGsap'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
-import SectionHeading from '../common/SectionHeading'
 import { content } from '../../data/content'
 import styles from './Creativity.module.css'
 
@@ -32,29 +31,25 @@ export default function Creativity() {
     })
   }, { scope: sectionRef })
 
-  const data = content.creativity
-  const typeIcons = { book: '📖', radio: '🎙', art: '🎨', writing: '✍' }
+  const act = content.acts[3] // creating
+  const typeIcons = { book: '\u{1F4D6}', radio: '\u{1F399}', art: '\u{1F3A8}', writing: '\u270D' }
 
   return (
-    <section id="creativity" className={`section-padding ${styles.section}`} ref={sectionRef} aria-label="Creativity">
-      <div className="container">
-        <SectionHeading title="Creativity" subtitle={data.intro} />
-
-        <div className={styles.grid}>
-          {data.works.map((work, i) => (
-            <article key={i} className={`creativity-card ${styles.card} ${i === 0 || i === 3 ? styles.wide : ''}`}>
-              <div className={styles.cardVisual}>
-                <span className={styles.icon} aria-hidden="true">{typeIcons[work.type] || '✦'}</span>
-                <span className={styles.badge}>{work.type.toUpperCase()}</span>
-              </div>
-              <div className={styles.cardContent}>
-                <h3 className={styles.cardTitle}>{work.title}</h3>
-                <p className={styles.cardDesc}>{work.description}</p>
-              </div>
-            </article>
-          ))}
-        </div>
+    <div className={styles.content} ref={sectionRef}>
+      <div className={styles.grid}>
+        {act.works.map((work, i) => (
+          <article key={i} className={`creativity-card ${styles.card} ${i === 0 || i === 3 ? styles.wide : ''}`}>
+            <div className={styles.cardVisual}>
+              <span className={styles.icon} aria-hidden="true">{typeIcons[work.type] || '\u2726'}</span>
+              <span className={styles.badge}>{work.type.toUpperCase()}</span>
+            </div>
+            <div className={styles.cardContent}>
+              <h3 className={styles.cardTitle}>{work.title}</h3>
+              <p className={styles.cardDesc}>{work.description}</p>
+            </div>
+          </article>
+        ))}
       </div>
-    </section>
+    </div>
   )
 }

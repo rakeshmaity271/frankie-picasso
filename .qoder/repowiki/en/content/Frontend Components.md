@@ -15,6 +15,7 @@
 - [src/components/hero/HeroExperience.module.css](file://src/components/hero/HeroExperience.module.css)
 - [src/components/awards/AwardsRecognition.jsx](file://src/components/awards/AwardsRecognition.jsx)
 - [src/components/awards/AwardsRecognition.module.css](file://src/components/awards/AwardsRecognition.module.css)
+- [src/components/legacy/LegacyTimeline.module.css](file://src/components/legacy/LegacyTimeline.module.css)
 - [src/components/common/SectionHeading.jsx](file://src/components/common/SectionHeading.jsx)
 - [src/components/common/SectionHeading.module.css](file://src/components/common/SectionHeading.module.css)
 - [src/components/common/SectionIndicator.jsx](file://src/components/common/SectionIndicator.jsx)
@@ -27,15 +28,16 @@
 - [src/styles/_variables.css](file://src/styles/_variables.css)
 - [src/styles/_global.css](file://src/styles/_global.css)
 - [src/styles/_typography.css](file://src/styles/_typography.css)
+- [src/styles/_utilities.css](file://src/styles/_utilities.css)
 - [.gitignore](file://.gitignore)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Updated Awards Recognition component documentation to reflect CSS styling improvements including enhanced spacing, refined grid layout, and improved award card styling
-- Added documentation for minor .gitignore update for screenshot testing
-- Enhanced CSS Modules and styling documentation with specific examples of the new spacing and grid improvements
-- Updated component architecture diagrams to reflect the improved Awards section layout
+- Updated Awards Recognition component documentation to reflect the standardized spacing approach using `var(--space-section)` instead of `var(--space-lg)`
+- Updated Legacy Timeline component documentation to reflect the same standardized spacing approach
+- Enhanced CSS Modules and styling documentation with specific examples of the new standardized spacing methodology
+- Updated component architecture diagrams to reflect the improved spacing consistency across sections
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -76,6 +78,7 @@ Src --> Hooks["hooks/"]
 Components --> Layout["layout/"]
 Components --> Hero["hero/"]
 Components --> Awards["awards/"]
+Components --> Legacy["legacy/"]
 Components --> Common["common/"]
 Data --> Content["content.js"]
 Hooks --> GSAP["useGsap.js"]
@@ -83,6 +86,7 @@ Hooks --> ActiveSection["useActiveSection.js"]
 Styles --> Variables["_variables.css"]
 Styles --> Global["_global.css"]
 Styles --> Typography["_typography.css"]
+Styles --> Utilities["_utilities.css"]
 ```
 
 **Diagram sources**
@@ -127,6 +131,7 @@ App --> Nav["Nav.jsx"]
 App --> Footer["Footer.jsx"]
 App --> Hero["HeroExperience.jsx"]
 App --> Awards["AwardsRecognition.jsx"]
+App --> Legacy["LegacyTimeline.jsx"]
 App --> SectionIndicator["SectionIndicator.jsx"]
 App --> SectionHeading["SectionHeading.jsx"]
 Nav --> GSAP["useGsap.js"]
@@ -136,6 +141,8 @@ Hero --> GSAP
 Hero --> Parallax["useParallax.js"]
 Awards --> GSAP
 Awards --> ScrollReveal["useScrollReveal.js"]
+Legacy --> GSAP
+Legacy --> ScrollReveal
 SectionHeading --> GSAP
 SiteLoader --> GSAP
 ```
@@ -186,10 +193,19 @@ The application features 11 specialized content components, each designed to sho
 ### Awards Recognition (AwardsRecognition.jsx)
 **Updated** Completely redesigned with new CSS styling featuring laurel decoration system, featured award highlighting, and responsive grid layout. The component now includes sophisticated GSAP ScrollTrigger animations for the featured award card with back.ease effect and scroll-triggered entrance animations. Features a decorative laurel wreath SVG element positioned absolutely behind the featured award content, creating a sense of celebration and achievement.
 
-**Enhanced Spacing and Grid Layout**: The Awards Recognition component now features significantly improved spacing and grid layout:
-- **Enhanced Section Padding**: The section now uses `padding-top: var(--space-lg)` for better visual balance and `padding-bottom: 10rem` for substantial bottom spacing
-- **Improved Grid Layout**: The grid system now uses separate `column-gap` and `row-gap` properties for precise control over spacing between award cards
-- **Refined Award Card Styling**: Each award card has `min-height: 180px` with flex layout (`display: flex`, `flex-direction: column`, `justify-content: center`, `align-items: center`) for perfect vertical centering
+**Enhanced Standardized Spacing Approach**: The Awards Recognition component now features a more standardized spacing approach using the new `var(--space-section)` CSS variable:
+- **Standardized Section Padding**: The section now uses `padding-top: var(--space-section)` for consistent spacing that adapts to viewport size using clamp functions
+- **Enhanced Bottom Spacing**: Maintains `padding-bottom: 10rem` for substantial bottom spacing
+- **Improved Grid Layout**: The grid system continues to use separate `column-gap` and `row-gap` properties for precise control over spacing between award cards
+- **Refined Award Card Styling**: Each award card maintains its enhanced styling with `min-height: 180px` and flex layout for perfect vertical centering
+
+### Legacy Timeline (LegacyTimeline.jsx)
+**Updated** Features a sophisticated timeline layout with decorative elements and responsive design. The component now uses the standardized `var(--space-section)` spacing approach for consistent top and bottom padding, creating visual balance with the rest of the content sections. Features a central timeline line with alternating left/right content cards, decorative dots, and hover effects.
+
+**Standardized Spacing Implementation**: The Legacy Timeline component demonstrates the new standardized spacing approach:
+- **Consistent Section Padding**: Uses `padding: var(--space-section) 0` for top and bottom spacing that adapts to viewport size
+- **Enhanced Visual Balance**: The clamp-based spacing variable provides consistent visual rhythm across different screen sizes
+- **Responsive Design**: The padding adapts from 3.5rem on small screens to 5rem on larger screens, maintaining optimal visual proportions
 
 ### Section Heading (SectionHeading.jsx)
 **Updated** Reusable component for consistent heading presentation across all content sections. The component has been refactored to remove the decorative numbering system, simplifying the design to focus purely on title and subtitle presentation. Supports light/dark theme variants for different background contexts.
@@ -202,6 +218,7 @@ The application features 11 specialized content components, each designed to sho
 - [src/components/hero/HeroExperience.module.css:1-328](file://src/components/hero/HeroExperience.module.css#L1-L328)
 - [src/components/awards/AwardsRecognition.jsx:1-70](file://src/components/awards/AwardsRecognition.jsx#L1-L70)
 - [src/components/awards/AwardsRecognition.module.css:1-147](file://src/components/awards/AwardsRecognition.module.css#L1-L147)
+- [src/components/legacy/LegacyTimeline.module.css:1-178](file://src/components/legacy/LegacyTimeline.module.css#L1-L178)
 - [src/components/common/SectionHeading.jsx:1-12](file://src/components/common/SectionHeading.jsx#L1-L12)
 - [src/components/common/SectionHeading.module.css:1-32](file://src/components/common/SectionHeading.module.css#L1-L32)
 - [src/components/common/SiteLoader.jsx:1-45](file://src/components/common/SiteLoader.jsx#L1-L45)
@@ -270,22 +287,67 @@ The styling system utilizes:
 - Accessibility-focused color schemes
 - Consistent spacing and typography scales
 
-### Enhanced Awards Section Styling
-**Updated** The Awards Recognition component now features significantly improved CSS styling:
+### Enhanced Standardized Spacing Approach
+**Updated** The application now implements a standardized spacing approach using the new `var(--space-section)` CSS variable for consistent visual rhythm across all content sections:
 
-#### Section Spacing Improvements
-The section now uses enhanced spacing for optimal visual presentation:
+#### CSS Variable Definition
+The `var(--space-section)` variable is defined as a clamp function that adapts to viewport size:
+```css
+--space-section: clamp(3.5rem, 8vh, 5rem);
+```
+
+This provides:
+- **Minimum spacing**: 3.5rem on small screens
+- **Viewport-adaptive**: 8vh of viewport height for medium screens
+- **Maximum spacing**: 5rem on large screens
+
+#### Awards Recognition Section Spacing
+The Awards Recognition component now uses the standardized spacing approach:
 ```css
 .section {
   background: linear-gradient(180deg, var(--color-warm-ivory) 0%, #f0e8df 100%);
-  padding-top: var(--space-lg);      /* Enhanced top padding */
-  margin-bottom: 0;                 /* Removed bottom margin for better layout */
-  padding-bottom: 10rem;            /* Substantial bottom padding for visual balance */
+  padding-top: var(--space-section);    /* Standardized spacing */
+  padding-bottom: 10rem;              /* Maintained substantial bottom spacing */
+}
+```
+
+#### Legacy Timeline Section Spacing
+The Legacy Timeline component demonstrates the same standardized approach:
+```css
+.section {
+  background: linear-gradient(180deg, var(--color-deep-plum) 0%, #2a1229 40%, var(--color-burgundy) 100%);
+  padding: var(--space-section) 0;     /* Standardized top and bottom spacing */
+  position: relative;
+  overflow: hidden;
+}
+```
+
+#### Utility Class Integration
+The standardized spacing is also available through the utility class system:
+```css
+.section-padding {
+  padding: var(--space-section) 0;
+}
+```
+
+This utility class can be applied to any section that requires consistent section padding, ensuring design system consistency across the entire application.
+
+### Enhanced Awards Section Styling
+**Updated** The Awards Recognition component now features significantly improved CSS styling with standardized spacing:
+
+#### Section Spacing Improvements
+The section now uses the new standardized spacing approach:
+```css
+.section {
+  background: linear-gradient(180deg, var(--color-warm-ivory) 0%, #f0e8df 100%);
+  padding-top: var(--space-section);      /* Standardized spacing using clamp function */
+  margin-bottom: 0;                     /* Removed bottom margin for better layout */
+  padding-bottom: 10rem;                /* Substantial bottom padding maintained */
 }
 ```
 
 #### Refined Grid Layout System
-The grid layout now features precise spacing control:
+The grid layout continues to feature precise spacing control:
 ```css
 .grid {
   display: grid;
@@ -297,7 +359,7 @@ The grid layout now features precise spacing control:
 ```
 
 #### Improved Award Card Styling
-Each award card now features enhanced visual presentation:
+Each award card maintains its enhanced visual presentation:
 ```css
 .awardCard {
   background: white;
@@ -341,8 +403,11 @@ The SectionIndicator component features specialized mobile-first styling with:
 - [src/App.module.css:1-23](file://src/App.module.css#L1-L23)
 - [src/components/layout/Nav.jsx:5](file://src/components/layout/Nav.jsx#L5)
 - [src/components/awards/AwardsRecognition.module.css:1-147](file://src/components/awards/AwardsRecognition.module.css#L1-L147)
+- [src/components/legacy/LegacyTimeline.module.css:1-178](file://src/components/legacy/LegacyTimeline.module.css#L1-L178)
 - [src/components/common/SectionIndicator.module.css:1-60](file://src/components/common/SectionIndicator.module.css#L1-L60)
 - [src/components/common/SiteLoader.module.css:1-86](file://src/components/common/SiteLoader.module.css#L1-L86)
+- [src/styles/_variables.css:34](file://src/styles/_variables.css#L34)
+- [src/styles/_utilities.css:24-26](file://src/styles/_utilities.css#L24-L26)
 - [.gitignore:29-35](file://.gitignore#L29-L35)
 
 ## Typography System
@@ -487,6 +552,14 @@ The application implements several performance optimization strategies:
 - Efficient grid layout with separate gap properties for better rendering performance
 - CSS-only hover effects reducing JavaScript overhead
 - Optimized flex layout for award cards minimizing reflow operations
+- Standardized spacing approach using CSS clamp functions for better performance
+
+### Standardized Spacing Performance Benefits
+**New** The new `var(--space-section)` standardized spacing approach provides:
+- **CSS-only calculation**: No JavaScript required for spacing calculations
+- **Viewport-adaptive**: Efficiently adapts to different screen sizes
+- **Consistent performance**: Reduces layout thrashing through predictable spacing
+- **Maintainability**: Single source of truth for section spacing across all components
 
 ## Troubleshooting Guide
 Common development and runtime issues with solutions:
@@ -506,6 +579,7 @@ Common development and runtime issues with solutions:
 - **SiteLoader overlay issues**: Verify z-index stacking and transform properties
 - **Awards grid layout issues**: Check grid-template-columns and gap property syntax
 - **Award card alignment problems**: Verify flex properties and min-height constraints
+- **Standardized spacing inconsistencies**: Verify `var(--space-section)` variable definition and usage
 
 ### Typography Issues
 - **Font not loading**: Verify Google Fonts import and network connectivity
@@ -523,6 +597,7 @@ Common development and runtime issues with solutions:
 - **Smooth scrolling not functioning**: Verify element ID existence and scroll offset calculations
 - **Session storage issues**: Verify browser compatibility and privacy settings
 - **Screenshot testing failures**: Check .gitignore patterns for screenshot file filtering
+- **Standardized spacing not working**: Verify CSS variable definition and clamp function syntax
 
 **Section sources**
 - [src/main.jsx:6-10](file://src/main.jsx#L6-L10)
@@ -537,6 +612,6 @@ The addition of the new SiteLoader component introduces a sophisticated loading 
 
 The Intersection Observer-based active section tracking provides efficient, low-overhead section detection that improves performance and user experience across all devices. The 11-content component structure provides excellent organization for showcasing diverse aspects of Frankie Picasso's work while maintaining consistency and performance. The combination of CSS Modules, custom hooks, GSAP animations, and the refined responsive typography system creates a polished user experience with smooth interactions and professional presentation quality.
 
-The recent CSS styling improvements to the Awards Recognition component represent a significant enhancement to the application's visual design and user experience. The enhanced spacing system, refined grid layout with separate gap properties, and improved award card styling with flex layout and center alignment demonstrate attention to detail in creating a professional and visually appealing awards showcase. The addition of screenshot testing patterns to the .gitignore file reflects the project's commitment to comprehensive testing and quality assurance processes.
+The recent CSS styling improvements to the Awards Recognition component and Legacy Timeline component represent a significant enhancement to the application's visual design and user experience. The adoption of the standardized `var(--space-section)` spacing approach demonstrates attention to detail in creating a consistent and professional visual rhythm across all content sections. The enhanced spacing system, refined grid layout with separate gap properties, and improved award card styling with flex layout and center alignment show the evolution toward a more sophisticated and visually appealing awards showcase. The addition of screenshot testing patterns to the .gitignore file reflects the project's commitment to comprehensive testing and quality assurance processes.
 
-The new SiteLoader component, combined with the enhanced Awards section layout, improved HeroExperience mobile responsiveness, and refined Navigation mobile styling updates, represents a comprehensive enhancement to the application's user experience and technical architecture.
+The new SiteLoader component, combined with the enhanced Awards section layout, improved HeroExperience mobile responsiveness, and refined Navigation mobile styling updates, represents a comprehensive enhancement to the application's user experience and technical architecture. The standardized spacing approach ensures consistency and maintainability across all content sections, while the enhanced CSS Modules system provides a robust foundation for future development and styling improvements.

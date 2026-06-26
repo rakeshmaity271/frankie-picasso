@@ -47,6 +47,17 @@
   --container-narrow: 800px;
   --nav-height: 110px;
 
+  /* Act Color Tokens */
+  --act-becoming: #3D1C3E;
+  --act-building: #C5A55A;
+  --act-amplifying: #00CED1;
+  --act-creating: #722F37;
+  --act-giving: #2E7D32;
+  --act-still-becoming: #FAF6F0;
+
+  /* Color Transition */
+  --color-transition: background-color 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.6s ease;
+
   /* Z-index */
   --z-nav: 1000;
   --z-overlay: 900;

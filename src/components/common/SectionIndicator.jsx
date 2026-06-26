@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useActiveSection } from '../../hooks/useActiveSection'
-import { sectionIds } from '../../data/content'
+import { sectionIds, actColors } from '../../data/content'
 import styles from './SectionIndicator.module.css'
+
+const dotColors = {
+  hero: '#C5A55A',
+  ...actColors,
+  closing: '#C5A55A',
+  contact: '#C5A55A'
+}
 
 export default function SectionIndicator() {
   const activeId = useActiveSection(sectionIds)
@@ -35,6 +42,7 @@ export default function SectionIndicator() {
           onClick={() => scrollTo(id)}
           aria-label={`Go to ${id}`}
           aria-current={activeId === id ? 'true' : undefined}
+          style={{ '--dot-color': dotColors[id] || '#C5A55A' }}
         />
       ))}
     </nav>
