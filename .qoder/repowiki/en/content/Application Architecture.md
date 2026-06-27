@@ -17,43 +17,56 @@
 - [src/styles/_utilities.css](file://src/styles/_utilities.css)
 - [src/data/content.js](file://src/data/content.js)
 - [src/hooks/useGsap.js](file://src/hooks/useGsap.js)
+- [src/components/acts/ActSection.jsx](file://src/components/acts/ActSection.jsx)
+- [src/components/acts/ActSection.module.css](file://src/components/acts/ActSection.module.css)
+- [src/components/acts/Heartbeat.jsx](file://src/components/acts/Heartbeat.jsx)
+- [src/components/acts/RecognitionBadges.jsx](file://src/components/acts/RecognitionBadges.jsx)
+- [src/components/acts/TimelineStrip.jsx](file://src/components/acts/TimelineStrip.jsx)
+- [src/components/story/FrankieStory.jsx](file://src/components/story/FrankieStory.jsx)
+- [src/components/entrepreneurship/Entrepreneurship.jsx](file://src/components/entrepreneurship/Entrepreneurship.jsx)
+- [src/components/media/MediaHub.jsx](file://src/components/media/MediaHub.jsx)
+- [src/components/creativity/Creativity.jsx](file://src/components/creativity/Creativity.jsx)
+- [src/components/community/CommunityImpact.jsx](file://src/components/community/CommunityImpact.jsx)
+- [src/components/vision/FutureVision.jsx](file://src/components/vision/FutureVision.jsx)
 - [public/index.html](file://public/index.html)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Updated navigation system documentation to reflect the planned transition from mobile-first approach to traditional fixed navigation bar
-- Revised mobile-first design documentation to acknowledge current implementation status
-- Updated component architecture analysis to address the discrepancy between documented approach and actual implementation
-- Added guidance for implementing traditional fixed navigation approach
-- Updated responsive design patterns to reflect the intended change
+- Updated architecture documentation to reflect major transformation from component-based section system to six-act narrative framework
+- Documented new data-driven content organization through acts array structure
+- Added comprehensive coverage of ActSection-based component architecture
+- Integrated theming system documentation using CSS variables and act-specific styling
+- Updated component hierarchy to reflect six-act narrative structure
+- Added detailed analysis of centralized content management through content.js
 
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Project Structure](#project-structure)
-3. [Core Components](#core-components)
-4. [Architecture Overview](#architecture-overview)
-5. [Responsive Component Architecture](#responsive-component-architecture)
-6. [Styling and Design System](#styling-and-design-system)
-7. [Detailed Component Analysis](#detailed-component-analysis)
-8. [Dependency Analysis](#dependency-analysis)
-9. [Performance Considerations](#performance-considerations)
-10. [Troubleshooting Guide](#troubleshooting-guide)
-11. [Conclusion](#conclusion)
+3. [Six-Act Narrative Framework](#six-act-narrative-framework)
+4. [Core Components](#core-components)
+5. [Architecture Overview](#architecture-overview)
+6. [Responsive Component Architecture](#responsive-component-architecture)
+7. [Styling and Design System](#styling-and-design-system)
+8. [Detailed Component Analysis](#detailed-component-analysis)
+9. [Dependency Analysis](#dependency-analysis)
+10. [Performance Considerations](#performance-considerations)
+11. [Troubleshooting Guide](#troubleshooting-guide)
+12. [Conclusion](#conclusion)
 
 ## Introduction
-This document describes the architecture of the Frankie Picasso application, a modern React Single Page Application (SPA) designed with responsive web design principles. The application demonstrates contemporary web development patterns through its client-side React architecture, responsive design system, and sophisticated styling methodology. The system emphasizes component-based architecture with responsive design patterns, modular CSS styling with CSS custom properties, and a streamlined developer experience with hot reloading during development and efficient production builds.
+This document describes the architecture of the Frankie Picasso application, a modern React Single Page Application (SPA) designed with a six-act narrative framework. The application demonstrates contemporary web development patterns through its data-driven content organization, centralized content management system, and sophisticated theming architecture. The system emphasizes a narrative-driven approach where content flows through six distinct acts, each with unique theming, storytelling elements, and specialized component implementations. The architecture showcases modern web development patterns including component-based design, responsive architecture, and integrated theming systems using CSS custom properties.
 
-**Updated**: The navigation system currently implements a mobile-first approach with responsive breakpoints and mobile menu functionality, though the project documentation indicates plans to transition to a traditional fixed navigation bar approach.
+**Updated**: The application has undergone a major architectural transformation from a traditional component-based section system to a six-act narrative framework that organizes content around Frankie Picasso's life story divided into six distinct acts of her journey.
 
 ## Project Structure
-The repository follows a modern React application layout with responsive design architecture:
-- Frontend: Pure React application with component-based architecture under src/
+The repository follows a modern React application layout with a data-driven six-act narrative architecture:
+- Frontend: React application with component-based architecture under src/
+- Data Layer: Centralized content management through content.js with six-act structure
+- Theming System: Integrated CSS variable-based theming with act-specific color schemes
+- Component Architecture: ActSection-based components that wrap specialized content sections
 - Build and Dev Tooling: Vite configuration and scripts defined in package.json
 - Static Assets: Minimal HTML shell in public/index.html
-- Styles: Comprehensive CSS architecture with responsive design system
-- Data: Centralized content management through content.js
-- Hooks: Custom React hooks for animations and state management
 - Responsive Design: Mobile-first approach with progressive enhancement
 
 ```mermaid
@@ -67,51 +80,103 @@ subgraph "React Application (src/)"
 MAIN["src/main.jsx"]
 APP["src/App.jsx"]
 COMPONENTS["src/components/"]
+ACTS["src/components/acts/"]
+STORIES["src/components/story/"]
+ENTREPRENEURSHIP["src/components/entrepreneurship/"]
+MEDIA["src/components/media/"]
+CREATIVITY["src/components/creativity/"]
+COMMUNITY["src/components/community/"]
+VISION["src/components/vision/"]
 STYLES["src/styles/"]
 DATA["src/data/"]
 HOOKS["src/hooks/"]
 end
-subgraph "Responsive Architecture"
-RESPONSIVE["Responsive Design"]
-BREAKPOINTS["Breakpoint System"]
-MEDIAQUERIES["Media Queries"]
+subgraph "Six-Act Framework"
+CONTENT["src/data/content.js<br/>Acts Array Structure"]
+ACTSECTION["ActSection Component<br/>Wrapper Component"]
+THEME["CSS Variable Theming<br/>Act-Specific Colors"]
 end
 PJSON --> VITE
 VCFG --> PUBLIC
 MAIN --> APP
 APP --> COMPONENTS
-APP --> STYLES
+COMPONENTS --> ACTS
+COMPONENTS --> STORIES
+COMPONENTS --> ENTREPRENEURSHIP
+COMPONENTS --> MEDIA
+COMPONENTS --> CREATIVITY
+COMPONENTS --> COMMUNITY
+COMPONENTS --> VISION
 COMPONENTS --> DATA
 COMPONENTS --> HOOKS
-STYLES --> RESPONSIVE
-RESPONSIVE --> BREAKPOINTS
-BREAKPOINTS --> MEDIAQUERIES
+DATA --> CONTENT
+ACTS --> ACTSECTION
+ACTS --> THEME
 ```
 
 **Diagram sources**
 - [package.json:1-23](file://package.json#L1-L23)
 - [vite.config.js:1-11](file://vite.config.js#L1-L11)
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-51](file://src/App.jsx#L1-L51)
+- [src/App.jsx:1-87](file://src/App.jsx#L1-L87)
+- [src/data/content.js:1-239](file://src/data/content.js#L1-L239)
+- [src/components/acts/ActSection.jsx:1-34](file://src/components/acts/ActSection.jsx#L1-L34)
+- [src/styles/_variables.css:50-56](file://src/styles/_variables.css#L50-L56)
 - [public/index.html:1-21](file://public/index.html#L1-L21)
 
 **Section sources**
 - [package.json:1-23](file://package.json#L1-L23)
 - [vite.config.js:1-11](file://vite.config.js#L1-L11)
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-51](file://src/App.jsx#L1-L51)
+- [src/App.jsx:1-87](file://src/App.jsx#L1-L87)
 - [public/index.html:1-21](file://public/index.html#L1-L21)
+
+## Six-Act Narrative Framework
+The application implements a revolutionary six-act narrative framework that organizes Frankie Picasso's life story into distinct thematic sections:
+
+### Act Structure Organization
+Each act represents a distinct phase of Frankie's journey with its own color scheme, themes, and content organization:
+- **Act I (Becoming)**: Foundation and early influences
+- **Act II (Building)**: Platform creation and leadership roles
+- **Act III (Amplifying)**: Media and platform expansion
+- **Act IV (Creating)**: Artistic and creative endeavors
+- **Act V (Giving)**: Community impact and mentorship
+- **Act VI (Still Becoming)**: Ongoing evolution and future vision
+
+### Data-Driven Content Management
+The content.js file contains a centralized acts array that defines the complete narrative structure:
+- Each act includes metadata (id, number, title, tagline)
+- Color theming through CSS variables
+- Narrative content including intros, philosophies, and timelines
+- Specialized content arrays for ventures, shows, initiatives, and achievements
+
+### ActSection Component Architecture
+The ActSection component serves as a wrapper that applies act-specific theming and provides consistent structural elements:
+- Dynamic watermark with act number
+- Theme class application based on act id
+- Consistent header structure with act branding
+- Content area for specialized act components
+
+**Section sources**
+- [src/data/content.js:11-172](file://src/data/content.js#L11-L172)
+- [src/components/acts/ActSection.jsx:5-34](file://src/components/acts/ActSection.jsx#L5-L34)
+- [src/styles/_variables.css:50-56](file://src/styles/_variables.css#L50-L56)
 
 ## Core Components
 - React Application Entry Point
   - Initializes the React application and renders the root App component
   - Sets up global styles and strict mode for development
-- Vite Development Server
-  - Provides fast development iteration with hot module replacement and live reload
-  - Serves the React application with React plugin support
+- Six-Act Narrative Architecture
+  - Centralized content management through acts array structure
+  - ActSection wrapper component for consistent theming and layout
+  - Data-driven component composition based on content structure
 - Responsive Component Architecture
   - Component-based UI with reusable, modular components optimized for various screen sizes
   - CSS modules with responsive design patterns and progressive enhancement
+- Integrated Theming System
+  - CSS variable-based theming with act-specific color schemes
+  - Dynamic theme application through theme classes
+  - Consistent design tokens across all components
 - Comprehensive Styling System
   - Responsive design with CSS custom properties and utility classes
   - Progressive enhancement from mobile to desktop breakpoints
@@ -122,27 +187,28 @@ BREAKPOINTS --> MEDIAQUERIES
 
 Key implementation references:
 - React entry point and rendering: [src/main.jsx:6-10](file://src/main.jsx#L6-L10)
-- App component composition: [src/App.jsx:17-48](file://src/App.jsx#L17-L48)
-- Responsive navigation with mobile menu: [src/components/layout/Nav.jsx:79-104](file://src/components/layout/Nav.jsx#L79-L104)
-- Responsive footer design: [src/components/layout/Footer.jsx:14-49](file://src/components/layout/Footer.jsx#L14-L49)
-- Responsive styling system: [src/styles/_variables.css:26-34](file://src/styles/_variables.css#L26-L34)
+- App component composition with acts: [src/App.jsx:23-84](file://src/App.jsx#L23-L84)
+- ActSection wrapper component: [src/components/acts/ActSection.jsx:5-34](file://src/components/acts/ActSection.jsx#L5-L34)
+- Centralized content management: [src/data/content.js:11-172](file://src/data/content.js#L11-L172)
+- Act-specific theming: [src/styles/_variables.css:50-56](file://src/styles/_variables.css#L50-L56)
 - Vite configuration and dev server: [vite.config.js:4-10](file://vite.config.js#L4-L10)
 - Development scripts: [package.json:6-10](file://package.json#L6-L10)
 
 **Section sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-51](file://src/App.jsx#L1-L51)
-- [src/components/layout/Nav.jsx:1-152](file://src/components/layout/Nav.jsx#L1-L152)
-- [src/components/layout/Footer.jsx:1-59](file://src/components/layout/Footer.jsx#L1-L59)
-- [src/styles/_variables.css:1-67](file://src/styles/_variables.css#L1-L67)
+- [src/App.jsx:1-87](file://src/App.jsx#L1-L87)
+- [src/components/acts/ActSection.jsx:1-34](file://src/components/acts/ActSection.jsx#L1-L34)
+- [src/data/content.js:1-239](file://src/data/content.js#L1-L239)
+- [src/styles/_variables.css:1-72](file://src/styles/_variables.css#L1-L72)
 - [vite.config.js:1-11](file://vite.config.js#L1-L11)
 - [package.json:1-23](file://package.json#L1-L23)
 
 ## Architecture Overview
-The system employs a modern responsive client-side architecture:
-- Presentation Layer: React components with CSS modules and responsive design
+The system employs a modern data-driven narrative architecture:
+- Presentation Layer: React components organized around six-act narrative structure
 - State Management: React hooks for component state and custom hooks for animations
-- Data Layer: Centralized content management through content.js
+- Data Layer: Centralized content management through acts array structure
+- Theming Layer: CSS variable-based theming with act-specific color schemes
 - Animation Layer: GSAP integration for scroll-triggered animations and mobile menu effects
 - Styling Layer: Responsive design system with CSS custom properties and utility classes
 - Responsive Layer: Progressive enhancement from mobile to desktop breakpoints
@@ -151,96 +217,118 @@ The system employs a modern responsive client-side architecture:
 graph TB
 Browser["Browser"]
 ViteDev["Vite Dev Server<br/>Port 3000"]
-ReactApp["React Application<br/>Responsive Architecture"]
-Components["React Components<br/>Responsive Design"]
-Content["Content Data<br/>Centralized Management"]
-Animations["GSAP Animations<br/>Mobile Menu Effects"]
+ReactApp["React Application<br/>Six-Act Narrative Architecture"]
+ActSection["ActSection Wrapper<br/>Consistent Theming"]
+Content["Content Data<br/>Acts Array Structure"]
+Themes["CSS Variable Themes<br/>Act-Specific Colors"]
+Components["Act-Specific Components<br/>Story, Entrepreneurship, Media, etc."]
+Animations["GSAP Animations<br/>Scroll Effects"]
 Styles["Responsive Styles<br/>CSS Custom Properties"]
 Utilities["Utility Classes<br/>Progressive Enhancement"]
 Browser --> ViteDev
 ViteDev --> ReactApp
-ReactApp --> Components
+ReactApp --> ActSection
 ReactApp --> Content
+ReactApp --> Themes
+ReactApp --> Components
 ReactApp --> Animations
-Components --> Styles
+ActSection --> Styles
 Styles --> Utilities
+Content --> Themes
+Components --> Themes
 ```
 
 **Diagram sources**
 - [vite.config.js:6-9](file://vite.config.js#L6-L9)
 - [src/main.jsx:6-10](file://src/main.jsx#L6-L10)
-- [src/App.jsx:17-48](file://src/App.jsx#L17-L48)
-- [src/components/layout/Nav.jsx:79-104](file://src/components/layout/Nav.jsx#L79-L104)
+- [src/App.jsx:23-84](file://src/App.jsx#L23-L84)
+- [src/components/acts/ActSection.jsx:5-34](file://src/components/acts/ActSection.jsx#L5-L34)
+- [src/data/content.js:11-172](file://src/data/content.js#L11-L172)
+- [src/styles/_variables.css:50-56](file://src/styles/_variables.css#L50-L56)
 - [src/styles/_global.css:1-76](file://src/styles/_global.css#L1-L76)
 
 ## Responsive Component Architecture
-The application's component architecture is designed for responsive design across various screen sizes:
+The application's component architecture is designed for responsive design across various screen sizes within the six-act framework:
 
-### Navigation Component
-The navigation system currently implements a mobile-first responsive approach:
-- Fixed positioning with backdrop blur effects
-- Animated hamburger menu with three-state transitions
-- Mobile overlay menu with staggered entrance animations
-- Scroll-aware header styling with backdrop filter
-- Accessible ARIA attributes and keyboard navigation
-- Body overflow control during mobile menu activation
-- Responsive breakpoint system at 1023px
+### ActSection Component
+The ActSection component serves as the primary wrapper for all narrative content:
+- Dynamic watermark with act number (50% opacity serif font)
+- Theme class application (act-theme--{actId})
+- Consistent header structure with act branding
+- Content area for specialized act components
+- Responsive design with mobile-first approach
 
-**Updated**: The navigation system currently maintains its mobile-first approach with responsive breakpoints and mobile menu functionality, though the project documentation indicates plans to transition to a traditional fixed navigation bar approach.
+### Act-Specific Components
+Each act has specialized components that leverage the shared ActSection wrapper:
+- **FrankieStory**: Personal narrative and timeline presentation
+- **Entrepreneurship**: Venture showcase with card-based layout
+- **MediaHub**: Interactive filtering system for shows, interviews, and press
+- **Creativity**: Artistic works display with GSAP animations
+- **CommunityImpact**: Initiative showcase with parallax effects
+- **FutureVision**: Mission statement and current projects presentation
 
-### Footer Component
-The footer adapts seamlessly from mobile to desktop layouts:
-- Mobile-centered single-column layout
-- Desktop grid system with three-column structure
-- Responsive typography and spacing adjustments
-- Social media icons with hover effects
-- Accessible navigation structure
-
-### Component Responsiveness
-- All components utilize CSS Grid and Flexbox for flexible layouts
-- Breakpoint-specific styling with media queries
-- Utility classes for consistent spacing and typography
-- Fluid typography scales using clamp() functions
-- Container-based responsive design
+### Theming Integration
+The theming system integrates seamlessly with the component architecture:
+- CSS variables define act-specific colors (--act-becoming, --act-building, etc.)
+- Theme classes apply act-specific styling to components
+- Dynamic color application through CSS custom properties
+- Consistent design language across all act components
 
 ```mermaid
 graph LR
-Nav["Navigation Component"] --> DesktopNav["Desktop Navigation"]
-Nav --> MobileMenu["Mobile Menu Overlay"]
-Nav --> ScrollEffect["Scroll Effect Styling"]
-Nav --> Hamburger["Animated Hamburger"]
-DesktopNav --> DesktopLinks["Desktop Links"]
-MobileMenu --> Staggered["Staggered Animations"]
-ScrollEffect --> BackdropFilter["Backdrop Filter"]
-Hamburger --> ThreeState["Three-State Animation"]
-Footer["Footer Component"] --> MobileLayout["Mobile Layout"]
-Footer --> DesktopLayout["Desktop Grid Layout"]
-MobileLayout --> Centered["Centered Content"]
-DesktopLayout --> ThreeColumn["Three Column Grid"]
+ActSection["ActSection Component"] --> Watermark["Watermark<br/>Act Number"]
+ActSection --> Header["Header<br/>Act Branding"]
+ActSection --> ContentArea["Content Area<br/>Specialized Components"]
+FrankieStory["FrankieStory"] --> ActSection
+Entrepreneurship["Entrepreneurship"] --> ActSection
+MediaHub["MediaHub"] --> ActSection
+Creativity["Creativity"] --> ActSection
+CommunityImpact["CommunityImpact"] --> ActSection
+FutureVision["FutureVision"] --> ActSection
+Themes["CSS Variables<br/>Act Colors"] --> ActSection
+Themes --> ActSection
 ```
 
 **Diagram sources**
-- [src/components/layout/Nav.jsx:79-104](file://src/components/layout/Nav.jsx#L79-L104)
-- [src/components/layout/Nav.module.css:180-225](file://src/components/layout/Nav.module.css#L180-L225)
-- [src/components/layout/Footer.jsx:14-56](file://src/components/layout/Footer.jsx#L14-L56)
-- [src/components/layout/Footer.module.css:140-172](file://src/components/layout/Footer.module.css#L140-L172)
+- [src/components/acts/ActSection.jsx:5-34](file://src/components/acts/ActSection.jsx#L5-L34)
+- [src/components/acts/ActSection.module.css:1-91](file://src/components/acts/ActSection.module.css#L1-L91)
+- [src/styles/_variables.css:50-56](file://src/styles/_variables.css#L50-L56)
+- [src/components/story/FrankieStory.jsx:1-39](file://src/components/story/FrankieStory.jsx#L1-L39)
+- [src/components/entrepreneurship/Entrepreneurship.jsx:1-48](file://src/components/entrepreneurship/Entrepreneurship.jsx#L1-L48)
+- [src/components/media/MediaHub.jsx:1-73](file://src/components/media/MediaHub.jsx#L1-L73)
+- [src/components/creativity/Creativity.jsx:1-56](file://src/components/creativity/Creativity.jsx#L1-L56)
+- [src/components/community/CommunityImpact.jsx:1-84](file://src/components/community/CommunityImpact.jsx#L1-L84)
+- [src/components/vision/FutureVision.jsx:1-30](file://src/components/vision/FutureVision.jsx#L1-L30)
 
 **Section sources**
-- [src/components/layout/Nav.jsx:1-152](file://src/components/layout/Nav.jsx#L1-L152)
-- [src/components/layout/Nav.module.css:1-349](file://src/components/layout/Nav.module.css#L1-L349)
-- [src/components/layout/Footer.jsx:1-59](file://src/components/layout/Footer.jsx#L1-L59)
-- [src/components/layout/Footer.module.css:1-274](file://src/components/layout/Footer.module.css#L1-L274)
+- [src/components/acts/ActSection.jsx:1-34](file://src/components/acts/ActSection.jsx#L1-L34)
+- [src/components/acts/ActSection.module.css:1-91](file://src/components/acts/ActSection.module.css#L1-L91)
+- [src/styles/_variables.css:50-56](file://src/styles/_variables.css#L50-L56)
+- [src/components/story/FrankieStory.jsx:1-39](file://src/components/story/FrankieStory.jsx#L1-L39)
+- [src/components/entrepreneurship/Entrepreneurship.jsx:1-48](file://src/components/entrepreneurship/Entrepreneurship.jsx#L1-L48)
+- [src/components/media/MediaHub.jsx:1-73](file://src/components/media/MediaHub.jsx#L1-L73)
+- [src/components/creativity/Creativity.jsx:1-56](file://src/components/creativity/Creativity.jsx#L1-L56)
+- [src/components/community/CommunityImpact.jsx:1-84](file://src/components/community/CommunityImpact.jsx#L1-L84)
+- [src/components/vision/FutureVision.jsx:1-30](file://src/components/vision/FutureVision.jsx#L1-L30)
 
 ## Styling and Design System
-The application features a comprehensive styling system built on modern CSS methodologies:
+The application features a comprehensive styling system built on modern CSS methodologies with integrated theming:
 
 ### CSS Custom Properties System
-- Root-level design tokens for consistent theming
+- Root-level design tokens for consistent theming across all acts
+- Act-specific color tokens (--act-becoming, --act-building, etc.)
 - Responsive spacing scale with adaptive adjustments
 - Typography hierarchy with fluid scaling
 - Color palette with semantic naming
 - Transition timing functions for smooth animations
 - Z-index layers for proper stacking context
+
+### Act-Specific Theming
+- Dynamic theme application through theme classes
+- CSS variable fallbacks for consistent styling
+- Act-specific color schemes integrated throughout components
+- Theme-aware typography and spacing
+- Consistent design language across all act components
 
 ### Utility-First Approach
 - Container classes for consistent page width
@@ -266,7 +354,7 @@ The application features a comprehensive styling system built on modern CSS meth
 ```mermaid
 graph TB
 DesignSystem["Design System"] --> Variables["CSS Variables"]
-Variables --> Colors["Color System"]
+Variables --> ActColors["Act Color Tokens"]
 Variables --> Typography["Typography Scale"]
 Variables --> Spacing["Spacing Scale"]
 Variables --> Transitions["Transition Timing"]
@@ -276,20 +364,19 @@ Utilities --> TextUtils["Text Utilities"]
 Utilities --> ColorUtils["Color Utilities"]
 Utilities --> BackgroundUtils["Background Utilities"]
 DesignSystem --> Components["Component Styles"]
-Components --> NavStyles["Navigation Styles"]
-Components --> FooterStyles["Footer Styles"]
-Components --> SectionStyles["Section Styles"]
+Components --> ActSectionStyles["ActSection Styles"]
+Components --> ActSpecificStyles["Act-Specific Styles"]
+Components --> ThemeIntegration["Theme Integration"]
 ```
 
 **Diagram sources**
-- [src/styles/_variables.css:1-67](file://src/styles/_variables.css#L1-L67)
+- [src/styles/_variables.css:1-72](file://src/styles/_variables.css#L1-L72)
 - [src/styles/_utilities.css:1-55](file://src/styles/_utilities.css#L1-L55)
-- [src/components/layout/Nav.module.css:1-349](file://src/components/layout/Nav.module.css#L1-L349)
-- [src/components/layout/Footer.module.css:1-274](file://src/components/layout/Footer.module.css#L1-L274)
+- [src/components/acts/ActSection.module.css:1-91](file://src/components/acts/ActSection.module.css#L1-L91)
 
 **Section sources**
 - [src/styles/_global.css:1-76](file://src/styles/_global.css#L1-L76)
-- [src/styles/_variables.css:1-67](file://src/styles/_variables.css#L1-L67)
+- [src/styles/_variables.css:1-72](file://src/styles/_variables.css#L1-L72)
 - [src/styles/_typography.css:1-41](file://src/styles/_typography.css#L1-L41)
 - [src/styles/_utilities.css:1-55](file://src/styles/_utilities.css#L1-L55)
 
@@ -317,123 +404,170 @@ App->>Browser : Render component tree
 
 **Diagram sources**
 - [src/main.jsx:6-10](file://src/main.jsx#L6-L10)
-- [src/App.jsx:17-48](file://src/App.jsx#L17-L48)
+- [src/App.jsx:25-84](file://src/App.jsx#L25-L84)
 
 Implementation highlights:
 - Root rendering: [src/main.jsx:6-10](file://src/main.jsx#L6-L10)
-- App component composition: [src/App.jsx:17-48](file://src/App.jsx#L17-L48)
+- App component composition with acts: [src/App.jsx:23-84](file://src/App.jsx#L23-L84)
 - Global styling import: [src/main.jsx:4](file://src/main.jsx#L4)
 
 **Section sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-51](file://src/App.jsx#L1-L51)
+- [src/App.jsx:1-87](file://src/App.jsx#L1-L87)
 
-### Responsive Navigation Component
-The navigation component implements a responsive design approach:
-- Fixed positioning with backdrop blur and shadow effects
-- Animated hamburger menu with three-state transitions
-- Mobile overlay menu with staggered entrance animations using GSAP
-- Scroll-aware header styling with background transitions
-- Accessible ARIA attributes and keyboard navigation support
-- Body overflow control during mobile menu activation
-- Smooth scrolling to target sections with offset positioning
-- Responsive breakpoint system at 1023px for mobile adaptation
+### Six-Act Narrative Architecture
+The application implements a revolutionary six-act narrative framework that organizes content around Frankie Picasso's life story:
 
-**Updated**: The navigation system currently maintains its mobile-first approach with responsive breakpoints and mobile menu functionality. The component includes:
-- Desktop navigation for larger screens
-- Mobile hamburger menu for smaller screens
-- Slide-out mobile menu with staggered animations
-- Scroll-aware styling with backdrop filter
-- Body overflow control during mobile menu activation
+#### ActSection Wrapper Component
+The ActSection component serves as the primary wrapper for all narrative content:
+- Dynamic watermark with act number (50% opacity serif font)
+- Theme class application (act-theme--{actId})
+- Consistent header structure with act branding
+- Content area for specialized act components
+- Responsive design with mobile-first approach
+
+#### Act-Specific Content Components
+Each act has specialized components that leverage the shared ActSection wrapper:
+- **FrankieStory**: Personal narrative and timeline presentation
+- **Entrepreneurship**: Venture showcase with card-based layout
+- **MediaHub**: Interactive filtering system for shows, interviews, and press
+- **Creativity**: Artistic works display with GSAP animations
+- **CommunityImpact**: Initiative showcase with parallax effects
+- **FutureVision**: Mission statement and current projects presentation
+
+#### Heartbeat Integration
+The Heartbeat component provides thematic transitions between acts:
+- Simple animated presentation with dot separators
+- Fade-in animation for smooth transitions
+- Consistent design language across all acts
 
 ```mermaid
 flowchart TD
-Nav["Nav Component"] --> DesktopNav["Desktop Navigation"]
-Nav --> MobileMenu["Mobile Menu Toggle"]
-Nav --> ScrollEffect["Scroll Effect Styling"]
-Nav --> SmoothScroll["Smooth Scrolling"]
-Nav --> ActiveSection["Active Section Tracking"]
-DesktopNav --> DesktopLinks["Desktop Links"]
-MobileMenu --> MenuAnimation["Menu Entrance Animation"]
-MobileMenu --> BodyOverflow["Body Overflow Control"]
-ScrollEffect --> HeaderStyle["Header Styling"]
-SmoothScroll --> SectionTarget["Section Targeting"]
-ActiveSection --> NavLinkHighlight["Navigation Highlighting"]
-MenuAnimation --> GSAPAnimations["GSAP Staggered Animations"]
+App["App.jsx"] --> ActsLoop["acts.forEach"]
+App --> ActSection["ActSection Wrapper"]
+ActSection --> Header["Act Header<br/>Number, Title, Tagline"]
+ActSection --> Watermark["Watermark<br/>Act Number"]
+ActSection --> Content["Act Content<br/>Specialized Component"]
+FrankieStory["FrankieStory"] --> ActSection
+Entrepreneurship["Entrepreneurship"] --> ActSection
+MediaHub["MediaHub"] --> ActSection
+Creativity["Creativity"] --> ActSection
+CommunityImpact["CommunityImpact"] --> ActSection
+FutureVision["FutureVision"] --> ActSection
+Heartbeat["Heartbeat"] --> App
 ```
 
 **Diagram sources**
-- [src/components/layout/Nav.jsx:26-62](file://src/components/layout/Nav.jsx#L26-L62)
-- [src/components/layout/Nav.jsx:79-104](file://src/components/layout/Nav.jsx#L79-L104)
-- [src/components/layout/Nav.jsx:106-149](file://src/components/layout/Nav.jsx#L106-L149)
+- [src/App.jsx:45-76](file://src/App.jsx#L45-L76)
+- [src/components/acts/ActSection.jsx:5-34](file://src/components/acts/ActSection.jsx#L5-L34)
+- [src/components/acts/Heartbeat.jsx:5-21](file://src/components/acts/Heartbeat.jsx#L5-L21)
 
 Implementation highlights:
-- Scroll effect handling: [src/components/layout/Nav.jsx:32-36](file://src/components/layout/Nav.jsx#L32-L36)
-- Mobile menu animation: [src/components/layout/Nav.jsx:38-44](file://src/components/layout/Nav.jsx#L38-L44)
-- GSAP staggered animations: [src/components/layout/Nav.jsx:38-44](file://src/components/layout/Nav.jsx#L38-L44)
-- Body overflow control: [src/components/layout/Nav.jsx:46-53](file://src/components/layout/Nav.jsx#L46-L53)
-- Smooth scrolling implementation: [src/components/layout/Nav.jsx:55-62](file://src/components/layout/Nav.jsx#L55-L62)
+- ActSection wrapper: [src/components/acts/ActSection.jsx:5-34](file://src/components/acts/ActSection.jsx#L5-L34)
+- Act-specific content rendering: [src/App.jsx:45-76](file://src/App.jsx#L45-L76)
+- Heartbeat integration: [src/App.jsx:48, 53, 58, 64, 69, 75](file://src/App.jsx#L48,L53,L58,L64,L69,L75)
 
 **Section sources**
-- [src/components/layout/Nav.jsx:1-152](file://src/components/layout/Nav.jsx#L1-L152)
-- [src/components/layout/Nav.module.css:1-349](file://src/components/layout/Nav.module.css#L1-L349)
+- [src/App.jsx:1-87](file://src/App.jsx#L1-L87)
+- [src/components/acts/ActSection.jsx:1-34](file://src/components/acts/ActSection.jsx#L1-L34)
+- [src/components/acts/Heartbeat.jsx:1-21](file://src/components/acts/Heartbeat.jsx#L1-L21)
 
-### Responsive Footer Component
-The footer component demonstrates adaptive design patterns:
-- Mobile-centered layout with centered content and single-column structure
-- Desktop grid system with three-column responsive layout
-- Social media icons with hover effects and accessibility attributes
-- Responsive typography with larger font sizes on desktop
-- Container-based responsive design with max-width constraints
-- Gold accent line for visual hierarchy
+### Act-Specific Component Analysis
 
-```mermaid
-graph LR
-Footer["Footer Component"] --> MobileLayout["Mobile Layout"]
-Footer --> DesktopLayout["Desktop Grid Layout"]
-MobileLayout --> Centered["Centered Content"]
-MobileLayout --> SocialIcons["Social Icons"]
-DesktopLayout --> ThreeColumns["Three Columns"]
-DesktopLayout --> BrandSection["Brand Section"]
-DesktopLayout --> NavigationSections["Navigation Sections"]
-```
+#### FrankieStory Component
+The FrankieStory component presents Act I's personal narrative:
+- Scroll-reveal animations for narrative and timeline elements
+- Philosophy statement with fade-up animation
+- Timeline presentation with year/title/description structure
+- Pull quote with fade-in animation
+- Act-specific content access through content.acts[0]
 
-**Diagram sources**
-- [src/components/layout/Footer.jsx:14-49](file://src/components/layout/Footer.jsx#L14-L49)
-- [src/components/layout/Footer.jsx:24-49](file://src/components/layout/Footer.jsx#L24-L49)
-- [src/components/layout/Footer.module.css:140-172](file://src/components/layout/Footer.module.css#L140-L172)
+#### Entrepreneurship Component
+The Entrepreneurship component showcases Act II's ventures:
+- Grid-based card layout for venture presentations
+- SVG placeholders with gradient backgrounds
+- Impact indicators with specialized styling
+- Timeline presentation for career milestones
+- Scroll-reveal animations for card elements
+
+#### MediaHub Component
+The MediaHub component presents Act III's media presence:
+- Interactive filtering system for different content types
+- Tab-based navigation for content categories
+- Responsive grid layout for media items
+- SVG placeholders with gradient backgrounds
+- Dynamic content aggregation from shows, interviews, and press arrays
+
+#### Creativity Component
+The Creativity component showcases Act IV's artistic endeavors:
+- GSAP-powered animations for card elements
+- Parallax-style entrance animations
+- Wide and standard card layouts
+- Type-based icon system (book, radio, art, writing)
+- Scroll-triggered animations with reduced motion support
+
+#### CommunityImpact Component
+The CommunityImpact component presents Act V's community work:
+- Parallax image effects with useParallax hook
+- GSAP-powered card animations
+- Layout with image column and initiative cards
+- Quote band with fade-in animation
+- Scroll-triggered animations with toggle actions
+
+#### FutureVision Component
+The FutureVision component presents Act VI's ongoing work:
+- Mission statement with reveal animation
+- Project showcase with accent elements
+- Simple card-based layout for current initiatives
+- Scroll-reveal animations for content elements
 
 **Section sources**
-- [src/components/layout/Footer.jsx:1-59](file://src/components/layout/Footer.jsx#L1-L59)
-- [src/components/layout/Footer.module.css:1-274](file://src/components/layout/Footer.module.css#L1-L274)
+- [src/components/story/FrankieStory.jsx:1-39](file://src/components/story/FrankieStory.jsx#L1-L39)
+- [src/components/entrepreneurship/Entrepreneurship.jsx:1-48](file://src/components/entrepreneurship/Entrepreneurship.jsx#L1-L48)
+- [src/components/media/MediaHub.jsx:1-73](file://src/components/media/MediaHub.jsx#L1-L73)
+- [src/components/creativity/Creativity.jsx:1-56](file://src/components/creativity/Creativity.jsx#L1-L56)
+- [src/components/community/CommunityImpact.jsx:1-84](file://src/components/community/CommunityImpact.jsx#L1-L84)
+- [src/components/vision/FutureVision.jsx:1-30](file://src/components/vision/FutureVision.jsx#L1-L30)
 
 ### Content Management System
-The application uses a centralized content management approach:
-- Structured content organization by topic areas
-- Consistent data structure for different content types
+The application uses a centralized content management approach through the acts array structure:
+- Structured six-act content organization
+- Consistent data structure for different content types per act
 - Easy maintenance and updates through single source of truth
 - Integration with components for dynamic content rendering
+- Color theming integration through CSS variables
+- Navigation and section identification through dedicated arrays
 
 ```mermaid
 graph TB
-Content["Content System"] --> Hero["Hero Content"]
-Content --> Story["Life Story Content"]
-Content --> Ventures["Entrepreneurship Content"]
-Content --> Creativity["Creativity Content"]
-Content --> Community["Community Impact Content"]
-Content --> Media["Media Hub Content"]
-Content --> Books["Books Publications Content"]
-Content --> Awards["Awards Recognition Content"]
-Content --> Legacy["Legacy Timeline Content"]
-Content --> Vision["Future Vision Content"]
-Content --> Contact["Contact Information Content"]
+Content["Content System"] --> ActsArray["acts Array<br/>Six Acts Structure"]
+Content --> Hero["Hero Content"]
+Content --> Closing["Closing Content"]
+Content --> Contact["Contact Information"]
+Content --> SectionIds["sectionIds Array"]
+Content --> NavLinks["navLinks Array"]
+Content --> ActColors["actColors Object"]
+ActsArray --> Becoming["Act I: Becoming"]
+ActsArray --> Building["Act II: Building"]
+ActsArray --> Amplifying["Act III: Amplifying"]
+ActsArray --> Creating["Act IV: Creating"]
+ActsArray --> Giving["Act V: Giving"]
+ActsArray --> StillBecoming["Act VI: Still Becoming"]
+Becoming --> Philosophy["Philosophy Statement"]
+Becoming --> Timeline["Early Timeline"]
+Building --> Ventures["Venture Showcase"]
+Amplifying --> Shows["Media Content"]
+Creating --> Works["Creative Works"]
+Giving --> Initiatives["Community Initiatives"]
+StillBecoming --> Awards["Recognition Awards"]
 ```
 
 **Diagram sources**
-- [src/data/content.js:1-183](file://src/data/content.js#L1-L183)
+- [src/data/content.js:11-172](file://src/data/content.js#L11-L172)
+- [src/data/content.js:208-239](file://src/data/content.js#L208-L239)
 
 **Section sources**
-- [src/data/content.js:1-183](file://src/data/content.js#L1-L183)
+- [src/data/content.js:1-239](file://src/data/content.js#L1-L239)
 
 ### Animation and Interaction System
 The application leverages GSAP for advanced animations and scroll effects:
@@ -441,22 +575,27 @@ The application leverages GSAP for advanced animations and scroll effects:
 - Smooth transitions and entrance effects
 - Performance-optimized animations with proper cleanup
 - Integration with React component lifecycle
-- Mobile menu animations with staggered effects
+- Reduced motion support for accessibility
+- Parallax effects with useParallax hook
+- Staggered animations with GSAP stagger functionality
 
 ```mermaid
 flowchart TD
 GSAP["GSAP Integration"] --> ScrollTrigger["Scroll Trigger Events"]
 GSAP --> Animations["Component Animations"]
 GSAP --> Transitions["Page Transitions"]
+GSAP --> Parallax["Parallax Effects"]
 ScrollTrigger --> ComponentEffects["Component-Specific Effects"]
 Animations --> Performance["Performance Optimization"]
 Transitions --> UserExperience["Enhanced UX"]
-MobileMenu["Mobile Menu Animations"] --> Staggered["Staggered Entrance Effects"]
+Parallax --> ImageEffects["Image Movement Effects"]
+ReducedMotion["Reduced Motion Support"] --> Accessibility["Accessibility Features"]
 ```
 
 **Diagram sources**
 - [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
-- [src/components/layout/Nav.jsx:38-44](file://src/components/layout/Nav.jsx#L38-L44)
+- [src/components/creativity/Creativity.jsx:11-32](file://src/components/creativity/Creativity.jsx#L11-L32)
+- [src/components/community/CommunityImpact.jsx:13-34](file://src/components/community/CommunityImpact.jsx#L13-L34)
 
 **Section sources**
 - [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
@@ -546,18 +685,22 @@ Deps --> GSAP["Animation Library"]
 - [package.json:1-23](file://package.json#L1-L23)
 
 ## Dependency Analysis
-The application maintains clean separation between frontend dependencies:
+The application maintains clean separation between frontend dependencies with integrated theming:
 - React Application depends on:
   - React and React DOM for component rendering
   - GSAP for advanced animations and scroll effects
-  - CSS modules for scoped styling
+  - CSS modules for scoped styling with theming integration
 - Vite configuration depends on:
   - React plugin for JSX support and fast refresh
   - Development server settings
 - Component dependencies:
   - Shared hooks and utilities
-  - Centralized content management
-  - Modular CSS architecture with responsive design system
+  - Centralized content management through acts array
+  - Modular CSS architecture with integrated theming system
+- Theming dependencies:
+  - CSS variables for act-specific color schemes
+  - Theme class application through ActSection component
+  - Dynamic color application across all components
 
 ```mermaid
 graph TB
@@ -568,27 +711,33 @@ GSAP["GSAP Animation Library"]
 CSSModules["CSS Modules"]
 ContentData["Content Data System"]
 Hooks["Custom Hooks"]
+ThemingSystem["Theming System"]
 ResponsiveDesign["Responsive Design System"]
 ReactApp --> ReactPlugin
 ReactApp --> GSAP
 ReactApp --> CSSModules
 ReactApp --> ContentData
 ReactApp --> Hooks
+ReactApp --> ThemingSystem
 ReactApp --> ResponsiveDesign
 Vite --> ReactPlugin
+ContentData --> ThemingSystem
+CSSModules --> ThemingSystem
 ```
 
 **Diagram sources**
 - [src/main.jsx:1-3](file://src/main.jsx#L1-L3)
 - [vite.config.js:2](file://vite.config.js#L2)
 - [src/hooks/useGsap.js:1-4](file://src/hooks/useGsap.js#L1-L4)
-- [src/data/content.js:1-183](file://src/data/content.js#L1-L183)
+- [src/data/content.js:11-172](file://src/data/content.js#L11-L172)
+- [src/styles/_variables.css:50-56](file://src/styles/_variables.css#L50-L56)
 
 **Section sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
 - [vite.config.js:1-11](file://vite.config.js#L1-L11)
 - [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
-- [src/data/content.js:1-183](file://src/data/content.js#L1-L183)
+- [src/data/content.js:1-239](file://src/data/content.js#L1-L239)
+- [src/styles/_variables.css:1-72](file://src/styles/_variables.css#L1-L72)
 
 ## Performance Considerations
 - Development Performance
@@ -598,6 +747,7 @@ Vite --> ReactPlugin
 - Production Performance
   - Vite's build process generates optimized assets suitable for deployment
   - CSS modules provide scoped styling without global conflicts
+  - Integrated theming system reduces runtime calculations
   - Responsive approach reduces unnecessary CSS for smaller devices
   - Utility classes minimize custom CSS bloat
   - Component lazy loading opportunities for future optimization
@@ -606,15 +756,22 @@ Vite --> ReactPlugin
   - Proper cleanup of event listeners and animations
   - Optimized scroll event handling with throttling
   - Backdrop filter effects optimized for modern browsers
+  - Reduced motion support prevents unnecessary animations
+- Theming Performance
+  - CSS variables provide efficient color switching
+  - Theme class application minimizes style recalculation
+  - Act-specific colors cached through CSS variables
+  - Efficient watermark rendering with transform optimization
 - Responsive Performance
   - Responsive design reduces CSS parsing overhead on smaller devices
   - Responsive images and optimized asset loading
   - Touch-friendly interactive elements
   - Reduced JavaScript bundle size through modular architecture
 - Scalability Notes
-  - Current implementation focuses on simplicity and education
+  - Six-act framework supports easy content expansion
   - Component-based architecture supports easy scaling
   - CSS modules enable maintainable styling at scale
+  - Integrated theming system supports new act additions
   - Responsive approach ensures future-proof design
 
 ## Troubleshooting Guide
@@ -626,15 +783,27 @@ Common issues and resolutions:
   - Verify React and React DOM versions match
   - Check component imports and export statements
   - Ensure CSS modules are properly imported
+  - Validate ActSection component props and theming classes
+- Act-Specific Component Problems
+  - Verify content.acts array structure and indexing
+  - Check act.id values match expected values
+  - Ensure theme classes are properly applied
+  - Validate act-specific content arrays exist
+- Theming Issues
+  - Verify CSS variables are properly defined
+  - Check theme class application in ActSection
+  - Ensure act-specific color tokens exist
+  - Validate CSS variable fallbacks
+- Animation Problems
+  - Verify GSAP and @gsap/react installations
+  - Check for proper cleanup of scroll triggers
+  - Ensure component unmounting removes event listeners
+  - Validate reduced motion support implementation
 - Mobile Menu Problems
   - Verify GSAP and @gsap/react installations
   - Check for proper cleanup of scroll triggers
   - Ensure component unmounting removes event listeners
   - Validate mobile menu accessibility attributes
-- Animation Problems
-  - Verify GSAP and @gsap/react installations
-  - Check for proper cleanup of scroll triggers
-  - Ensure component unmounting removes event listeners
 - Development Server Not Starting
   - Check Node.js and npm versions meet project requirements
   - Run installation steps and review script commands in package.json
@@ -642,19 +811,23 @@ Common issues and resolutions:
   - Verify CSS files are properly imported with .module.css extension
   - Check for naming conventions and class name conflicts
   - Ensure CSS variables are properly defined in global styles
+  - Validate theme class application syntax
 - Responsive Design Issues
   - Verify responsive CSS is properly structured
   - Check media query breakpoints and specificity
   - Validate utility class usage and ordering
   - Ensure container classes are applied correctly
+  - Check act-specific responsive overrides
 
 **Section sources**
 - [vite.config.js:6-9](file://vite.config.js#L6-L9)
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
 - [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
+- [src/components/acts/ActSection.jsx:1-34](file://src/components/acts/ActSection.jsx#L1-L34)
+- [src/styles/_variables.css:50-56](file://src/styles/_variables.css#L50-L56)
 - [package.json:6-10](file://package.json#L6-L10)
 
 ## Conclusion
-The Frankie Picasso application exemplifies modern React SPA architecture with a responsive design approach. The implementation demonstrates sophisticated responsive design patterns, a robust styling system with CSS custom properties, and advanced animation techniques using GSAP. The layered design, ES6 module usage, and CSS modules showcase best practices for educational and prototyping scenarios. 
+The Frankie Picasso application exemplifies modern React SPA architecture with a revolutionary six-act narrative framework. The implementation demonstrates sophisticated data-driven content organization, integrated theming system with CSS custom properties, and advanced animation techniques using GSAP. The six-act framework transforms traditional component-based architecture into a cohesive storytelling experience where each act represents a distinct phase of Frankie's journey with its own color scheme, themes, and specialized content presentation.
 
-**Updated**: The current implementation maintains a mobile-first responsive approach with hamburger menus and slide-out panels, though the project documentation indicates plans to transition to a traditional fixed navigation bar approach. The architecture balances responsive design principles with desktop optimization, creating a scalable foundation that supports both immediate development needs and future feature expansion. This implementation serves as an excellent example of contemporary web development patterns emphasizing accessibility, performance, and maintainable code architecture.
+**Updated**: The application has successfully transitioned from a traditional component-based section system to a six-act narrative framework that organizes content around Frankie Picasso's life story. The new architecture provides a scalable foundation for content management while maintaining the responsive design principles and educational focus that make this implementation an excellent example of contemporary web development patterns. The integrated theming system using CSS variables ensures consistent visual identity across all acts, while the component-based approach supports maintainable and extensible code architecture. This implementation serves as a comprehensive demonstration of modern web development practices including data-driven architecture, responsive design, accessibility considerations, and performance optimization.

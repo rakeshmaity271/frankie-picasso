@@ -62,46 +62,48 @@ export default function Nav() {
   }
 
   return (
-    <header className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`} ref={navRef}>
-      <div className={styles.inner}>
-        <button className={styles.logo} onClick={() => scrollTo('hero')} aria-label="Go to top">
-          <img src="/logo.png" alt="Frankie Picasso" className={styles.logoImage} />
-          <div className={styles.logoWordmark}>
-            <span className={styles.logoText}>FRANKIE PICASSO</span>
-            <div className={styles.logoDivider}>
-              <span className={styles.logoDividerLine} />
-              <span className={styles.logoDividerDot} />
-              <span className={styles.logoDividerLine} />
+    <>
+      <header className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`} ref={navRef}>
+        <div className={styles.inner}>
+          <button className={styles.logo} onClick={() => scrollTo('hero')} aria-label="Go to top">
+            <img src="/logo.png" alt="Frankie Picasso" className={styles.logoImage} />
+            <div className={styles.logoWordmark}>
+              <span className={styles.logoText}>FRANKIE PICASSO</span>
+              <div className={styles.logoDivider}>
+                <span className={styles.logoDividerLine} />
+                <span className={styles.logoDividerDot} />
+                <span className={styles.logoDividerLine} />
+              </div>
             </div>
-          </div>
-        </button>
+          </button>
 
-        <nav aria-label="Main navigation" className={styles.desktopNav}>
-          <ul>
-            {navLinks.slice(1).map((link) => (
-              <li key={link.id}>
-                <button
-                  className={`${styles.navLink} ${activeId === link.id ? styles.active : ''}`}
-                  onClick={() => scrollTo(link.id)}
-                  aria-current={activeId === link.id ? 'true' : undefined}
-                >
-                  {link.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
+          <nav aria-label="Main navigation" className={styles.desktopNav}>
+            <ul>
+              {navLinks.slice(1).map((link) => (
+                <li key={link.id}>
+                  <button
+                    className={`${styles.navLink} ${activeId === link.id ? styles.active : ''}`}
+                    onClick={() => scrollTo(link.id)}
+                    aria-current={activeId === link.id ? 'true' : undefined}
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <button
-          className={`${styles.hamburger} ${mobileOpen ? styles.open : ''}`}
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-expanded={mobileOpen}
-          aria-controls="mobile-menu"
-          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-        >
-          <span /><span /><span />
-        </button>
-      </div>
+          <button
+            className={`${styles.hamburger} ${mobileOpen ? styles.open : ''}`}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          >
+            <span /><span /><span />
+          </button>
+        </div>
+      </header>
 
       <div
         id="mobile-menu"
@@ -146,6 +148,6 @@ export default function Nav() {
           </button>
         </div>
       </div>
-    </header>
+    </>
   )
 }

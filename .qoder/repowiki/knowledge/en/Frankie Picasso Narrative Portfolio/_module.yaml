@@ -1,11 +1,11 @@
 schema_version: 1
 module_path: ""
-title: Frankie Picasso Portfolio & Storytelling Platform
+title: Frankie Picasso Narrative Portfolio
 scope:
     - .gitignore
     - index.html
-    - package.json
     - package-lock.json
+    - package.json
     - vite.config.js
     - src/
 source_files: []

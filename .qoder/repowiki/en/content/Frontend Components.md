@@ -13,9 +13,34 @@
 - [src/components/layout/Footer.module.css](file://src/components/layout/Footer.module.css)
 - [src/components/hero/HeroExperience.jsx](file://src/components/hero/HeroExperience.jsx)
 - [src/components/hero/HeroExperience.module.css](file://src/components/hero/HeroExperience.module.css)
+- [src/components/acts/ActSection.jsx](file://src/components/acts/ActSection.jsx)
+- [src/components/acts/ActSection.module.css](file://src/components/acts/ActSection.module.css)
+- [src/components/acts/Heartbeat.jsx](file://src/components/acts/Heartbeat.jsx)
+- [src/components/acts/Heartbeat.module.css](file://src/components/acts/Heartbeat.module.css)
+- [src/components/acts/RecognitionBadges.jsx](file://src/components/acts/RecognitionBadges.jsx)
+- [src/components/acts/RecognitionBadges.module.css](file://src/components/acts/RecognitionBadges.module.css)
+- [src/components/acts/TimelineStrip.jsx](file://src/components/acts/TimelineStrip.jsx)
+- [src/components/acts/TimelineStrip.module.css](file://src/components/acts/TimelineStrip.module.css)
+- [src/components/closing/ClosingSection.jsx](file://src/components/closing/ClosingSection.jsx)
+- [src/components/closing/ClosingSection.module.css](file://src/components/closing/ClosingSection.module.css)
 - [src/components/awards/AwardsRecognition.jsx](file://src/components/awards/AwardsRecognition.jsx)
 - [src/components/awards/AwardsRecognition.module.css](file://src/components/awards/AwardsRecognition.module.css)
-- [src/components/legacy/LegacyTimeline.module.css](file://src/components/legacy/LegacyTimeline.module.css)
+- [src/components/books/BooksPublications.jsx](file://src/components/books/BooksPublications.jsx)
+- [src/components/books/BooksPublications.module.css](file://src/components/books/BooksPublications.module.css)
+- [src/components/community/CommunityImpact.jsx](file://src/components/community/CommunityImpact.jsx)
+- [src/components/community/CommunityImpact.module.css](file://src/components/community/CommunityImpact.module.css)
+- [src/components/contact/Contact.jsx](file://src/components/contact/Contact.jsx)
+- [src/components/contact/Contact.module.css](file://src/components/contact/Contact.module.css)
+- [src/components/creativity/Creativity.jsx](file://src/components/creativity/Creativity.jsx)
+- [src/components/creativity/Creativity.module.css](file://src/components/creativity/Creativity.module.css)
+- [src/components/entrepreneurship/Entrepreneurship.jsx](file://src/components/entrepreneurship/Entrepreneurship.jsx)
+- [src/components/entrepreneurship/Entrepreneurship.module.css](file://src/components/entrepreneurship/Entrepreneurship.module.css)
+- [src/components/media/MediaHub.jsx](file://src/components/media/MediaHub.jsx)
+- [src/components/media/MediaHub.module.css](file://src/components/media/MediaHub.module.css)
+- [src/components/story/FrankieStory.jsx](file://src/components/story/FrankieStory.jsx)
+- [src/components/story/FrankieStory.module.css](file://src/components/story/FrankieStory.module.css)
+- [src/components/vision/FutureVision.jsx](file://src/components/vision/FutureVision.jsx)
+- [src/components/vision/FutureVision.module.css](file://src/components/vision/FutureVision.module.css)
 - [src/components/common/SectionHeading.jsx](file://src/components/common/SectionHeading.jsx)
 - [src/components/common/SectionHeading.module.css](file://src/components/common/SectionHeading.module.css)
 - [src/components/common/SectionIndicator.jsx](file://src/components/common/SectionIndicator.jsx)
@@ -24,6 +49,8 @@
 - [src/components/common/SiteLoader.module.css](file://src/components/common/SiteLoader.module.css)
 - [src/hooks/useActiveSection.js](file://src/hooks/useActiveSection.js)
 - [src/hooks/useGsap.js](file://src/hooks/useGsap.js)
+- [src/hooks/useParallax.js](file://src/hooks/useParallax.js)
+- [src/hooks/useScrollReveal.js](file://src/hooks/useScrollReveal.js)
 - [src/data/content.js](file://src/data/content.js)
 - [src/styles/_variables.css](file://src/styles/_variables.css)
 - [src/styles/_global.css](file://src/styles/_global.css)
@@ -34,10 +61,16 @@
 
 ## Update Summary
 **Changes Made**
-- Updated Awards Recognition component documentation to reflect the standardized spacing approach using `var(--space-section)` instead of `var(--space-lg)`
-- Updated Legacy Timeline component documentation to reflect the same standardized spacing approach
-- Enhanced CSS Modules and styling documentation with specific examples of the new standardized spacing methodology
-- Updated component architecture diagrams to reflect the improved spacing consistency across sections
+- Complete architectural overhaul from traditional multi-section layout to six-act narrative framework
+- Added comprehensive documentation for new ActSection component system with theming and watermark features
+- Documented Heartbeat transition components with animated storytelling elements
+- Added RecognitionBadges display component for award recognition visualization
+- Documented TimelineStrip presentation component for legacy event timeline
+- Added ClosingSection component with interactive call-to-action and smooth scrolling
+- Updated App.jsx to implement six-act narrative structure with ActSection wrappers
+- Enhanced content.js data structure to support six-act framework with detailed act metadata
+- Updated component architecture diagrams to reflect new act-based organization
+- Enhanced styling system with act-specific theming variables and CSS custom properties
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -45,23 +78,24 @@
 3. [Core Components](#core-components)
 4. [Component Architecture](#component-architecture)
 5. [Layout Components](#layout-components)
-6. [Content Components](#content-components)
-7. [Shared Utilities](#shared-utilities)
-8. [State Management and Hooks](#state-management-and-hooks)
-9. [CSS Modules and Styling](#css-modules-and-styling)
-10. [Typography System](#typography-system)
-11. [Data Management](#data-management)
-12. [Vite Integration](#vite-integration)
-13. [Development Workflow](#development-workflow)
-14. [Performance Considerations](#performance-considerations)
-15. [Troubleshooting Guide](#troubleshooting-guide)
-16. [Conclusion](#conclusion)
+6. [Act-Based Narrative Framework](#act-based-narrative-framework)
+7. [Content Components](#content-components)
+8. [Shared Utilities](#shared-utilities)
+9. [State Management and Hooks](#state-management-and-hooks)
+10. [CSS Modules and Styling](#css-modules-and-styling)
+11. [Typography System](#typography-system)
+12. [Data Management](#data-management)
+13. [Vite Integration](#vite-integration)
+14. [Development Workflow](#development-workflow)
+15. [Performance Considerations](#performance-considerations)
+16. [Troubleshooting Guide](#troubleshooting-guide)
+17. [Conclusion](#conclusion)
 
 ## Introduction
-This document provides comprehensive documentation for the React frontend components and development setup. The project features a modular component-based architecture with 11 distinct content sections, sophisticated animation integration using GSAP, and a robust CSS Modules styling system. The application showcases a professional portfolio-style website with smooth scrolling navigation, interactive animations, responsive design patterns, and a refined typography system using Cormorant Garamond and Inter fonts. Recent enhancements include improved desktop layouts, enhanced responsive typography using clamp functions, refined cross-device functionality, a new floating section navigation system, and a sophisticated site loading experience with the new SiteLoader component.
+This document provides comprehensive documentation for the React frontend components and development setup. The project features a revolutionary six-act narrative framework that transforms traditional multi-section layouts into an immersive storytelling experience. The application showcases a sophisticated portfolio-style website with act-based organization, animated transitions, interactive storytelling elements, and a refined typography system using Cormorant Garamond and Inter fonts. The new architecture emphasizes narrative flow, thematic consistency, and enhanced user engagement through innovative component composition and seamless transitions between life chapters.
 
 ## Project Structure
-The project follows a structured React + Vite setup with a comprehensive component hierarchy organized into logical modules:
+The project follows a structured React + Vite setup with a revolutionary six-act narrative architecture:
 
 ```mermaid
 graph TB
@@ -75,14 +109,25 @@ Src --> Styles["styles/"]
 Src --> Components["components/"]
 Src --> Data["data/"]
 Src --> Hooks["hooks/"]
+Components --> Acts["acts/"]
 Components --> Layout["layout/"]
 Components --> Hero["hero/"]
 Components --> Awards["awards/"]
-Components --> Legacy["legacy/"]
+Components --> Books["books/"]
+Components --> Community["community/"]
+Components --> Contact["contact/"]
+Components --> Creativity["creativity/"]
+Components --> Entrepreneurship["entrepreneurship/"]
+Components --> Media["media/"]
+Components --> Story["story/"]
+Components --> Vision["vision/"]
+Components --> Closing["closing/"]
 Components --> Common["common/"]
 Data --> Content["content.js"]
 Hooks --> GSAP["useGsap.js"]
 Hooks --> ActiveSection["useActiveSection.js"]
+Hooks --> Parallax["useParallax.js"]
+Hooks --> ScrollReveal["useScrollReveal.js"]
 Styles --> Variables["_variables.css"]
 Styles --> Global["_global.css"]
 Styles --> Typography["_typography.css"]
@@ -91,88 +136,99 @@ Styles --> Utilities["_utilities.css"]
 
 **Diagram sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-55](file://src/App.jsx#L1-L55)
-- [src/components/layout/Nav.jsx:1-152](file://src/components/layout/Nav.jsx#L1-L152)
-- [src/components/hero/HeroExperience.jsx:1-140](file://src/components/hero/HeroExperience.jsx#L1-L140)
-- [src/hooks/useActiveSection.js:1-36](file://src/hooks/useActiveSection.js#L1-L36)
+- [src/App.jsx:1-87](file://src/App.jsx#L1-L87)
+- [src/components/acts/ActSection.jsx:1-34](file://src/components/acts/ActSection.jsx#L1-L34)
+- [src/components/acts/Heartbeat.jsx:1-21](file://src/components/acts/Heartbeat.jsx#L1-L21)
+- [src/components/closing/ClosingSection.jsx:1-43](file://src/components/closing/ClosingSection.jsx#L1-L43)
 
 **Section sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-55](file://src/App.jsx#L1-L55)
+- [src/App.jsx:1-87](file://src/App.jsx#L1-L87)
 - [vite.config.js:1-11](file://vite.config.js#L1-L11)
 - [package.json:1-23](file://package.json#L1-L23)
 
 ## Core Components
-The application is structured around several key architectural components that work together to create a cohesive user experience:
+The application is structured around a revolutionary six-act narrative framework that organizes content into interconnected life chapters:
 
 ### Entry Point: main.jsx
 The application bootstraps through a minimal entry point that creates the React root and renders the main App component within strict mode for enhanced error detection.
 
 ### Primary Component: App.jsx
-The main App component orchestrates the entire application layout, managing the loading sequence and coordinating all content sections. It implements sophisticated loading animations and accessibility features. The App component now includes the new SiteLoader component for enhanced loading experience and the SectionIndicator component for improved navigation.
+The main App component orchestrates the six-act narrative structure, implementing sophisticated loading sequences and coordinating all content sections. The component now features a completely rewritten architecture that implements the six-act framework with ActSection wrappers, Heartbeat transitions, and specialized components for each narrative act.
 
 ### SiteLoader Component (SiteLoader.jsx)
-**New** A sophisticated loading component that provides an elegant transition experience for first-time visitors. Features a fixed-position loader with fade-out animation, brand logo display, and gradient wordmark with decorative divider elements. Implements session storage to track visitor status and ensures optimal loading experience across visits.
+A sophisticated loading component that provides an elegant transition experience for first-time visitors. Features a fixed-position loader with fade-out animation, brand logo display, and gradient wordmark with decorative divider elements. Implements session storage to track visitor status and ensures optimal loading experience across visits.
 
 **Section sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:19-55](file://src/App.jsx#L19-L55)
+- [src/App.jsx:25-87](file://src/App.jsx#L25-L87)
 - [src/App.module.css:1-23](file://src/App.module.css#L1-L23)
 - [src/components/common/SiteLoader.jsx:1-45](file://src/components/common/SiteLoader.jsx#L1-L45)
 - [src/components/common/SiteLoader.module.css:1-86](file://src/components/common/SiteLoader.module.css#L1-L86)
 
 ## Component Architecture
-The application employs a hierarchical component architecture with clear separation of concerns and enhanced active section tracking:
+The application employs a revolutionary six-act narrative architecture with sophisticated component composition and seamless transitions:
 
 ```mermaid
 graph TD
-App["App.jsx"] --> SiteLoader["SiteLoader.jsx"]
+App["App.jsx<br/>Six-Act Narrative"] --> SiteLoader["SiteLoader.jsx"]
 App --> Nav["Nav.jsx"]
 App --> Footer["Footer.jsx"]
 App --> Hero["HeroExperience.jsx"]
-App --> Awards["AwardsRecognition.jsx"]
-App --> Legacy["LegacyTimeline.jsx"]
-App --> SectionIndicator["SectionIndicator.jsx"]
-App --> SectionHeading["SectionHeading.jsx"]
-Nav --> GSAP["useGsap.js"]
-Nav --> ActiveSectionHook["useActiveSection.js"]
-SectionIndicator --> ActiveSectionHook
-Hero --> GSAP
-Hero --> Parallax["useParallax.js"]
-Awards --> GSAP
-Awards --> ScrollReveal["useScrollReveal.js"]
-Legacy --> GSAP
-Legacy --> ScrollReveal
-SectionHeading --> GSAP
-SiteLoader --> GSAP
+App --> ActSection["ActSection.jsx<br/>Wrapper Component"]
+App --> Heartbeat["Heartbeat.jsx<br/>Transition Component"]
+App --> Closing["ClosingSection.jsx"]
+App --> ActSection1["Act I: Becoming"]
+App --> ActSection2["Act II: Building"]
+App --> ActSection3["Act III: Amplifying"]
+App --> ActSection4["Act IV: Creating"]
+App --> ActSection5["Act V: Giving"]
+App --> ActSection6["Act VI: Still Becoming"]
+ActSection1 --> FrankieStory["FrankieStory.jsx"]
+ActSection2 --> Entrepreneurship["Entrepreneurship.jsx"]
+ActSection3 --> MediaHub["MediaHub.jsx"]
+ActSection4 --> Creativity["Creativity.jsx"]
+ActSection4 --> BooksPublications["BooksPublications.jsx"]
+ActSection5 --> CommunityImpact["CommunityImpact.jsx"]
+ActSection6 --> FutureVision["FutureVision.jsx"]
+ActSection6 --> RecognitionBadges["RecognitionBadges.jsx"]
+ActSection6 --> TimelineStrip["TimelineStrip.jsx"]
+Heartbeat --> Heartbeat1["Heartbeat I"]
+Heartbeat --> Heartbeat2["Heartbeat II"]
+Heartbeat --> Heartbeat3["Heartbeat III"]
+Heartbeat --> Heartbeat4["Heartbeat IV"]
+Heartbeat --> Heartbeat5["Heartbeat V"]
+Heartbeat --> Heartbeat6["Heartbeat VI"]
 ```
 
 **Diagram sources**
-- [src/App.jsx:2-16](file://src/App.jsx#L2-L16)
-- [src/components/layout/Nav.jsx:1-5](file://src/components/layout/Nav.jsx#L1-L5)
-- [src/components/common/SectionIndicator.jsx:1-43](file://src/components/common/SectionIndicator.jsx#L1-L43)
-- [src/hooks/useActiveSection.js:1-36](file://src/hooks/useActiveSection.js#L1-L36)
+- [src/App.jsx:45-76](file://src/App.jsx#L45-L76)
+- [src/components/acts/ActSection.jsx:5-33](file://src/components/acts/ActSection.jsx#L5-L33)
+- [src/components/acts/Heartbeat.jsx:5-20](file://src/components/acts/Heartbeat.jsx#L5-L20)
+- [src/components/acts/RecognitionBadges.jsx:6-33](file://src/components/acts/RecognitionBadges.jsx#L6-L33)
+- [src/components/acts/TimelineStrip.jsx:6-29](file://src/components/acts/TimelineStrip.jsx#L6-L29)
 
 **Section sources**
-- [src/App.jsx:1-55](file://src/App.jsx#L1-L55)
-- [src/components/layout/Nav.jsx:1-152](file://src/components/layout/Nav.jsx#L1-L152)
-- [src/components/common/SectionIndicator.jsx:1-43](file://src/components/common/SectionIndicator.jsx#L1-L43)
-- [src/hooks/useActiveSection.js:1-36](file://src/hooks/useActiveSection.js#L1-L36)
+- [src/App.jsx:1-87](file://src/App.jsx#L1-L87)
+- [src/components/acts/ActSection.jsx:1-34](file://src/components/acts/ActSection.jsx#L1-L34)
+- [src/components/acts/Heartbeat.jsx:1-21](file://src/components/acts/Heartbeat.jsx#L1-L21)
+- [src/components/acts/RecognitionBadges.jsx:1-34](file://src/components/acts/RecognitionBadges.jsx#L1-L34)
+- [src/components/acts/TimelineStrip.jsx:1-30](file://src/components/acts/TimelineStrip.jsx#L1-L30)
 
 ## Layout Components
-The layout system provides consistent navigation and structural elements across all pages with enhanced active section tracking and improved mobile responsiveness.
+The layout system provides consistent navigation and structural elements across all six acts with enhanced active section tracking and improved mobile responsiveness.
 
 ### Navigation Component (Nav.jsx)
-**Updated** Features responsive design with mobile-first approach, scroll-aware styling, and animated navigation items. Integrates with GSAP for smooth animations and uses the new useActiveSection hook for intelligent active section detection. The navigation now includes a comprehensive mobile menu with social links and contact button, featuring sophisticated GSAP animations for menu item entrance and exit. The desktop navigation system has been enhanced with a dedicated `desktopNav` class for improved cross-device functionality and better separation of desktop vs mobile styling. The component now uses Intersection Observer technology to automatically detect which section is currently in view.
+Features responsive design with mobile-first approach, scroll-aware styling, and animated navigation items. Integrates with GSAP for smooth animations and uses the new useActiveSection hook for intelligent active section detection. The navigation now includes a comprehensive mobile menu with social links and contact button, featuring sophisticated GSAP animations for menu item entrance and exit. The desktop navigation system has been enhanced with a dedicated `desktopNav` class for improved cross-device functionality and better separation of desktop vs mobile styling.
 
 ### Footer Component (Footer.jsx)
-**Updated** Provides comprehensive footer navigation with brand information, copyright details, and accessible navigation controls. The footer has been transformed into a comprehensive brand showcase featuring a three-column grid layout on desktop with centered layout on mobile, including brand identity, navigation sections, and social media links.
+Provides comprehensive footer navigation with brand information, copyright details, and accessible navigation controls. The footer has been transformed into a comprehensive brand showcase featuring a three-column grid layout on desktop with centered layout on mobile, including brand identity, navigation sections, and social media links.
 
 ### Section Indicator Component (SectionIndicator.jsx)
-**New** A floating navigation component that appears on mobile devices to provide quick access to different sections of the page. Features a vertical list of clickable dots that correspond to each major section, with automatic highlighting of the currently active section. Includes smooth scrolling functionality and responsive visibility control based on scroll position.
+A floating navigation component that appears on mobile devices to provide quick access to different sections of the page. Features a vertical list of clickable dots that correspond to each major section, with automatic highlighting of the currently active section. Includes smooth scrolling functionality and responsive visibility control based on scroll position.
 
 ### SiteLoader Component (SiteLoader.jsx)
-**New** A sophisticated loading component that provides an elegant transition experience for first-time visitors. Features a fixed-position loader with fade-out animation, brand logo display, and gradient wordmark with decorative divider elements. Implements session storage to track visitor status and ensures optimal loading experience across visits.
+A sophisticated loading component that provides an elegant transition experience for first-time visitors. Features a fixed-position loader with fade-out animation, brand logo display, and gradient wordmark with decorative divider elements. Implements session storage to track visitor status and ensures optimal loading experience across visits.
 
 **Section sources**
 - [src/components/layout/Nav.jsx:1-152](file://src/components/layout/Nav.jsx#L1-L152)
@@ -184,241 +240,188 @@ The layout system provides consistent navigation and structural elements across 
 - [src/components/common/SiteLoader.jsx:1-45](file://src/components/common/SiteLoader.jsx#L1-L45)
 - [src/components/common/SiteLoader.module.css:1-86](file://src/components/common/SiteLoader.module.css#L1-L86)
 
+## Act-Based Narrative Framework
+The revolutionary six-act framework organizes Frankie Picasso's life story into interconnected narrative chapters with sophisticated theming and transition elements.
+
+### ActSection Component System
+The ActSection component serves as the foundational wrapper for each narrative act, providing:
+- Dynamic theming based on act-specific CSS variables
+- Watermark system with act numbers for visual storytelling
+- Scroll-triggered reveal animations
+- Accessible labeling with act identification
+- Container-based layout with proper spacing
+
+### Heartbeat Transition System
+The Heartbeat component provides animated transitions between narrative acts:
+- Three-dot pulsing animation for visual continuity
+- Inspirational quote display with serif typography
+- Responsive design with fluid typography scaling
+- Reduced motion support for accessibility
+- Presentation role for semantic markup
+
+### Act-Specific Components
+Each act contains specialized components that showcase different aspects of Frankie's journey:
+- **Act I (Becoming)**: FrankieStory component for early life narrative
+- **Act II (Building)**: Entrepreneurship showcase with venture highlights
+- **Act III (Amplifying)**: Media presence and platform building
+- **Act IV (Creating)**: Creative endeavors and artistic pursuits
+- **Act V (Giving)**: Community impact and social contribution
+- **Act VI (Still Becoming)**: Current projects and ongoing legacy
+
+**Section sources**
+- [src/components/acts/ActSection.jsx:1-34](file://src/components/acts/ActSection.jsx#L1-L34)
+- [src/components/acts/ActSection.module.css:1-91](file://src/components/acts/ActSection.module.css#L1-L91)
+- [src/components/acts/Heartbeat.jsx:1-21](file://src/components/acts/Heartbeat.jsx#L1-L21)
+- [src/components/acts/Heartbeat.module.css:1-50](file://src/components/acts/Heartbeat.module.css#L1-L50)
+- [src/App.jsx:45-76](file://src/App.jsx#L45-L76)
+
 ## Content Components
-The application features 11 specialized content components, each designed to showcase specific aspects of Frankie Picasso's work and achievements.
+The application features specialized content components organized within the six-act narrative framework, each designed to showcase specific aspects of Frankie Picasso's work and achievements.
 
 ### Hero Experience (HeroExperience.jsx)
-**Updated** Implements sophisticated animations including headline word-by-word reveal, parallax effects, and decorative motion elements. Uses GSAP for timeline-based animations and responsive design considerations. Features the new typography system with Cormorant Garamond for headings and Inter for body text. The hero section now uses enhanced desktop layout with improved CSS styling, responsive padding that adapts to navigation height, and overflow fixes for better cross-device presentation. The component includes sophisticated responsive design patterns with optimized spacing and alignment for both desktop and mobile views. Enhanced mobile responsiveness with improved parallax effects and reduced motion support.
+Implements sophisticated animations including headline word-by-word reveal, parallax effects, and decorative motion elements. Uses GSAP for timeline-based animations and responsive design considerations. Features the new six-act narrative structure with "A Life in Six Acts" headline and enhanced typography system.
 
-### Awards Recognition (AwardsRecognition.jsx)
-**Updated** Completely redesigned with new CSS styling featuring laurel decoration system, featured award highlighting, and responsive grid layout. The component now includes sophisticated GSAP ScrollTrigger animations for the featured award card with back.ease effect and scroll-triggered entrance animations. Features a decorative laurel wreath SVG element positioned absolutely behind the featured award content, creating a sense of celebration and achievement.
+### Act-Specific Content Components
+Each act contains carefully crafted components that align with the narrative theme:
 
-**Enhanced Standardized Spacing Approach**: The Awards Recognition component now features a more standardized spacing approach using the new `var(--space-section)` CSS variable:
-- **Standardized Section Padding**: The section now uses `padding-top: var(--space-section)` for consistent spacing that adapts to viewport size using clamp functions
-- **Enhanced Bottom Spacing**: Maintains `padding-bottom: 10rem` for substantial bottom spacing
-- **Improved Grid Layout**: The grid system continues to use separate `column-gap` and `row-gap` properties for precise control over spacing between award cards
-- **Refined Award Card Styling**: Each award card maintains its enhanced styling with `min-height: 180px` and flex layout for perfect vertical centering
+#### RecognitionBadges Component
+Displays award recognition with:
+- Featured award highlighting with year, title, and organization
+- Grid-based badge system for multiple recognitions
+- Hover effects with subtle elevation and border transitions
+- Responsive grid layout adapting to screen size
+- Act-specific theming with accent colors
 
-### Legacy Timeline (LegacyTimeline.jsx)
-**Updated** Features a sophisticated timeline layout with decorative elements and responsive design. The component now uses the standardized `var(--space-section)` spacing approach for consistent top and bottom padding, creating visual balance with the rest of the content sections. Features a central timeline line with alternating left/right content cards, decorative dots, and hover effects.
+#### TimelineStrip Component
+Presents legacy events in an innovative horizontal timeline:
+- Scrollable strip with snap alignment
+- Circular dot markers with gradient backgrounds
+- Year, title, and description for each milestone
+- Responsive design with adjustable item widths
+- Smooth scrolling with momentum support
 
-**Standardized Spacing Implementation**: The Legacy Timeline component demonstrates the new standardized spacing approach:
-- **Consistent Section Padding**: Uses `padding: var(--space-section) 0` for top and bottom spacing that adapts to viewport size
-- **Enhanced Visual Balance**: The clamp-based spacing variable provides consistent visual rhythm across different screen sizes
-- **Responsive Design**: The padding adapts from 3.5rem on small screens to 5rem on larger screens, maintaining optimal visual proportions
+#### ClosingSection Component
+Provides a reflective conclusion with:
+- Interactive call-to-action button
+- Inspirational quote display
+- Heartbeat line for narrative continuity
+- Smooth scrolling to contact section
+- Elevated CTA button with hover effects
 
-### Section Heading (SectionHeading.jsx)
-**Updated** Reusable component for consistent heading presentation across all content sections. The component has been refactored to remove the decorative numbering system, simplifying the design to focus purely on title and subtitle presentation. Supports light/dark theme variants for different background contexts.
-
-### SiteLoader Component (SiteLoader.jsx)
-**New** A sophisticated loading component that provides an elegant transition experience for first-time visitors. Features a fixed-position loader with fade-out animation, brand logo display, and gradient wordmark with decorative divider elements. Implements session storage to track visitor status and ensures optimal loading experience across visits.
+### Traditional Content Components
+Several components maintain their existing functionality within the new framework:
+- Awards Recognition with standardized spacing approach
+- Legacy Timeline with enhanced visual storytelling
+- Books Publications with expanded content showcase
+- Community Impact with detailed initiative listings
+- Future Vision with current project highlights
+- Contact form with social media integration
 
 **Section sources**
 - [src/components/hero/HeroExperience.jsx:1-140](file://src/components/hero/HeroExperience.jsx#L1-L140)
-- [src/components/hero/HeroExperience.module.css:1-328](file://src/components/hero/HeroExperience.module.css#L1-L328)
-- [src/components/awards/AwardsRecognition.jsx:1-70](file://src/components/awards/AwardsRecognition.jsx#L1-L70)
-- [src/components/awards/AwardsRecognition.module.css:1-147](file://src/components/awards/AwardsRecognition.module.css#L1-L147)
-- [src/components/legacy/LegacyTimeline.module.css:1-178](file://src/components/legacy/LegacyTimeline.module.css#L1-L178)
-- [src/components/common/SectionHeading.jsx:1-12](file://src/components/common/SectionHeading.jsx#L1-L12)
-- [src/components/common/SectionHeading.module.css:1-32](file://src/components/common/SectionHeading.module.css#L1-L32)
-- [src/components/common/SiteLoader.jsx:1-45](file://src/components/common/SiteLoader.jsx#L1-L45)
-- [src/components/common/SiteLoader.module.css:1-86](file://src/components/common/SiteLoader.module.css#L1-L86)
+- [src/components/acts/RecognitionBadges.jsx:1-34](file://src/components/acts/RecognitionBadges.jsx#L1-L34)
+- [src/components/acts/RecognitionBadges.module.css:1-94](file://src/components/acts/RecognitionBadges.module.css#L1-L94)
+- [src/components/acts/TimelineStrip.jsx:1-30](file://src/components/acts/TimelineStrip.jsx#L1-L30)
+- [src/components/acts/TimelineStrip.module.css:1-103](file://src/components/acts/TimelineStrip.module.css#L1-L103)
+- [src/components/closing/ClosingSection.jsx:1-43](file://src/components/closing/ClosingSection.jsx#L1-L43)
+- [src/components/closing/ClosingSection.module.css:1-87](file://src/components/closing/ClosingSection.module.css#L1-L87)
 
 ## Shared Utilities
-The application leverages several shared utility components and hooks to maintain consistency and reduce code duplication.
+The application leverages several shared utility components and hooks to maintain consistency and reduce code duplication within the six-act framework.
+
+### Scroll Reveal Hook (useScrollReveal.js)
+Enhanced custom hook that provides sophisticated reveal animations:
+- Fade-up animations for section headers
+- Fade-in animations for transition elements
+- Integration with Intersection Observer API
+- Performance-optimized animation triggers
+- Accessibility-compliant animation controls
 
 ### Section Indicator Component (SectionIndicator.jsx)
-**New** A floating navigation component that provides quick access to different sections of the page. Features a vertical list of clickable dots that correspond to each major section, with automatic highlighting of the currently active section. Includes smooth scrolling functionality and responsive visibility control based on scroll position.
+A floating navigation component that provides quick access to different sections of the page. Features a vertical list of clickable dots that correspond to each major section, with automatic highlighting of the currently active section. Includes smooth scrolling functionality and responsive visibility control based on scroll position.
 
 ### Section Heading (SectionHeading.jsx)
-**Updated** Reusable component for consistent heading presentation across all content sections. The component has been refactored to remove the decorative numbering system, simplifying the design to focus purely on title and subtitle presentation. Supports light/dark theme variants for different background contexts.
+Reusable component for consistent heading presentation across all content sections. The component has been refactored to remove the decorative numbering system, simplifying the design to focus purely on title and subtitle presentation. Supports light/dark theme variants for different background contexts.
 
 ### SiteLoader Component (SiteLoader.jsx)
-**New** A sophisticated loading component that provides an elegant transition experience for first-time visitors. Features a fixed-position loader with fade-out animation, brand logo display, and gradient wordmark with decorative divider elements. Implements session storage to track visitor status and ensures optimal loading experience across visits.
-
-### GSAP Hook (useGsap.js)
-Centralized GSAP configuration with ScrollTrigger registration, default settings, and useGSAP wrapper for consistent animation behavior.
-
-### Active Section Hook (useActiveSection.js)
-**New** A custom React hook that tracks the currently active section using Intersection Observer technology. Automatically detects which section is currently in view based on scroll position and provides real-time updates to connected components.
+A sophisticated loading component that provides an elegant transition experience for first-time visitors. Features a fixed-position loader with fade-out animation, brand logo display, and gradient wordmark with decorative divider elements. Implements session storage to track visitor status and ensures optimal loading experience across visits.
 
 **Section sources**
+- [src/hooks/useScrollReveal.js:1-40](file://src/hooks/useScrollReveal.js#L1-L40)
 - [src/components/common/SectionIndicator.jsx:1-43](file://src/components/common/SectionIndicator.jsx#L1-L43)
 - [src/components/common/SectionIndicator.module.css:1-60](file://src/components/common/SectionIndicator.module.css#L1-L60)
 - [src/components/common/SectionHeading.jsx:1-12](file://src/components/common/SectionHeading.jsx#L1-L12)
 - [src/components/common/SectionHeading.module.css:1-32](file://src/components/common/SectionHeading.module.css#L1-L32)
 - [src/components/common/SiteLoader.jsx:1-45](file://src/components/common/SiteLoader.jsx#L1-L45)
 - [src/components/common/SiteLoader.module.css:1-86](file://src/components/common/SiteLoader.module.css#L1-L86)
-- [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
-- [src/hooks/useActiveSection.js:1-36](file://src/hooks/useActiveSection.js#L1-L36)
 
 ## State Management and Hooks
-The application implements a sophisticated state management approach using React hooks and custom hooks for enhanced functionality.
+The application implements a sophisticated state management approach using React hooks and custom hooks for enhanced functionality within the six-act framework.
 
 ### Custom Hooks
 - **useGsap**: Centralized GSAP configuration with ScrollTrigger support
-- **useActiveSection**: **New** Tracks active navigation section using Intersection Observer technology
+- **useActiveSection**: Tracks active navigation section using Intersection Observer technology
 - **useParallax**: Implements parallax scrolling effects
-- **useScrollReveal**: Manages scroll-triggered reveal animations
+- **useScrollReveal**: Enhanced scroll-triggered reveal animations with act-specific timing
 
 ### State Patterns
-Components utilize useState for UI state management (mobile menu, scroll awareness), useEffect for side effects and cleanup, and useRef for DOM manipulation and animation references. The new useActiveSection hook uses Intersection Observer for efficient, low-overhead active section detection.
+Components utilize useState for UI state management (mobile menu, scroll awareness), useEffect for side effects and cleanup, and useRef for DOM manipulation and animation references. The enhanced useScrollReveal hook provides sophisticated animation orchestration for the six-act narrative.
 
 **Section sources**
 - [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
 - [src/hooks/useActiveSection.js:1-36](file://src/hooks/useActiveSection.js#L1-L36)
+- [src/hooks/useScrollReveal.js:1-40](file://src/hooks/useScrollReveal.js#L1-L40)
 - [src/components/layout/Nav.jsx:1-152](file://src/components/layout/Nav.jsx#L1-L152)
 - [src/components/common/SectionIndicator.jsx:1-43](file://src/components/common/SectionIndicator.jsx#L1-L43)
 
 ## CSS Modules and Styling
-**Updated** The application employs CSS Modules for scoped styling, ensuring component isolation and preventing style conflicts.
+The application employs CSS Modules for scoped styling with a revolutionary six-act theming system that provides consistent visual identity across all narrative chapters.
 
-### Styling Architecture
-Each component maintains its own CSS Module file with component-specific classes, enabling:
-- Local class name scoping
-- Predictable styling inheritance
-- Easy maintenance and modification
-- Theme variable integration
+### Enhanced Theming System
+The six-act framework introduces sophisticated theming through CSS custom properties:
+- Act-specific color variables (`--act-becoming`, `--act-building`, etc.)
+- Dynamic accent color assignment based on act identity
+- Responsive watermark system with act-number display
+- Container-based layout with proper spacing and alignment
 
-### Design System
-The styling system utilizes:
-- CSS custom properties for theming
-- Responsive design patterns with clamp functions for fluid typography
-- Accessibility-focused color schemes
-- Consistent spacing and typography scales
+### Act-Specific Styling Architecture
+Each act maintains its own visual identity while maintaining consistency:
+- Watermark system with large, semi-transparent act numbers
+- Themed accent colors for headers, borders, and decorative elements
+- Responsive typography with act-appropriate font weights and sizes
+- Content-specific layout adaptations for different narrative themes
 
-### Enhanced Standardized Spacing Approach
-**Updated** The application now implements a standardized spacing approach using the new `var(--space-section)` CSS variable for consistent visual rhythm across all content sections:
+### Enhanced Scroll Reveal Animations
+The scroll reveal system provides sophisticated entrance animations:
+- Fade-up animations for section headers with staggered timing
+- Fade-in animations for transition elements and content blocks
+- Performance-optimized animation triggers using Intersection Observer
+- Accessibility compliance with reduced motion preferences
 
-#### CSS Variable Definition
-The `var(--space-section)` variable is defined as a clamp function that adapts to viewport size:
-```css
---space-section: clamp(3.5rem, 8vh, 5rem);
-```
-
-This provides:
-- **Minimum spacing**: 3.5rem on small screens
-- **Viewport-adaptive**: 8vh of viewport height for medium screens
-- **Maximum spacing**: 5rem on large screens
-
-#### Awards Recognition Section Spacing
-The Awards Recognition component now uses the standardized spacing approach:
-```css
-.section {
-  background: linear-gradient(180deg, var(--color-warm-ivory) 0%, #f0e8df 100%);
-  padding-top: var(--space-section);    /* Standardized spacing */
-  padding-bottom: 10rem;              /* Maintained substantial bottom spacing */
-}
-```
-
-#### Legacy Timeline Section Spacing
-The Legacy Timeline component demonstrates the same standardized approach:
-```css
-.section {
-  background: linear-gradient(180deg, var(--color-deep-plum) 0%, #2a1229 40%, var(--color-burgundy) 100%);
-  padding: var(--space-section) 0;     /* Standardized top and bottom spacing */
-  position: relative;
-  overflow: hidden;
-}
-```
-
-#### Utility Class Integration
-The standardized spacing is also available through the utility class system:
-```css
-.section-padding {
-  padding: var(--space-section) 0;
-}
-```
-
-This utility class can be applied to any section that requires consistent section padding, ensuring design system consistency across the entire application.
-
-### Enhanced Awards Section Styling
-**Updated** The Awards Recognition component now features significantly improved CSS styling with standardized spacing:
-
-#### Section Spacing Improvements
-The section now uses the new standardized spacing approach:
-```css
-.section {
-  background: linear-gradient(180deg, var(--color-warm-ivory) 0%, #f0e8df 100%);
-  padding-top: var(--space-section);      /* Standardized spacing using clamp function */
-  margin-bottom: 0;                     /* Removed bottom margin for better layout */
-  padding-bottom: 10rem;                /* Substantial bottom padding maintained */
-}
-```
-
-#### Refined Grid Layout System
-The grid layout continues to feature precise spacing control:
-```css
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: var(--space-3xl);    /* Separate column spacing */
-  row-gap: var(--space-md);        /* Separate row spacing */
-  align-items: stretch;
-}
-```
-
-#### Improved Award Card Styling
-Each award card maintains its enhanced visual presentation:
-```css
-.awardCard {
-  background: white;
-  padding: var(--space-lg);
-  border-radius: var(--border-radius-md);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  transition: transform var(--transition-fast);
-  min-height: 180px;               /* Minimum height requirement */
-  display: flex;                   /* Flex container */
-  flex-direction: column;          /* Vertical layout */
-  justify-content: center;         /* Center vertically */
-  align-items: center;             /* Center horizontally */
-}
-```
-
-### New Mobile Navigation Styling
-The SectionIndicator component features specialized mobile-first styling with:
-- Fixed positioning on the right side of the screen
-- Vertical column layout with gap spacing
-- Smooth fade-in/out transitions
-- Responsive visibility based on scroll position
-- Gold accent colors for active states
-
-### SiteLoader Styling
-**New** The SiteLoader component features sophisticated loading animations with:
-- Fixed positioning covering entire viewport
-- Fade-out animation with delayed removal
-- Scale-in entrance animation for content
-- Gradient text effects for brand wordmark
-- Decorative divider elements with gold accents
-- Responsive typography using CSS clamp functions
-
-### Screenshot Testing Enhancements
-**Updated** The .gitignore file has been enhanced to include screenshot testing files:
-- `screenshot_*.png` - Pattern for capturing screenshots during testing
-- Additional audit and desktop/mobile screenshot patterns for comprehensive testing coverage
+### Responsive Design Enhancements
+The six-act framework maintains responsive design excellence:
+- Fluid typography scaling using clamp functions
+- Flexible grid layouts adapting to screen size
+- Mobile-first approach with progressive enhancement
+- Touch-friendly interaction patterns for all components
 
 **Section sources**
 - [src/App.module.css:1-23](file://src/App.module.css#L1-L23)
-- [src/components/layout/Nav.jsx:5](file://src/components/layout/Nav.jsx#L5)
-- [src/components/awards/AwardsRecognition.module.css:1-147](file://src/components/awards/AwardsRecognition.module.css#L1-L147)
-- [src/components/legacy/LegacyTimeline.module.css:1-178](file://src/components/legacy/LegacyTimeline.module.css#L1-L178)
-- [src/components/common/SectionIndicator.module.css:1-60](file://src/components/common/SectionIndicator.module.css#L1-L60)
-- [src/components/common/SiteLoader.module.css:1-86](file://src/components/common/SiteLoader.module.css#L1-L86)
-- [src/styles/_variables.css:34](file://src/styles/_variables.css#L34)
-- [src/styles/_utilities.css:24-26](file://src/styles/_utilities.css#L24-L26)
-- [.gitignore:29-35](file://.gitignore#L29-L35)
+- [src/components/acts/ActSection.module.css:1-91](file://src/components/acts/ActSection.module.css#L1-L91)
+- [src/components/acts/Heartbeat.module.css:1-50](file://src/components/acts/Heartbeat.module.css#L1-L50)
+- [src/components/acts/RecognitionBadges.module.css:1-94](file://src/components/acts/RecognitionBadges.module.css#L1-L94)
+- [src/components/acts/TimelineStrip.module.css:1-103](file://src/components/acts/TimelineStrip.module.css#L1-L103)
+- [src/components/closing/ClosingSection.module.css:1-87](file://src/components/closing/ClosingSection.module.css#L1-L87)
 
 ## Typography System
-**Updated** The application now features a refined typography system with two distinct font families and advanced responsive scaling using clamp functions:
+The application features a refined typography system with two distinct font families and advanced responsive scaling using clamp functions, perfectly suited for the six-act narrative framework.
 
 ### Font Families
 - **Serif Font**: Cormorant Garamond - Used for headings (h1-h3), quotes, and emphasized text
 - **Sans-serif Font**: Inter - Used for body text, navigation, and interface elements
 
 ### Responsive Typography with Clamp Functions
-The typography system implements fluid scaling using CSS clamp functions for optimal responsiveness:
+The typography system implements fluid scaling using CSS clamp functions for optimal responsiveness across all six acts:
 
 ```css
 --fs-display: clamp(3rem, 6vw, 6rem);
@@ -432,18 +435,10 @@ These clamp functions provide:
 - **Fluid scaling**: Uses viewport-relative units for smooth scaling across devices
 - **Maximum size**: Ensures text remains readable on larger screens
 
-### Typography Implementation
-The typography system is implemented through CSS custom properties in the variables file, providing consistent font sizing and spacing across all components:
-
-```css
---font-serif: 'Cormorant Garamond', Georgia, serif;
---font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-```
-
-### Component Integration
-All content components now utilize the new responsive typography system:
-- Headings use Cormorant Garamond for elegant serif typography with fluid scaling
-- Body text uses Inter for excellent readability with clamp-based sizing
+### Act-Specific Typography
+Each act maintains its own typographic identity:
+- Headers use serif fonts with act-appropriate sizing and weights
+- Body text uses sans-serif fonts for excellent readability
 - Quotes and emphasized text use the serif font for visual distinction
 - Navigation and interface elements use the sans-serif font for clarity
 
@@ -453,33 +448,40 @@ All content components now utilize the new responsive typography system:
 - [src/styles/_typography.css:1-41](file://src/styles/_typography.css#L1-L41)
 
 ## Data Management
-**Updated** The application uses a centralized content management system through a dedicated data module with enhanced biography narrative and expanded sections.
+The application uses a centralized content management system through a dedicated data module with comprehensive six-act narrative structure and enhanced biographical storytelling.
 
-### Content Structure
-The content.js file organizes all application data into logical categories with enhanced detail:
-- Hero content with headline and tagline
-- **Enhanced Biography**: Expanded personal story with four-decade timeline covering early career, sports promotion, government leadership, media empire building, and recognition
-- **Expanded Entrepreneurship**: Six comprehensive ventures with detailed impact metrics and descriptions
-- **Expanded Creativity**: Six distinct creative endeavors organized by category with type-specific icons
-- Community initiatives and impact
-- Media appearances and press coverage
-- **Enhanced Books**: Featured book with detailed description and quote, plus expanded collection of published works
-- Awards recognition with comprehensive history
-- Legacy timeline with categorized events
-- Future vision and current projects
-- Contact information and social links
+### Enhanced Content Structure
+The content.js file organizes all application data into a sophisticated six-act framework:
+- Hero content with "A Life in Six Acts" headline and tagline
+- **Comprehensive Act Data**: Six detailed acts with unique identities, themes, and color schemes
+- **Enhanced Biography**: Expanded personal story with four-decade timeline covering all six acts
+- **Detailed Venture Information**: Comprehensive lists of businesses, media platforms, and initiatives
+- **Creative Portfolio**: Extensive showcase of books, art, writing, and media contributions
+- **Recognition System**: Structured awards and recognition data with featured and regular entries
+- **Legacy Timeline**: Chronological events spanning Frankie's entire career and impact
+- **Current Projects**: Ongoing initiatives and future vision statements
+- **Closing Content**: Reflective conclusion with call-to-action and inspirational messaging
 
-### Navigation Data
-Separate arrays manage:
-- sectionIds for scroll positioning and active section tracking
-- navLinks for navigation structure with enhanced desktop navigation support
-- Consistent labeling and routing
+### Act-Based Organization
+Each act contains rich, interconnected data:
+- **Identity Metadata**: Unique ID, number, title, tagline, and color scheme
+- **Narrative Content**: Introductory paragraphs, philosophical insights, and heartbeat lines
+- **Timeline Events**: Chronological milestones with year, title, and description
+- **Achievement Data**: Ventures, shows, initiatives, and recognition details
+- **Legacy Events**: Significant moments that define each act's impact
+
+### Navigation and Section Management
+Enhanced navigation system with six-act support:
+- **Section IDs**: Comprehensive list including all six acts plus additional sections
+- **Navigation Links**: Act-specific labels with appropriate section targeting
+- **Color Mapping**: Direct correlation between acts and their visual themes
+- **Accessibility Support**: Proper ARIA labels and semantic structure
 
 **Section sources**
-- [src/data/content.js:1-183](file://src/data/content.js#L1-L183)
+- [src/data/content.js:1-239](file://src/data/content.js#L1-L239)
 
 ## Vite Integration
-The project leverages Vite for modern development workflow with optimized build processes.
+The project leverages Vite for modern development workflow with optimized build processes and enhanced hot module replacement capabilities.
 
 ### Development Server
 - Automatic browser opening on startup
@@ -498,7 +500,7 @@ The project leverages Vite for modern development workflow with optimized build 
 - [package.json:6-10](file://package.json#L6-L10)
 
 ## Development Workflow
-The development environment supports rapid iteration and efficient debugging.
+The development environment supports rapid iteration and efficient debugging within the six-act framework.
 
 ### Fast Refresh
 - Instant component updates without full page reload
@@ -507,62 +509,56 @@ The development environment supports rapid iteration and efficient debugging.
 
 ### Animation Development
 - GSAP timeline testing and debugging
-- Scroll-triggered animation development
-- Responsive design testing across breakpoints
+- Scroll-triggered animations for six-act transitions
+- Responsive design testing across act-specific breakpoints
+- Accessibility testing integration with reduced motion support
 
 ### Component Development
-- Modular component creation and testing
-- CSS Modules hot reloading
-- Data-driven content updates
-- Accessibility testing integration
+- Modular component creation and testing within act framework
+- CSS Modules hot reloading with theming system
+- Data-driven content updates with six-act organization
+- Accessibility testing integration across all narrative acts
 
 **Section sources**
 - [vite.config.js:6-9](file://vite.config.js#L6-L9)
 - [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
 
 ## Performance Considerations
-The application implements several performance optimization strategies:
+The application implements several performance optimization strategies within the six-act framework.
 
-### Animation Optimization
-- Reduced motion preference detection
-- Scroll-triggered animations for performance
-- Efficient GSAP usage patterns
-- Cleanup of event listeners and observers
+### Enhanced Animation Optimization
+- Reduced motion preference detection for all six acts
+- Scroll-triggered animations for performance efficiency
+- Efficient GSAP usage patterns with act-specific timing
+- Cleanup of event listeners and observers on component unmount
 
 ### Intersection Observer Usage
-**New** Efficient active section tracking using Intersection Observer API
+Efficient active section tracking using Intersection Observer API:
 - Low overhead compared to scroll event listeners
 - Automatic cleanup of observers on component unmount
-- Improved performance on mobile devices
+- Improved performance on mobile devices across all six acts
 
 ### Loading Strategy Optimization
-**New** Session storage-based visitor tracking reduces unnecessary loading animations
+Session storage-based visitor tracking reduces unnecessary loading animations:
 - Optimized loader timing with minimum display duration
 - Efficient fade-out animations using CSS transitions
 - Minimal JavaScript overhead for loading experience
 
 ### Bundle Optimization
-- Tree shaking for unused imports
+- Tree shaking for unused imports across six-act components
 - Component splitting for large sections
 - Minimal dependency footprint
-- Efficient CSS Modules compilation
+- Efficient CSS Modules compilation with theming system
 
-### Enhanced Awards Section Performance
-**Updated** The Awards Recognition component benefits from:
-- Efficient grid layout with separate gap properties for better rendering performance
-- CSS-only hover effects reducing JavaScript overhead
-- Optimized flex layout for award cards minimizing reflow operations
-- Standardized spacing approach using CSS clamp functions for better performance
-
-### Standardized Spacing Performance Benefits
-**New** The new `var(--space-section)` standardized spacing approach provides:
-- **CSS-only calculation**: No JavaScript required for spacing calculations
-- **Viewport-adaptive**: Efficiently adapts to different screen sizes
-- **Consistent performance**: Reduces layout thrashing through predictable spacing
-- **Maintainability**: Single source of truth for section spacing across all components
+### Six-Act Performance Benefits
+The six-act framework provides several performance advantages:
+- **Modular Architecture**: Each act as a self-contained unit reduces render complexity
+- **Theme Isolation**: CSS custom properties prevent cascade conflicts between acts
+- **Lazy Loading Opportunities**: Act-specific components can be optimized individually
+- **Animation Efficiency**: Scroll-triggered animations minimize unnecessary computations
 
 ## Troubleshooting Guide
-Common development and runtime issues with solutions:
+Common development and runtime issues with solutions within the six-act framework.
 
 ### Component Rendering Issues
 - **Blank screen on startup**: Verify DOM element existence and React version compatibility
@@ -570,6 +566,8 @@ Common development and runtime issues with solutions:
 - **Navigation not responding**: Ensure section IDs match between content and navigation
 - **Section indicator not appearing**: Verify mobile breakpoint conditions and scroll position detection
 - **SiteLoader not displaying**: Check session storage availability and loader div presence
+- **Act sections not rendering**: Verify act data structure and component prop passing
+- **Heartbeat transitions not animating**: Check scroll reveal hook integration and intersection observer setup
 
 ### Styling Problems
 - **Styles not applying**: Verify CSS Modules import syntax and class name matching
@@ -577,41 +575,41 @@ Common development and runtime issues with solutions:
 - **Responsive issues**: Review media query breakpoints and viewport meta tags
 - **Floating indicator positioning**: Check fixed positioning and z-index values
 - **SiteLoader overlay issues**: Verify z-index stacking and transform properties
-- **Awards grid layout issues**: Check grid-template-columns and gap property syntax
-- **Award card alignment problems**: Verify flex properties and min-height constraints
-- **Standardized spacing inconsistencies**: Verify `var(--space-section)` variable definition and usage
+- **Act theming not working**: Check CSS custom property definitions and variable scope
+- **Watermark positioning**: Verify absolute positioning and z-index layering
+- **Timeline strip scrolling**: Check overflow properties and scroll snap configuration
 
 ### Typography Issues
 - **Font not loading**: Verify Google Fonts import and network connectivity
 - **Font fallback not working**: Check CSS font stack ordering
 - **Typography inconsistencies**: Ensure CSS custom properties are properly defined
+- **Act-specific font variations**: Verify font family assignments for each narrative act
 
-### Development Environment
-- **Hot reload not working**: Restart Vite server and check plugin configurations
-- **Build errors**: Verify Node.js version compatibility and dependency installation
-- **Port conflicts**: Change server port in Vite configuration or kill conflicting processes
+### Data Management Issues
+- **Act data not loading**: Verify content.js structure and export format
+- **Missing act information**: Check act array indexing and property access
+- **Navigation data mismatch**: Ensure section IDs match act IDs and navigation links
+- **Award data not displaying**: Verify nested data structure and array mapping
 
-### New Feature Issues
-- **Active section detection not working**: Verify Intersection Observer support and section ID matching
-- **Mobile navigation not visible**: Check scroll position threshold and media query conditions
-- **Smooth scrolling not functioning**: Verify element ID existence and scroll offset calculations
-- **Session storage issues**: Verify browser compatibility and privacy settings
-- **Screenshot testing failures**: Check .gitignore patterns for screenshot file filtering
-- **Standardized spacing not working**: Verify CSS variable definition and clamp function syntax
+### Six-Act Framework Issues
+- **Act sections not displaying**: Verify ActSection component integration and props
+- **Heartbeat transitions not working**: Check Heartbeat component implementation and timing
+- **Recognition badges not rendering**: Verify award data structure and grid layout
+- **Timeline strip not scrolling**: Check scroll container properties and snap alignment
+- **Closing section not interactive**: Verify scroll-to functionality and event handlers
 
 **Section sources**
 - [src/main.jsx:6-10](file://src/main.jsx#L6-L10)
 - [src/hooks/useGsap.js:6](file://src/hooks/useGsap.js#L6)
 - [src/hooks/useActiveSection.js:6-32](file://src/hooks/useActiveSection.js#L6-L32)
+- [src/hooks/useScrollReveal.js:6-35](file://src/hooks/useScrollReveal.js#L6-L35)
 - [vite.config.js:7-8](file://vite.config.js#L7-L8)
 
 ## Conclusion
-The React frontend components demonstrate a mature, scalable architecture with comprehensive animation integration, modular component design, and robust development tooling. The recent comprehensive redesign enhancements showcase the evolution toward a more sophisticated and visually engaging digital portfolio. The enhanced mobile-first navigation system with GSAP animations, improved desktop layout for the hero section with responsive padding and overflow fixes, redesigned awards recognition with laurel decorations, comprehensive brand-focused footer, and enhanced global styling system with improved CSS variables and responsive typography using clamp functions represent significant improvements in user experience and visual appeal.
+The React frontend components demonstrate a revolutionary six-act narrative framework that transforms traditional multi-section layouts into an immersive storytelling experience. The application showcases sophisticated animation integration, modular component design, and robust development tooling within a comprehensive six-act architecture. The enhanced mobile-first navigation system with GSAP animations, improved desktop layout for the hero section, redesigned awards recognition with laurel decorations, comprehensive brand-focused footer, and enhanced global styling system with improved CSS variables and responsive typography represent significant improvements in user experience and visual appeal.
 
-The addition of the new SiteLoader component introduces a sophisticated loading experience that enhances user perception and engagement. The session storage-based visitor tracking ensures optimal loading performance while maintaining brand consistency. The enhanced mobile navigation styling with refined responsive design patterns provides excellent cross-device functionality.
+The six-act framework provides a sophisticated organizational structure that tells Frankie Picasso's life story as a cohesive narrative, with each act representing a distinct chapter of her journey. The ActSection component system with dynamic theming, Heartbeat transition components with animated storytelling, RecognitionBadges display for award recognition, TimelineStrip presentation for legacy events, and ClosingSection with interactive call-to-action create a seamless and engaging user experience.
 
-The Intersection Observer-based active section tracking provides efficient, low-overhead section detection that improves performance and user experience across all devices. The 11-content component structure provides excellent organization for showcasing diverse aspects of Frankie Picasso's work while maintaining consistency and performance. The combination of CSS Modules, custom hooks, GSAP animations, and the refined responsive typography system creates a polished user experience with smooth interactions and professional presentation quality.
+The implementation of CSS custom properties for act-specific theming, scroll-triggered animations, and responsive design patterns ensures optimal performance across all devices and screen sizes. The enhanced data management system with comprehensive six-act organization provides a solid foundation for content management and future expansion.
 
-The recent CSS styling improvements to the Awards Recognition component and Legacy Timeline component represent a significant enhancement to the application's visual design and user experience. The adoption of the standardized `var(--space-section)` spacing approach demonstrates attention to detail in creating a consistent and professional visual rhythm across all content sections. The enhanced spacing system, refined grid layout with separate gap properties, and improved award card styling with flex layout and center alignment show the evolution toward a more sophisticated and visually appealing awards showcase. The addition of screenshot testing patterns to the .gitignore file reflects the project's commitment to comprehensive testing and quality assurance processes.
-
-The new SiteLoader component, combined with the enhanced Awards section layout, improved HeroExperience mobile responsiveness, and refined Navigation mobile styling updates, represents a comprehensive enhancement to the application's user experience and technical architecture. The standardized spacing approach ensures consistency and maintainability across all content sections, while the enhanced CSS Modules system provides a robust foundation for future development and styling improvements.
+The revolutionary six-act narrative framework represents a significant advancement in digital storytelling, demonstrating how modern web technologies can be used to create meaningful, engaging, and technically sophisticated user experiences. The combination of innovative component architecture, thoughtful theming system, and seamless transitions creates a truly memorable and impactful digital portfolio experience.

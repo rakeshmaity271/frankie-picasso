@@ -1,0 +1,1 @@
+A scroll-driven React single-page application that presents Frankie Picasso's professional journey through six thematic acts, leveraging GSAP for immersive animations and a centralized data layer for content management.
