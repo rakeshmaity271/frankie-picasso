@@ -1,0 +1,212 @@
+.section {
+  background: var(--color-warm-ivory);
+  padding: var(--space-section) 0;
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  opacity: 0.2;
+}
+
+.content {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.label {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-xs);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h1);
+  font-weight: 600;
+  color: var(--color-deep-plum);
+  margin: 0 0 var(--space-sm);
+  line-height: 1.15;
+}
+
+.subtitle {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-style: italic;
+  color: var(--color-charcoal);
+  opacity: 0.7;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.intro {
+  max-width: var(--container-narrow);
+  margin: 0 auto var(--space-xl);
+  font-size: var(--fs-body-lg);
+  line-height: 1.8;
+  color: var(--color-charcoal);
+  opacity: 0.85;
+  text-align: center;
+}
+
+.mediums {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.mediumCard {
+  background: rgba(61, 28, 62, 0.03);
+  border: 1px solid rgba(61, 28, 62, 0.08);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-xl);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.mediumCard::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-deep-plum), var(--color-gold));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mediumCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-cinematic);
+  border-color: rgba(61, 28, 62, 0.15);
+}
+
+.mediumCard:hover::after {
+  opacity: 1;
+}
+
+.mediumHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.mediumTitle {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  color: var(--color-deep-plum);
+  margin: 0;
+}
+
+.mediumStyle {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--color-gold);
+  font-style: italic;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.mediumDesc {
+  font-size: var(--fs-body);
+  color: var(--color-charcoal);
+  opacity: 0.8;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.galleryItem {
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+  border: 1px solid rgba(197, 165, 90, 0.15);
+  border-radius: var(--border-radius-lg);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.galleryItem:hover {
+  transform: translateY(-3px);
+  border-color: rgba(197, 165, 90, 0.4);
+}
+
+.galleryIcon {
+  width: 40px;
+  height: 40px;
+  color: var(--color-gold);
+  margin: 0 auto var(--space-sm);
+}
+
+.galleryIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.galleryTitle {
+  font-family: var(--font-serif);
+  font-size: var(--fs-body-lg);
+  font-weight: 600;
+  color: var(--color-deep-plum);
+  margin: 0 0 var(--space-xs);
+}
+
+.galleryDesc {
+  font-size: var(--fs-small);
+  color: var(--color-charcoal);
+  opacity: 0.7;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: var(--space-2xl) 0;
+  }
+
+  .mediums {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .mediumCard {
+    padding: var(--space-lg);
+  }
+
+  .mediumHeader {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+}

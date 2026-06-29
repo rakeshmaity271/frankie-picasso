@@ -4,6 +4,7 @@ import styles from './ActSection.module.css'
 
 export default function ActSection({ act, children }) {
   const headerRef = useRef(null)
+  const sectionRef = useRef(null)
   useScrollReveal(headerRef, { animation: 'fade-up' })
 
   const themeClass = `act-theme--${act.id}`
@@ -13,7 +14,14 @@ export default function ActSection({ act, children }) {
       id={act.id}
       className={`${styles.section} ${themeClass}`}
       aria-label={`Act ${act.number}: ${act.title}`}
+      ref={sectionRef}
     >
+      {/* Cinematic floating orbs */}
+      <div className={styles.floatingElements} aria-hidden="true">
+        <div className={styles.orb} style={{ width: 200, height: 200, top: '15%', left: '-3%' }} />
+        <div className={styles.orb} style={{ width: 120, height: 120, bottom: '20%', right: '-2%' }} />
+      </div>
+
       <div className={styles.watermark} aria-hidden="true">
         <span className={styles.watermarkText}>{act.number}</span>
       </div>

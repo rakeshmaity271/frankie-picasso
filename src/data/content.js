@@ -1,11 +1,50 @@
 export const content = {
   hero: {
     eyebrow: 'A Life in Six Acts',
-    headline: 'Every life is a story. Hers is told in Acts.',
-    subheadline: 'From a curious girl in Austria to a globally recognized platform builder, Frankie Picasso\'s journey is not a résumé — it\'s a living, unfolding narrative of entrepreneurship, creativity, and community.',
+    headline: 'Built Platforms. Created Opportunities. Developed Partnerships. Led Teams. Amplified Impact.',
+    subheadline: 'You\'re not exploring a résumé. You\'re beginning a journey through a life dedicated to freedom, creativity, community, and impact — a story that asks one quiet question: What could you become if someone believed in you?',
     tagline: 'One person can create ripple effects that change lives.',
     ctaPrimary: 'Begin the Journey',
     ctaSecondary: 'Connect'
+  },
+
+  whoIsFrankie: {
+    title: 'Who Is Frankie?',
+    opening: 'I have spent my life building things.',
+    openingFollow: 'Not because I wanted more businesses, more titles, or more recognition — but because I saw possibilities where others saw obstacles.',
+    builtList: [
+      'I\'ve built companies.',
+      'I\'ve built media platforms.',
+      'I\'ve built communities.',
+      'I\'ve built partnerships.',
+      'I\'ve built opportunities for people who simply needed someone to believe in them.'
+    ],
+    thread: 'If there\'s one thread that connects everything I\'ve ever done, it\'s this:',
+    belief: 'I believe people are capable of far more than they imagine.',
+    beliefFollow: 'That belief has taken me on an extraordinary journey.',
+    roles: 'I\'ve been an entrepreneur, broadcaster, author, artist, coach, investigator, nonprofit leader, government strategist, kickboxing promoter, and social impact advocate. Some careers lasted years. Others were seasons. None were accidents.',
+    rolesFollow: 'Each one taught me something about people, resilience, creativity, and possibility.',
+    valuesIntro: 'Three values have quietly guided every decision I\'ve ever made.',
+    values: [
+      { label: 'Entrepreneurship', reason: 'because freedom has always mattered more to me than security.' },
+      { label: 'Creativity', reason: 'because creating is how I make sense of the world and express who I am.' },
+      { label: 'Community', reason: 'because life\'s greatest achievements are never built alone.' }
+    ],
+    valuesFollow: 'Those three values have shaped every business, every radio show, every painting, every book, every cause, and every platform I\'ve created.',
+    question: 'People often ask how I\'ve managed to do so many different things.',
+    answer: 'The answer is simple.',
+    followedList: [
+      'I never chased careers.',
+      'I followed curiosity.',
+      'I followed purpose.',
+      'And whenever a door didn\'t exist, I built one.'
+    ],
+    today: 'Today, I spend my time doing what I\'ve always loved most — connecting people, amplifying voices, creating opportunities, and reminding others that impossible is often just another word for "not yet."',
+    closing: 'If my story inspires you, I hope it isn\'t because of what I\'ve accomplished.',
+    closingFollow: 'I hope it\'s because it reminds you of what\'s still possible for your own life.',
+    finalThought: 'Because visitors should leave here inspired, not impressed.',
+    finalLine: 'And sometimes all a dream needs is someone bold enough to say…',
+    cta: 'Let\'s do the impossible.'
   },
 
   acts: [
@@ -55,22 +94,11 @@ export const content = {
       color: '#00CED1',
       cssVar: '--act-amplifying',
       intro: 'Having built the foundation, Frankie turned to amplifying voices — through radio, media, and platforms that gave others the stage they deserved. The Good Radio Network, Mission Unstoppable, and G-Woman Media became vehicles for changemakers everywhere.',
-      heartbeatLine: 'Every voice deserves to be heard.',
-      shows: [
-        { title: 'Mission Unstoppable', type: 'radio', description: 'Flagship show on The Good Radio Network featuring conversations with leaders, artists, and community builders.', years: 'Ongoing' },
-        { title: 'FrankieSense and More', type: 'radio', description: 'Dynamic radio program exploring leadership, personal development, and social impact.', years: 'Ongoing' },
-        { title: 'Conversation with My Shoes', type: 'podcast', description: 'Intimate podcast series sharing personal stories of transformation and growth.', years: 'G-Woman Media' },
-        { title: 'Thoughtatudes', type: 'podcast', description: 'Thought-provoking content exploring ideas, perspectives, and community dialogue.', years: 'G-Woman Media' }
-      ],
+      heartbeatLine: 'When we amplify others, we discover our own voice.',
       interviews: [
         { title: 'Women\'s Economic Forum Recognition', outlet: 'WEF', year: '2024' },
         { title: 'Top 50 Writers You Should Be Reading', outlet: 'Literary Recognition', year: '2015' },
         { title: 'Mission Unstoppable Guest Interviews', outlet: 'The Good Radio Network', year: 'Ongoing' }
-      ],
-      press: [
-        { title: 'Woman of the Decade', outlet: 'Women\'s Economic Forum', year: '2024' },
-        { title: 'International Bestselling Author', outlet: 'Multiple Publications', year: '2020s' },
-        { title: 'First Female Kickboxing Promoter', outlet: 'Sports Media', year: '1990s' }
       ],
       timeline: [
         { year: '2010s', title: 'Media Empire Building', description: 'Founded The Good Radio Network, an international positive-impact media platform. Host of Mission Unstoppable and FrankieSense and More. Co-founded G-Woman Media as VP, Americas.' }
@@ -115,11 +143,8 @@ export const content = {
       color: '#2E7D32',
       cssVar: '--act-giving',
       intro: 'At the heart of Frankie\'s work is an unwavering commitment to community — building connections, creating opportunities, and empowering others to lead. From humanitarian work to mentoring, this act is about lifting as you climb.',
-      heartbeatLine: 'Success matters most when it creates opportunity for someone else.',
+      heartbeatLine: 'Lifting others is how we rise ourselves.',
       initiatives: [
-        { name: 'The Good Radio Network', role: 'Founder and CEO', description: 'International positive-impact media platform amplifying voices and creating opportunities for meaningful dialogue.' },
-        { name: 'G-Woman Media', role: 'Co-Founder and VP, Americas', description: 'Global multimedia platform focused on women\'s leadership, publishing, media, and community initiatives.' },
-        { name: 'Rent A Believer', role: 'Founder and Executive Coach', description: 'Leadership development and transformational coaching empowering individuals to achieve personal and professional growth.' },
         { name: 'Women\'s Leadership Initiatives', role: 'Platform Builder', description: 'Creating spaces through G-Woman Media and other ventures for women leaders to connect, share, and amplify each other\'s impact.' },
         { name: 'Health Promotion', role: 'Founder', description: 'Through Condom Sense, developed health promotion initiatives supporting safer-sex awareness and education.' }
       ],
@@ -171,6 +196,89 @@ export const content = {
     }
   ],
 
+  impact: {
+    title: 'Impact',
+    subtitle: 'Legacy isn\'t what we leave behind — it\'s what we awaken in others.',
+    stats: [
+      { number: '30+', label: 'Years of Impact' },
+      { number: '6', label: 'International Bestsellers' },
+      { number: '1st', label: 'Female Kickboxing Promoter' },
+      { number: '∞', label: 'Lives Touched' }
+    ],
+    pillars: [
+      {
+        title: 'Entrepreneurship',
+        description: 'Built companies from the ground up — from health promotion to kickboxing promotion to media platforms. Each venture created opportunities for others.',
+        icon: 'freedom'
+      },
+      {
+        title: 'Creativity',
+        description: 'Through art, writing, broadcasting, and music — creativity became the bridge between personal expression and community connection.',
+        icon: 'creativity'
+      },
+      {
+        title: 'Community',
+        description: 'Every platform built became a stage for someone else\'s breakthrough. Mentoring, amplifying voices, and creating spaces for others to rise.',
+        icon: 'community'
+      },
+      {
+        title: 'Leadership',
+        description: 'From government ministries to international media — leading with belief, not authority. Creating environments where reinvention is possible.',
+        icon: 'leadership'
+      }
+    ]
+  },
+
+  art: {
+    title: 'Art',
+    subtitle: 'Creating is how I make sense of the world and express who I am.',
+    intro: 'Art has always been Frankie\'s first language — before business, before broadcasting, before books. Painting, writing, and music are not hobbies. They are the core of who she is.',
+    mediums: [
+      {
+        title: 'Painting',
+        description: 'Original and commissioned works featured through Fine Art America. Custom pet portraits and artwork supporting animal welfare and children\'s causes.',
+        style: 'Expressive, vibrant, emotionally driven'
+      },
+      {
+        title: 'Writing',
+        description: 'Six published books including international bestsellers. From memoir to empowerment guides — each book is a conversation with the reader.',
+        style: 'Authentic, vulnerable, transformative'
+      },
+      {
+        title: 'Broadcasting',
+        description: 'Mission Unstoppable, FrankieSense and More, Conversation with My Shoes, Thoughtatudes — each show a platform for voices that deserve to be heard.',
+        style: 'Conversational, inspiring, community-focused'
+      },
+      {
+        title: 'Music',
+        description: 'Music as emotional expression and creative outlet — another channel for the stories that need to be told.',
+        style: 'Soulful, personal, expressive'
+      }
+    ],
+    gallery: [
+      { title: 'Original Works', description: 'Featured on Fine Art America' },
+      { title: 'Commissioned Portraits', description: 'Custom pet and people portraits' },
+      { title: 'Charity Art', description: 'Supporting animal welfare & children' }
+    ]
+  },
+
+  media: {
+    title: 'Media',
+    subtitle: 'Every voice deserves to be heard.',
+    shows: [
+      { title: 'Mission Unstoppable', type: 'radio', description: 'Flagship show on The Good Radio Network featuring conversations with leaders, artists, and community builders.', years: 'Ongoing' },
+      { title: 'FrankieSense and More', type: 'radio', description: 'Dynamic radio program exploring leadership, personal development, and social impact.', years: 'Ongoing' },
+      { title: 'Conversation with My Shoes', type: 'podcast', description: 'Intimate podcast series sharing personal stories of transformation and growth.', years: 'G-Woman Media' },
+      { title: 'Thoughtatudes', type: 'podcast', description: 'Thought-provoking content exploring ideas, perspectives, and community dialogue.', years: 'G-Woman Media' }
+    ],
+    press: [
+      { title: 'Woman of the Decade', outlet: 'Women\'s Economic Forum', year: '2024' },
+      { title: 'International Bestselling Author', outlet: 'Multiple Publications', year: '2020s' },
+      { title: 'First Female Kickboxing Promoter', outlet: 'Sports Media', year: '1990s' },
+      { title: 'Top 50 Writers You Should Be Reading', outlet: 'Literary Recognition', year: '2015' }
+    ]
+  },
+
   closing: {
     question: 'What will your next Act be?',
     quote: 'If my journey has taught me anything, it\'s that reinvention is always possible. The next chapter isn\'t something that happens to us — it\'s something we choose to create.',
@@ -183,6 +291,8 @@ export const content = {
     'Every remarkable life begins because someone believed first.',
     'Reinvention is possible at every age.',
     'Success matters most when it creates opportunity for someone else.',
+    'When we amplify others, we discover our own voice.',
+    'Lifting others is how we rise ourselves.',
     'Legacy isn\'t what we leave behind; it\'s what we awaken in others.',
     'Visitors should feel inspired, not impressed.'
   ],
@@ -198,34 +308,42 @@ export const content = {
       'Building Legacy Through Purpose'
     ],
     socials: [
-      { name: 'LinkedIn', url: '#' },
-      { name: 'Twitter', url: '#' },
-      { name: 'Instagram', url: '#' }
+      { name: 'Facebook', url: '#' },
+      { name: 'Instagram', url: '#' },
+      { name: 'YouTube', url: '#' },
+      { name: 'LinkedIn', url: '#' }
     ]
   }
 }
 
 export const sectionIds = [
   'hero',
+  'who-is-frankie',
   'becoming',
   'building',
   'amplifying',
   'creating',
   'giving',
   'still-becoming',
+  'impact',
+  'media',
+  'books',
+  'art',
+  'timeline',
   'closing',
   'contact'
 ]
 
 export const navLinks = [
   { id: 'hero', label: 'Home' },
-  { id: 'becoming', label: 'Becoming' },
-  { id: 'building', label: 'Building' },
-  { id: 'amplifying', label: 'Amplifying' },
-  { id: 'creating', label: 'Creating' },
-  { id: 'giving', label: 'Giving' },
-  { id: 'still-becoming', label: 'Still Becoming' },
-  { id: 'contact', label: 'Contact' }
+  { id: 'who-is-frankie', label: 'Who is Frankie?' },
+  { id: 'becoming', label: 'Journey' },
+  { id: 'impact', label: 'Impact' },
+  { id: 'media', label: 'Media' },
+  { id: 'books', label: 'Books' },
+  { id: 'art', label: 'Art' },
+  { id: 'timeline', label: 'Timeline' },
+  { id: 'contact', label: 'Connect' }
 ]
 
 export const actColors = {

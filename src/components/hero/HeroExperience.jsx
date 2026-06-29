@@ -10,6 +10,7 @@ export default function HeroExperience() {
   const portraitRef = useRef(null)
   const decorRef = useRef(null)
   const portraitParallax = useRef(null)
+  const orbRef = useRef(null)
 
   const hero = content.hero
 
@@ -23,18 +24,19 @@ export default function HeroExperience() {
     const words = headline.querySelectorAll('.word')
     gsap.from(words, {
       opacity: 0,
-      y: 40,
-      rotateX: -40,
-      stagger: 0.08,
-      duration: 0.8,
+      y: 60,
+      rotateX: -20,
+      stagger: 0.07,
+      duration: 1.1,
       ease: 'power3.out',
-      delay: 0.3
+      delay: 0.5
     })
 
-    gsap.from('.hero-eyebrow', { opacity: 0, y: 20, duration: 0.6, delay: 0.1 })
-    gsap.from('.hero-sub', { opacity: 0, y: 30, duration: 0.8, delay: 1.2 })
-    gsap.from('.hero-cta', { opacity: 0, y: 30, duration: 0.8, delay: 1.4 })
-    gsap.from('.hero-act-dots', { opacity: 0, y: 10, duration: 0.6, delay: 2.0 })
+    gsap.from('.hero-eyebrow', { opacity: 0, y: 20, duration: 0.8, delay: 0.2, ease: 'power3.out' })
+    gsap.from('.hero-sub', { opacity: 0, y: 35, duration: 1, delay: 1.6, ease: 'power3.out' })
+    gsap.from('.hero-cta', { opacity: 0, y: 30, duration: 0.9, delay: 1.9, ease: 'power3.out' })
+    gsap.from('.hero-act-dots', { opacity: 0, y: 10, duration: 0.6, delay: 2.4 })
+    gsap.from('.hero-scroll', { opacity: 0, duration: 0.8, delay: 2.8 })
   }, { scope: sectionRef })
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
@@ -48,13 +50,32 @@ export default function HeroExperience() {
     const dots = decorRef.current.querySelectorAll('.dot')
     dots.forEach((dot, i) => {
       gsap.to(dot, {
-        y: `random(-20, 20)`,
-        x: `random(-15, 15)`,
-        duration: `random(3, 5)`,
+        y: `random(-25, 25)`,
+        x: `random(-18, 18)`,
+        duration: `random(4, 7)`,
         repeat: -1,
         yoyo: true,
         ease: 'sine.inOut',
-        delay: i * 0.3
+        delay: i * 0.4
+      })
+    })
+  }, [])
+
+  useEffect(() => {
+    if (!orbRef.current) return
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion) return
+
+    const orbs = orbRef.current.querySelectorAll('.floating-orb')
+    orbs.forEach((orb, i) => {
+      gsap.to(orb, {
+        y: `random(-30, 30)`,
+        x: `random(-20, 20)`,
+        duration: `random(6, 10)`,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        delay: i * 1.5
       })
     })
   }, [])
@@ -73,6 +94,13 @@ export default function HeroExperience() {
 
   return (
     <section id="hero" className={styles.hero} ref={sectionRef} aria-label="Hero">
+      {/* Floating orbs for cinematic depth */}
+      <div className={styles.orbs} ref={orbRef} aria-hidden="true">
+        <div className="floating-orb" style={{ width: 300, height: 300, top: '10%', left: '-5%', background: 'var(--color-gold)', animationDelay: '0s' }} />
+        <div className="floating-orb" style={{ width: 200, height: 200, top: '60%', right: '-3%', background: 'var(--color-burgundy)', animationDelay: '2s' }} />
+        <div className="floating-orb" style={{ width: 150, height: 150, top: '30%', right: '20%', background: 'var(--color-aqua)', animationDelay: '4s' }} />
+      </div>
+
       <div className={styles.decor} ref={decorRef} aria-hidden="true">
         <div className="dot" style={{ top: '15%', left: '10%' }} />
         <div className="dot" style={{ top: '70%', left: '5%' }} />
@@ -96,6 +124,9 @@ export default function HeroExperience() {
           <div className={`hero-cta ${styles.ctaGroup}`}>
             <button className={styles.ctaPrimary} onClick={() => scrollTo('becoming')}>
               {hero.ctaPrimary}
+              <svg className={styles.ctaArrow} viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </button>
             <button className={styles.ctaSecondary} onClick={() => scrollTo('contact')}>
               {hero.ctaSecondary}
@@ -143,7 +174,7 @@ export default function HeroExperience() {
         </div>
       </div>
 
-      <div className={styles.scrollIndicator} aria-hidden="true">
+      <div className={`hero-scroll ${styles.scrollIndicator}`} aria-hidden="true">
         <div className={styles.scrollLine} />
       </div>
     </section>

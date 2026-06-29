@@ -61,16 +61,10 @@
 
 ## Update Summary
 **Changes Made**
-- Complete architectural overhaul from traditional multi-section layout to six-act narrative framework
-- Added comprehensive documentation for new ActSection component system with theming and watermark features
-- Documented Heartbeat transition components with animated storytelling elements
-- Added RecognitionBadges display component for award recognition visualization
-- Documented TimelineStrip presentation component for legacy event timeline
-- Added ClosingSection component with interactive call-to-action and smooth scrolling
-- Updated App.jsx to implement six-act narrative structure with ActSection wrappers
-- Enhanced content.js data structure to support six-act framework with detailed act metadata
-- Updated component architecture diagrams to reflect new act-based organization
-- Enhanced styling system with act-specific theming variables and CSS custom properties
+- Enhanced Nav component with React fragment wrapper for improved accessibility and React rendering behavior
+- Updated z-index hierarchy with --z-overlay at 1100 for better overlay stacking context
+- Improved mobile menu overlay positioning and z-index management
+- Enhanced accessibility with proper fragment structure for navigation components
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -172,7 +166,7 @@ The application employs a revolutionary six-act narrative architecture with soph
 ```mermaid
 graph TD
 App["App.jsx<br/>Six-Act Narrative"] --> SiteLoader["SiteLoader.jsx"]
-App --> Nav["Nav.jsx"]
+App --> Nav["Nav.jsx<br/>Fragment Wrapper"]
 App --> Footer["Footer.jsx"]
 App --> Hero["HeroExperience.jsx"]
 App --> ActSection["ActSection.jsx<br/>Wrapper Component"]
@@ -216,10 +210,12 @@ Heartbeat --> Heartbeat6["Heartbeat VI"]
 - [src/components/acts/TimelineStrip.jsx:1-30](file://src/components/acts/TimelineStrip.jsx#L1-L30)
 
 ## Layout Components
-The layout system provides consistent navigation and structural elements across all six acts with enhanced active section tracking and improved mobile responsiveness.
+The layout system provides consistent navigation and structural elements across all six acts with enhanced active section tracking, improved mobile responsiveness, and enhanced accessibility through React fragment wrappers.
 
 ### Navigation Component (Nav.jsx)
 Features responsive design with mobile-first approach, scroll-aware styling, and animated navigation items. Integrates with GSAP for smooth animations and uses the new useActiveSection hook for intelligent active section detection. The navigation now includes a comprehensive mobile menu with social links and contact button, featuring sophisticated GSAP animations for menu item entrance and exit. The desktop navigation system has been enhanced with a dedicated `desktopNav` class for improved cross-device functionality and better separation of desktop vs mobile styling.
+
+**Enhanced** The Nav component now utilizes a React fragment wrapper (`<>` and `</>`) at lines 64-151, which provides improved accessibility and React rendering behavior by allowing multiple root elements without adding extra DOM nodes. This enhancement ensures proper semantic structure and better screen reader support while maintaining the component's functionality.
 
 ### Footer Component (Footer.jsx)
 Provides comprehensive footer navigation with brand information, copyright details, and accessible navigation controls. The footer has been transformed into a comprehensive brand showcase featuring a three-column grid layout on desktop with centered layout on mobile, including brand identity, navigation sections, and social media links.
@@ -231,7 +227,7 @@ A floating navigation component that appears on mobile devices to provide quick 
 A sophisticated loading component that provides an elegant transition experience for first-time visitors. Features a fixed-position loader with fade-out animation, brand logo display, and gradient wordmark with decorative divider elements. Implements session storage to track visitor status and ensures optimal loading experience across visits.
 
 **Section sources**
-- [src/components/layout/Nav.jsx:1-152](file://src/components/layout/Nav.jsx#L1-L152)
+- [src/components/layout/Nav.jsx:1-154](file://src/components/layout/Nav.jsx#L1-L154)
 - [src/components/layout/Nav.module.css:1-349](file://src/components/layout/Nav.module.css#L1-L349)
 - [src/components/layout/Footer.jsx:1-59](file://src/components/layout/Footer.jsx#L1-L59)
 - [src/components/layout/Footer.module.css:1-102](file://src/components/layout/Footer.module.css#L1-L102)
@@ -371,7 +367,7 @@ Components utilize useState for UI state management (mobile menu, scroll awarene
 - [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
 - [src/hooks/useActiveSection.js:1-36](file://src/hooks/useActiveSection.js#L1-L36)
 - [src/hooks/useScrollReveal.js:1-40](file://src/hooks/useScrollReveal.js#L1-L40)
-- [src/components/layout/Nav.jsx:1-152](file://src/components/layout/Nav.jsx#L1-L152)
+- [src/components/layout/Nav.jsx:1-154](file://src/components/layout/Nav.jsx#L1-L154)
 - [src/components/common/SectionIndicator.jsx:1-43](file://src/components/common/SectionIndicator.jsx#L1-L43)
 
 ## CSS Modules and Styling
@@ -405,6 +401,14 @@ The six-act framework maintains responsive design excellence:
 - Mobile-first approach with progressive enhancement
 - Touch-friendly interaction patterns for all components
 
+### Z-Index Hierarchy Management
+The application implements a comprehensive z-index hierarchy for proper stacking context:
+- **--z-nav: 1000** - Navigation bar with backdrop blur and shadow effects
+- **--z-overlay: 1100** - Enhanced overlay stacking context for mobile menus and modals
+- **--z-content: 1** - Default content layer for standard page elements
+
+**Updated** The z-index hierarchy has been enhanced with --z-overlay set to 1100, providing better overlay stacking context and improved mobile menu positioning. This ensures that the mobile navigation overlay appears above all other content layers while maintaining proper visual hierarchy.
+
 **Section sources**
 - [src/App.module.css:1-23](file://src/App.module.css#L1-L23)
 - [src/components/acts/ActSection.module.css:1-91](file://src/components/acts/ActSection.module.css#L1-L91)
@@ -412,6 +416,7 @@ The six-act framework maintains responsive design excellence:
 - [src/components/acts/RecognitionBadges.module.css:1-94](file://src/components/acts/RecognitionBadges.module.css#L1-L94)
 - [src/components/acts/TimelineStrip.module.css:1-103](file://src/components/acts/TimelineStrip.module.css#L1-L103)
 - [src/components/closing/ClosingSection.module.css:1-87](file://src/components/closing/ClosingSection.module.css#L1-L87)
+- [src/styles/_variables.css:61-65](file://src/styles/_variables.css#L61-L65)
 
 ## Typography System
 The application features a refined typography system with two distinct font families and advanced responsive scaling using clamp functions, perfectly suited for the six-act narrative framework.
@@ -467,7 +472,7 @@ Each act contains rich, interconnected data:
 - **Identity Metadata**: Unique ID, number, title, tagline, and color scheme
 - **Narrative Content**: Introductory paragraphs, philosophical insights, and heartbeat lines
 - **Timeline Events**: Chronological milestones with year, title, and description
-- **Achievement Data**: Ventures, shows, initiatives, and recognition details
+- **Achievement Data**: ventures, shows, initiatives, and recognition details
 - **Legacy Events**: Significant moments that define each act's impact
 
 ### Navigation and Section Management
@@ -557,6 +562,20 @@ The six-act framework provides several performance advantages:
 - **Lazy Loading Opportunities**: Act-specific components can be optimized individually
 - **Animation Efficiency**: Scroll-triggered animations minimize unnecessary computations
 
+### Enhanced Mobile Menu Performance
+The React fragment wrapper in the Nav component improves rendering performance by:
+- Eliminating unnecessary wrapper divs in the DOM
+- Improving accessibility tree structure for screen readers
+- Reducing DOM traversal complexity for navigation elements
+- Maintaining proper semantic structure without extra nodes
+
+**Section sources**
+- [src/main.jsx:6-10](file://src/main.jsx#L6-L10)
+- [src/hooks/useGsap.js:6](file://src/hooks/useGsap.js#L6)
+- [src/hooks/useActiveSection.js:6-32](file://src/hooks/useActiveSection.js#L6-L32)
+- [src/hooks/useScrollReveal.js:6-35](file://src/hooks/useScrollReveal.js#L6-L35)
+- [vite.config.js:7-8](file://vite.config.js#L7-L8)
+
 ## Troubleshooting Guide
 Common development and runtime issues with solutions within the six-act framework.
 
@@ -568,6 +587,7 @@ Common development and runtime issues with solutions within the six-act framewor
 - **SiteLoader not displaying**: Check session storage availability and loader div presence
 - **Act sections not rendering**: Verify act data structure and component prop passing
 - **Heartbeat transitions not animating**: Check scroll reveal hook integration and intersection observer setup
+- **Mobile menu not appearing**: Verify z-index hierarchy and fragment wrapper structure
 
 ### Styling Problems
 - **Styles not applying**: Verify CSS Modules import syntax and class name matching
@@ -578,6 +598,7 @@ Common development and runtime issues with solutions within the six-act framewor
 - **Act theming not working**: Check CSS custom property definitions and variable scope
 - **Watermark positioning**: Verify absolute positioning and z-index layering
 - **Timeline strip scrolling**: Check overflow properties and scroll snap configuration
+- **Mobile menu overlay not covering content**: Verify --z-overlay value and fragment wrapper structure
 
 ### Typography Issues
 - **Font not loading**: Verify Google Fonts import and network connectivity
@@ -598,6 +619,11 @@ Common development and runtime issues with solutions within the six-act framewor
 - **Timeline strip not scrolling**: Check scroll container properties and snap alignment
 - **Closing section not interactive**: Verify scroll-to functionality and event handlers
 
+### Z-Index and Overlay Issues
+- **Mobile menu behind content**: Verify --z-overlay is set to 1100 and fragment wrapper structure
+- **Overlay not appearing above navigation**: Check z-index hierarchy and stacking context
+- **Fragment wrapper causing rendering issues**: Ensure proper React fragment syntax and accessibility attributes
+
 **Section sources**
 - [src/main.jsx:6-10](file://src/main.jsx#L6-L10)
 - [src/hooks/useGsap.js:6](file://src/hooks/useGsap.js#L6)
@@ -613,3 +639,5 @@ The six-act framework provides a sophisticated organizational structure that tel
 The implementation of CSS custom properties for act-specific theming, scroll-triggered animations, and responsive design patterns ensures optimal performance across all devices and screen sizes. The enhanced data management system with comprehensive six-act organization provides a solid foundation for content management and future expansion.
 
 The revolutionary six-act narrative framework represents a significant advancement in digital storytelling, demonstrating how modern web technologies can be used to create meaningful, engaging, and technically sophisticated user experiences. The combination of innovative component architecture, thoughtful theming system, and seamless transitions creates a truly memorable and impactful digital portfolio experience.
+
+**Enhanced** The recent improvements to the Nav component with React fragment wrapper and the updated z-index hierarchy with --z-overlay at 1100 demonstrate the project's commitment to accessibility, performance, and modern React best practices. These enhancements ensure proper semantic structure, improved screen reader support, and better overlay stacking context for mobile navigation, contributing to a more robust and user-friendly application architecture.

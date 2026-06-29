@@ -2,7 +2,8 @@
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--space-md);
-  padding-top: var(--space-3xl);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-2xl);
 }
 
 .heading {
@@ -10,7 +11,7 @@
   font-size: var(--fs-h2);
   color: var(--act-heading, var(--color-deep-plum));
   text-align: center;
-  margin: 0 0 var(--space-xl);
+  margin: 0 0 var(--space-lg);
 }
 
 .featured {
@@ -23,7 +24,19 @@
   border: 1px solid rgba(197, 165, 90, 0.2);
   border-radius: var(--border-radius-lg);
   text-align: center;
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.featured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--act-accent, var(--color-gold)), transparent);
 }
 
 .featuredYear {
@@ -53,12 +66,31 @@
   border: 1px solid rgba(197, 165, 90, 0.12);
   border-radius: var(--border-radius-md);
   text-align: center;
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.badge::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--act-accent, var(--color-gold)), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .badge:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   border-color: rgba(197, 165, 90, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 0 40px rgba(197, 165, 90, 0.05);
+}
+
+.badge:hover::after {
+  opacity: 1;
 }
 
 .badgeYear {

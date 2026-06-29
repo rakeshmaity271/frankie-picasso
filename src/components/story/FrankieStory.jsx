@@ -19,9 +19,11 @@ export default function FrankieStory() {
       </div>
 
       <div className={styles.timeline}>
+        <div className={styles['timeline-line']} aria-hidden="true" />
         <ol className={styles.timelineList}>
           {act.timeline.map((item, i) => (
             <li key={i} className={`reveal-item ${styles.timelineItem}`}>
+              <div className={styles['timeline-node']} aria-hidden="true" />
               <time className={styles.year}>{item.year}</time>
               <h3 className={styles.timelineTitle}>{item.title}</h3>
               <p className={styles.timelineDesc}>{item.description}</p>

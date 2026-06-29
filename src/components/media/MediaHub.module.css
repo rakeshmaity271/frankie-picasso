@@ -7,7 +7,7 @@
 .filters {
   display: flex;
   gap: var(--space-xs);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
   flex-wrap: wrap;
 }
 
@@ -23,6 +23,22 @@
   cursor: pointer;
   transition: all var(--transition-fast);
   min-height: 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+.filterBtn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(197, 165, 90, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+.filterBtn:hover::before {
+  opacity: 1;
 }
 
 .filterBtn:hover {
@@ -39,7 +55,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
 .card {
@@ -48,11 +64,30 @@
   overflow: hidden;
   border: 1px solid rgba(250, 246, 240, 0.1);
   transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--act-accent, var(--color-gold)), rgba(0, 206, 209, 0.4));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 0 80px rgba(197, 165, 90, 0.06);
+  border-color: rgba(197, 165, 90, 0.2);
 }
 
 .cardImage {
@@ -109,9 +144,9 @@
 
 .timeline {
   display: flex;
-  gap: var(--space-2xl);
-  margin-top: var(--space-3xl);
-  padding-top: var(--space-2xl);
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
   border-top: 1px solid rgba(250, 246, 240, 0.15);
 }
 
@@ -149,5 +184,5 @@
 
 @media (max-width: 599px) {
   .grid { grid-template-columns: 1fr; }
-  .timeline { flex-direction: column; gap: var(--space-lg); }
+  .timeline { flex-direction: column; gap: var(--space-md); }
 }

@@ -7,7 +7,7 @@
 .mission {
   text-align: center;
   max-width: 800px;
-  margin: 0 auto var(--space-3xl);
+  margin: 0 auto var(--space-xl);
 }
 
 .missionText {
@@ -17,12 +17,23 @@
   color: var(--act-text, var(--color-warm-ivory));
   line-height: 1.5;
   margin: 0;
+  position: relative;
+}
+
+.missionText::before,
+.missionText::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--act-accent, var(--color-gold)), transparent);
+  margin: var(--space-sm) auto;
 }
 
 .projects {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
 .projectCard {
@@ -32,12 +43,30 @@
   padding: var(--space-lg);
   position: relative;
   overflow: hidden;
-  transition: background var(--transition-fast), border-color var(--transition-fast);
+  transition: transform var(--transition-smooth), background var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-smooth);
+}
+
+.projectCard::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--act-accent, var(--color-gold)), rgba(250, 246, 240, 0.3));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.projectCard:hover::after {
+  opacity: 1;
 }
 
 .projectCard:hover {
   background: rgba(250, 246, 240, 0.08);
   border-color: rgba(197, 165, 90, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 0 60px rgba(197, 165, 90, 0.05);
 }
 
 .projectAccent {
@@ -47,6 +76,11 @@
   width: 40px;
   height: 3px;
   background: var(--act-accent, var(--color-gold));
+  transition: width 0.4s ease;
+}
+
+.projectCard:hover .projectAccent {
+  width: 60px;
 }
 
 .projectTitle {

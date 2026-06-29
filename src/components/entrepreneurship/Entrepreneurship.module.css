@@ -7,7 +7,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
 .card {
@@ -16,11 +16,28 @@
   overflow: hidden;
   border-left: 3px solid var(--act-accent, var(--color-gold));
   transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--act-accent, var(--color-gold)), rgba(197, 165, 90, 0.3));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 0 80px rgba(197, 165, 90, 0.06);
 }
 
 .cardImage {
@@ -74,10 +91,21 @@
 
 .timeline {
   display: flex;
-  gap: var(--space-2xl);
-  margin-top: var(--space-3xl);
-  padding-top: var(--space-2xl);
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
   border-top: 1px solid rgba(197, 165, 90, 0.2);
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--act-accent, var(--color-gold)), transparent);
 }
 
 .timelineItem {
@@ -114,5 +142,5 @@
 
 @media (max-width: 599px) {
   .grid { grid-template-columns: 1fr; }
-  .timeline { flex-direction: column; gap: var(--space-lg); }
+  .timeline { flex-direction: column; gap: var(--space-md); }
 }

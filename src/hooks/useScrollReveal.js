@@ -3,10 +3,11 @@ import { gsap, ScrollTrigger, useGSAP } from './useGsap'
 export function useScrollReveal(ref, options = {}) {
   const {
     animation = 'fade-up',
-    stagger = 0.15,
+    stagger = 0.12,
     delay = 0,
-    start = 'top 85%',
-    once = true
+    start = 'top 88%',
+    once = true,
+    duration = 1.1
   } = options
 
   useGSAP(() => {
@@ -20,31 +21,24 @@ export function useScrollReveal(ref, options = {}) {
 
     const elements = ref.current.querySelectorAll('.reveal-item')
     if (elements.length === 0) {
+      const animProps = getAnimProps(animation)
       gsap.from(ref.current, {
-        opacity: 0,
-        y: animation === 'fade-up' ? 60 : 0,
-        x: animation === 'fade-left' ? -60 : animation === 'fade-right' ? 60 : 0,
-        scale: animation === 'scale-up' ? 0.9 : 1,
-        duration: 1,
+        ...animProps,
+        duration,
         delay,
         ease: 'power3.out'
       })
       return
     }
 
-    const animProps = {
-      opacity: 0,
-      y: animation === 'fade-up' ? 60 : 0,
-      x: animation === 'fade-left' ? -60 : animation === 'fade-right' ? 60 : 0,
-      scale: animation === 'scale-up' ? 0.9 : 1,
-      duration: 1,
-      stagger,
-      delay,
-      ease: 'power3.out'
-    }
+    const animProps = getAnimProps(animation)
 
     gsap.from(elements, {
       ...animProps,
+      duration,
+      stagger,
+      delay,
+      ease: 'power3.out',
       scrollTrigger: {
         trigger: ref.current,
         start,
@@ -52,4 +46,25 @@ export function useScrollReveal(ref, options = {}) {
       }
     })
   }, { scope: ref })
+}
+
+function getAnimProps(animation) {
+  switch (animation) {
+    case 'fade-up':
+      return { opacity: 0, y: 50 }
+    case 'fade-down':
+      return { opacity: 0, y: -40 }
+    case 'fade-left':
+      return { opacity: 0, x: -50 }
+    case 'fade-right':
+      return { opacity: 0, x: 50 }
+    case 'scale-up':
+      return { opacity: 0, scale: 0.92 }
+    case 'fade-scale':
+      return { opacity: 0, scale: 0.95, y: 20 }
+    case 'blur-in':
+      return { opacity: 0, scale: 0.97, filter: 'blur(8px)' }
+    default:
+      return { opacity: 0, y: 50 }
+  }
 }

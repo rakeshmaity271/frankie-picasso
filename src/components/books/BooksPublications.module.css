@@ -4,10 +4,52 @@
   padding: 0 var(--space-md);
 }
 
+.standaloneSection {
+  background: var(--color-warm-ivory);
+  padding: var(--space-section) 0;
+}
+
+.standaloneHeader {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  padding: 0 var(--space-md);
+}
+
+.standaloneLabel {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-xs);
+}
+
+.standaloneTitle {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h1);
+  font-weight: 600;
+  color: var(--color-deep-plum);
+  margin: 0 0 var(--space-sm);
+  line-height: 1.15;
+}
+
+.standaloneSubtitle {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-style: italic;
+  color: var(--color-charcoal);
+  opacity: 0.7;
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
 .divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(197, 165, 90, 0.3), transparent);
-  margin: var(--space-3xl) 0;
+  margin: var(--space-2xl) 0;
 }
 
 .featured {
@@ -15,7 +57,7 @@
   grid-template-columns: auto 1fr;
   gap: var(--space-2xl);
   align-items: center;
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--space-xl);
   perspective: 1000px;
 }
 
@@ -79,7 +121,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-md);
-  margin-top: var(--space-xl);
+  margin-top: var(--space-lg);
 }
 
 .carouselBtn {
@@ -95,6 +137,27 @@
   align-items: center;
   justify-content: center;
   transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.carouselBtn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--act-accent, var(--color-gold));
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.carouselBtn:hover::before {
+  transform: scale(1);
+}
+
+.carouselBtn svg {
+  position: relative;
+  z-index: 1;
 }
 
 .carouselBtn:hover {
@@ -127,6 +190,31 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.otherCard::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(0deg, rgba(197, 165, 90, 0.04), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+}
+
+.otherCard:hover::after {
+  opacity: 1;
+}
+
+.otherCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 0 60px rgba(197, 165, 90, 0.05);
 }
 
 .bookYear {
@@ -167,6 +255,21 @@
   cursor: pointer;
   padding: 17px;
   transition: all var(--transition-fast);
+  position: relative;
+}
+
+.dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--act-accent, var(--color-gold));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dot:hover::after {
+  opacity: 0.4;
 }
 
 .dotActive {

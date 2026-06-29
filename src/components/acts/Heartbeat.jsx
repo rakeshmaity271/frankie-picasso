@@ -4,7 +4,7 @@ import styles from './Heartbeat.module.css'
 
 export default function Heartbeat({ line }) {
   const ref = useRef(null)
-  useScrollReveal(ref, { animation: 'fade-in' })
+  useScrollReveal(ref, { animation: 'fade-scale' })
 
   return (
     <div
@@ -12,9 +12,17 @@ export default function Heartbeat({ line }) {
       ref={ref}
       role="presentation"
     >
-      <span className={styles.dot} aria-hidden="true" />
-      <p className={styles.line}>{line}</p>
-      <span className={styles.dot} aria-hidden="true" />
+      <div className={styles.lineDecor} aria-hidden="true">
+        <span className={styles.dot} />
+        <span className={styles.line} />
+        <span className={styles.dot} />
+      </div>
+      <p className={styles.text}>{line}</p>
+      <div className={styles.lineDecor} aria-hidden="true">
+        <span className={styles.dot} />
+        <span className={styles.line} />
+        <span className={styles.dot} />
+      </div>
     </div>
   )
 }

@@ -1,13 +1,13 @@
 .section {
   background: linear-gradient(180deg, var(--color-warm-ivory) 0%, #f0e8df 100%);
   padding-top: var(--space-section);
-  padding-bottom: 10rem;
+  padding-bottom: var(--space-section);
 }
 
 .featured {
   display: flex;
   justify-content: center;
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--space-xl);
 }
 
 .featuredFrame {
@@ -15,7 +15,7 @@
   background: var(--color-deep-plum);
   border: 2px solid var(--color-gold);
   border-radius: var(--border-radius-lg);
-  padding: var(--space-3xl) var(--space-2xl);
+  padding: var(--space-xl) var(--space-lg);
   text-align: center;
   max-width: 600px;
   width: 100%;
@@ -80,7 +80,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: var(--space-3xl);
+  column-gap: var(--space-xl);
   row-gap: var(--space-md);
   align-items: stretch;
 }
@@ -92,12 +92,24 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  transition: transform var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-smooth);
   min-height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.awardCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-gold), rgba(197, 165, 90, 0.3));
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .awardCard::before {
@@ -115,8 +127,13 @@
   left: 100%;
 }
 
+.awardCard:hover::after {
+  opacity: 1;
+}
+
 .awardCard:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 0 60px rgba(197, 165, 90, 0.05);
 }
 
 .awardYear {
@@ -141,5 +158,5 @@
 
 @media (max-width: 767px) {
   .grid { grid-template-columns: 1fr; }
-  .featuredFrame { padding: var(--space-2xl) var(--space-lg); }
+  .featuredFrame { padding: var(--space-xl) var(--space-md); }
 }

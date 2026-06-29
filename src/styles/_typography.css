@@ -9,6 +9,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: 1.2;
   color: var(--color-charcoal);
+  letter-spacing: -0.01em;
 }
 
 h1 { font-size: var(--fs-h1); }
@@ -20,6 +21,7 @@ p {
   font-size: var(--fs-body);
   line-height: 1.7;
   color: var(--color-charcoal);
+  letter-spacing: 0.01em;
 }
 
 blockquote {
@@ -31,6 +33,19 @@ blockquote {
   border-left: 3px solid var(--color-gold);
   padding-left: var(--space-md);
   margin: var(--space-xl) 0;
+  position: relative;
+}
+
+blockquote::before {
+  content: '\201C';
+  position: absolute;
+  top: -0.3em;
+  left: var(--space-md);
+  font-size: 3em;
+  color: var(--color-gold);
+  opacity: 0.15;
+  font-family: var(--font-serif);
+  line-height: 1;
 }
 
 a {

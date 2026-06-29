@@ -1,7 +1,7 @@
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-3xl);
+  gap: var(--space-2xl);
   align-items: start;
   max-width: var(--container-max);
   margin: 0 auto;
@@ -20,6 +20,9 @@
   line-height: 1.6;
   color: var(--act-text, var(--color-deep-plum));
   margin: 0;
+  position: relative;
+  padding-left: var(--space-md);
+  border-left: 2px solid var(--act-accent, var(--color-gold));
 }
 
 .timeline {
@@ -33,7 +36,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: var(--color-gold);
+  background: linear-gradient(180deg, var(--color-gold), rgba(197, 165, 90, 0.3), var(--color-gold));
 }
 
 .timelineList {
@@ -42,11 +45,21 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
 }
 
 .timelineItem {
   position: relative;
+  transition: transform 0.3s ease;
+}
+
+.timelineItem:hover {
+  transform: translateX(4px);
+}
+
+.timelineItem:hover .timeline-node {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 2px var(--color-gold), 0 0 20px rgba(197, 165, 90, 0.4);
 }
 
 .timeline-node {
@@ -58,7 +71,8 @@
   border-radius: 50%;
   background: var(--color-gold);
   border: 3px solid var(--color-warm-ivory);
-  box-shadow: 0 0 0 2px var(--color-gold);
+  box-shadow: 0 0 0 2px var(--color-gold), 0 0 12px rgba(197, 165, 90, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .year {
@@ -86,9 +100,23 @@
 }
 
 .pullQuote {
-  margin-top: var(--space-3xl);
+  margin-top: var(--space-2xl);
   font-size: var(--fs-h2);
   max-width: 700px;
+  position: relative;
+  padding-left: var(--space-lg);
+}
+
+.pullQuote::before {
+  content: '\201C';
+  position: absolute;
+  left: 0;
+  top: -0.2em;
+  font-family: var(--font-serif);
+  font-size: 4em;
+  color: var(--act-accent, var(--color-gold));
+  opacity: 0.2;
+  line-height: 1;
 }
 
 .pullQuote p {
@@ -101,7 +129,7 @@
 @media (max-width: 767px) {
   .content {
     grid-template-columns: 1fr;
-    gap: var(--space-2xl);
+    gap: var(--space-xl);
   }
 
   .narrative {

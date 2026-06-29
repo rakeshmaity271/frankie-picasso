@@ -4,17 +4,25 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--color-deep-plum) 0%, #2a1229 50%, var(--color-burgundy) 100%);
-  padding: calc(var(--nav-height) + var(--space-md)) 0 var(--space-lg);
+  background: linear-gradient(160deg, #1a0a1c 0%, #2a1229 30%, var(--color-deep-plum) 50%, var(--color-burgundy) 100%);
+  padding: calc(var(--nav-height) + var(--space-lg)) 0 var(--space-lg);
+}
+
+.orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .decor .dot {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--color-gold);
-  opacity: 0.2;
+  opacity: 0.15;
+  animation: float 6s ease-in-out infinite;
 }
 
 .grid {
@@ -24,6 +32,19 @@
   align-items: center;
   position: relative;
   z-index: var(--z-content);
+}
+
+.grid::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197, 165, 90, 0.04) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .content {
@@ -37,8 +58,8 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-top: var(--space-lg);
-  margin-bottom: var(--space-lg);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
 }
 
 .taglineDivider {
@@ -86,21 +107,23 @@
 
 .headline {
   font-family: var(--font-serif);
-  font-size: var(--fs-display);
+  font-size: clamp(1.75rem, 3.8vw, 3rem);
   font-weight: 700;
   font-style: italic;
   color: var(--color-warm-ivory);
   line-height: 1.15;
   margin: 0 0 var(--space-sm);
-  perspective: 600px;
+  perspective: 800px;
+  letter-spacing: -0.01em;
 }
 
 .sub {
-  font-size: var(--fs-body);
-  color: rgba(250, 246, 240, 0.7);
-  line-height: 1.6;
+  font-size: var(--fs-body-lg);
+  color: rgba(250, 246, 240, 0.75);
+  line-height: 1.7;
   margin: 0;
-  max-width: 480px;
+  max-width: 520px;
+  font-weight: 300;
 }
 
 .ctaGroup {
@@ -108,7 +131,7 @@
   flex-direction: row;
   gap: var(--space-sm);
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   margin-top: var(--space-sm);
 }
 
@@ -116,7 +139,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-sm) var(--space-lg);
+  gap: 8px;
+  padding: var(--space-sm) var(--space-xl);
   background: var(--color-gold);
   color: var(--color-deep-plum);
   font-family: var(--font-sans);
@@ -124,16 +148,42 @@
   font-size: var(--fs-body);
   border: 2px solid var(--color-gold);
   border-radius: var(--border-radius-sm);
-  min-height: 48px;
+  min-height: 52px;
   cursor: pointer;
   transition: all var(--transition-fast);
   flex: 1;
   white-space: nowrap;
+  letter-spacing: 0.02em;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaPrimary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ctaPrimary:hover::before {
+  opacity: 1;
 }
 
 .ctaPrimary:hover {
-  background: #E8D5A3;
-  border-color: #E8D5A3;
+  background: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold), 0 0 40px rgba(197, 165, 90, 0.2);
+}
+
+.ctaArrow {
+  transition: transform 0.3s ease;
+}
+
+.ctaPrimary:hover .ctaArrow {
+  transform: translateX(3px);
 }
 
 .ctaPrimary:active {
@@ -144,23 +194,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-sm) var(--space-lg);
+  padding: var(--space-sm) var(--space-xl);
   background: transparent;
   color: var(--color-gold);
   font-family: var(--font-sans);
-  font-weight: 600;
+  font-weight: 500;
   font-size: var(--fs-body);
-  border: 2px solid var(--color-gold);
+  border: 1.5px solid rgba(197, 165, 90, 0.5);
   border-radius: var(--border-radius-sm);
-  min-height: 48px;
+  min-height: 52px;
   cursor: pointer;
   transition: all var(--transition-fast);
   flex: 1;
   white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 
 .ctaSecondary:hover {
   background: rgba(197, 165, 90, 0.1);
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
 }
 
 .ctaSecondary:active {
@@ -205,7 +258,7 @@
 
 .scrollIndicator {
   position: absolute;
-  bottom: var(--space-lg);
+  bottom: var(--space-xl);
   left: 50%;
   transform: translateX(-50%);
 }
@@ -214,7 +267,7 @@
   width: 1px;
   height: 60px;
   background: linear-gradient(to bottom, var(--color-gold), transparent);
-  animation: scrollPulse 2s ease-in-out infinite;
+  animation: scrollPulse 2.5s ease-in-out infinite;
 }
 
 .actDots {
@@ -227,8 +280,19 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  opacity: 0.7;
+  opacity: 0.6;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.actDot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .actDot:hover {
@@ -243,7 +307,7 @@
 
 @media (max-width: 1023px) {
   .hero {
-    padding: calc(var(--nav-height) + var(--space-lg)) 0 var(--space-md);
+    padding: calc(var(--nav-height) + var(--space-md)) 0 var(--space-sm);
     align-items: flex-start;
     min-height: auto;
   }

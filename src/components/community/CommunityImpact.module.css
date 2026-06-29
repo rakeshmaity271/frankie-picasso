@@ -7,7 +7,7 @@
 .layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
   align-items: start;
   max-width: 100%;
 }
@@ -44,11 +44,28 @@
   overflow: hidden;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  position: relative;
+}
+
+.initiativeCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--act-accent, var(--color-gold)), rgba(46, 125, 50, 0.4));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.initiativeCard:hover::before {
+  opacity: 1;
 }
 
 .initiativeCard:hover {
-  transform: translateX(4px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transform: translateX(6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 0 80px rgba(197, 165, 90, 0.06);
 }
 
 .initiativeName {
@@ -75,9 +92,9 @@
 
 .timeline {
   display: flex;
-  gap: var(--space-2xl);
-  margin-top: var(--space-3xl);
-  padding-top: var(--space-2xl);
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
   border-top: 1px solid rgba(197, 165, 90, 0.2);
 }
 
@@ -110,12 +127,24 @@
 }
 
 .quoteBand {
-  margin-top: var(--space-3xl);
+  margin-top: var(--space-xl);
   background: var(--act-bg-subtle, rgba(250, 246, 240, 0.08));
   border: 1px solid rgba(197, 165, 90, 0.15);
   border-radius: var(--border-radius-lg);
   padding: var(--space-2xl) var(--space-xl);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.quoteBand::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--act-accent, var(--color-gold)), transparent);
 }
 
 .quoteBand blockquote {
@@ -130,6 +159,18 @@
   font-size: var(--fs-h3);
   color: var(--act-text, var(--color-charcoal));
   line-height: 1.5;
+  position: relative;
+}
+
+.quoteBand p::before {
+  content: '\201C';
+  font-size: 3em;
+  color: var(--act-accent, var(--color-gold));
+  opacity: 0.15;
+  position: absolute;
+  top: -0.3em;
+  left: -0.5em;
+  line-height: 1;
 }
 
 @media (max-width: 1023px) {
@@ -143,5 +184,5 @@
     grid-template-columns: 1fr;
   }
 
-  .timeline { flex-direction: column; gap: var(--space-lg); }
+  .timeline { flex-direction: column; gap: var(--space-md); }
 }
