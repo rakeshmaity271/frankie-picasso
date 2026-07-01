@@ -16,6 +16,7 @@
   /* Typography */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-hand: 'Caveat', cursive;
 
   --fs-display: clamp(2rem, 4.5vw, 3.5rem);
   --fs-h1: clamp(2.25rem, 4vw, 4rem);

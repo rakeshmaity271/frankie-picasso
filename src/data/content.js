@@ -51,13 +51,33 @@ export const content = {
     {
       id: 'becoming',
       number: 'I',
-      title: 'Becoming',
-      tagline: 'Every story begins with curiosity.',
+      title: 'Where Belief Began',
+      tagline: 'Every life has an origin story.',
       color: '#3D1C3E',
       cssVar: '--act-becoming',
       intro: 'Before the platforms, before the spotlight — there was a girl who always wondered, "What if?" Born in Austria, shaped by immigration, and driven by an early entrepreneurial spirit, this is where the journey begins.',
-      philosophy: 'Everything in Frankie\'s life can be traced back to one person — her Father. He never limited her dreams. He taught her that she could become anything she was willing to work toward, and more importantly, he proved that reinvention was always possible. From immigrant to entrepreneur, from great success to devastating loss, and then starting over again at eighty, he showed her that life isn\'t about avoiding failure — it\'s about never losing the courage to begin again. Everything she\'s built since has been an attempt to pass that belief on to others.',
+      openingLine: 'Every life has an origin story.',
+      dreamLines: [
+        'Dreams are worth believing in.',
+        'Dreams are worth waiting for.',
+        'Dreams are worth keeping your promises for.'
+      ],
+      philosophy: 'Everything in Frankie\'s life can be traced back to one person — her Father. He never limited her dreams. He taught her that she could become anything she was willing to work toward, and more importantly, he proved that reinvention was always possible. From immigrant to entrepreneur, from great success to devastating loss, and then starting over again at eighty, he showed her that life isn\'t about avoiding failure — it\'s about never losing the courage to begin again.',
+      narrativeBeat: 'Everything she\'s built since has been an attempt to pass that belief on to others.',
+      scrapbook: {
+        title: 'Little Frankie wanted to be…',
+        items: [
+          { text: 'An explorer', note: 'curiosity without borders' },
+          { text: 'A storyteller', note: 'every person has a story worth telling' },
+          { text: 'An entrepreneur', note: 'freedom over security, always' },
+          { text: 'Someone who could help', note: 'even before she had the words for it' }
+        ]
+      },
       pullQuote: 'The measure of a life is not in the titles we hold, but in the doors we open for others.',
+      frankieism: {
+        text: 'When someone believes in you, the impossible becomes just another word for "not yet."',
+        signature: '— Frankieism'
+      },
       heartbeatLine: 'Love expressed through belief.',
       timeline: [
         { year: 'Early Years', title: 'Austria & Immigration', description: 'A childhood in Austria, followed by the bold move of immigration — carrying dreams, resilience, and an entrepreneurial spirit that refused to be limited by circumstance.' },

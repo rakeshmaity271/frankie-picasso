@@ -1,0 +1,1 @@
+A React single-page application presenting a professional journey through six thematic acts with GSAP scroll-triggered animations.

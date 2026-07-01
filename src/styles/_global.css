@@ -37,68 +37,92 @@ img {
 
 /* Act Theme Classes */
 .act-theme--becoming {
-  --act-bg: #3D1C3E;
+  --act-bg: #2E1230;
+  --act-bg-deep: #1E0B20;
   --act-bg-subtle: rgba(61, 28, 62, 0.08);
   --act-accent: #C5A55A;
+  --act-accent-glow: rgba(197, 165, 90, 0.15);
   --act-text: #FAF6F0;
   --act-text-muted: rgba(250, 246, 240, 0.7);
-  --act-heading: #C5A55A;
-  background-color: var(--act-bg);
+  --act-text-dim: rgba(250, 246, 240, 0.45);
+  --act-heading: #E8D5A3;
+  --act-next-hint: #C5A55A;
+  background: linear-gradient(180deg, var(--act-bg-deep) 0%, var(--act-bg) 30%, #3D1C3E 70%, #4A2248 100%);
   color: var(--act-text);
 }
 
 .act-theme--building {
   --act-bg: #C5A55A;
+  --act-bg-deep: #A68B3E;
   --act-bg-subtle: rgba(197, 165, 90, 0.1);
   --act-accent: #3D1C3E;
+  --act-accent-glow: rgba(61, 28, 62, 0.15);
   --act-text: #2C2C2C;
   --act-text-muted: rgba(44, 44, 44, 0.7);
+  --act-text-dim: rgba(44, 44, 44, 0.45);
   --act-heading: #3D1C3E;
-  background-color: var(--act-bg);
+  --act-next-hint: #008B8B;
+  background: linear-gradient(180deg, #B8983E 0%, var(--act-bg) 25%, var(--act-bg) 75%, #8A9A5A 100%);
   color: var(--act-text);
 }
 
 .act-theme--amplifying {
   --act-bg: #008B8B;
+  --act-bg-deep: #006666;
   --act-bg-subtle: rgba(0, 206, 209, 0.1);
   --act-accent: #FAF6F0;
+  --act-accent-glow: rgba(250, 246, 240, 0.15);
   --act-text: #FAF6F0;
   --act-text-muted: rgba(250, 246, 240, 0.75);
+  --act-text-dim: rgba(250, 246, 240, 0.45);
   --act-heading: #FAF6F0;
-  background-color: var(--act-bg);
+  --act-next-hint: #722F37;
+  background: linear-gradient(180deg, #007A7A 0%, var(--act-bg) 25%, var(--act-bg) 75%, #3D3040 100%);
   color: var(--act-text);
 }
 
 .act-theme--creating {
   --act-bg: #722F37;
+  --act-bg-deep: #5A1F27;
   --act-bg-subtle: rgba(114, 47, 55, 0.08);
   --act-accent: #C5A55A;
+  --act-accent-glow: rgba(197, 165, 90, 0.15);
   --act-text: #FAF6F0;
   --act-text-muted: rgba(250, 246, 240, 0.7);
-  --act-heading: #C5A55A;
-  background-color: var(--act-bg);
+  --act-text-dim: rgba(250, 246, 240, 0.45);
+  --act-heading: #E8D5A3;
+  --act-next-hint: #2E7D32;
+  background: linear-gradient(180deg, #5A2530 0%, var(--act-bg) 25%, var(--act-bg) 75%, #3A5A30 100%);
   color: var(--act-text);
 }
 
 .act-theme--giving {
   --act-bg: #2E7D32;
+  --act-bg-deep: #1B5E20;
   --act-bg-subtle: rgba(46, 125, 50, 0.08);
   --act-accent: #C5A55A;
+  --act-accent-glow: rgba(197, 165, 90, 0.15);
   --act-text: #FAF6F0;
   --act-text-muted: rgba(250, 246, 240, 0.75);
-  --act-heading: #C5A55A;
-  background-color: var(--act-bg);
+  --act-text-dim: rgba(250, 246, 240, 0.45);
+  --act-heading: #E8D5A3;
+  --act-next-hint: #FAF6F0;
+  background: linear-gradient(180deg, #256B28 0%, var(--act-bg) 25%, var(--act-bg) 75%, #8AAA80 100%);
   color: var(--act-text);
 }
 
 .act-theme--still-becoming {
   --act-bg: #FAF6F0;
+  --act-bg-deep: #EDE6DA;
   --act-bg-subtle: rgba(197, 165, 90, 0.08);
   --act-accent: #C5A55A;
+  --act-accent-glow: rgba(197, 165, 90, 0.15);
   --act-text: #2C2C2C;
   --act-text-muted: rgba(44, 44, 44, 0.65);
+  --act-text-dim: rgba(44, 44, 44, 0.4);
   --act-heading: #3D1C3E;
-  background-color: var(--act-bg);
+  --act-next-hint: transparent;
+  background: linear-gradient(180deg, #C8C0B0 0%, var(--act-bg) 20%, var(--act-bg) 100%);
   color: var(--act-text);
 }
 

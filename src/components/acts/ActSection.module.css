@@ -139,6 +139,46 @@
   margin-top: var(--space-lg);
 }
 
+/* ── First Act (Act I) — dramatic book-chapter opening ── */
+.firstAct {
+  padding-top: clamp(4rem, 12vh, 8rem);
+}
+
+.firstActHeader {
+  padding-top: clamp(2rem, 6vh, 4rem);
+  padding-bottom: clamp(1rem, 3vh, 2rem);
+}
+
+.firstActHeader .actLabel {
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  letter-spacing: 0.35em;
+  margin-bottom: var(--space-sm);
+}
+
+.firstActHeader .actLabel::before,
+.firstActHeader .actLabel::after {
+  width: 50px;
+}
+
+.firstActHeader .title {
+  font-size: clamp(2.75rem, 6vw, 5rem);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.firstActHeader .tagline {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  margin-bottom: var(--space-lg);
+}
+
+.firstActHeader .intro {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  max-width: 52ch;
+  line-height: 1.9;
+}
+
 @media (max-width: 767px) {
   .section {
     min-height: auto;

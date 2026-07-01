@@ -3,11 +3,11 @@ schema_version: 1
 locale: en-US
 branch: dev
 nodes_managed: true
-exported_at: "2026-06-27T08:45:57Z"
+exported_at: "2026-06-29T07:27:29Z"
 modules:
     "":
-        dir_name: Frankie Picasso Narrative Portfolio
-        title: Frankie Picasso Narrative Portfolio
+        dir_name: Scroll-Driven Professional Narrative
+        title: Scroll-Driven Professional Narrative
         scope:
             - .gitignore
             - index.html
