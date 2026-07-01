@@ -1,41 +1,60 @@
 import { useRef } from 'react'
-import { useScrollReveal } from '../../hooks/useScrollReveal'
-import styles from './ActSection.module.css'
+import { motion, useInView } from 'framer-motion'
+import TextReveal from '../common/TextReveal'
 
+/**
+ * ActSection — wraps each Act with a title reveal animation.
+ * Uses the Act's color for background.
+ */
 export default function ActSection({ act, children }) {
-  const headerRef = useRef(null)
-  const sectionRef = useRef(null)
-  useScrollReveal(headerRef, { animation: 'fade-up' })
-
-  const themeClass = `act-theme--${act.id}`
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   return (
     <section
       id={act.id}
-      className={`${styles.section} ${themeClass}`}
-      aria-label={`Act ${act.number}: ${act.title}`}
-      ref={sectionRef}
+      ref={ref}
+      className="relative"
+      style={{ backgroundColor: act.color }}
     >
-      {/* Cinematic floating orbs */}
-      <div className={styles.floatingElements} aria-hidden="true">
-        <div className={styles.orb} style={{ width: 200, height: 200, top: '15%', left: '-3%' }} />
-        <div className={styles.orb} style={{ width: 120, height: 120, bottom: '20%', right: '-2%' }} />
+      {/* Act title header */}
+      <div className="pt-20 md:pt-28 lg:pt-36 pb-8 md:pb-12 px-6 md:px-10 lg:px-16">
+        <div className="max-w-[800px] mx-auto">
+          {/* Act number */}
+          <motion.p
+            className="font-sans text-xs uppercase tracking-[0.3em] mb-3"
+            style={{ color: 'var(--text-primary, #2C2C2C)', opacity: 0.4 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 0.4, y: 0 } : { opacity: 0, y: 10 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
+            Act {act.number}
+          </motion.p>
+
+          {/* Act title */}
+          <h2 className="font-serif font-light text-[clamp(2.5rem,5.5vw,5rem)] leading-[1.08] tracking-[-0.02em] text-[#2C2C2C] mb-4">
+            <TextReveal
+              text={act.title}
+              mode="word"
+              staggerDelay={0.08}
+              duration={0.7}
+            />
+          </h2>
+
+          {/* Tagline */}
+          <motion.p
+            className="font-serif italic text-lg md:text-xl text-[#2C2C2C]/60"
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 0.6, y: 0 } : { opacity: 0, y: 10 }}
+            transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {act.tagline}
+          </motion.p>
+        </div>
       </div>
 
-      <div className={styles.watermark} aria-hidden="true">
-        <span className={styles.watermarkText}>{act.number}</span>
-      </div>
-
-      <div className={`container ${styles.header}`} ref={headerRef}>
-        <span className={styles.actLabel}>Act {act.number}</span>
-        <h2 className={styles.title}>{act.title}</h2>
-        <p className={styles.tagline}>&ldquo;{act.tagline}&rdquo;</p>
-        {act.intro && <p className={styles.intro}>{act.intro}</p>}
-      </div>
-
-      <div className={styles.content}>
-        {children}
-      </div>
+      {/* Act content */}
+      {children}
     </section>
   )
 }

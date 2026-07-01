@@ -18,42 +18,17 @@
     <meta name="twitter:title" content="Frankie Picasso | Platform Builder. Leader. Legacy." />
     <meta name="twitter:description" content="Frankie Picasso — entrepreneur, author, broadcaster, and leader. Explore four decades of platform building, community impact, and legacy." />
     
-    <!-- Font preconnect -->
+    <!-- Font preconnect + Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet" />
     
-    <!-- Loading screen -->
+    <!-- Loading screen (before React mounts) -->
     <style>
-      body { margin: 0; background: #3D1C3E; }
-      #loader {
-        position: fixed;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #3D1C3E;
-        z-index: 9999;
-        transition: opacity 0.6s ease, visibility 0.6s ease;
-      }
-      #loader.hidden {
-        opacity: 0;
-        visibility: hidden;
-      }
-      #loader span {
-        font-family: Georgia, serif;
-        font-size: 3rem;
-        color: #C5A55A;
-        letter-spacing: 0.1em;
-        animation: pulse 1.5s ease-in-out infinite;
-      }
-      @keyframes pulse {
-        0%, 100% { opacity: 0.4; }
-        50% { opacity: 1; }
-      }
+      body { margin: 0; background: #FFF8F0; }
     </style>
   </head>
   <body>
-    <div id="loader"><span>FP</span></div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

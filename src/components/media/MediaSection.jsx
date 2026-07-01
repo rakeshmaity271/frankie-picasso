@@ -1,68 +1,50 @@
 import { useRef } from 'react'
-import { gsap, useGSAP } from '../../hooks/useGsap'
-import { useScrollReveal } from '../../hooks/useScrollReveal'
+import { motion, useInView } from 'framer-motion'
 import { content } from '../../data/content'
-import styles from './MediaSection.module.css'
+import ScrollReveal from '../common/ScrollReveal'
+
+const data = content.media
 
 export default function MediaSection() {
-  const sectionRef = useRef(null)
-
-  useScrollReveal(sectionRef, { animation: 'fade-up' })
-
-  useGSAP(() => {
-    if (!sectionRef.current) return
-    const items = sectionRef.current.querySelectorAll('.media-item')
-    items.forEach((item, i) => {
-      gsap.from(item, {
-        opacity: 0,
-        y: 30,
-        duration: 0.6,
-        delay: i * 0.08,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: item,
-          start: 'top 90%',
-          toggleActions: 'play none none none'
-        }
-      })
-    })
-  }, { scope: sectionRef })
-
-  const data = content.media
-
   return (
-    <section id="media" className={styles.section} aria-label="Media">
-      <div className={styles.content} ref={sectionRef}>
-        <div className={styles.header}>
-          <span className={styles.label}>Broadcasting & Press</span>
-          <h2 className={styles.title}>{data.title}</h2>
-          <p className={styles.subtitle}>{data.subtitle}</p>
-        </div>
+    <section id="media" className="relative py-24 md:py-36 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#E0F4F4' }}>
+      <div className="max-w-[1000px] mx-auto">
+        <ScrollReveal variant="fadeUp">
+          <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#01B2D4] mb-4">{data.title}</p>
+          <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#1a2e2e] mb-4">{data.subtitle}</h2>
+          <p className="font-serif text-lg text-[#1a2e2e]/60 mb-16 md:mb-20 max-w-[600px]">Through radio, podcasts, and media platforms, Frankie amplified voices that deserved to be heard.</p>
+        </ScrollReveal>
 
-        <div className={styles.shows}>
+        {/* Shows grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 md:mb-20">
           {data.shows.map((show, i) => (
-            <article key={i} className={`media-item ${styles.showCard}`}>
-              <span className={styles.showType}>{show.type === 'radio' ? 'Radio' : 'Podcast'}</span>
-              <h3 className={styles.showTitle}>{show.title}</h3>
-              <p className={styles.showDesc}>{show.description}</p>
-              <span className={styles.showYears}>{show.years}</span>
-            </article>
+            <ScrollReveal key={i} variant="fadeUp" delay={i * 0.08}>
+              <div className="p-6 md:p-8 rounded-xl bg-white/40 backdrop-blur-sm border border-white/50 hover:bg-white/60 transition-all duration-500">
+                <span className="font-sans text-xs uppercase tracking-wider text-[#01B2D4] mb-2 block">{show.type}</span>
+                <h4 className="font-serif text-xl md:text-2xl font-light text-[#1a2e2e] mb-2">{show.title}</h4>
+                <p className="font-sans text-sm text-[#1a2e2e]/50 mb-3">{show.years}</p>
+                <p className="font-sans text-sm leading-relaxed text-[#1a2e2e]/70">{show.description}</p>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
 
-        <div className={styles.press}>
-          <h3 className={styles.pressLabel}>Recognition</h3>
-          <div className={styles.pressList}>
-            {data.press.map((item, i) => (
-              <div key={i} className={`media-item ${styles.pressItem}`}>
-                <span className={styles.pressYear}>{item.year}</span>
+        {/* Press highlights */}
+        <ScrollReveal variant="fadeUp">
+          <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#1a2e2e]/40 mb-8">Press & Recognition</p>
+        </ScrollReveal>
+        <div className="space-y-0">
+          {data.press.map((item, i) => (
+            <ScrollReveal key={i} variant="fadeUp" delay={i * 0.06}>
+              <div className="flex items-center justify-between py-4 border-b border-[#1a2e2e]/8">
                 <div>
-                  <h4 className={styles.pressTitle}>{item.title}</h4>
-                  <p className={styles.pressOutlet}>{item.outlet}</p>
+                  <p className="font-serif text-base md:text-lg text-[#1a2e2e]">{item.title}</p>
+                  <p className="font-sans text-xs text-[#1a2e2e]/50">{item.outlet}</p>
                 </div>
+                <span className="font-sans text-xs text-[#01B2D4]">{item.year}</span>
               </div>
-            ))}
-          </div>
+            </ScrollReveal>
+          ))}
         </div>
       </div>
     </section>

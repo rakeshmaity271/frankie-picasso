@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
+import { motion } from 'framer-motion'
 import Nav from './components/layout/Nav'
 import Footer from './components/layout/Footer'
-import SectionIndicator from './components/common/SectionIndicator'
 import SiteLoader from './components/common/SiteLoader'
 import HeroExperience from './components/hero/HeroExperience'
 import WhoIsFrankie from './components/who/WhoIsFrankie'
@@ -19,24 +19,24 @@ import Art from './components/art/Art'
 import TimelineSection from './components/timeline/TimelineSection'
 import ClosingSection from './components/closing/ClosingSection'
 import Contact from './components/contact/Contact'
+import { useLenis } from './hooks/useLenis'
 import { content } from './data/content'
-import styles from './App.module.css'
 
 const acts = content.acts
 
+// Color pairs for heartbeat transitions (from -> to)
+const heartbeatColors = [
+  { from: '#FFF3E8', to: '#FFDAC5', accent: '#FF7C15' },    // who -> act I
+  { from: '#FFDAC5', to: '#FFF0CC', accent: '#EE5802' },     // act I -> act II
+  { from: '#FFF0CC', to: '#E0F4F4', accent: '#01B2D4' },     // act II -> act III
+  { from: '#E0F4F4', to: '#FDE8EF', accent: '#DF3CB5' },     // act III -> act IV
+  { from: '#FDE8EF', to: '#E8F0E0', accent: '#629E46' },     // act IV -> act V
+  { from: '#E8F0E0', to: '#FFF8F0', accent: '#FFB400' },     // act V -> act VI
+]
+
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0)
-  const appRef = useRef(null)
-
-  useEffect(() => {
-    const loader = document.getElementById('loader')
-    if (loader) {
-      setTimeout(() => {
-        loader.classList.add('hidden')
-        setTimeout(() => loader.remove(), 600)
-      }, 400)
-    }
-  }, [])
+  useLenis()
 
   const handleScroll = useCallback(() => {
     const scrollTop = window.scrollY
@@ -51,55 +51,117 @@ function App() {
   }, [handleScroll])
 
   return (
-    <div className={styles.app} ref={appRef}>
+    <div className="min-h-screen">
       <SiteLoader />
-      <div className="scroll-progress" style={{ transform: `scaleX(${scrollProgress})` }} aria-hidden="true" />
-      <a href="#main" className={styles.skipLink}>Skip to main content</a>
+
+      {/* Scroll progress bar */}
+      <div
+        className="scroll-progress"
+        style={{ transform: `scaleX(${scrollProgress})` }}
+        aria-hidden="true"
+      />
+
+      {/* Skip link */}
+      <a href="#main" className="skip-link">Skip to main content</a>
+
       <Nav />
-      <SectionIndicator />
+
       <main id="main">
+        {/* Hero */}
         <HeroExperience />
+
+        {/* Who Is Frankie? */}
         <WhoIsFrankie />
 
+        {/* Heartbeat transition: Who -> Act I */}
+        <Heartbeat
+          line={acts[0].frankieism}
+          fromColor={heartbeatColors[0].from}
+          toColor={heartbeatColors[0].to}
+          accentColor={heartbeatColors[0].accent}
+        />
+
+        {/* Act I - Where Belief Began */}
         <ActSection act={acts[0]}>
           <FrankieStory />
         </ActSection>
-        <Heartbeat line={acts[0].heartbeatLine} />
 
+        {/* Heartbeat transition: Act I -> Act II */}
+        <Heartbeat
+          line={acts[1].frankieism}
+          fromColor={heartbeatColors[1].from}
+          toColor={heartbeatColors[1].to}
+          accentColor={heartbeatColors[1].accent}
+        />
+
+        {/* Act II - Building */}
         <ActSection act={acts[1]}>
           <Entrepreneurship />
         </ActSection>
-        <Heartbeat line={acts[1].heartbeatLine} />
 
+        {/* Heartbeat transition: Act II -> Act III */}
+        <Heartbeat
+          line={acts[2].frankieism}
+          fromColor={heartbeatColors[2].from}
+          toColor={heartbeatColors[2].to}
+          accentColor={heartbeatColors[2].accent}
+        />
+
+        {/* Act III - Amplifying (Media Section) */}
         <ActSection act={acts[2]}>
-          {/* Media content lives in the standalone MediaSection below */}
+          <MediaSection />
         </ActSection>
-        <Heartbeat line={acts[2].heartbeatLine} />
 
+        {/* Heartbeat transition: Act III -> Act IV */}
+        <Heartbeat
+          line={acts[3].frankieism}
+          fromColor={heartbeatColors[3].from}
+          toColor={heartbeatColors[3].to}
+          accentColor={heartbeatColors[3].accent}
+        />
+
+        {/* Act IV - Creating */}
         <ActSection act={acts[3]}>
           <Creativity />
         </ActSection>
-        <Heartbeat line={acts[3].heartbeatLine} />
 
+        {/* Heartbeat transition: Act IV -> Act V */}
+        <Heartbeat
+          line={acts[4].frankieism}
+          fromColor={heartbeatColors[4].from}
+          toColor={heartbeatColors[4].to}
+          accentColor={heartbeatColors[4].accent}
+        />
+
+        {/* Act V - Giving */}
         <ActSection act={acts[4]}>
           <CommunityImpact />
         </ActSection>
-        <Heartbeat line={acts[4].heartbeatLine} />
 
+        {/* Heartbeat transition: Act V -> Act VI */}
+        <Heartbeat
+          line={acts[5].frankieism}
+          fromColor={heartbeatColors[5].from}
+          toColor={heartbeatColors[5].to}
+          accentColor={heartbeatColors[5].accent}
+        />
+
+        {/* Act VI - Still Becoming */}
         <ActSection act={acts[5]}>
           <FutureVision />
         </ActSection>
-        <Heartbeat line={acts[5].heartbeatLine} />
 
+        {/* Supporting sections */}
         <Impact />
-        <MediaSection />
-        <BooksPublications standalone />
+        <BooksPublications />
         <Art />
         <TimelineSection />
 
+        {/* Closing & Contact */}
         <ClosingSection />
         <Contact />
       </main>
+
       <Footer />
     </div>
   )

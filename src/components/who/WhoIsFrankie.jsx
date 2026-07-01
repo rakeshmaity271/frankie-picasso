@@ -1,75 +1,143 @@
 import { useRef } from 'react'
-import { useScrollReveal } from '../../hooks/useScrollReveal'
+import { motion, useInView } from 'framer-motion'
 import { content } from '../../data/content'
-import styles from './WhoIsFrankie.module.css'
+import ScrollReveal from '../common/ScrollReveal'
+import TextReveal from '../common/TextReveal'
+
+const data = content.whoIsFrankie
 
 export default function WhoIsFrankie() {
   const sectionRef = useRef(null)
-  useScrollReveal(sectionRef, { animation: 'fade-up' })
-
-  const data = content.whoIsFrankie
 
   return (
-    <section id="who-is-frankie" className={styles.section} aria-label="Who Is Frankie?">
-      <div className={styles.content} ref={sectionRef}>
-        <h2 className={styles.title}>{data.title}</h2>
+    <section
+      id="who-is-frankie"
+      ref={sectionRef}
+      className="relative py-24 md:py-36 lg:py-44 px-6 md:px-10 lg:px-16"
+      style={{ backgroundColor: '#FFF3E8' }}
+    >
+      <div className="max-w-[800px] mx-auto">
+        {/* Opening statement — oversized serif */}
+        <ScrollReveal variant="fadeIn" duration={1}>
+          <h2 className="font-serif font-light text-[clamp(2.5rem,5.5vw,5rem)] leading-[1.08] tracking-[-0.02em] text-[#2C2C2C] mb-10 md:mb-14">
+            {data.opening}
+          </h2>
+        </ScrollReveal>
 
-        <div className={styles.block}>
-          <p className={styles.opening}>{data.opening}</p>
-          <p className={styles.body}>{data.openingFollow}</p>
-        </div>
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <p className="font-sans text-lg md:text-xl leading-relaxed text-[#4A4A4A] mb-12 md:mb-16">
+            {data.openingFollow}
+          </p>
+        </ScrollReveal>
 
-        <ul className={styles.builtList}>
-          {data.builtList.map((line, i) => (
-            <li key={i}>{line}</li>
-          ))}
-        </ul>
-
-        <div className={styles.block}>
-          <p className={styles.body}>{data.thread}</p>
-          <p className={styles.belief}>&ldquo;{data.belief}&rdquo;</p>
-          <p className={styles.body}>{data.beliefFollow}</p>
-        </div>
-
-        <div className={styles.block}>
-          <p className={styles.body}>{data.roles}</p>
-          <p className={styles.body}>{data.rolesFollow}</p>
-        </div>
-
-        <div className={styles.valuesBlock}>
-          <p className={styles.body}>{data.valuesIntro}</p>
-          <div className={styles.values}>
-            {data.values.map((v, i) => (
-              <div key={i} className={styles.valueItem}>
-                <span className={styles.valueLabel}>{v.label}</span>
-                <span className={styles.valueReason}>{v.reason}</span>
+        {/* Built list — staggered with lines */}
+        <div className="mb-16 md:mb-20 space-y-0">
+          {data.builtList.map((item, i) => (
+            <ScrollReveal key={i} variant="fadeLeft" delay={i * 0.08} duration={0.7}>
+              <div className="flex items-baseline gap-4 py-4 border-b border-[#2C2C2C]/10">
+                <span className="font-serif italic text-[#FF7C15] text-lg">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="font-sans text-base md:text-lg text-[#2C2C2C]">
+                  {item}
+                </span>
               </div>
+            </ScrollReveal>
+          ))}
+        </div>
+
+        {/* Belief — visual breath */}
+        <ScrollReveal variant="fadeIn" duration={1.2}>
+          <div className="py-12 md:py-20">
+            <p className="font-sans text-sm uppercase tracking-[0.2em] text-[#4A4A4A]/50 mb-4">
+              {data.thread}
+            </p>
+            <h3 className="font-serif font-light text-[clamp(1.75rem,4vw,3.5rem)] leading-[1.15] tracking-[-0.01em] text-[#2C2C2C]">
+              <TextReveal
+                text={data.belief}
+                mode="word"
+                staggerDelay={0.05}
+                duration={0.6}
+              />
+            </h3>
+            <p className="font-sans text-base md:text-lg text-[#4A4A4A] mt-6">
+              {data.beliefFollow}
+            </p>
+          </div>
+        </ScrollReveal>
+
+        {/* Roles paragraph */}
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <p className="font-sans text-base md:text-lg leading-relaxed text-[#4A4A4A] mb-8">
+            {data.roles}
+          </p>
+          <p className="font-sans text-base md:text-lg leading-relaxed text-[#4A4A4A] mb-16 md:mb-20">
+            {data.rolesFollow}
+          </p>
+        </ScrollReveal>
+
+        {/* Three values */}
+        <ScrollReveal variant="fadeUp">
+          <p className="font-sans text-sm uppercase tracking-[0.2em] text-[#4A4A4A]/50 mb-10">
+            {data.valuesIntro}
+          </p>
+        </ScrollReveal>
+
+        <div className="space-y-8 mb-16 md:mb-20">
+          {data.values.map((val, i) => (
+            <ScrollReveal key={i} variant="fadeUp" delay={i * 0.12}>
+              <div className="group">
+                <h4 className="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-[#2C2C2C] mb-2">
+                  <span className="text-[#FF7C15] mr-3 font-sans text-sm font-normal tracking-wider uppercase">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  {val.label}
+                </h4>
+                <p className="font-sans text-base md:text-lg text-[#4A4A4A] italic pl-8 md:pl-12">
+                  {val.reason}
+                </p>
+                <div className="h-[1px] bg-gradient-to-r from-[#FFB400]/40 via-[#FF7C15]/20 to-transparent mt-6" />
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+
+        {/* Followed list */}
+        <ScrollReveal variant="fadeIn" duration={1}>
+          <div className="py-8 md:py-12">
+            <p className="font-sans text-base md:text-lg text-[#4A4A4A] mb-6">
+              {data.question}
+            </p>
+            <p className="font-sans text-base md:text-lg text-[#4A4A4A] mb-8">
+              {data.answer}
+            </p>
+            {data.followedList.map((line, i) => (
+              <ScrollReveal key={i} variant="fadeUp" delay={i * 0.1}>
+                <p className="font-serif text-xl md:text-2xl lg:text-3xl font-light text-[#2C2C2C] mb-3 leading-snug">
+                  {line}
+                </p>
+              </ScrollReveal>
             ))}
           </div>
-          <p className={styles.body}>{data.valuesFollow}</p>
-        </div>
+        </ScrollReveal>
 
-        <div className={styles.block}>
-          <p className={styles.body}>{data.question}</p>
-          <p className={styles.body}>{data.answer}</p>
-          <ul className={styles.followedList}>
-            {data.followedList.map((line, i) => (
-              <li key={i}>{line}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div className={styles.block}>
-          <p className={styles.body}>{data.today}</p>
-        </div>
-
-        <div className={styles.closingBlock}>
-          <p className={styles.body}>{data.closing}</p>
-          <p className={styles.body}>{data.closingFollow}</p>
-          <p className={styles.finalThought}>{data.finalThought}</p>
-          <p className={styles.finalLine}>{data.finalLine}</p>
-          <p className={styles.ctaLine}>{data.cta}</p>
-        </div>
+        {/* Closing thoughts */}
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="pt-12 md:pt-16">
+            <p className="font-sans text-base md:text-lg leading-relaxed text-[#4A4A4A] mb-6">
+              {data.today}
+            </p>
+            <p className="font-sans text-base md:text-lg leading-relaxed text-[#4A4A4A] mb-4">
+              {data.closing}
+            </p>
+            <p className="font-sans text-base md:text-lg leading-relaxed text-[#4A4A4A] mb-8">
+              {data.closingFollow}
+            </p>
+            <p className="font-serif italic text-xl md:text-2xl text-[#2C2C2C]">
+              {data.finalThought}
+            </p>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   )

@@ -1,71 +1,49 @@
-import { useRef } from 'react'
-import { gsap, useGSAP } from '../../hooks/useGsap'
-import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { content } from '../../data/content'
-import styles from './Art.module.css'
+import ScrollReveal from '../common/ScrollReveal'
+
+const data = content.art
 
 export default function Art() {
-  const sectionRef = useRef(null)
-
-  useScrollReveal(sectionRef, { animation: 'fade-up' })
-
-  useGSAP(() => {
-    if (!sectionRef.current) return
-    const cards = sectionRef.current.querySelectorAll('.medium-card')
-    cards.forEach((card, i) => {
-      gsap.from(card, {
-        opacity: 0,
-        y: 40,
-        duration: 0.7,
-        delay: i * 0.1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 88%',
-          toggleActions: 'play none none none'
-        }
-      })
-    })
-  }, { scope: sectionRef })
-
-  const data = content.art
-
   return (
-    <section id="art" className={styles.section} aria-label="Art">
-      <div className={styles.content} ref={sectionRef}>
-        <div className={styles.header}>
-          <span className={styles.label}>Creative Expression</span>
-          <h2 className={styles.title}>{data.title}</h2>
-          <p className={styles.subtitle}>{data.subtitle}</p>
-        </div>
+    <section id="art" className="relative py-24 md:py-36 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#FDE8EF' }}>
+      <div className="max-w-[1000px] mx-auto">
+        <ScrollReveal variant="fadeUp">
+          <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#DF3CB5] mb-4">{data.title}</p>
+          <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#2C2C2C] mb-4">{data.subtitle}</h2>
+          <p className="font-serif text-lg text-[#2C2C2C]/60 mb-16 md:mb-20 max-w-[600px]">{data.intro}</p>
+        </ScrollReveal>
 
-        <p className={styles.intro}>{data.intro}</p>
-
-        <div className={styles.mediums}>
+        {/* Mediums */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 md:mb-20">
           {data.mediums.map((medium, i) => (
-            <article key={i} className={`medium-card ${styles.mediumCard}`}>
-              <div className={styles.mediumHeader}>
-                <h3 className={styles.mediumTitle}>{medium.title}</h3>
-                <span className={styles.mediumStyle}>{medium.style}</span>
+            <ScrollReveal key={i} variant="fadeUp" delay={i * 0.08}>
+              <div className="p-6 md:p-8 rounded-xl bg-white/30 border border-white/40 hover:bg-white/50 transition-all duration-500">
+                <h4 className="font-serif text-xl md:text-2xl font-light text-[#2C2C2C] mb-2">{medium.title}</h4>
+                <p className="font-sans text-xs text-[#DF3CB5] italic mb-3">{medium.style}</p>
+                <p className="font-sans text-sm leading-relaxed text-[#4A4A4A]">{medium.description}</p>
               </div>
-              <p className={styles.mediumDesc}>{medium.description}</p>
-            </article>
+            </ScrollReveal>
           ))}
         </div>
 
-        <div className={styles.gallery}>
+        {/* Gallery placeholders */}
+        <ScrollReveal variant="fadeUp">
+          <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#2C2C2C]/40 mb-8">Gallery</p>
+        </ScrollReveal>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {data.gallery.map((item, i) => (
-            <div key={i} className={`reveal-item ${styles.galleryItem}`}>
-              <div className={styles.galleryIcon}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <path d="M21 15l-5-5L5 21" />
-                </svg>
+            <ScrollReveal key={i} variant="scaleUp" delay={i * 0.1}>
+              <div
+                className="aspect-[4/3] rounded-xl flex flex-col items-center justify-center p-4"
+                style={{
+                  background: `linear-gradient(${135 + i * 30}deg, #FDE8EF 0%, #DF3CB5 100%)`,
+                  opacity: 0.5 + (i * 0.15),
+                }}
+              >
+                <p className="font-serif text-lg text-white/80 text-center">{item.title}</p>
+                <p className="font-sans text-xs text-white/50 mt-1">{item.description}</p>
               </div>
-              <h4 className={styles.galleryTitle}>{item.title}</h4>
-              <p className={styles.galleryDesc}>{item.description}</p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

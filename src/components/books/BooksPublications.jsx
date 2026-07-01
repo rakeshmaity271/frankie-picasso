@@ -1,141 +1,42 @@
-import { useRef, useState, useCallback } from 'react'
-import { gsap, useGSAP } from '../../hooks/useGsap'
-import { useScrollReveal } from '../../hooks/useScrollReveal'
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { content } from '../../data/content'
-import styles from './BooksPublications.module.css'
+import ScrollReveal from '../common/ScrollReveal'
 
-export default function BooksPublications({ standalone = false }) {
-  const sectionRef = useRef(null)
-  const bookRef = useRef(null)
-  const trackRef = useRef(null)
-  const [current, setCurrent] = useState(0)
-  useScrollReveal(sectionRef, { animation: 'fade-up' })
+const books = content.acts[3].books // Creating act's books data
 
-  useGSAP(() => {
-    if (!bookRef.current) return
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReducedMotion) return
-
-    gsap.from(bookRef.current, {
-      rotateY: -15,
-      opacity: 0,
-      duration: 1.2,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: bookRef.current,
-        start: 'top 80%',
-        toggleActions: 'play none none none'
-      }
-    })
-  }, { scope: bookRef })
-
-  const act = content.acts[3] // creating
-  const data = act.books
-  const books = data.other
-  const total = books.length
-
-  const goTo = useCallback((index) => {
-    setCurrent(((index % total) + total) % total)
-  }, [total])
-
-  const next = useCallback(() => goTo(current + 1), [current, goTo])
-  const prev = useCallback(() => goTo(current - 1), [current, goTo])
-
-  if (standalone) {
-    return (
-      <section id="books" className={styles.standaloneSection} aria-label="Books">
-        <div className={styles.standaloneHeader}>
-          <span className={styles.standaloneLabel}>Published Works</span>
-          <h2 className={styles.standaloneTitle}>Books</h2>
-          <p className={styles.standaloneSubtitle}>Stories that became international bestsellers.</p>
-        </div>
-        <div className={styles.content} ref={sectionRef}>
-          {renderBooks()}
-        </div>
-      </section>
-    )
-  }
-
+export default function BooksPublications() {
   return (
-    <div className={styles.content} ref={sectionRef}>
-      {renderBooks()}
-    </div>
-  )
+    <section id="books" className="relative py-24 md:py-36 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#FFF0CC' }}>
+      <div className="max-w-[1000px] mx-auto">
+        <ScrollReveal variant="fadeUp">
+          <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#EE5802] mb-4">Books</p>
+          <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#2C2C2C] mb-16 md:mb-20">Published Works</h2>
+        </ScrollReveal>
 
-  function renderBooks() {
-    return (
-      <>
-        <div className={styles.divider} aria-hidden="true" />
-
-        <div className={styles.featured} ref={bookRef}>
-          <div className={styles.bookCover}>
-            <svg viewBox="0 0 300 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect width="300" height="420" rx="4" fill="url(#bg)" />
-              <rect x="20" y="20" width="260" height="380" rx="2" stroke="rgba(197,165,90,0.3)" strokeWidth="1" fill="none" />
-              <text x="150" y="180" textAnchor="middle" fill="rgba(197,165,90,0.6)" fontFamily="Georgia, serif" fontSize="18" fontWeight="600">MIDLIFE</text>
-              <text x="150" y="210" textAnchor="middle" fill="rgba(197,165,90,0.6)" fontFamily="Georgia, serif" fontSize="18" fontWeight="600">MOJO</text>
-              <line x1="100" y1="230" x2="200" y2="230" stroke="rgba(197,165,90,0.3)" />
-              <text x="150" y="260" textAnchor="middle" fill="rgba(197,165,90,0.4)" fontFamily="system-ui" fontSize="12">Frankie Picasso</text>
-              <defs><linearGradient id="bg" x1="0" y1="0" x2="300" y2="420"><stop offset="0%" stopColor="#3D1C3E" /><stop offset="100%" stopColor="#722F37" /></linearGradient></defs>
-            </svg>
+        {/* Featured book */}
+        <ScrollReveal variant="scaleUp" duration={1}>
+          <div className="p-8 md:p-12 rounded-2xl bg-white/40 backdrop-blur-sm border border-white/50 mb-12 md:mb-16 text-center">
+            <p className="font-sans text-xs uppercase tracking-[0.2em] text-[#EE5802] mb-4">International Bestseller</p>
+            <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-[#2C2C2C] mb-4">{books.featured.title}</h3>
+            <p className="font-sans text-base md:text-lg leading-relaxed text-[#4A4A4A] max-w-[600px] mx-auto mb-6">{books.featured.description}</p>
+            <p className="font-serif italic text-lg md:text-xl text-[#2C2C2C]/60">"{books.featured.quote}"</p>
           </div>
-          <div className={styles.bookInfo}>
-            <span className={styles.featuredLabel}>Featured Book</span>
-            <h3 className={styles.bookTitle}>{data.featured.title}</h3>
-            <p className={styles.bookDesc}>{data.featured.description}</p>
-            <blockquote className={styles.bookQuote}>
-              <p>&ldquo;{data.featured.quote}&rdquo;</p>
-            </blockquote>
-          </div>
-        </div>
+        </ScrollReveal>
 
-        <div className={styles.carousel}>
-          <button
-            className={styles.carouselBtn}
-            onClick={prev}
-            aria-label="Previous book"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
-          </button>
-
-          <div className={styles.carouselViewport}>
-            <div
-              className={styles.carouselTrack}
-              ref={trackRef}
-              style={{ transform: `translateX(-${current * 100}%)` }}
-            >
-              {books.map((book, i) => (
-                <article key={i} className={styles.carouselSlide}>
-                  <div className={styles.otherCard}>
-                    <span className={styles.bookYear}>{book.year}</span>
-                    <h3 className={styles.otherTitle}>{book.title}</h3>
-                    <p className={styles.otherDesc}>{book.description}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <button
-            className={styles.carouselBtn}
-            onClick={next}
-            aria-label="Next book"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
-          </button>
-        </div>
-
-        <div className={styles.carouselDots}>
-          {books.map((_, i) => (
-            <button
-              key={i}
-              className={`${styles.dot} ${i === current ? styles.dotActive : ''}`}
-              onClick={() => goTo(i)}
-              aria-label={`Go to book ${i + 1}`}
-            />
+        {/* Other books */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {books.other.map((book, i) => (
+            <ScrollReveal key={i} variant="fadeUp" delay={i * 0.08}>
+              <div className="p-5 md:p-6 rounded-xl bg-white/30 border border-white/40 hover:bg-white/50 transition-all duration-500">
+                <h4 className="font-serif text-lg md:text-xl font-light text-[#2C2C2C] mb-1">{book.title}</h4>
+                <p className="font-sans text-xs text-[#EE5802] mb-2">{book.year}</p>
+                <p className="font-sans text-sm leading-relaxed text-[#4A4A4A]">{book.description}</p>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
-      </>
-    )
-  }
+      </div>
+    </section>
+  )
 }

@@ -1,89 +1,60 @@
 import { useRef } from 'react'
-import { gsap, useGSAP } from '../../hooks/useGsap'
-import { useScrollReveal } from '../../hooks/useScrollReveal'
+import { motion, useInView } from 'framer-motion'
 import { content } from '../../data/content'
-import styles from './Impact.module.css'
+import ScrollReveal from '../common/ScrollReveal'
 
-const pillarIcons = {
-  freedom: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-    </svg>
-  ),
-  creativity: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-    </svg>
-  ),
-  community: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-      <circle cx="9" cy="7" r="4" />
-      <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-    </svg>
-  ),
-  leadership: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <path d="M12 20V10M18 20V4M6 20v-4" />
-    </svg>
+const data = content.impact
+
+function CountUp({ target, isInView }) {
+  const ref = useRef(null)
+  return (
+    <motion.span
+      ref={ref}
+      className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-light text-[#2C2C2C]"
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {target}
+    </motion.span>
   )
 }
 
 export default function Impact() {
-  const sectionRef = useRef(null)
   const statsRef = useRef(null)
-
-  useScrollReveal(sectionRef, { animation: 'fade-up' })
-
-  useGSAP(() => {
-    if (!statsRef.current) return
-    const statItems = statsRef.current.querySelectorAll('.stat-item')
-    statItems.forEach((item, i) => {
-      gsap.from(item, {
-        opacity: 0,
-        y: 30,
-        scale: 0.95,
-        duration: 0.7,
-        delay: i * 0.1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: item,
-          start: 'top 90%',
-          toggleActions: 'play none none none'
-        }
-      })
-    })
-  }, { scope: statsRef })
-
-  const data = content.impact
+  const isInView = useInView(statsRef, { once: true, amount: 0.3 })
 
   return (
-    <section id="impact" className={styles.section} aria-label="Impact">
-      <div className={styles.content} ref={sectionRef}>
-        <div className={styles.header}>
-          <span className={styles.label}>The Ripple Effect</span>
-          <h2 className={styles.title}>{data.title}</h2>
-          <p className={styles.subtitle}>{data.subtitle}</p>
-        </div>
+    <section id="impact" className="relative py-24 md:py-36 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#F5EFE6' }}>
+      <div className="max-w-[1000px] mx-auto">
+        <ScrollReveal variant="fadeUp">
+          <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#FFB400] mb-4">{data.title}</p>
+          <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#2C2C2C] mb-16 md:mb-20 max-w-[700px]">
+            {data.subtitle}
+          </h2>
+        </ScrollReveal>
 
-        <div className={styles.stats} ref={statsRef}>
+        {/* Stats */}
+        <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 md:mb-28">
           {data.stats.map((stat, i) => (
-            <div key={i} className={`stat-item ${styles.stat}`}>
-              <span className={styles.statNumber}>{stat.number}</span>
-              <span className={styles.statLabel}>{stat.label}</span>
+            <div key={i} className="text-center">
+              <CountUp target={stat.number} isInView={isInView} />
+              <p className="font-sans text-xs uppercase tracking-wider text-[#4A4A4A]/60 mt-2">{stat.label}</p>
             </div>
           ))}
         </div>
 
-        <div className={styles.pillars}>
+        {/* Pillars */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {data.pillars.map((pillar, i) => (
-            <article key={i} className={`reveal-item ${styles.pillar}`}>
-              <div className={styles.pillarIcon}>
-                {pillarIcons[pillar.icon]}
+            <ScrollReveal key={i} variant="fadeUp" delay={i * 0.1}>
+              <div className="p-6 md:p-8 rounded-xl bg-white/40 border border-white/50 hover:bg-white/60 transition-all duration-500 group">
+                <h4 className="font-serif text-xl md:text-2xl font-light text-[#2C2C2C] mb-3 group-hover:text-[#FFB400] transition-colors duration-300">
+                  {pillar.title}
+                </h4>
+                <p className="font-sans text-sm md:text-base leading-relaxed text-[#4A4A4A]">{pillar.description}</p>
               </div>
-              <h3 className={styles.pillarTitle}>{pillar.title}</h3>
-              <p className={styles.pillarDesc}>{pillar.description}</p>
-            </article>
+            </ScrollReveal>
           ))}
         </div>
       </div>
