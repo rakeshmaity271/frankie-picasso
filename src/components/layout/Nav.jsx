@@ -66,7 +66,7 @@ export default function Nav() {
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
         <nav
-          className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 flex items-center justify-between h-[72px] md:h-[88px]"
+          className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 flex items-center justify-between h-[64px] md:h-[76px]"
           aria-label="Main navigation"
         >
           {/* Logo */}

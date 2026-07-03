@@ -14,7 +14,7 @@ function NarrativeBlock({ block, index }) {
   if (block.type === 'emphasis') {
     return (
       <ScrollReveal variant="fadeIn" duration={1.2}>
-        <div className="py-6 md:py-10 text-center">
+        <div className="py-4 md:py-7 text-center">
           <p className="font-serif text-[clamp(1.25rem,3vw,2.25rem)] font-light leading-[1.35] text-[#2C2C2C] italic">
             {block.content}
           </p>
@@ -26,7 +26,7 @@ function NarrativeBlock({ block, index }) {
   if (block.type === 'centered') {
     return (
       <ScrollReveal variant="fadeIn" duration={1.2}>
-        <div className="py-10 md:py-16 text-center">
+        <div className="py-7 md:py-10 text-center">
           {block.lines.map((line, i) => (
             <p
               key={i}
@@ -43,7 +43,7 @@ function NarrativeBlock({ block, index }) {
   // Default: regular text paragraph
   return (
     <ScrollReveal variant="fadeUp" duration={0.9}>
-      <p className="font-serif text-lg md:text-xl lg:text-[1.35rem] leading-[1.8] text-[#2C2C2C]/85 mb-6 md:mb-8">
+      <p className="font-serif text-lg md:text-xl lg:text-[1.35rem] leading-[1.7] text-[#2C2C2C]/85 mb-4 md:mb-6">
         {block.content}
       </p>
     </ScrollReveal>
@@ -86,12 +86,12 @@ function ScrapbookCard({ image, dream, index }) {
 
 export default function FrankieStory() {
   return (
-    <div className="pb-20 md:pb-28 px-6 md:px-10 lg:px-16">
+    <div className="pb-8 md:pb-14 px-6 md:px-10 lg:px-16">
       <div className="max-w-[760px] mx-auto">
 
         {/* ── Opening visual breath ── */}
         <ScrollReveal variant="fadeIn" duration={1.4}>
-          <div className="py-16 md:py-24 text-center">
+          <div className="py-6 md:py-10 text-center">
             <p className="font-serif font-light text-[clamp(1.75rem,4.5vw,3.5rem)] leading-[1.15] tracking-[-0.02em] text-[#2C2C2C]">
               <TextReveal
                 text="Every life has an origin story."
@@ -104,17 +104,17 @@ export default function FrankieStory() {
         </ScrollReveal>
 
         {/* ── Part 1: Origin, Mother, Bedroom, Father, Cavalier ── */}
-        <div className="py-4 md:py-8">
+        <div className="py-1 md:py-4">
           {act.narrative.map((block, i) => (
             <NarrativeBlock key={i} block={block} index={i} />
           ))}
         </div>
 
         {/* ── Visual Breaths: "Dreams are worth..." ── */}
-        <div className="py-12 md:py-20">
+        <div className="py-6 md:py-10">
           {act.visualBreaths.map((line, i) => (
             <ScrollReveal key={i} variant="fadeIn" duration={1.3}>
-              <div className="py-10 md:py-16 text-center">
+              <div className="py-4 md:py-7 text-center">
                 <p className="font-serif font-light text-[clamp(1.75rem,4.5vw,3.75rem)] leading-[1.15] tracking-[-0.02em] text-[#2C2C2C]">
                   <TextReveal
                     text={line}
@@ -135,11 +135,11 @@ export default function FrankieStory() {
 
         {/* ── "Little Frankie wanted to be..." — Scrapbook style ── */}
         <ScrollReveal variant="fadeUp">
-          <div className="py-16 md:py-24">
+          <div className="py-6 md:py-10">
             <p className="font-serif text-[clamp(1.25rem,3vw,2rem)] font-light text-[#2C2C2C]/70 text-center mb-4">
               Little Frankie wanted to be&hellip;
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 md:gap-7 max-w-[750px] mx-auto mt-10">
+            <div className="grid grid-cols-2 gap-6 md:gap-8 max-w-[900px] mx-auto mt-4">
               {act.childhoodDreams.map((item, i) => (
                 <ScrapbookCard key={i} image={item.image} dream={item.dream} index={i} />
               ))}
@@ -148,7 +148,7 @@ export default function FrankieStory() {
         </ScrollReveal>
 
         {/* ── Part 3: Iwanna, Mrs. Loughty, Reflection, Closing ── */}
-        <div className="py-4 md:py-8">
+        <div className="py-1 md:py-4">
           {act.narrativePart3.map((block, i) => (
             <NarrativeBlock key={`p3-${i}`} block={block} index={i} />
           ))}
@@ -157,7 +157,7 @@ export default function FrankieStory() {
         {/* ── Reflection question ── */}
         {act.reflection && (
           <ScrollReveal variant="fadeIn" duration={1.4}>
-            <div className="py-16 md:py-24 text-center">
+            <div className="py-7 md:py-10 text-center">
               <p className="font-serif italic text-[clamp(1.1rem,2.5vw,1.5rem)] text-[#2C2C2C]/40 mb-3">
                 Reflection
               </p>

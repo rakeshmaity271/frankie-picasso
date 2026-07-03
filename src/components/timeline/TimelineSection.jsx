@@ -5,11 +5,11 @@ const events = content.acts[5].legacyEvents
 
 export default function TimelineSection() {
   return (
-    <section id="timeline" className="relative py-24 md:py-36 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#F5EFE6' }}>
+    <section id="timeline" className="relative py-12 md:py-20 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#F5EFE6' }}>
       <div className="max-w-[800px] mx-auto">
         <ScrollReveal variant="fadeUp">
           <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#FFB400] mb-4">Timeline</p>
-          <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#2C2C2C] mb-16 md:mb-20">
+          <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#2C2C2C] mb-10 md:mb-14">
             A Life in Chapters
           </h2>
         </ScrollReveal>
@@ -20,7 +20,7 @@ export default function TimelineSection() {
 
           {events.map((event, i) => (
             <ScrollReveal key={i} variant="fadeUp" delay={i * 0.08}>
-              <div className="flex gap-6 md:gap-8 mb-10 relative">
+              <div className="flex gap-6 md:gap-8 mb-6 relative">
                 {/* Dot */}
                 <div className="relative z-10 flex-shrink-0 w-[24px] md:w-[32px] flex items-start pt-1.5">
                   <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#FFB400] border-2 border-[#F5EFE6]" />

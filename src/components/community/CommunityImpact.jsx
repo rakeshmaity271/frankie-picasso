@@ -9,18 +9,18 @@ const act = content.acts[4] // Giving
 
 export default function CommunityImpact() {
   return (
-    <div className="pb-16 md:pb-24 px-6 md:px-10 lg:px-16">
+    <div className="pb-12 md:pb-16 px-6 md:px-10 lg:px-16">
       <div className="max-w-[800px] mx-auto">
         {/* Intro */}
         <ScrollReveal variant="fadeUp">
-          <p className="font-serif text-lg md:text-xl lg:text-2xl leading-relaxed text-[#2C2C2C]/80 mb-12 md:mb-16">
+          <p className="font-serif text-lg md:text-xl lg:text-2xl leading-relaxed text-[#2C2C2C]/80 mb-8 md:mb-12">
             {act.intro}
           </p>
         </ScrollReveal>
 
         {/* Large emotional quote */}
         <ScrollReveal variant="fadeIn" duration={1.2}>
-          <div className="py-12 md:py-20 text-center">
+          <div className="py-8 md:py-14 text-center">
             <p className="font-serif font-light text-[clamp(1.5rem,3.5vw,3rem)] leading-[1.2] text-[#2C2C2C] max-w-[650px] mx-auto">
               <TextReveal
                 text={act.quote}
@@ -33,7 +33,7 @@ export default function CommunityImpact() {
         </ScrollReveal>
 
         {/* Initiatives */}
-        <div className="space-y-8 mb-16 md:mb-20">
+        <div className="space-y-6 mb-10 md:mb-14">
           {act.initiatives.map((item, i) => (
             <ScrollReveal key={i} variant="fadeUp" delay={i * 0.1}>
               <div className="p-6 md:p-8 rounded-xl bg-white/30 border border-white/40">

@@ -59,7 +59,7 @@ export default function HeroExperience() {
       <div className="relative z-10 max-w-[900px] mx-auto text-center">
         {/* Eyebrow */}
         <motion.p
-          className="font-sans text-xs md:text-sm uppercase tracking-[0.25em] text-[#FF7C15] mb-6 md:mb-8"
+          className="font-sans text-xs md:text-sm uppercase tracking-[0.25em] text-[#FF7C15] mb-4 md:mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -68,7 +68,7 @@ export default function HeroExperience() {
         </motion.p>
 
         {/* Main headline — word-by-word reveal */}
-        <h1 className="font-serif font-light text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.1] tracking-[-0.02em] text-[#2C2C2C] mb-8 md:mb-10">
+        <h1 className="font-serif font-light text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.1] tracking-[-0.02em] text-[#2C2C2C] mb-6 md:mb-8">
           <TextReveal
             text={hero.headline}
             mode="word"
@@ -79,7 +79,7 @@ export default function HeroExperience() {
 
         {/* Subheadline */}
         <motion.p
-          className="font-sans text-base md:text-lg lg:text-xl leading-relaxed text-[#4A4A4A] max-w-[700px] mx-auto mb-12 md:mb-14"
+          className="font-sans text-base md:text-lg lg:text-xl leading-relaxed text-[#4A4A4A] max-w-[700px] mx-auto mb-8 md:mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}

@@ -18,7 +18,7 @@ export default function ActSection({ act, children }) {
       style={{ backgroundColor: act.color }}
     >
       {/* Act title header */}
-      <div className="pt-20 md:pt-28 lg:pt-36 pb-8 md:pb-12 px-6 md:px-10 lg:px-16">
+      <div className="pt-10 md:pt-16 pb-4 md:pb-6 px-6 md:px-10 lg:px-16">
         <div className="max-w-[800px] mx-auto">
           {/* Act number */}
           <motion.p

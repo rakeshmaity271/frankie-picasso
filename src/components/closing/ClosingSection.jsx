@@ -16,7 +16,7 @@ export default function ClosingSection() {
   return (
     <section
       id="closing"
-      className="relative py-32 md:py-44 lg:py-56 px-6 md:px-10 lg:px-16 flex flex-col items-center justify-center text-center overflow-hidden"
+      className="relative py-16 md:py-24 px-6 md:px-10 lg:px-16 flex flex-col items-center justify-center text-center overflow-hidden"
       style={{ backgroundColor: '#1a1a2e' }}
     >
       {/* Warm glow */}
@@ -30,7 +30,7 @@ export default function ClosingSection() {
 
       <div className="relative z-10 max-w-[800px] mx-auto">
         <motion.p
-          className="font-sans text-xs uppercase tracking-[0.3em] text-[#FFB400]/60 mb-8"
+          className="font-sans text-xs uppercase tracking-[0.3em] text-[#FFB400]/60 mb-5"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.6 }}
           viewport={{ once: true }}
@@ -39,7 +39,7 @@ export default function ClosingSection() {
           The Next Chapter
         </motion.p>
 
-        <h2 className="font-serif font-light text-[clamp(2.5rem,6vw,5.5rem)] leading-[1.08] tracking-[-0.02em] text-[#FFF8F0] mb-10 md:mb-14">
+        <h2 className="font-serif font-light text-[clamp(2.5rem,6vw,5.5rem)] leading-[1.08] tracking-[-0.02em] text-[#FFF8F0] mb-6 md:mb-10">
           <TextReveal
             text={data.question}
             mode="word"
@@ -49,7 +49,7 @@ export default function ClosingSection() {
         </h2>
 
         <ScrollReveal variant="fadeIn" duration={1.2}>
-          <p className="font-serif italic text-lg md:text-xl text-[#FFF8F0]/60 max-w-[600px] mx-auto mb-12">
+          <p className="font-serif italic text-lg md:text-xl text-[#FFF8F0]/60 max-w-[600px] mx-auto mb-8">
             {data.quote}
           </p>
         </ScrollReveal>

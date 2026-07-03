@@ -5,16 +5,16 @@ const data = content.art
 
 export default function Art() {
   return (
-    <section id="art" className="relative py-24 md:py-36 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#FDE8EF' }}>
+    <section id="art" className="relative py-12 md:py-20 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#FDE8EF' }}>
       <div className="max-w-[1000px] mx-auto">
         <ScrollReveal variant="fadeUp">
           <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#DF3CB5] mb-4">{data.title}</p>
           <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#2C2C2C] mb-4">{data.subtitle}</h2>
-          <p className="font-serif text-lg text-[#2C2C2C]/60 mb-16 md:mb-20 max-w-[600px]">{data.intro}</p>
+          <p className="font-serif text-lg text-[#2C2C2C]/60 mb-10 md:mb-14 max-w-[600px]">{data.intro}</p>
         </ScrollReveal>
 
         {/* Mediums */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 md:mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 md:mb-14">
           {data.mediums.map((medium, i) => (
             <ScrollReveal key={i} variant="fadeUp" delay={i * 0.08}>
               <div className="p-6 md:p-8 rounded-xl bg-white/30 border border-white/40 hover:bg-white/50 transition-all duration-500">

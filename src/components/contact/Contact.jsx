@@ -5,19 +5,19 @@ const data = content.contact
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative py-24 md:py-36 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#1a1a2e' }}>
+    <section id="contact" className="relative py-12 md:py-20 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#1a1a2e' }}>
       <div className="max-w-[700px] mx-auto">
         <ScrollReveal variant="fadeUp">
           <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#FFB400]/60 mb-4">Connect</p>
           <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#FFF8F0] mb-6">Let's Connect</h2>
-          <p className="font-sans text-base md:text-lg text-[#FFF8F0]/60 leading-relaxed mb-12">{data.intro}</p>
+          <p className="font-sans text-base md:text-lg text-[#FFF8F0]/60 leading-relaxed mb-8">{data.intro}</p>
         </ScrollReveal>
 
         {/* Email */}
         <ScrollReveal variant="fadeUp" delay={0.1}>
           <a
             href={`mailto:${data.email}`}
-            className="block font-serif text-2xl md:text-3xl text-[#FFB400] hover:text-[#FF7C15] transition-colors duration-300 mb-12"
+            className="block font-serif text-2xl md:text-3xl text-[#FFB400] hover:text-[#FF7C15] transition-colors duration-300 mb-8"
           >
             {data.email}
           </a>
@@ -26,7 +26,7 @@ export default function Contact() {
         {/* Speaking topics */}
         <ScrollReveal variant="fadeUp" delay={0.15}>
           <p className="font-sans text-xs uppercase tracking-[0.2em] text-[#FFF8F0]/30 mb-6">Speaking Topics</p>
-          <div className="flex flex-wrap gap-3 mb-12">
+          <div className="flex flex-wrap gap-3 mb-8">
             {data.speakingTopics.map((topic, i) => (
               <span
                 key={i}

@@ -8,16 +8,16 @@ const act = content.acts[5] // Still Becoming
 
 export default function FutureVision() {
   return (
-    <div className="pb-16 md:pb-24 px-6 md:px-10 lg:px-16">
+    <div className="pb-12 md:pb-16 px-6 md:px-10 lg:px-16">
       <div className="max-w-[1000px] mx-auto">
         {/* Intro */}
         <ScrollReveal variant="fadeUp">
-          <p className="font-serif text-lg md:text-xl lg:text-2xl leading-relaxed text-[#2C2C2C]/80 max-w-[750px] mb-16 md:mb-20">
+          <p className="font-serif text-lg md:text-xl lg:text-2xl leading-relaxed text-[#2C2C2C]/80 max-w-[750px] mb-10 md:mb-14">
             {act.intro}
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 mb-16 md:mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-10 md:mb-14">
           {/* Current projects — left */}
           <div>
             <ScrollReveal variant="fadeUp">

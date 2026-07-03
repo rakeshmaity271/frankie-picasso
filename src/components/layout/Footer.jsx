@@ -8,13 +8,13 @@ export default function Footer() {
   return (
     <footer
       ref={ref}
-      className="relative py-20 md:py-28 px-6 md:px-10 lg:px-16"
+      className="relative py-14 md:py-20 px-6 md:px-10 lg:px-16"
       style={{ backgroundColor: '#12121f' }}
     >
       <div className="max-w-[800px] mx-auto text-center">
         {/* Large serif closing statement */}
         <motion.p
-          className="font-serif font-light text-[clamp(1.5rem,3.5vw,2.75rem)] leading-[1.3] text-[#FFF8F0]/40 mb-10"
+          className="font-serif font-light text-[clamp(1.5rem,3.5vw,2.75rem)] leading-[1.3] text-[#FFF8F0]/40 mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 0.4, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -24,7 +24,7 @@ export default function Footer() {
 
         {/* Accent line */}
         <motion.div
-          className="mx-auto mb-8 h-[1px] bg-gradient-to-r from-transparent via-[#FFB400]/30 to-transparent"
+          className="mx-auto mb-6 h-[1px] bg-gradient-to-r from-transparent via-[#FFB400]/30 to-transparent"
           initial={{ width: 0 }}
           animate={isInView ? { width: '200px' } : { width: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
