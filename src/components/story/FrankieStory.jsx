@@ -52,6 +52,7 @@ function NarrativeBlock({ block, index }) {
 
 /**
  * ScrapbookCard — tilted, playful image card for childhood dreams
+ * Shows each illustration at its natural proportions (no forced cropping).
  */
 function ScrapbookCard({ image, dream, index }) {
   const ref = useRef(null)
@@ -62,7 +63,7 @@ function ScrapbookCard({ image, dream, index }) {
   return (
     <motion.div
       ref={ref}
-      className="rounded-xl overflow-hidden shadow-md cursor-default"
+      className="rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.08)] cursor-default bg-[#FDF5ED]"
       style={{
         transform: `rotate(${rotation}deg)`,
       }}
@@ -71,12 +72,14 @@ function ScrapbookCard({ image, dream, index }) {
       transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ rotate: 0, scale: 1.05, transition: { duration: 0.3 } }}
     >
-      <img
-        src={image}
-        alt={`Little Frankie wanted to be a ${dream}`}
-        className="w-full h-auto block"
-        loading="lazy"
-      />
+      <div className="aspect-[100/114] w-full">
+        <img
+          src={image}
+          alt={`Little Frankie wanted to be a ${dream}`}
+          className="w-full h-full object-cover block"
+          loading="lazy"
+        />
+      </div>
     </motion.div>
   )
 }
