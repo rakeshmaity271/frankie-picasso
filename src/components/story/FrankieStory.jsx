@@ -51,33 +51,32 @@ function NarrativeBlock({ block, index }) {
 }
 
 /**
- * ScrapbookCard — tilted, playful card for childhood dreams
+ * ScrapbookCard — tilted, playful image card for childhood dreams
  */
-function ScrapbookCard({ emoji, dream, index }) {
+function ScrapbookCard({ image, dream, index }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
-  const rotations = [-2, 1.5, -1, 2.5, -1.5, 2, -0.5]
-  const bgColors = ['#FFDAC5', '#FFE8D6', '#FFF0CC', '#FFDAC5', '#FFE8D6', '#FFF0CC', '#FFDAC5']
+  const rotations = [-2.5, 1.5, -1, 2, -1.5, 2.5, -0.5]
   const rotation = rotations[index % rotations.length]
 
   return (
     <motion.div
       ref={ref}
-      className="p-5 md:p-7 rounded-lg shadow-sm cursor-default flex flex-col items-start gap-2"
+      className="rounded-xl overflow-hidden shadow-md cursor-default"
       style={{
-        backgroundColor: bgColors[index % bgColors.length],
         transform: `rotate(${rotation}deg)`,
-        border: '1px solid rgba(0,0,0,0.04)',
       }}
-      initial={{ opacity: 0, y: 30, rotate: 0 }}
-      animate={isInView ? { opacity: 1, y: 0, rotate: rotation } : { opacity: 0, y: 30, rotate: 0 }}
+      initial={{ opacity: 0, y: 40, rotate: 0 }}
+      animate={isInView ? { opacity: 1, y: 0, rotate: rotation } : { opacity: 0, y: 40, rotate: 0 }}
       transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ rotate: 0, scale: 1.04, transition: { duration: 0.3 } }}
+      whileHover={{ rotate: 0, scale: 1.05, transition: { duration: 0.3 } }}
     >
-      <span className="text-2xl md:text-3xl" role="img" aria-hidden="true">{emoji}</span>
-      <p className="font-handwritten text-lg md:text-xl text-[#2C2C2C]/80 leading-relaxed">
-        {dream}
-      </p>
+      <img
+        src={image}
+        alt={`Little Frankie wanted to be a ${dream}`}
+        className="w-full h-auto block"
+        loading="lazy"
+      />
     </motion.div>
   )
 }
@@ -137,9 +136,9 @@ export default function FrankieStory() {
             <p className="font-serif text-[clamp(1.25rem,3vw,2rem)] font-light text-[#2C2C2C]/70 text-center mb-4">
               Little Frankie wanted to be&hellip;
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 md:gap-6 max-w-[650px] mx-auto mt-10">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 md:gap-7 max-w-[750px] mx-auto mt-10">
               {act.childhoodDreams.map((item, i) => (
-                <ScrapbookCard key={i} emoji={item.emoji} dream={item.dream} index={i} />
+                <ScrapbookCard key={i} image={item.image} dream={item.dream} index={i} />
               ))}
             </div>
           </div>

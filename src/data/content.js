@@ -92,13 +92,13 @@ export const content = {
       ],
       // Playful childhood dreams section (scrapbook style)
       childhoodDreams: [
-        { emoji: '🐕', dream: 'veterinarian' },
-        { emoji: '🏇', dream: 'jockey' },
-        { emoji: '🎤', dream: 'radio DJ' },
-        { emoji: '✍️', dream: 'author' },
-        { emoji: '🎨', dream: 'artist' },
-        { emoji: '📸', dream: 'National Geographic Photographer' },
-        { emoji: '💻', dream: 'writer for Life Magazine' },
+        { dream: 'veterinarian', image: '/veterinarian.png' },
+        { dream: 'jockey', image: '/jockey.png' },
+        { dream: 'radio DJ', image: '/radio-dj.png' },
+        { dream: 'author', image: '/author.png' },
+        { dream: 'artist', image: '/artist.png' },
+        { dream: 'National Geographic Photographer', image: '/national-geographic- photographer.png' },
+        { dream: 'writer for Life Magazine', image: '/writer-of-life-magazine.png' },
       ],
       // Post-scrapbook narrative
       narrativePart3: [
