@@ -95,8 +95,7 @@ export default function FrankieStory() {
           {preIntro.lines.map((line, i) => (
             <ScrollReveal key={i} variant="fadeIn" duration={1}>
               <p className={`font-serif leading-[1.6] text-[#2C2C2C] mb-3 md:mb-4 ${
-                i === 0 ? 'text-[clamp(1.5rem,3.5vw,2.5rem)] font-light text-center' :
-                i === 2 ? 'text-[clamp(1.5rem,3.5vw,2.5rem)] font-semibold text-center italic text-[#5B3A7A]' :
+                i === 1 ? 'text-[clamp(1.5rem,3.5vw,2.5rem)] font-semibold text-center italic text-[#5B3A7A]' :
                 'text-lg md:text-xl lg:text-[1.35rem]'
               }`}>
                 {line}

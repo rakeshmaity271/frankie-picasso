@@ -69,10 +69,10 @@ export default function HeroExperience() {
           {hero.eyebrow}
         </motion.p>
 
-        {/* Identity — Activist • Author • Artist • Humanist */}
-        <h1 className="font-serif font-semibold text-[clamp(1.75rem,4vw,3.5rem)] leading-[1.15] tracking-[0.08em] text-[#2C2C2C] mb-6 md:mb-8">
+        {/* Headline — "This isn't a résumé!" */}
+        <h1 className="font-serif font-semibold text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.1] tracking-[-0.02em] text-[#2C2C2C] mb-6 md:mb-8">
           <TextReveal
-            text={hero.identity}
+            text={hero.headline}
             mode="word"
             staggerDelay={0.08}
             duration={0.7}

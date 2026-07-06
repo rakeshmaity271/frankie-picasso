@@ -1,7 +1,7 @@
 export const content = {
   hero: {
     eyebrow: 'A Life in Six Acts',
-    identity: 'Activist \u2022 Author \u2022 Artist \u2022 Humanist',
+    headline: 'This isn\u2019t a r\u00e9sum\u00e9!',
     quote: '\u201cWherever there is a human being, there is an opportunity for a kindness.\u201d',
     quoteAttribution: '\u2014 Lucius Annaeus Seneca',
     // Original headline/subheadline — preserved for reuse elsewhere
@@ -14,7 +14,6 @@ export const content = {
   
   preAct1Intro: {
     lines: [
-      'This isn\u2019t a r\u00e9sum\u00e9.',
       'It\u2019s the story of an ordinary girl who never stopped saying,',
       '\u201cI can do that.\u201d',
       'Those four little words changed the direction of my life more times than I can count.',
