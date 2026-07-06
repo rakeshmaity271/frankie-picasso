@@ -35,3 +35,6 @@ screenshot_*.png
 test_*.png
 verify_*.png
 workflow_status.png
+
+# Client feedback documents
+feedback/

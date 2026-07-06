@@ -6,6 +6,7 @@ import TextReveal from '../common/TextReveal'
 import Frankieism from '../common/Frankieism'
 
 const act = content.acts[0]
+const preIntro = content.preAct1Intro
 
 /**
  * Render a narrative block based on its type
@@ -89,19 +90,47 @@ export default function FrankieStory() {
     <div className="pb-8 md:pb-14 px-6 md:px-10 lg:px-16">
       <div className="max-w-[760px] mx-auto">
 
-        {/* ── Opening visual breath ── */}
-        <ScrollReveal variant="fadeIn" duration={1.4}>
-          <div className="py-6 md:py-10 text-center">
-            <p className="font-serif font-light text-[clamp(1.75rem,4.5vw,3.5rem)] leading-[1.15] tracking-[-0.02em] text-[#2C2C2C]">
-              <TextReveal
-                text="Every life has an origin story."
-                mode="word"
-                staggerDelay={0.07}
-                duration={0.8}
-              />
-            </p>
-          </div>
-        </ScrollReveal>
+        {/* ── Pre-Act 1 Intro: "This isn't a résumé..." ── */}
+        <div className="py-6 md:py-10">
+          {preIntro.lines.map((line, i) => (
+            <ScrollReveal key={i} variant="fadeIn" duration={1}>
+              <p className={`font-serif leading-[1.6] text-[#2C2C2C] mb-3 md:mb-4 ${
+                i === 0 ? 'text-[clamp(1.5rem,3.5vw,2.5rem)] font-light text-center' :
+                i === 2 ? 'text-[clamp(1.5rem,3.5vw,2.5rem)] font-semibold text-center italic text-[#5B3A7A]' :
+                'text-lg md:text-xl lg:text-[1.35rem]'
+              }`}>
+                {line}
+              </p>
+            </ScrollReveal>
+          ))}
+
+          {/* Pre-intro Frankieism */}
+          <ScrollReveal variant="fadeIn" duration={1.2}>
+            <div className="py-6 md:py-8 text-center">
+              <p className="font-serif italic text-[clamp(1.25rem,2.5vw,1.75rem)] text-[#2C2C2C]/70">
+                {preIntro.frankieism}
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* "Let's Begin..." transition */}
+          <ScrollReveal variant="fadeIn" duration={1}>
+            <div className="py-4 md:py-6 text-center">
+              <p className="font-serif font-light text-[clamp(1.5rem,3vw,2.25rem)] tracking-[0.05em] text-[#5B3A7A]/80">
+                {preIntro.actTransition}
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* "Welcome to the Journey" */}
+          <ScrollReveal variant="fadeIn" duration={1.2}>
+            <div className="py-4 md:py-6 text-center">
+              <p className="font-sans text-sm md:text-base uppercase tracking-[0.2em] text-[#4A4A4A]/50 mb-2">
+                {preIntro.welcomeLine}
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
 
         {/* ── Part 1: Origin, Mother, Bedroom, Father, Cavalier ── */}
         <div className="py-1 md:py-4">

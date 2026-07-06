@@ -26,7 +26,7 @@ const acts = content.acts
 
 // Color pairs for heartbeat transitions (from -> to)
 const heartbeatColors = [
-  { from: '#FFF3E8', to: '#FFDAC5', accent: '#FF7C15' },    // who -> act I
+  { from: '#D8C8EE', to: '#FFDAC5', accent: '#8B5FB0' },    // hero -> act I
   { from: '#FFDAC5', to: '#FFF0CC', accent: '#EE5802' },     // act I -> act II
   { from: '#FFF0CC', to: '#E0F4F4', accent: '#01B2D4' },     // act II -> act III
   { from: '#E0F4F4', to: '#FDE8EF', accent: '#DF3CB5' },     // act III -> act IV
@@ -70,8 +70,8 @@ function App() {
         {/* Hero */}
         <HeroExperience />
 
-        {/* Who Is Frankie? */}
-        <WhoIsFrankie />
+        {/* Who Is Frankie? — preserved for future placement */}
+        {/* <WhoIsFrankie /> */}
 
         {/* Heartbeat transition: Who -> Act I */}
         <Heartbeat

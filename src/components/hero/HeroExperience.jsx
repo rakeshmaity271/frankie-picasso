@@ -20,16 +20,18 @@ export default function HeroExperience() {
     <section
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 md:px-10 lg:px-16"
-      style={{ backgroundColor: '#FFF8F0' }}
+      style={{
+        background: 'linear-gradient(135deg, #F9F5D7 0%, #EDE4F5 40%, #D8C8EE 70%, #C9B6E6 100%)',
+      }}
     >
-      {/* Floating gradient orbs */}
+      {/* Floating gradient orbs — adjusted to complement pastel purple/yellow */}
       <motion.div
         ref={parallaxRef1}
         style={{ y: y1 }}
         className="absolute top-[15%] left-[10%] w-[300px] h-[300px] md:w-[500px] md:h-[500px] rounded-full opacity-20 blur-[80px] pointer-events-none"
         aria-hidden="true"
       >
-        <div className="w-full h-full rounded-full bg-gradient-to-br from-[#FFB400] to-[#FF7C15]" />
+        <div className="w-full h-full rounded-full bg-gradient-to-br from-[#F5E6A3] to-[#D1C4E9]" />
       </motion.div>
 
       <motion.div
@@ -38,14 +40,14 @@ export default function HeroExperience() {
         className="absolute bottom-[20%] right-[8%] w-[250px] h-[250px] md:w-[400px] md:h-[400px] rounded-full opacity-15 blur-[80px] pointer-events-none"
         aria-hidden="true"
       >
-        <div className="w-full h-full rounded-full bg-gradient-to-br from-[#FFDAC5] to-[#ED4672]" />
+        <div className="w-full h-full rounded-full bg-gradient-to-br from-[#E8D5F5] to-[#C9B6E6]" />
       </motion.div>
 
       {/* Small warm accent orb */}
       <motion.div
         className="absolute top-[60%] left-[50%] w-[200px] h-[200px] rounded-full opacity-10 blur-[60px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, #FCD102 0%, transparent 70%)',
+          background: 'radial-gradient(circle, #F5E6A3 0%, transparent 70%)',
         }}
         animate={{
           scale: [1, 1.1, 1],
@@ -57,9 +59,9 @@ export default function HeroExperience() {
 
       {/* Content */}
       <div className="relative z-10 max-w-[900px] mx-auto text-center">
-        {/* Eyebrow */}
+        {/* Eyebrow — enlarged per client request */}
         <motion.p
-          className="font-sans text-xs md:text-sm uppercase tracking-[0.25em] text-[#FF7C15] mb-4 md:mb-6"
+          className="font-serif text-lg md:text-2xl lg:text-3xl font-light tracking-[0.15em] text-[#5B3A7A] mb-6 md:mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -67,25 +69,30 @@ export default function HeroExperience() {
           {hero.eyebrow}
         </motion.p>
 
-        {/* Main headline — word-by-word reveal */}
-        <h1 className="font-serif font-light text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.1] tracking-[-0.02em] text-[#2C2C2C] mb-6 md:mb-8">
+        {/* Identity — Activist • Author • Artist • Humanist */}
+        <h1 className="font-serif font-semibold text-[clamp(1.75rem,4vw,3.5rem)] leading-[1.15] tracking-[0.08em] text-[#2C2C2C] mb-6 md:mb-8">
           <TextReveal
-            text={hero.headline}
+            text={hero.identity}
             mode="word"
-            staggerDelay={0.04}
-            duration={0.6}
+            staggerDelay={0.08}
+            duration={0.7}
           />
         </h1>
 
-        {/* Subheadline */}
-        <motion.p
-          className="font-sans text-base md:text-lg lg:text-xl leading-relaxed text-[#4A4A4A] max-w-[700px] mx-auto mb-8 md:mb-10"
+        {/* Seneca Quote */}
+        <motion.div
+          className="mb-8 md:mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ delay: 1.0, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          {hero.subheadline}
-        </motion.p>
+          <p className="font-serif italic text-[clamp(1.1rem,2.2vw,1.6rem)] leading-[1.5] text-[#4A4A4A]/80 max-w-[600px] mx-auto mb-2">
+            {hero.quote}
+          </p>
+          <p className="font-sans text-sm md:text-base tracking-[0.1em] text-[#5B3A7A]/60">
+            {hero.quoteAttribution}
+          </p>
+        </motion.div>
 
         {/* CTA Buttons */}
         <motion.div
@@ -122,7 +129,7 @@ export default function HeroExperience() {
           Scroll
         </span>
         <motion.div
-          className="w-[1px] h-8 bg-[#FFB400]/60"
+          className="w-[1px] h-8 bg-[#5B3A7A]/40"
           animate={{ scaleY: [1, 0.5, 1], opacity: [0.6, 0.3, 0.6] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         />
