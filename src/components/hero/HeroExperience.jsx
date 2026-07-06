@@ -79,27 +79,12 @@ export default function HeroExperience() {
           />
         </h1>
 
-        {/* Seneca Quote */}
-        <motion.div
-          className="mb-8 md:mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.0, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <p className="font-serif italic text-[clamp(1.1rem,2.2vw,1.6rem)] leading-[1.5] text-[#4A4A4A]/80 max-w-[600px] mx-auto mb-2">
-            {hero.quote}
-          </p>
-          <p className="font-sans text-sm md:text-base tracking-[0.1em] text-[#5B3A7A]/60">
-            {hero.quoteAttribution}
-          </p>
-        </motion.div>
-
         {/* CTA Buttons */}
         <motion.div
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ delay: 1.0, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <MagneticButton
             onClick={() => scrollToSection('where-belief-began')}
