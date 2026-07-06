@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { content } from '../../data/content'
+import TextReveal from '../common/TextReveal'
 import ScrollReveal from '../common/ScrollReveal'
 import MagneticButton from '../common/MagneticButton'
 import { useParallax } from '../../hooks/useScrollAnimation'
@@ -69,6 +70,16 @@ export default function HeroExperience() {
         >
           {hero.eyebrow}
         </motion.p>
+
+        {/* Headline — "This isn't a résumé!" */}
+        <h1 className="font-serif font-semibold text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.1] tracking-[-0.02em] text-[#2C2C2C] mb-6 md:mb-8">
+          <TextReveal
+            text={hero.headline}
+            mode="word"
+            staggerDelay={0.08}
+            duration={0.7}
+          />
+        </h1>
 
         {/* Scroll down indicator */}
         <motion.div
