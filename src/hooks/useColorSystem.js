@@ -24,11 +24,11 @@ export const sectionPalettes = {
     accentSecondary: '#FFB400',
   },
   'where-belief-began': {
-    bg: '#FFDAC5',
+    bg: '#D8C8EE',
     text: '#2C2C2C',
     textMuted: 'rgba(44,44,44,0.55)',
-    accent: '#FF7C15',
-    accentSecondary: '#ED4672',
+    accent: '#8B5FB0',
+    accentSecondary: '#FF7C15',
   },
   building: {
     bg: '#FFF0CC',

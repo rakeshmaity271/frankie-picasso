@@ -26,8 +26,8 @@ const acts = content.acts
 
 // Color pairs for heartbeat transitions (from -> to)
 const heartbeatColors = [
-  { from: '#D8C8EE', to: '#FFDAC5', accent: '#8B5FB0' },    // hero -> act I
-  { from: '#FFDAC5', to: '#FFF0CC', accent: '#EE5802' },     // act I -> act II
+  { from: '#E8DCC8', to: '#D8C8EE', accent: '#8B5FB0' },    // hero -> act I (neutral -> purple)
+  { from: '#D8C8EE', to: '#FFF0CC', accent: '#EE5802' },     // act I (purple) -> act II
   { from: '#FFF0CC', to: '#E0F4F4', accent: '#01B2D4' },     // act II -> act III
   { from: '#E0F4F4', to: '#FDE8EF', accent: '#DF3CB5' },     // act III -> act IV
   { from: '#FDE8EF', to: '#E8F0E0', accent: '#629E46' },     // act IV -> act V
@@ -81,8 +81,8 @@ function App() {
           accentColor={heartbeatColors[0].accent}
         />
 
-        {/* Act I - Where Belief Began */}
-        <ActSection act={acts[0]}>
+        {/* Act I - Welcome to the Journey */}
+        <ActSection act={acts[0]} overrideTitle="Welcome to the Journey">
           <FrankieStory />
         </ActSection>
 

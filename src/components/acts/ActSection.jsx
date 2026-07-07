@@ -6,7 +6,7 @@ import TextReveal from '../common/TextReveal'
  * ActSection — wraps each Act with a title reveal animation.
  * Uses the Act's color for background.
  */
-export default function ActSection({ act, children }) {
+export default function ActSection({ act, children, overrideTitle }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
 
@@ -34,7 +34,7 @@ export default function ActSection({ act, children }) {
           {/* Act title */}
           <h2 className="font-serif font-light text-[clamp(2.5rem,5.5vw,5rem)] leading-[1.08] tracking-[-0.02em] text-[#2C2C2C] mb-4">
             <TextReveal
-              text={act.title}
+              text={overrideTitle || act.title}
               mode="word"
               staggerDelay={0.08}
               duration={0.7}

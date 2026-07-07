@@ -7,15 +7,40 @@ import Frankieism from '../common/Frankieism'
 
 const act = content.acts[0]
 
+// Emphasis content that should be LARGE — major emotional peaks (Level 1)
+const MAJOR_EMPHASIS = [
+  'Because he believed it, I believed it too.',
+  'He was my best friend.',
+  'Because when someone believes in you, they don\u2019t just change your future, they change your idea of what\u2019s possible.',
+  'Our childhood dreams don\u2019t disappear. They simply wait for us to remember them. Midlife isn\u2019t about finding yourself. It\u2019s about returning to the parts of yourself you left behind.',
+]
+
 /**
- * Render a narrative block based on its type
+ * Render a narrative block with clear typographic hierarchy.
+ * Level 1 — Major emotional statements (largest emphasis)
+ * Level 2 — Standard emphasis (supporting reflections)
+ * Level 3 — Mattered triplet (quiet, tightly grouped)
+ * Body    — Storytelling paragraphs
  */
 function NarrativeBlock({ block, index }) {
   if (block.type === 'emphasis') {
+    const isMattered = block.content.endsWith('mattered.')
+    const isMajor = MAJOR_EMPHASIS.includes(block.content)
+
     return (
       <ScrollReveal variant="fadeIn" duration={1.2}>
-        <div className="py-4 md:py-7 text-center">
-          <p className="font-serif text-[clamp(1.25rem,3vw,2.25rem)] font-light leading-[1.35] text-[#2C2C2C] italic">
+        <div className={`${
+          isMattered ? 'py-1 md:py-1.5' :
+          isMajor ? 'py-3.5 md:py-5' :
+          'py-2.5 md:py-4'
+        } text-center overflow-hidden`}>
+          <p className={`font-serif font-light leading-[1.35] text-[#2C2C2C] italic whitespace-nowrap ${
+            isMattered
+              ? 'text-[clamp(1rem,2vw,1.5rem)]'
+              : isMajor
+                ? 'text-[clamp(1.15rem,2.8vw,2rem)]'
+                : 'text-[clamp(1.05rem,2.3vw,1.5rem)]'
+          }`}>
             {block.content}
           </p>
         </div>
@@ -26,11 +51,15 @@ function NarrativeBlock({ block, index }) {
   if (block.type === 'centered') {
     return (
       <ScrollReveal variant="fadeIn" duration={1.2}>
-        <div className="py-7 md:py-10 text-center">
+        <div className="py-5 md:py-7 text-center">
           {block.lines.map((line, i) => (
             <p
               key={i}
-              className="font-serif text-[clamp(1.25rem,2.5vw,1.75rem)] font-light leading-[1.6] text-[#2C2C2C]"
+              className={`font-serif font-light leading-[1.5] text-[#2C2C2C] ${
+                i === 0
+                  ? 'text-[clamp(1.4rem,3vw,2.25rem)] mb-2'
+                  : 'text-[clamp(1.05rem,2.2vw,1.5rem)] text-[#2C2C2C]/75'
+              }`}
             >
               {line}
             </p>
@@ -40,10 +69,10 @@ function NarrativeBlock({ block, index }) {
     )
   }
 
-  // Default: regular text paragraph
+  // Default: body copy (Level 3 of overall hierarchy)
   return (
     <ScrollReveal variant="fadeUp" duration={0.9}>
-      <p className="font-serif text-lg md:text-xl lg:text-[1.35rem] leading-[1.7] text-[#2C2C2C]/85 mb-4 md:mb-6">
+      <p className="font-serif text-[clamp(1.1rem,1.5vw,1.4rem)] leading-[1.7] text-[#2C2C2C]/85 mb-3 md:mb-5">
         {block.content}
       </p>
     </ScrollReveal>
@@ -89,28 +118,25 @@ export default function FrankieStory() {
     <div className="pb-8 md:pb-14 px-6 md:px-10 lg:px-16">
       <div className="max-w-[760px] mx-auto">
 
-        {/* ── Act 1 Opener: "Welcome to the Journey" ── */}
-        <ScrollReveal variant="fadeIn" duration={1.2}>
-          <div className="py-8 md:py-12 text-center">
-            <p className="font-sans text-sm md:text-base uppercase tracking-[0.2em] text-[#4A4A4A]/50 mb-2">
-              {content.preAct1Intro.welcomeLine}
-            </p>
-          </div>
-        </ScrollReveal>
-
         {/* ── Part 1: Origin, Mother, Bedroom, Father, Cavalier ── */}
-        <div className="py-1 md:py-4">
+        <div className="py-0.5 md:py-2">
           {act.narrative.map((block, i) => (
             <NarrativeBlock key={i} block={block} index={i} />
           ))}
         </div>
 
+        {/* ── Image placeholder: Childhood farm + Cavalier photos (upcoming assets) ── */}
+        {/* Client will provide childhood photo with dog, farm photo, and horse artwork.
+            These will be placed here — after the Cavalier story, before the visual breaths.
+            Suggested layout: 2-column grid on desktop, stacked on mobile. */}
+        <div className="py-4 md:py-6" id="act1-images" aria-label="Childhood memories" />
+
         {/* ── Visual Breaths: "Dreams are worth..." ── */}
-        <div className="py-6 md:py-10">
+        <div className="py-2 md:py-4">
           {act.visualBreaths.map((line, i) => (
             <ScrollReveal key={i} variant="fadeIn" duration={1.3}>
-              <div className="py-4 md:py-7 text-center">
-                <p className="font-serif font-light text-[clamp(1.75rem,4.5vw,3.75rem)] leading-[1.15] tracking-[-0.02em] text-[#2C2C2C]">
+              <div className="py-1.5 md:py-2.5 text-center">
+                <p className="font-serif font-light text-[clamp(1.35rem,3vw,2.5rem)] leading-[1.15] tracking-[-0.02em] text-[#2C2C2C] whitespace-nowrap">
                   <TextReveal
                     text={line}
                     mode="word"
@@ -143,7 +169,7 @@ export default function FrankieStory() {
         </ScrollReveal>
 
         {/* ── Part 3: Iwanna, Mrs. Loughty, Reflection, Closing ── */}
-        <div className="py-1 md:py-4">
+        <div className="py-0.5 md:py-2">
           {act.narrativePart3.map((block, i) => (
             <NarrativeBlock key={`p3-${i}`} block={block} index={i} />
           ))}
@@ -152,11 +178,11 @@ export default function FrankieStory() {
         {/* ── Reflection question ── */}
         {act.reflection && (
           <ScrollReveal variant="fadeIn" duration={1.4}>
-            <div className="py-7 md:py-10 text-center">
-              <p className="font-serif italic text-[clamp(1.1rem,2.5vw,1.5rem)] text-[#2C2C2C]/40 mb-3">
+            <div className="py-6 md:py-9 text-center">
+              <p className="font-serif text-[clamp(1.4rem,3vw,2.25rem)] font-medium tracking-[0.05em] text-[#2C2C2C] mb-3">
                 Reflection
               </p>
-              <p className="font-serif font-light text-[clamp(1.5rem,3.5vw,2.5rem)] leading-[1.3] text-[#2C2C2C]">
+              <p className="font-serif italic font-light text-[clamp(1.05rem,2vw,1.35rem)] leading-[1.5] text-[#2C2C2C]/65">
                 {act.reflection}
               </p>
             </div>

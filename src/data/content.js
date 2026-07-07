@@ -71,7 +71,7 @@ export const content = {
       number: 'I',
       title: 'Where Belief Began',
       tagline: 'Every life has an origin story.',
-      color: '#FFDAC5',
+      color: '#D8C8EE',
       cssVar: '--act-belief',
       // Full narrative blocks rendered in sequence
       narrative: [
@@ -449,7 +449,7 @@ export const navLinks = [
 ]
 
 export const actColors = {
-  'where-belief-began': '#FFDAC5',
+  'where-belief-began': '#D8C8EE',
   building: '#FFF0CC',
   amplifying: '#E0F4F4',
   creating: '#FDE8EF',
