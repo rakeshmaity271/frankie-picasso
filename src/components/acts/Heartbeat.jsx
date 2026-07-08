@@ -12,7 +12,7 @@ export default function Heartbeat({ line, fromColor = '#FFF8F0', toColor = '#FFD
   return (
     <section
       ref={ref}
-      className="relative py-10 md:py-16 overflow-hidden"
+      className="relative py-3 md:py-5 overflow-hidden"
       style={{
         background: `linear-gradient(180deg, ${fromColor} 0%, ${toColor} 100%)`,
       }}
@@ -39,7 +39,7 @@ export default function Heartbeat({ line, fromColor = '#FFF8F0', toColor = '#FFD
       <div className="relative z-10 flex flex-col items-center justify-center px-6">
         {/* Accent line */}
         <motion.div
-          className="mb-5 h-[1.5px] rounded-full"
+          className="mb-3 h-[1.5px] rounded-full"
           style={{ backgroundColor: accentColor }}
           initial={{ width: 0, opacity: 0 }}
           animate={isInView ? { width: 48, opacity: 0.6 } : { width: 0, opacity: 0 }}
@@ -58,7 +58,7 @@ export default function Heartbeat({ line, fromColor = '#FFF8F0', toColor = '#FFD
 
         {/* Small dot */}
         <motion.div
-          className="mt-5 w-1.5 h-1.5 rounded-full"
+          className="mt-3 w-1.5 h-1.5 rounded-full"
           style={{ backgroundColor: accentColor, opacity: 0.4 }}
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}

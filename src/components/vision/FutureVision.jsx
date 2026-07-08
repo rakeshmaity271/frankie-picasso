@@ -8,16 +8,16 @@ const act = content.acts[5] // Still Becoming
 
 export default function FutureVision() {
   return (
-    <div className="pb-12 md:pb-16 px-6 md:px-10 lg:px-16">
+    <div className="pb-8 md:pb-12 px-6 md:px-10 lg:px-16">
       <div className="max-w-[1000px] mx-auto">
         {/* Intro */}
         <ScrollReveal variant="fadeUp">
-          <p className="font-serif text-lg md:text-xl lg:text-2xl leading-relaxed text-[#2C2C2C]/80 max-w-[750px] mb-10 md:mb-14">
+          <p className="font-serif text-lg md:text-xl lg:text-2xl leading-relaxed text-[#2C2C2C]/80 max-w-[750px] mb-6 md:mb-10">
             {act.intro}
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-10 md:mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 mb-8 md:mb-10">
           {/* Current projects — left */}
           <div>
             <ScrollReveal variant="fadeUp">
@@ -85,7 +85,7 @@ export default function FutureVision() {
             A Life in Moments
           </p>
         </ScrollReveal>
-        <div className="space-y-0 mb-16">
+        <div className="space-y-0 mb-10">
           {act.legacyEvents.map((event, i) => (
             <ScrollReveal key={i} variant="fadeLeft" delay={i * 0.06}>
               <div className="flex gap-6 py-4 border-b border-[#2C2C2C]/6">

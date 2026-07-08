@@ -1,0 +1,5 @@
+- Feature sections are implemented as default-exported components in their own folder under `src/components/<theme>/`, imported directly by `src/App.jsx` rather than through an index barrel.
+- All site copy is externalized into the single `content` object in `src/data/content.js` and consumed via destructuring imports, keeping JSX free of hardcoded strings.
+- Scroll-driven animations are delegated to custom hooks (`useGsap`, `useScrollReveal`, `useParallax`, etc.) instead of being written inline inside components.
+- Each act follows a uniform data shape (`id`, `number`, `title`, `tagline`, `color`, `cssVar`, `narrative[]`, `visualBreaths[]`, optional `frankieism`/`reflection`/`heartbeat`/`timeline[]`) so `ActSection` can render them generically.
+- Global animation defaults are centralized in `src/hooks/useGsap.js` (`gsap.defaults({ ease: 'power2.out', duration: 1 })`) so individual timelines stay concise.

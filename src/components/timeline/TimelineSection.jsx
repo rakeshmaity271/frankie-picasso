@@ -5,11 +5,11 @@ const events = content.acts[5].legacyEvents
 
 export default function TimelineSection() {
   return (
-    <section id="timeline" className="relative py-12 md:py-20 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#F5EFE6' }}>
+    <section id="timeline" className="relative py-8 md:py-14 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#F5EFE6' }}>
       <div className="max-w-[800px] mx-auto">
         <ScrollReveal variant="fadeUp">
           <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#FFB400] mb-4">Timeline</p>
-          <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#2C2C2C] mb-10 md:mb-14">
+          <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#2C2C2C] mb-6 md:mb-10">
             A Life in Chapters
           </h2>
         </ScrollReveal>

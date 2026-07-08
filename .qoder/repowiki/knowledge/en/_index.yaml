@@ -3,11 +3,11 @@ schema_version: 1
 locale: en-US
 branch: dev
 nodes_managed: true
-exported_at: "2026-06-27T08:45:57Z"
+exported_at: "2026-07-08T17:07:30Z"
 modules:
     "":
-        dir_name: Frankie Picasso Narrative Portfolio
-        title: Frankie Picasso Narrative Portfolio
+        dir_name: Frankie Picasso Portfolio (Vite + React SPA)
+        title: Frankie Picasso Portfolio (Vite + React SPA)
         scope:
             - .gitignore
             - index.html
@@ -85,6 +85,15 @@ modules:
             - src/components/layout/Nav.module.css
             - src/components/common/SectionHeading.module.css
             - src/main.jsx
+        children: []
+        depends_on: []
+        related_to: []
+    logging_system:
+        dir_name: No Logging System — Console Output Only in Deployment Scripts
+        title: No Logging System — Console Output Only in Deployment Scripts
+        scope: []
+        source_files:
+            - scripts/deploy.sh
         children: []
         depends_on: []
         related_to: []

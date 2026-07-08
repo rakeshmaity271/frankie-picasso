@@ -16,7 +16,7 @@ export default function ClosingSection() {
   return (
     <section
       id="closing"
-      className="relative py-16 md:py-24 px-6 md:px-10 lg:px-16 flex flex-col items-center justify-center text-center overflow-hidden"
+      className="relative py-10 md:py-16 px-6 md:px-10 lg:px-16 flex flex-col items-center justify-center text-center overflow-hidden"
       style={{ backgroundColor: '#1a1a2e' }}
     >
       {/* Warm glow */}
@@ -30,26 +30,32 @@ export default function ClosingSection() {
 
       <div className="relative z-10 max-w-[800px] mx-auto">
         <motion.p
-          className="font-sans text-xs uppercase tracking-[0.3em] text-[#FFB400]/60 mb-5"
+          className="font-sans text-xs uppercase tracking-[0.3em] text-[#FFB400]/80 mb-3"
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.6 }}
+          whileInView={{ opacity: 0.8 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           The Next Chapter
         </motion.p>
 
-        <h2 className="font-serif font-light text-[clamp(2.5rem,6vw,5.5rem)] leading-[1.08] tracking-[-0.02em] text-[#FFF8F0] mb-6 md:mb-10">
+        <motion.h2
+          className="font-serif font-light text-[clamp(2.5rem,6vw,5.5rem)] leading-[1.08] tracking-[-0.02em] text-[#FFF8F0] mb-4 md:mb-7"
+          initial={{ opacity: 0.3 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+        >
           <TextReveal
             text={data.question}
             mode="word"
             staggerDelay={0.06}
             duration={0.7}
           />
-        </h2>
+        </motion.h2>
 
         <ScrollReveal variant="fadeIn" duration={1.2}>
-          <p className="font-serif italic text-lg md:text-xl text-[#FFF8F0]/60 max-w-[600px] mx-auto mb-8">
+          <p className="font-serif italic text-lg md:text-xl text-[#FFF8F0]/75 max-w-[600px] mx-auto mb-6">
             {data.quote}
           </p>
         </ScrollReveal>

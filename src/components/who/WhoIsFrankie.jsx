@@ -13,25 +13,25 @@ export default function WhoIsFrankie() {
     <section
       id="who-is-frankie"
       ref={sectionRef}
-      className="relative py-12 md:py-20 px-6 md:px-10 lg:px-16"
+      className="relative py-8 md:py-14 px-6 md:px-10 lg:px-16"
       style={{ backgroundColor: '#FFF3E8' }}
     >
       <div className="max-w-[800px] mx-auto">
         {/* Opening statement — oversized serif */}
         <ScrollReveal variant="fadeIn" duration={1}>
-          <h2 className="font-serif font-light text-[clamp(2.5rem,5.5vw,5rem)] leading-[1.08] tracking-[-0.02em] text-[#2C2C2C] mb-6 md:mb-10">
+          <h2 className="font-serif font-light text-[clamp(2.5rem,5.5vw,5rem)] leading-[1.08] tracking-[-0.02em] text-[#2C2C2C] mb-4 md:mb-7">
             {data.opening}
           </h2>
         </ScrollReveal>
 
         <ScrollReveal variant="fadeUp" delay={0.1}>
-          <p className="font-sans text-lg md:text-xl leading-relaxed text-[#4A4A4A] mb-8 md:mb-10">
+          <p className="font-sans text-lg md:text-xl leading-relaxed text-[#4A4A4A] mb-6 md:mb-8">
             {data.openingFollow}
           </p>
         </ScrollReveal>
 
         {/* Built list — staggered with lines */}
-        <div className="mb-10 md:mb-14 space-y-0">
+        <div className="mb-8 md:mb-10 space-y-0">
           {data.builtList.map((item, i) => (
             <ScrollReveal key={i} variant="fadeLeft" delay={i * 0.08} duration={0.7}>
               <div className="flex items-baseline gap-4 py-4 border-b border-[#2C2C2C]/10">
@@ -48,7 +48,7 @@ export default function WhoIsFrankie() {
 
         {/* Belief — visual breath */}
         <ScrollReveal variant="fadeIn" duration={1.2}>
-          <div className="py-8 md:py-14">
+          <div className="py-5 md:py-8">
             <p className="font-sans text-sm uppercase tracking-[0.2em] text-[#4A4A4A]/50 mb-4">
               {data.thread}
             </p>
@@ -71,7 +71,7 @@ export default function WhoIsFrankie() {
           <p className="font-sans text-base md:text-lg leading-relaxed text-[#4A4A4A] mb-6">
             {data.roles}
           </p>
-          <p className="font-sans text-base md:text-lg leading-relaxed text-[#4A4A4A] mb-10 md:mb-14">
+          <p className="font-sans text-base md:text-lg leading-relaxed text-[#4A4A4A] mb-8 md:mb-10">
             {data.rolesFollow}
           </p>
         </ScrollReveal>
@@ -83,7 +83,7 @@ export default function WhoIsFrankie() {
           </p>
         </ScrollReveal>
 
-        <div className="space-y-6 mb-10 md:mb-14">
+        <div className="space-y-5 mb-8 md:mb-10">
           {data.values.map((val, i) => (
             <ScrollReveal key={i} variant="fadeUp" delay={i * 0.12}>
               <div className="group">
@@ -96,7 +96,7 @@ export default function WhoIsFrankie() {
                 <p className="font-sans text-base md:text-lg text-[#4A4A4A] italic pl-8 md:pl-12">
                   {val.reason}
                 </p>
-                <div className="h-[1px] bg-gradient-to-r from-[#FFB400]/40 via-[#FF7C15]/20 to-transparent mt-6" />
+                <div className="h-[1px] bg-gradient-to-r from-[#FFB400]/40 via-[#FF7C15]/20 to-transparent mt-4" />
               </div>
             </ScrollReveal>
           ))}
@@ -104,7 +104,7 @@ export default function WhoIsFrankie() {
 
         {/* Followed list */}
         <ScrollReveal variant="fadeIn" duration={1}>
-          <div className="py-6 md:py-8">
+          <div className="py-4 md:py-6">
             <p className="font-sans text-base md:text-lg text-[#4A4A4A] mb-6">
               {data.question}
             </p>
@@ -123,7 +123,7 @@ export default function WhoIsFrankie() {
 
         {/* Closing thoughts */}
         <ScrollReveal variant="fadeUp" delay={0.1}>
-          <div className="pt-8 md:pt-12">
+          <div className="pt-5 md:pt-8">
             <p className="font-sans text-base md:text-lg leading-relaxed text-[#4A4A4A] mb-6">
               {data.today}
             </p>

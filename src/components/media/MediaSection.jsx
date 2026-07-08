@@ -7,16 +7,16 @@ const data = content.media
 
 export default function MediaSection() {
   return (
-    <section id="media" className="relative py-12 md:py-20 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#E0F4F4' }}>
+    <section id="media" className="relative py-8 md:py-14 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#E0F4F4' }}>
       <div className="max-w-[1000px] mx-auto">
         <ScrollReveal variant="fadeUp">
           <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#01B2D4] mb-4">{data.title}</p>
           <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#1a2e2e] mb-4">{data.subtitle}</h2>
-          <p className="font-serif text-lg text-[#1a2e2e]/60 mb-10 md:mb-14 max-w-[600px]">Through radio, podcasts, and media platforms, Frankie amplified voices that deserved to be heard.</p>
+          <p className="font-serif text-lg text-[#1a2e2e]/60 mb-6 md:mb-10 max-w-[600px]">Through radio, podcasts, and media platforms, Frankie amplified voices that deserved to be heard.</p>
         </ScrollReveal>
 
         {/* Shows grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 md:mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8 md:mb-10">
           {data.shows.map((show, i) => (
             <ScrollReveal key={i} variant="fadeUp" delay={i * 0.08}>
               <div className="p-6 md:p-8 rounded-xl bg-white/40 backdrop-blur-sm border border-white/50 hover:bg-white/60 transition-all duration-500">

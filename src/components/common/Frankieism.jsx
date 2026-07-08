@@ -12,11 +12,11 @@ export default function Frankieism({ text, accentColor = '#FFB400', className = 
   return (
     <div
       ref={ref}
-      className={`py-8 md:py-12 flex flex-col items-center justify-center px-6 ${className}`}
+      className={`py-2 md:py-4 flex flex-col items-center justify-center px-6 ${className}`}
     >
       {/* Accent line */}
       <motion.div
-        className="mb-5 h-[2px] rounded-full"
+        className="mb-3 h-[2px] rounded-full"
         style={{ backgroundColor: accentColor }}
         initial={{ width: 0, opacity: 0 }}
         animate={isInView ? { width: 60, opacity: 1 } : { width: 0, opacity: 0 }}
@@ -36,7 +36,7 @@ export default function Frankieism({ text, accentColor = '#FFB400', className = 
 
       {/* Small decorative dot */}
       <motion.div
-        className="mt-5 w-2 h-2 rounded-full"
+        className="mt-3 w-2 h-2 rounded-full"
         style={{ backgroundColor: accentColor, opacity: 0.5 }}
         initial={{ scale: 0 }}
         animate={isInView ? { scale: 1 } : { scale: 0 }}

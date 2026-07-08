@@ -1,6 +1,6 @@
 schema_version: 1
 module_path: ""
-title: Frankie Picasso Narrative Portfolio
+title: Frankie Picasso Portfolio (Vite + React SPA)
 scope:
     - .gitignore
     - index.html

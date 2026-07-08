@@ -7,19 +7,19 @@ const books = content.acts[3].books // Creating act's books data
 
 export default function BooksPublications() {
   return (
-    <section id="books" className="relative py-12 md:py-20 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#FFF0CC' }}>
+    <section id="books" className="relative py-8 md:py-14 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#FFF0CC' }}>
       <div className="max-w-[1000px] mx-auto">
         <ScrollReveal variant="fadeUp">
           <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#EE5802] mb-4">Books</p>
-          <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#2C2C2C] mb-10 md:mb-14">Published Works</h2>
+          <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#2C2C2C] mb-6 md:mb-10">Published Works</h2>
         </ScrollReveal>
 
         {/* Featured book */}
         <ScrollReveal variant="scaleUp" duration={1}>
-          <div className="p-6 md:p-10 rounded-2xl bg-white/40 backdrop-blur-sm border border-white/50 mb-8 md:mb-12 text-center">
+          <div className="p-6 md:p-8 rounded-2xl bg-white/40 backdrop-blur-sm border border-white/50 mb-6 md:mb-8 text-center">
             <p className="font-sans text-xs uppercase tracking-[0.2em] text-[#EE5802] mb-4">International Bestseller</p>
             <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-[#2C2C2C] mb-4">{books.featured.title}</h3>
-            <p className="font-sans text-base md:text-lg leading-relaxed text-[#4A4A4A] max-w-[600px] mx-auto mb-6">{books.featured.description}</p>
+            <p className="font-sans text-base md:text-lg leading-relaxed text-[#4A4A4A] max-w-[600px] mx-auto mb-6 text-center">{books.featured.description}</p>
             <p className="font-serif italic text-lg md:text-xl text-[#2C2C2C]/60">"{books.featured.quote}"</p>
           </div>
         </ScrollReveal>

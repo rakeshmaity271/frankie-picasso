@@ -6,68 +6,56 @@
 - [vite.config.js](file://vite.config.js)
 - [src/main.jsx](file://src/main.jsx)
 - [src/App.jsx](file://src/App.jsx)
-- [src/App.module.css](file://src/App.module.css)
 - [src/components/layout/Nav.jsx](file://src/components/layout/Nav.jsx)
-- [src/components/layout/Nav.module.css](file://src/components/layout/Nav.module.css)
-- [src/components/layout/Footer.jsx](file://src/components/layout/Footer.jsx)
-- [src/components/layout/Footer.module.css](file://src/components/layout/Footer.module.css)
-- [src/styles/_global.css](file://src/styles/_global.css)
-- [src/styles/_variables.css](file://src/styles/_variables.css)
-- [src/styles/_typography.css](file://src/styles/_typography.css)
-- [src/styles/_utilities.css](file://src/styles/_utilities.css)
-- [src/data/content.js](file://src/data/content.js)
-- [src/hooks/useGsap.js](file://src/hooks/useGsap.js)
 - [src/components/acts/ActSection.jsx](file://src/components/acts/ActSection.jsx)
-- [src/components/acts/ActSection.module.css](file://src/components/acts/ActSection.module.css)
 - [src/components/acts/Heartbeat.jsx](file://src/components/acts/Heartbeat.jsx)
-- [src/components/acts/RecognitionBadges.jsx](file://src/components/acts/RecognitionBadges.jsx)
-- [src/components/acts/TimelineStrip.jsx](file://src/components/acts/TimelineStrip.jsx)
 - [src/components/story/FrankieStory.jsx](file://src/components/story/FrankieStory.jsx)
-- [src/components/entrepreneurship/Entrepreneurship.jsx](file://src/components/entrepreneurship/Entrepreneurship.jsx)
-- [src/components/media/MediaHub.jsx](file://src/components/media/MediaHub.jsx)
-- [src/components/creativity/Creativity.jsx](file://src/components/creativity/Creativity.jsx)
-- [src/components/community/CommunityImpact.jsx](file://src/components/community/CommunityImpact.jsx)
-- [src/components/vision/FutureVision.jsx](file://src/components/vision/FutureVision.jsx)
+- [src/hooks/useColorSystem.js](file://src/hooks/useColorSystem.js)
+- [src/hooks/useLenis.js](file://src/hooks/useLenis.js)
+- [src/hooks/useScrollAnimation.js](file://src/hooks/useScrollAnimation.js)
+- [src/styles/globals.css](file://src/styles/globals.css)
+- [src/data/content.js](file://src/data/content.js)
 - [public/index.html](file://public/index.html)
 </cite>
 
 ## Update Summary
 **Changes Made**
-- Updated architecture documentation to reflect major transformation from component-based section system to six-act narrative framework
-- Documented new data-driven content organization through acts array structure
-- Added comprehensive coverage of ActSection-based component architecture
-- Integrated theming system documentation using CSS variables and act-specific styling
-- Updated component hierarchy to reflect six-act narrative structure
-- Added detailed analysis of centralized content management through content.js
+- Updated color system documentation to reflect the redesign from purple gradients to warm neutral cream palette
+- Enhanced section palettes documentation with new lavender backgrounds and complementary accent colors for Act 1
+- Added typography system enhancements including intelligent emphasis detection and improved accessibility features
+- Updated visual design system documentation to reflect the new warm, accessible color scheme
 
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Project Structure](#project-structure)
-3. [Six-Act Narrative Framework](#six-act-narrative-framework)
-4. [Core Components](#core-components)
-5. [Architecture Overview](#architecture-overview)
-6. [Responsive Component Architecture](#responsive-component-architecture)
-7. [Styling and Design System](#styling-and-design-system)
-8. [Detailed Component Analysis](#detailed-component-analysis)
-9. [Dependency Analysis](#dependency-analysis)
-10. [Performance Considerations](#performance-considerations)
-11. [Troubleshooting Guide](#troubleshooting-guide)
-12. [Conclusion](#conclusion)
+3. [Cinematic Narrative Framework](#cinematic-narrative-framework)
+4. [Enhanced Animation System](#enhanced-animation-system)
+5. [Dynamic Color Management](#dynamic-color-management)
+6. [Smooth Scrolling Integration](#smooth-scrolling-integration)
+7. [Core Components](#core-components)
+8. [Architecture Overview](#architecture-overview)
+9. [Styling and Design System](#styling-and-design-system)
+10. [Detailed Component Analysis](#detailed-component-analysis)
+11. [Dependency Analysis](#dependency-analysis)
+12. [Performance Considerations](#performance-considerations)
+13. [Troubleshooting Guide](#troubleshooting-guide)
+14. [Conclusion](#conclusion)
 
 ## Introduction
-This document describes the architecture of the Frankie Picasso application, a modern React Single Page Application (SPA) designed with a six-act narrative framework. The application demonstrates contemporary web development patterns through its data-driven content organization, centralized content management system, and sophisticated theming architecture. The system emphasizes a narrative-driven approach where content flows through six distinct acts, each with unique theming, storytelling elements, and specialized component implementations. The architecture showcases modern web development patterns including component-based design, responsive architecture, and integrated theming systems using CSS custom properties.
+This document describes the architecture of the Frankie Picasso application, a modern React Single Page Application (SPA) designed with a cinematic narrative framework and sophisticated animation system. The application demonstrates contemporary web development patterns through its data-driven content organization, centralized content management system, integrated theming architecture, and advanced motion system powered by Framer Motion. The system emphasizes a narrative-driven approach where content flows through six distinct acts, each with unique theming, storytelling elements, and specialized component implementations. The enhanced architecture provides seamless user experience with smooth scrolling, dynamic color transitions, and responsive design patterns.
 
-**Updated**: The application has undergone a major architectural transformation from a traditional component-based section system to a six-act narrative framework that organizes content around Frankie Picasso's life story divided into six distinct acts of her journey.
+**Updated**: The application has undergone significant visual design enhancements, transitioning from purple gradient themes to a sophisticated warm neutral cream palette throughout Act 1. The color system now features lavender backgrounds with complementary accent colors, creating a more accessible and emotionally resonant visual experience. The typography system has been enhanced with intelligent emphasis detection and improved accessibility features, providing better contrast ratios and reading experiences. The updated architecture maintains the same technical foundation while delivering a refined aesthetic that better serves the narrative content.
 
 ## Project Structure
-The repository follows a modern React application layout with a data-driven six-act narrative architecture:
+The repository follows a modern React application layout with a cinematic narrative architecture and enhanced animation system:
 - Frontend: React application with component-based architecture under src/
-- Data Layer: Centralized content management through content.js with six-act structure
-- Theming System: Integrated CSS variable-based theming with act-specific color schemes
-- Component Architecture: ActSection-based components that wrap specialized content sections
-- Build and Dev Tooling: Vite configuration and scripts defined in package.json
-- Static Assets: Minimal HTML shell in public/index.html
-- Responsive Design: Mobile-first approach with progressive enhancement
+- Data Layer: Centralized content management through content.js with cinematic act structure and enhanced narrative framework
+- Animation Layer: Framer Motion integration for scroll-triggered animations and motion effects
+- Theming System: Tailwind CSS v4 with dynamic color management and section-based theming
+- Component Architecture: ActSection-based components with enhanced motion patterns
+- Build and Dev Tooling: Vite configuration with Tailwind CSS v4 plugin
+- Static Assets: Minimal HTML shell in public/index.html plus image assets for visual storytelling
+- Smooth Scrolling: Lenis integration for enhanced scroll experience
 
 ```mermaid
 graph TB
@@ -75,13 +63,17 @@ subgraph "Repository Root"
 PJSON["package.json"]
 VCFG["vite.config.js"]
 PUBLIC["public/index.html"]
+IMAGES["Childhood Dreams Images<br/>PNG Assets"]
 end
 subgraph "React Application (src/)"
 MAIN["src/main.jsx"]
 APP["src/App.jsx"]
 COMPONENTS["src/components/"]
+NAV["src/components/layout/Nav.jsx"]
+FOOTER["src/components/layout/Footer.jsx"]
 ACTS["src/components/acts/"]
 STORIES["src/components/story/"]
+FRANKIESTORY["FrankieStory.jsx<br/>Enhanced Narrative Framework"]
 ENTREPRENEURSHIP["src/components/entrepreneurship/"]
 MEDIA["src/components/media/"]
 CREATIVITY["src/components/creativity/"]
@@ -90,295 +82,521 @@ VISION["src/components/vision/"]
 STYLES["src/styles/"]
 DATA["src/data/"]
 HOOKS["src/hooks/"]
+ANIMATIONS["Framer Motion Hooks"]
+COLORSYSTEM["useColorSystem Hook"]
+LENIS["useLenis Hook"]
+SCROLLANIMATION["useScrollAnimation System"]
 end
-subgraph "Six-Act Framework"
-CONTENT["src/data/content.js<br/>Acts Array Structure"]
-ACTSECTION["ActSection Component<br/>Wrapper Component"]
-THEME["CSS Variable Theming<br/>Act-Specific Colors"]
+subgraph "Enhanced Cinematic Narrative Framework"
+CONTENT["src/data/content.js<br/>Acts Array + PreAct1Intro"]
+SECTIONIDS["sectionIds Array<br/>Navigation Structure"]
+NAVLINKS["navLinks Array<br/>Navigation Links"]
+ACTCOLORS["actColors Object<br/>Act Color Mapping"]
+CHILDHOODDREAMS["childhoodDreams Array<br/>Image-Based Dreams"]
+PREACT1INTRO["preAct1Intro Object<br/>Opening Statement"]
+NARRATIVEBLOCKS["narrative Arrays<br/>Multi-section Storytelling"]
+end
+subgraph "Enhanced Animation System"
+FRAMERMOTION["Framer Motion Library"]
+MOTIONHOOKS["Motion Hooks & Transitions"]
+SCROLLTRANSFORMS["Scroll-Based Animations"]
+DYNAMICCOLORS["Dynamic Color Transitions"]
+SMOOTHSCROLLING["Lenis Smooth Scrolling"]
+SCRAPBOOKANIMS["ScrapbookCard Animations"]
+HEARTBEATANIMS["Heartbeat Transition Animations"]
 end
 PJSON --> VITE
 VCFG --> PUBLIC
 MAIN --> APP
 APP --> COMPONENTS
+COMPONENTS --> NAV
+COMPONENTS --> FOOTER
 COMPONENTS --> ACTS
 COMPONENTS --> STORIES
-COMPONENTS --> ENTREPRENEURSHIP
-COMPONENTS --> MEDIA
-COMPONENTS --> CREATIVITY
-COMPONENTS --> COMMUNITY
-COMPONENTS --> VISION
 COMPONENTS --> DATA
 COMPONENTS --> HOOKS
+COMPONENTS --> ANIMATIONS
+COMPONENTS --> COLORSYSTEM
+COMPONENTS --> LENIS
+COMPONENTS --> SCROLLANIMATION
 DATA --> CONTENT
-ACTS --> ACTSECTION
-ACTS --> THEME
+DATA --> SECTIONIDS
+DATA --> NAVLINKS
+DATA --> ACTCOLORS
+DATA --> CHILDHOODDREAMS
+DATA --> PREACT1INTRO
+DATA --> NARRATIVEBLOCKS
+NAV --> FRAMERMOTION
+ACTS --> MOTIONHOOKS
+ACTS --> SCROLLTRANSFORMS
+ACTS --> DYNAMICCOLORS
+FRANKIESTORY --> SCRAPBOOKANIMS
+FRANKIESTORY --> IMAGES
+FRANKIESTORY --> HEARTBEATANIMS
+LENIS --> SMOOTHSCROLLING
 ```
 
 **Diagram sources**
-- [package.json:1-23](file://package.json#L1-L23)
-- [vite.config.js:1-11](file://vite.config.js#L1-L11)
+- [package.json:1-27](file://package.json#L1-L27)
+- [vite.config.js:1-12](file://vite.config.js#L1-L12)
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-87](file://src/App.jsx#L1-L87)
-- [src/data/content.js:1-239](file://src/data/content.js#L1-L239)
-- [src/components/acts/ActSection.jsx:1-34](file://src/components/acts/ActSection.jsx#L1-L34)
-- [src/styles/_variables.css:50-56](file://src/styles/_variables.css#L50-L56)
+- [src/App.jsx:1-171](file://src/App.jsx#L1-L171)
+- [src/data/content.js:1-460](file://src/data/content.js#L1-L460)
+- [src/components/layout/Nav.jsx:1-172](file://src/components/layout/Nav.jsx#L1-L172)
+- [src/components/acts/ActSection.jsx:1-61](file://src/components/acts/ActSection.jsx#L1-L61)
+- [src/components/acts/Heartbeat.jsx:1-71](file://src/components/acts/Heartbeat.jsx#L1-L71)
+- [src/components/story/FrankieStory.jsx:1-206](file://src/components/story/FrankieStory.jsx#L1-L206)
+- [src/hooks/useColorSystem.js:1-184](file://src/hooks/useColorSystem.js#L1-L184)
+- [src/hooks/useLenis.js:1-38](file://src/hooks/useLenis.js#L1-L38)
+- [src/hooks/useScrollAnimation.js:1-118](file://src/hooks/useScrollAnimation.js#L1-L118)
 - [public/index.html:1-21](file://public/index.html#L1-L21)
 
 **Section sources**
-- [package.json:1-23](file://package.json#L1-L23)
-- [vite.config.js:1-11](file://vite.config.js#L1-L11)
+- [package.json:1-27](file://package.json#L1-L27)
+- [vite.config.js:1-12](file://vite.config.js#L1-L12)
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-87](file://src/App.jsx#L1-L87)
+- [src/App.jsx:1-171](file://src/App.jsx#L1-L171)
 - [public/index.html:1-21](file://public/index.html#L1-L21)
 
-## Six-Act Narrative Framework
-The application implements a revolutionary six-act narrative framework that organizes Frankie Picasso's life story into distinct thematic sections:
+## Cinematic Narrative Framework
+The application implements a revolutionary cinematic narrative framework that organizes Frankie Picasso's life story into distinct thematic sections with enhanced motion support and sophisticated storytelling architecture:
 
-### Act Structure Organization
+### Enhanced Act Structure Organization
 Each act represents a distinct phase of Frankie's journey with its own color scheme, themes, and content organization:
-- **Act I (Becoming)**: Foundation and early influences
-- **Act II (Building)**: Platform creation and leadership roles
-- **Act III (Amplifying)**: Media and platform expansion
-- **Act IV (Creating)**: Artistic and creative endeavors
-- **Act V (Giving)**: Community impact and mentorship
-- **Act VI (Still Becoming)**: Ongoing evolution and future vision
+- **Pre-Act 1 Introduction**: Powerful opening statement establishing the narrative tone with intimate, conversational language
+- **Act I (Where Belief Began)**: Foundation and early influences with warm lavender tones and multi-section storytelling
+- **Act II (Building)**: Platform creation and leadership roles with golden amber colors
+- **Act III (Amplifying)**: Media and platform expansion with teal accents
+- **Act IV (Creating)**: Artistic and creative endeavors with pink/magenta themes
+- **Act V (Giving)**: Community impact and mentorship with green tones
+- **Act VI (Still Becoming)**: Ongoing evolution and future vision with warm cream colors
 
-### Data-Driven Content Management
-The content.js file contains a centralized acts array that defines the complete narrative structure:
-- Each act includes metadata (id, number, title, tagline)
-- Color theming through CSS variables
-- Narrative content including intros, philosophies, and timelines
-- Specialized content arrays for ventures, shows, initiatives, and achievements
+### Enhanced Content Management System
+The content.js file contains a comprehensive centralized structure with cinematic narrative arrays and enhanced storytelling capabilities:
+- **preAct1Intro Object**: New introductory section with powerful opening statement and welcome message
+- **acts Array**: Complete six-act narrative structure with metadata and rich content blocks
+- **sectionIds Array**: Complete navigation structure for scroll-based navigation
+- **navLinks Array**: Hierarchical navigation structure for both desktop and mobile
+- **actColors Object**: Color mapping for act-specific styling and progress indicators
+- **Content Objects**: Rich content structures with narrative blocks, visual breaths, timeline data, and childhood dreams visualization
+
+### Multi-Section Narrative Architecture
+The enhanced FrankieStory component supports sophisticated multi-section storytelling:
+- **Pre-Act 1 Introduction**: Intimate opening with powerful statement "This isn't a résumé. It's the story of an ordinary girl who never stopped saying, 'I can do that.'"
+- **Narrative Part 1**: Origin story covering mother's influence, bedroom design, father's support, and Cavalier the horse
+- **Visual Breaths**: Standalone impactful statements with large typography presentation
+- **Narrative Part 2**: Transitional content bridging childhood dreams to adult aspirations
+- **Childhood Dreams Visualization**: Interactive scrapbook-style cards showing dream aspirations
+- **Narrative Part 3**: Reflection on Mrs. Loughty's influence and lifelong lessons about belief and perseverance
+
+### Childhood Dreams Visualization Enhancement
+The first act now features an enhanced childhood dreams section that transforms simple text descriptions into engaging visual cards:
+- **Structured Dream Data**: Each dream includes both descriptive text and corresponding image asset
+- **Visual Storytelling**: Image-based representation creates emotional connection with audience
+- **Interactive Cards**: Hover effects and animations enhance user engagement
+- **Responsive Grid Layout**: Adapts seamlessly across different screen sizes
 
 ### ActSection Component Architecture
-The ActSection component serves as a wrapper that applies act-specific theming and provides consistent structural elements:
-- Dynamic watermark with act number
+The ActSection component serves as a wrapper that applies cinematic theming and provides consistent structural elements:
+- Dynamic act number display with motion animations
 - Theme class application based on act id
-- Consistent header structure with act branding
+- Consistent header structure with title reveal animations
 - Content area for specialized act components
+- Background color application from act.color property
 
 **Section sources**
-- [src/data/content.js:11-172](file://src/data/content.js#L11-L172)
-- [src/components/acts/ActSection.jsx:5-34](file://src/components/acts/ActSection.jsx#L5-L34)
-- [src/styles/_variables.css:50-56](file://src/styles/_variables.css#L50-L56)
+- [src/data/content.js:15-28](file://src/data/content.js#L15-28)
+- [src/data/content.js:69-164](file://src/data/content.js#L69-L164)
+- [src/components/acts/ActSection.jsx:1-61](file://src/components/acts/ActSection.jsx#L1-L61)
+- [src/components/story/FrankieStory.jsx:93-133](file://src/components/story/FrankieStory.jsx#L93-L133)
+
+## Enhanced Animation System
+The application features a sophisticated animation system built on Framer Motion with comprehensive scroll-based effects and motion patterns:
+
+### Framer Motion Integration
+The animation system is built around Framer Motion for advanced motion capabilities:
+- **Motion Components**: `<motion>` elements for declarative animations
+- **Scroll-Based Effects**: `useScroll` and `useTransform` for scroll-triggered animations
+- **View Detection**: `useInView` for intersection observer-based animations
+- **AnimatePresence**: For mounting/unmounting animations with exit states
+- **Custom Easings**: Cinematic easing curves for premium motion feel
+
+### Scroll-Based Animation System
+The useScrollAnimation system provides comprehensive scroll-based effects:
+- **useScrollFade**: Fade element in/out based on scroll position
+- **useScrollSlideUp**: Slide element up as it enters viewport
+- **useScrollSlideLeft/Right**: Directional slide animations
+- **useParallax**: Parallax effects based on scroll position
+- **useScrollScale**: Scale transformations during scroll
+- **useScrollBlur**: Blur-to-clear effects during scroll
+- **useInView**: Simple in-view detection with configurable options
+
+### Enhanced ScrapbookCard Animation System
+The enhanced FrankieStory component includes sophisticated ScrapbookCard animations:
+- **Staggered Entry Animations**: Sequential appearance of dream cards with calculated delays
+- **Rotation Effects**: Randomized tilt angles create playful scrapbook aesthetic
+- **Hover Interactions**: Smooth scale and rotation corrections on mouse hover
+- **Scroll-Triggered Reveals**: Cards animate into view as they enter the viewport
+- **Performance Optimization**: Lazy loading and efficient animation scheduling
+
+### Heartbeat Transition Animations
+The Heartbeat component provides cinematic transitions between acts:
+- **Gradient Morphing**: Smooth background color transitions between acts
+- **Breathing Orb Effect**: Animated radial gradient with pulsing scale and opacity
+- **Accent Line Animation**: Expanding line with fade-in effect
+- **Text Reveal**: Fade-up animation for Frankieism quotes
+- **Dot Indicator**: Scaling dot animation for visual emphasis
+
+### Mobile Menu Animations
+The mobile navigation system provides premium user experience with Framer Motion:
+- **Staggered Item Animations**: Sequential appearance of menu items with custom delays
+- **Transform Animations**: Smooth slide-in effect using Framer Motion transforms
+- **Opacity Transitions**: Fade-in effects for menu item visibility
+- **Exit Animations**: AnimatePresence for smooth menu closing
+- **Duration Control**: 0.35 second animation duration for optimal user experience
+
+### Section Indicator Removal
+The previous SectionIndicator navigation dots have been removed in favor of:
+- **Integrated Navigation**: Navigation state managed within Nav component
+- **Active Section Detection**: Real-time section tracking with scroll position
+- **Cleaner Interface**: Reduced visual clutter while maintaining functionality
+
+```mermaid
+graph TB
+FramerMotion["Framer Motion Library"] --> MotionComponents["Motion Components"]
+FramerMotion --> ScrollHooks["Scroll Hooks"]
+FramerMotion --> ViewDetection["View Detection"]
+FramerMotion --> AnimatePresence["AnimatePresence"]
+ScrollHooks --> ScrollFade["useScrollFade"]
+ScrollHooks --> ScrollSlide["useScrollSlide*"]
+ScrollHooks --> ScrollParallax["useParallax"]
+ScrollHooks --> ScrollScale["useScrollScale"]
+ScrollHooks --> ScrollBlur["useScrollBlur"]
+ViewDetection --> UseInView["useInView Hook"]
+ScrapbookCard["ScrapbookCard Component"] --> StaggeredEntry["Staggered Entry Animations"]
+ScrapbookCard --> RotationEffects["Randomized Rotation Angles"]
+ScrapbookCard --> HoverInteractions["Hover Scale & Rotation"]
+ScrapbookCard --> ScrollReveals["Scroll-Triggered Reveals"]
+Heartbeat["Heartbeat Component"] --> GradientMorph["Gradient Morphing"]
+Heartbeat --> BreathingOrb["Breathing Orb Effect"]
+Heartbeat --> AccentLine["Accent Line Animation"]
+Heartbeat --> TextReveal["Text Reveal Animation"]
+MobileMenu["Mobile Menu"] --> StaggeredAnim["Staggered Animations"]
+MobileMenu --> TransformAnim["Transform Animations"]
+MobileMenu --> ExitAnim["Exit Animations"]
+NavComponent["Nav Component"] --> ActiveSection["Active Section Detection"]
+NavComponent --> MobileOverlay["Mobile Overlay"]
+```
+
+**Diagram sources**
+- [src/hooks/useScrollAnimation.js:1-118](file://src/hooks/useScrollAnimation.js#L1-L118)
+- [src/components/layout/Nav.jsx:1-172](file://src/components/layout/Nav.jsx#L1-L172)
+- [src/components/acts/ActSection.jsx:1-61](file://src/components/acts/ActSection.jsx#L1-L61)
+- [src/components/acts/Heartbeat.jsx:1-71](file://src/components/acts/Heartbeat.jsx#L1-L71)
+- [src/components/story/FrankieStory.jsx:58-86](file://src/components/story/FrankieStory.jsx#L58-L86)
+
+**Section sources**
+- [src/hooks/useScrollAnimation.js:1-118](file://src/hooks/useScrollAnimation.js#L1-L118)
+- [src/components/layout/Nav.jsx:1-172](file://src/components/layout/Nav.jsx#L1-L172)
+- [src/components/acts/ActSection.jsx:1-61](file://src/components/acts/ActSection.jsx#L1-L61)
+- [src/components/acts/Heartbeat.jsx:1-71](file://src/components/acts/Heartbeat.jsx#L1-L71)
+- [src/components/story/FrankieStory.jsx:1-206](file://src/components/story/FrankieStory.jsx#L1-L206)
+
+## Dynamic Color Management
+The application features a sophisticated color management system that provides dynamic theming and section-based color transitions with an enhanced warm neutral cream palette:
+
+### Enhanced Color System Architecture
+The useColorSystem hook provides comprehensive color management with redesigned palettes:
+- **Section Palettes**: Predefined color schemes for each narrative section with warm cream backgrounds
+- **Dynamic Color Interpolation**: Smooth color transitions between sections
+- **CSS Custom Properties**: Runtime color updates via CSS variables
+- **Context Provider**: Global color state management
+- **Hook Abstraction**: Simplified color access throughout components
+
+### Redesigned Section-Based Theming
+Each section now features a warm, accessible color palette with lavender accents:
+- **Background Colors**: Warm cream and lavender backgrounds (#FFF8F0, #D8C8EE, #FAF3EA)
+- **Text Colors**: High-contrast charcoal text (#2C2C2C) for improved readability
+- **Accent Colors**: Complementary warm accents (#FFB400, #FF7C15) with lavender highlights
+- **Muted Variants**: Semi-transparent text variants with proper contrast ratios
+- **Semantic Naming**: Clear color role definitions supporting accessibility standards
+
+### Enhanced Color Context Implementation
+The ColorProvider manages global color state with improved accessibility:
+- **Scroll Progress Tracking**: Monitors scroll position for color transitions
+- **CSS Variable Updates**: Dynamically updates CSS custom properties
+- **Context Distribution**: Provides color data to child components
+- **Fallback Handling**: Default colors when context is unavailable
+- **Accessibility Compliance**: WCAG-compliant contrast ratios
+
+### Component Color Integration
+Components can access colors through multiple methods with enhanced accessibility:
+- **useColors Hook**: Direct access to current color context
+- **useSectionColors Hook**: Section-specific color interpolation
+- **CSS Variables**: Direct usage of CSS custom properties
+- **Tailwind Classes**: Utility classes for common color applications
+- **Contrast Validation**: Automatic contrast checking for text readability
+
+```mermaid
+graph TB
+ColorContext["Color Context"] --> ColorProvider["ColorProvider Component"]
+ColorProvider --> CurrentColors["Current Color State"]
+ColorProvider --> ScrollProgress["Scroll Progress Tracking"]
+ColorProvider --> SectionPalettes["Section Color Palettes"]
+CurrentColors --> CSSVariables["CSS Custom Properties"]
+CurrentColors --> ComponentAccess["Component Color Access"]
+SectionPalettes --> HeroPalette["Hero Palette<br/>Warm Cream #FFF8F0"]
+SectionPalettes --> WhoPalette["Who Palette<br/>Cream Warm #FAF3EA"]
+SectionPalettes --> ActPalettes["Act Palettes<br/>Lavender #D8C8EE"]
+CSSVariables --> DynamicUpdates["Runtime Updates"]
+ComponentAccess --> UseColorsHook["useColors Hook"]
+ComponentAccess --> UseSectionColors["useSectionColors Hook"]
+```
+
+**Diagram sources**
+- [src/hooks/useColorSystem.js:1-184](file://src/hooks/useColorSystem.js#L1-L184)
+
+**Section sources**
+- [src/hooks/useColorSystem.js:1-184](file://src/hooks/useColorSystem.js#L1-L184)
+
+## Smooth Scrolling Integration
+The application integrates Lenis for enhanced smooth scrolling experience:
+
+### Lenis Integration
+The useLenis hook provides smooth scrolling capabilities:
+- **Smooth Scrolling Engine**: Hardware-accelerated smooth scrolling
+- **Configuration Options**: Duration, easing, orientation settings
+- **Gesture Support**: Touch and wheel gesture handling
+- **Performance Optimization**: RequestAnimationFrame-based rendering
+- **Accessibility Support**: Respects prefers-reduced-motion settings
+
+### Configuration and Setup
+The Lenis implementation includes:
+- **Duration Control**: 1.2 second scroll duration for smooth transitions
+- **Easing Function**: Custom cubic-bezier easing for natural motion
+- **Orientation Settings**: Vertical-only scrolling for this application
+- **Multiplier Controls**: Different sensitivity for wheel vs touch input
+- **Cleanup Management**: Proper resource cleanup on component unmount
+
+### User Experience Benefits
+The smooth scrolling provides:
+- **Premium Feel**: Professional-grade scrolling experience
+- **Reduced Jank**: Smooth frame rates during scroll operations
+- **Touch Optimization**: Enhanced mobile scrolling experience
+- **Accessibility Compliance**: Respects user motion preferences
+- **Performance Efficiency**: Optimized rendering pipeline
+
+**Section sources**
+- [src/hooks/useLenis.js:1-38](file://src/hooks/useLenis.js#L1-L38)
 
 ## Core Components
 - React Application Entry Point
   - Initializes the React application and renders the root App component
   - Sets up global styles and strict mode for development
-- Six-Act Narrative Architecture
-  - Centralized content management through acts array structure
+- Enhanced Navigation Architecture
+  - Sophisticated mobile menu with Framer Motion animations
+  - Integrated active section detection within Nav component
+  - Data-driven navigation through navLinks array
+- Cinematic Narrative Architecture
+  - Centralized content management through acts array structure with enhanced narrative framework
   - ActSection wrapper component for consistent theming and layout
   - Data-driven component composition based on content structure
+- Enhanced Storytelling Components
+  - FrankieStory component with multi-section narrative framework and ScrapbookCard implementation
+  - Pre-Act 1 introduction with powerful opening statement and intimate conversational language
+  - Image-based dream cards with sophisticated animations and hover interactions
+  - Responsive grid layout adapting to different screen sizes
+- Heartbeat Transition Component
+  - Cinematic inter-act transitions with gradient morphing and breathing orb effects
+  - Animated accent lines and text reveals for Frankieism quotes
+  - Smooth color transitions between narrative sections
 - Responsive Component Architecture
   - Component-based UI with reusable, modular components optimized for various screen sizes
-  - CSS modules with responsive design patterns and progressive enhancement
+  - Tailwind CSS v4 utility-first approach with responsive design patterns
 - Integrated Theming System
-  - CSS variable-based theming with act-specific color schemes
-  - Dynamic theme application through theme classes
+  - Tailwind CSS v4 theme configuration with semantic tokens
+  - Dynamic color application through CSS custom properties
   - Consistent design tokens across all components
 - Comprehensive Styling System
-  - Responsive design with CSS custom properties and utility classes
+  - Tailwind CSS v4 with @theme configuration
+  - CSS custom properties for runtime color updates
   - Progressive enhancement from mobile to desktop breakpoints
-- Modern Frontend Tooling
-  - Vite for development and production builds
-  - GSAP for advanced animations and scroll effects
-  - Responsive design with CSS Grid and Flexbox
+- Advanced Animation System
+  - Framer Motion integration for scroll-triggered animations
+  - useScrollAnimation hooks for fade-up, slide, and parallax effects
+  - Lenis smooth scrolling for enhanced user experience
+  - Reduced motion support for accessibility compliance
 
 Key implementation references:
 - React entry point and rendering: [src/main.jsx:6-10](file://src/main.jsx#L6-L10)
-- App component composition with acts: [src/App.jsx:23-84](file://src/App.jsx#L23-L84)
-- ActSection wrapper component: [src/components/acts/ActSection.jsx:5-34](file://src/components/acts/ActSection.jsx#L5-L34)
-- Centralized content management: [src/data/content.js:11-172](file://src/data/content.js#L11-L172)
-- Act-specific theming: [src/styles/_variables.css:50-56](file://src/styles/_variables.css#L50-L56)
-- Vite configuration and dev server: [vite.config.js:4-10](file://vite.config.js#L4-L10)
+- Enhanced navigation system: [src/components/layout/Nav.jsx:52-171](file://src/components/layout/Nav.jsx#L52-L171)
+- ActSection wrapper component: [src/components/acts/ActSection.jsx:9-60](file://src/components/acts/ActSection.jsx#L9-L60)
+- Heartbeat transition component: [src/components/acts/Heartbeat.jsx:8-70](file://src/components/acts/Heartbeat.jsx#L8-L70)
+- Enhanced FrankieStory with multi-section narrative: [src/components/story/FrankieStory.jsx:88-205](file://src/components/story/FrankieStory.jsx#L88-L205)
+- Color system integration: [src/hooks/useColorSystem.js:133-184](file://src/hooks/useColorSystem.js#L133-L184)
+- Smooth scrolling setup: [src/hooks/useLenis.js:4-37](file://src/hooks/useLenis.js#L4-L37)
+- App component composition with acts: [src/App.jsx:37-170](file://src/App.jsx#L37-L170)
+- Centralized content management with enhanced narrative: [src/data/content.js:1-460](file://src/data/content.js#L1-L460)
+- Tailwind CSS configuration: [vite.config.js:3-6](file://vite.config.js#L3-L6)
 - Development scripts: [package.json:6-10](file://package.json#L6-L10)
 
 **Section sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-87](file://src/App.jsx#L1-L87)
-- [src/components/acts/ActSection.jsx:1-34](file://src/components/acts/ActSection.jsx#L1-L34)
-- [src/data/content.js:1-239](file://src/data/content.js#L1-L239)
-- [src/styles/_variables.css:1-72](file://src/styles/_variables.css#L1-L72)
-- [vite.config.js:1-11](file://vite.config.js#L1-L11)
-- [package.json:1-23](file://package.json#L1-L23)
+- [src/App.jsx:1-171](file://src/App.jsx#L1-L171)
+- [src/components/layout/Nav.jsx:1-172](file://src/components/layout/Nav.jsx#L1-L172)
+- [src/components/acts/ActSection.jsx:1-61](file://src/components/acts/ActSection.jsx#L1-L61)
+- [src/components/acts/Heartbeat.jsx:1-71](file://src/components/acts/Heartbeat.jsx#L1-L71)
+- [src/components/story/FrankieStory.jsx:1-206](file://src/components/story/FrankieStory.jsx#L1-L206)
+- [src/hooks/useColorSystem.js:1-184](file://src/hooks/useColorSystem.js#L1-L184)
+- [src/hooks/useLenis.js:1-38](file://src/hooks/useLenis.js#L1-L38)
+- [src/hooks/useScrollAnimation.js:1-118](file://src/hooks/useScrollAnimation.js#L1-L118)
+- [src/data/content.js:1-460](file://src/data/content.js#L1-L460)
+- [vite.config.js:1-12](file://vite.config.js#L1-L12)
+- [package.json:1-27](file://package.json#L1-L27)
 
 ## Architecture Overview
-The system employs a modern data-driven narrative architecture:
-- Presentation Layer: React components organized around six-act narrative structure
-- State Management: React hooks for component state and custom hooks for animations
-- Data Layer: Centralized content management through acts array structure
-- Theming Layer: CSS variable-based theming with act-specific color schemes
-- Animation Layer: GSAP integration for scroll-triggered animations and mobile menu effects
-- Styling Layer: Responsive design system with CSS custom properties and utility classes
-- Responsive Layer: Progressive enhancement from mobile to desktop breakpoints
+The system employs a modern cinematic narrative architecture with enhanced motion capabilities and sophisticated storytelling framework:
+- Presentation Layer: React components organized around cinematic narrative structure with enhanced narrative flow
+- State Management: React hooks for component state and custom hooks for animations and navigation
+- Data Layer: Centralized content management through acts array structure with navigation arrays, preAct1Intro object, and childhood dreams visualization
+- Animation Layer: Framer Motion integration for scroll-triggered animations and motion effects
+- Color Management Layer: Dynamic color system with section-based theming and CSS variable updates
+- Scrolling Layer: Lenis integration for smooth scrolling experience
+- Styling Layer: Tailwind CSS v4 with theme configuration and utility-first approach
+- Responsive Layer: Advanced mobile-first approach with progressive enhancement
 
 ```mermaid
 graph TB
 Browser["Browser"]
 ViteDev["Vite Dev Server<br/>Port 3000"]
-ReactApp["React Application<br/>Six-Act Narrative Architecture"]
-ActSection["ActSection Wrapper<br/>Consistent Theming"]
-Content["Content Data<br/>Acts Array Structure"]
-Themes["CSS Variable Themes<br/>Act-Specific Colors"]
+ReactApp["React Application<br/>Enhanced Cinematic Narrative Architecture"]
+Nav["Nav Component<br/>Mobile Menu + Framer Motion"]
+ActSection["ActSection<br/>Cinematic Wrapper"]
+FrankieStory["FrankieStory<br/>Multi-Section Narrative + ScrapbookCard"]
+Heartbeat["Heartbeat<br/>Transition Animations"]
+ColorSystem["useColorSystem Hook<br/>Dynamic Color Management"]
+Lenis["useLenis Hook<br/>Smooth Scrolling"]
+ScrollAnimation["useScrollAnimation<br/>Motion Hooks"]
+Content["Content Data<br/>Acts + Navigation + PreAct1Intro + Childhood Dreams"]
+Tailwind["Tailwind CSS v4<br/>Theme Configuration"]
 Components["Act-Specific Components<br/>Story, Entrepreneurship, Media, etc."]
-Animations["GSAP Animations<br/>Scroll Effects"]
-Styles["Responsive Styles<br/>CSS Custom Properties"]
-Utilities["Utility Classes<br/>Progressive Enhancement"]
+Animations["Framer Motion<br/>Scroll Effects + Transitions"]
+Styles["Global Styles<br/>CSS Custom Properties"]
+Utilities["Utility Classes<br/>Tailwind Utilities"]
+Images["Childhood Dreams Images<br/>PNG Visual Assets"]
 Browser --> ViteDev
 ViteDev --> ReactApp
+ReactApp --> Nav
 ReactApp --> ActSection
+ReactApp --> FrankieStory
+ReactApp --> Heartbeat
+ReactApp --> ColorSystem
+ReactApp --> Lenis
+ReactApp --> ScrollAnimation
 ReactApp --> Content
-ReactApp --> Themes
+ReactApp --> Tailwind
 ReactApp --> Components
 ReactApp --> Animations
-ActSection --> Styles
-Styles --> Utilities
-Content --> Themes
-Components --> Themes
+ReactApp --> Styles
+Nav --> Animations
+ActSection --> Animations
+ActSection --> ColorSystem
+FrankieStory --> Images
+FrankieStory --> Animations
+Heartbeat --> Animations
+Lenis --> Browser
+ColorSystem --> Styles
+Content --> Tailwind
+Components --> Tailwind
 ```
 
 **Diagram sources**
-- [vite.config.js:6-9](file://vite.config.js#L6-L9)
+- [vite.config.js:6-10](file://vite.config.js#L6-L10)
 - [src/main.jsx:6-10](file://src/main.jsx#L6-L10)
-- [src/App.jsx:23-84](file://src/App.jsx#L23-L84)
-- [src/components/acts/ActSection.jsx:5-34](file://src/components/acts/ActSection.jsx#L5-L34)
-- [src/data/content.js:11-172](file://src/data/content.js#L11-L172)
-- [src/styles/_variables.css:50-56](file://src/styles/_variables.css#L50-L56)
-- [src/styles/_global.css:1-76](file://src/styles/_global.css#L1-L76)
-
-## Responsive Component Architecture
-The application's component architecture is designed for responsive design across various screen sizes within the six-act framework:
-
-### ActSection Component
-The ActSection component serves as the primary wrapper for all narrative content:
-- Dynamic watermark with act number (50% opacity serif font)
-- Theme class application (act-theme--{actId})
-- Consistent header structure with act branding
-- Content area for specialized act components
-- Responsive design with mobile-first approach
-
-### Act-Specific Components
-Each act has specialized components that leverage the shared ActSection wrapper:
-- **FrankieStory**: Personal narrative and timeline presentation
-- **Entrepreneurship**: Venture showcase with card-based layout
-- **MediaHub**: Interactive filtering system for shows, interviews, and press
-- **Creativity**: Artistic works display with GSAP animations
-- **CommunityImpact**: Initiative showcase with parallax effects
-- **FutureVision**: Mission statement and current projects presentation
-
-### Theming Integration
-The theming system integrates seamlessly with the component architecture:
-- CSS variables define act-specific colors (--act-becoming, --act-building, etc.)
-- Theme classes apply act-specific styling to components
-- Dynamic color application through CSS custom properties
-- Consistent design language across all act components
-
-```mermaid
-graph LR
-ActSection["ActSection Component"] --> Watermark["Watermark<br/>Act Number"]
-ActSection --> Header["Header<br/>Act Branding"]
-ActSection --> ContentArea["Content Area<br/>Specialized Components"]
-FrankieStory["FrankieStory"] --> ActSection
-Entrepreneurship["Entrepreneurship"] --> ActSection
-MediaHub["MediaHub"] --> ActSection
-Creativity["Creativity"] --> ActSection
-CommunityImpact["CommunityImpact"] --> ActSection
-FutureVision["FutureVision"] --> ActSection
-Themes["CSS Variables<br/>Act Colors"] --> ActSection
-Themes --> ActSection
-```
-
-**Diagram sources**
-- [src/components/acts/ActSection.jsx:5-34](file://src/components/acts/ActSection.jsx#L5-L34)
-- [src/components/acts/ActSection.module.css:1-91](file://src/components/acts/ActSection.module.css#L1-L91)
-- [src/styles/_variables.css:50-56](file://src/styles/_variables.css#L50-L56)
-- [src/components/story/FrankieStory.jsx:1-39](file://src/components/story/FrankieStory.jsx#L1-L39)
-- [src/components/entrepreneurship/Entrepreneurship.jsx:1-48](file://src/components/entrepreneurship/Entrepreneurship.jsx#L1-L48)
-- [src/components/media/MediaHub.jsx:1-73](file://src/components/media/MediaHub.jsx#L1-L73)
-- [src/components/creativity/Creativity.jsx:1-56](file://src/components/creativity/Creativity.jsx#L1-L56)
-- [src/components/community/CommunityImpact.jsx:1-84](file://src/components/community/CommunityImpact.jsx#L1-L84)
-- [src/components/vision/FutureVision.jsx:1-30](file://src/components/vision/FutureVision.jsx#L1-L30)
-
-**Section sources**
-- [src/components/acts/ActSection.jsx:1-34](file://src/components/acts/ActSection.jsx#L1-L34)
-- [src/components/acts/ActSection.module.css:1-91](file://src/components/acts/ActSection.module.css#L1-L91)
-- [src/styles/_variables.css:50-56](file://src/styles/_variables.css#L50-L56)
-- [src/components/story/FrankieStory.jsx:1-39](file://src/components/story/FrankieStory.jsx#L1-L39)
-- [src/components/entrepreneurship/Entrepreneurship.jsx:1-48](file://src/components/entrepreneurship/Entrepreneurship.jsx#L1-L48)
-- [src/components/media/MediaHub.jsx:1-73](file://src/components/media/MediaHub.jsx#L1-L73)
-- [src/components/creativity/Creativity.jsx:1-56](file://src/components/creativity/Creativity.jsx#L1-L56)
-- [src/components/community/CommunityImpact.jsx:1-84](file://src/components/community/CommunityImpact.jsx#L1-L84)
-- [src/components/vision/FutureVision.jsx:1-30](file://src/components/vision/FutureVision.jsx#L1-L30)
+- [src/App.jsx:37-170](file://src/App.jsx#L37-L170)
+- [src/components/layout/Nav.jsx:52-171](file://src/components/layout/Nav.jsx#L52-L171)
+- [src/components/acts/ActSection.jsx:9-60](file://src/components/acts/ActSection.jsx#L9-L60)
+- [src/components/acts/Heartbeat.jsx:8-70](file://src/components/acts/Heartbeat.jsx#L8-L70)
+- [src/components/story/FrankieStory.jsx:88-205](file://src/components/story/FrankieStory.jsx#L88-L205)
+- [src/hooks/useColorSystem.js:133-184](file://src/hooks/useColorSystem.js#L133-L184)
+- [src/hooks/useLenis.js:4-37](file://src/hooks/useLenis.js#L4-L37)
+- [src/hooks/useScrollAnimation.js:1-118](file://src/hooks/useScrollAnimation.js#L1-L118)
+- [src/data/content.js:1-460](file://src/data/content.js#L1-L460)
+- [src/styles/globals.css:1-95](file://src/styles/globals.css#L1-L95)
 
 ## Styling and Design System
-The application features a comprehensive styling system built on modern CSS methodologies with integrated theming:
+The application features a comprehensive styling system built on Tailwind CSS v4 with integrated theming and enhanced responsive design, now featuring a warm neutral cream palette:
 
-### CSS Custom Properties System
-- Root-level design tokens for consistent theming across all acts
-- Act-specific color tokens (--act-becoming, --act-building, etc.)
-- Responsive spacing scale with adaptive adjustments
-- Typography hierarchy with fluid scaling
-- Color palette with semantic naming
-- Transition timing functions for smooth animations
-- Z-index layers for proper stacking context
+### Enhanced Tailwind CSS v4 Theme Configuration
+The application uses Tailwind CSS v4 with comprehensive theme configuration featuring warm, accessible colors:
+- **@theme Directive**: Centralized design token management with warm cream palette
+- **Font Families**: Serif, sans-serif, and handwritten font configurations
+- **Base Palette**: Comprehensive color system with warm cream, lavender, and complementary accents
+- **Semantic Tokens**: Themed color variables for dynamic updates with improved contrast
+- **Typography Scale**: Fluid typography with clamp() functions and enhanced readability
+- **Spacing System**: Section-based spacing with responsive values
+- **Border Radius**: Consistent radius scale across components
+- **Animation Definitions**: Custom keyframe animations and utilities
+- **Easing Functions**: Cinematic easing curves for premium motion
+- **Transition Timings**: Standardized transition durations and easings
 
-### Act-Specific Theming
-- Dynamic theme application through theme classes
-- CSS variable fallbacks for consistent styling
-- Act-specific color schemes integrated throughout components
-- Theme-aware typography and spacing
-- Consistent design language across all act components
+### Component Styling Approach
+The application uses utility-first styling with Tailwind CSS and enhanced accessibility:
+- **Inline Utility Classes**: Direct styling through className attributes
+- **Responsive Design**: Mobile-first approach with md/lg breakpoints
+- **Theme Integration**: Seamless integration with CSS custom properties
+- **Motion Classes**: Framer Motion integration with CSS transforms
+- **Accessibility Features**: Focus states and ARIA attribute support with high contrast ratios
 
-### Utility-First Approach
-- Container classes for consistent page width
-- Text alignment and color utility classes
-- Background color variations
-- Responsive spacing utilities
-- Screen reader only helper class
+### Enhanced Dynamic Color Integration
+The styling system supports dynamic color updates with improved accessibility:
+- **CSS Custom Properties**: Runtime color updates via JavaScript
+- **Theme Variables**: Semantic color tokens for consistent theming
+- **Section-Based Colors**: Automatic color transitions between sections
+- **Fallback Values**: Graceful degradation when variables are unavailable
+- **Contrast Validation**: Automatic WCAG compliance checking
 
-### Component-Specific Styling
-- CSS Modules for scoped component styles
-- Responsive base styles with desktop overrides
-- Animation-specific styling with GSAP integration
-- Accessibility-focused styling with focus states
-- Responsive typography with clamp() functions
-
-### Responsive Design Implementation
-- 1023px breakpoint for tablet and desktop adaptation
-- Progressive enhancement from mobile to desktop
-- Flexible grid layouts with CSS Grid
-- Adaptive Flexbox patterns
-- Fluid typography scaling
+### Global Styles and Utilities
+Comprehensive global styling with utility classes and enhanced accessibility:
+- **Base Reset**: Modern CSS reset with box-sizing normalization
+- **Typography Base**: Consistent heading and paragraph styling with improved readability
+- **Blockquote Styling**: Enhanced quote presentation with decorative elements
+- **Keyframe Animations**: Custom animations for floating, breathing, and reveal effects
+- **Scroll Progress Indicator**: Animated progress bar at page top
+- **Utility Classes**: Hover effects, gradients, and visual enhancements
+- **Reduced Motion Support**: Accessibility-compliant motion alternatives
+- **Skip Link**: Accessibility feature for keyboard navigation
 
 ```mermaid
 graph TB
-DesignSystem["Design System"] --> Variables["CSS Variables"]
-Variables --> ActColors["Act Color Tokens"]
-Variables --> Typography["Typography Scale"]
-Variables --> Spacing["Spacing Scale"]
-Variables --> Transitions["Transition Timing"]
-DesignSystem --> Utilities["Utility Classes"]
-Utilities --> Containers["Container Classes"]
-Utilities --> TextUtils["Text Utilities"]
-Utilities --> ColorUtils["Color Utilities"]
-Utilities --> BackgroundUtils["Background Utilities"]
-DesignSystem --> Components["Component Styles"]
-Components --> ActSectionStyles["ActSection Styles"]
-Components --> ActSpecificStyles["Act-Specific Styles"]
-Components --> ThemeIntegration["Theme Integration"]
+DesignSystem["Design System"] --> TailwindConfig["@theme Configuration"]
+TailwindConfig --> FontFamilies["Font Family Tokens"]
+TailwindConfig --> ColorPalette["Base Color Palette<br/>Warm Cream & Lavender"]
+TailwindConfig --> Typography["Typography Scale"]
+TailwindConfig --> Spacing["Spacing System"]
+TailwindConfig --> Animations["Animation Definitions"]
+TailwindConfig --> Easings["Easing Functions"]
+DesignSystem --> ComponentStyles["Component Styling"]
+ComponentStyles --> UtilityClasses["Tailwind Utilities"]
+ComponentStyles --> ThemeIntegration["Theme Integration"]
+ComponentStyles --> MotionClasses["Framer Motion Classes"]
+DesignSystem --> GlobalStyles["Global Styles"]
+GlobalStyles --> BaseReset["CSS Reset"]
+GlobalStyles --> TypographyBase["Typography Base"]
+GlobalStyles --> Keyframes["Keyframe Animations"]
+GlobalStyles --> Utilities["Utility Classes"]
+DynamicColors["Dynamic Colors"] --> CSSVariables["CSS Custom Properties"]
+DynamicColors --> ThemeTokens["Semantic Token Updates"]
 ```
 
 **Diagram sources**
-- [src/styles/_variables.css:1-72](file://src/styles/_variables.css#L1-L72)
-- [src/styles/_utilities.css:1-55](file://src/styles/_utilities.css#L1-L55)
-- [src/components/acts/ActSection.module.css:1-91](file://src/components/acts/ActSection.module.css#L1-L91)
+- [src/styles/globals.css:1-95](file://src/styles/globals.css#L1-L95)
+- [src/styles/globals.css:98-340](file://src/styles/globals.css#L98-L340)
+- [vite.config.js:3-6](file://vite.config.js#L3-L6)
 
 **Section sources**
-- [src/styles/_global.css:1-76](file://src/styles/_global.css#L1-L76)
-- [src/styles/_variables.css:1-72](file://src/styles/_variables.css#L1-L72)
-- [src/styles/_typography.css:1-41](file://src/styles/_typography.css#L1-L41)
-- [src/styles/_utilities.css:1-55](file://src/styles/_utilities.css#L1-L55)
+- [src/styles/globals.css:1-340](file://src/styles/globals.css#L1-L340)
+- [vite.config.js:1-12](file://vite.config.js#L1-L12)
 
 ## Detailed Component Analysis
 
@@ -404,375 +622,361 @@ App->>Browser : Render component tree
 
 **Diagram sources**
 - [src/main.jsx:6-10](file://src/main.jsx#L6-L10)
-- [src/App.jsx:25-84](file://src/App.jsx#L25-L84)
+- [src/App.jsx:37-170](file://src/App.jsx#L37-L170)
 
 Implementation highlights:
 - Root rendering: [src/main.jsx:6-10](file://src/main.jsx#L6-L10)
-- App component composition with acts: [src/App.jsx:23-84](file://src/App.jsx#L23-L84)
+- App component composition with acts: [src/App.jsx:37-170](file://src/App.jsx#L37-L170)
 - Global styling import: [src/main.jsx:4](file://src/main.jsx#L4)
 
 **Section sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-87](file://src/App.jsx#L1-L87)
+- [src/App.jsx:1-171](file://src/App.jsx#L1-L171)
 
-### Six-Act Narrative Architecture
-The application implements a revolutionary six-act narrative framework that organizes content around Frankie Picasso's life story:
+### Enhanced Navigation Architecture
+The application implements a sophisticated navigation system with Framer Motion animations:
+
+#### Nav Component
+The Nav component serves as the central navigation hub with enhanced mobile functionality:
+- **Fixed Header**: Glass-morphism effects with backdrop blur and shadow
+- **Desktop Navigation**: Animated underline effects with active state indication
+- **Mobile Menu**: Full-screen overlay with Framer Motion-powered animations
+- **Scroll Detection**: Automatic header hiding/showing based on scroll direction
+- **Active Section Tracking**: Real-time section detection with scroll position analysis
+- **Smooth Scrolling**: Integration with Lenis for enhanced scroll experience
+
+#### Mobile Menu with Framer Motion
+The mobile navigation system provides premium user experience:
+- **Staggered Item Animations**: Sequential appearance of menu items with 0.06 second delays
+- **Transform Animations**: Smooth slide-in effect using Framer Motion transforms
+- **Opacity Transitions**: Fade-in effects for menu item visibility
+- **Exit Animations**: AnimatePresence for smooth menu closing
+- **Hamburger Icon Animation**: Morphing hamburger to X icon with rotation transforms
+- **Backdrop Effects**: Glass-morphism backdrop with blur and transparency
+
+#### Active Section Detection
+The navigation system provides intelligent section tracking:
+- **Scroll Position Analysis**: Real-time calculation of visible sections
+- **Viewport Threshold**: 40% viewport threshold for section activation
+- **Reverse Iteration**: Efficient section detection from bottom to top
+- **State Management**: Local state for active section tracking
+- **Performance Optimization**: Passive event listeners for scroll events
+
+```mermaid
+flowchart TD
+Nav["Nav Component"] --> DesktopNav["Desktop Navigation"]
+Nav --> MobileNav["Mobile Navigation"]
+Nav --> ScrollDetection["Scroll Detection"]
+Nav --> ActiveTracking["Active Section Tracking"]
+DesktopNav --> NavLinks["navLinks Array"]
+DesktopNav --> UnderlineAnim["Animated Underline"]
+DesktopNav --> ActiveState["Active State Management"]
+MobileNav --> MenuOverlay["Full-screen Overlay"]
+MobileNav --> StaggeredAnim["Staggered Item Animations"]
+MobileNav --> HamburgerAnim["Hamburger Icon Animation"]
+MobileNav --> ExitAnim["Exit Animations"]
+ScrollDetection --> HideShow["Header Hide/Show Logic"]
+ActiveTracking --> SectionAnalysis["Section Position Analysis"]
+ActiveTracking --> ViewportThreshold["40% Viewport Threshold"]
+```
+
+**Diagram sources**
+- [src/components/layout/Nav.jsx:52-171](file://src/components/layout/Nav.jsx#L52-L171)
+
+Implementation highlights:
+- Nav component: [src/components/layout/Nav.jsx:52-171](file://src/components/layout/Nav.jsx#L52-L171)
+- Mobile menu animations: [src/components/layout/Nav.jsx:132-168](file://src/components/layout/Nav.jsx#L132-L168)
+- Active section detection: [src/components/layout/Nav.jsx:25-37](file://src/components/layout/Nav.jsx#L25-L37)
+
+**Section sources**
+- [src/components/layout/Nav.jsx:1-172](file://src/components/layout/Nav.jsx#L1-L172)
+
+### Enhanced Cinematic Narrative Architecture
+The application implements a revolutionary cinematic narrative framework with sophisticated storytelling capabilities and enhanced narrative flow:
 
 #### ActSection Wrapper Component
 The ActSection component serves as the primary wrapper for all narrative content:
-- Dynamic watermark with act number (50% opacity serif font)
-- Theme class application (act-theme--{actId})
-- Consistent header structure with act branding
-- Content area for specialized act components
-- Responsive design with mobile-first approach
+- **Dynamic Background**: Act-specific background color application with warm cream palette
+- **Title Reveal Animation**: Word-by-word text reveal with staggered timing
+- **Act Number Display**: Animated act number with opacity transitions
+- **Tagline Animation**: Fade-up animation for act descriptions
+- **In-View Detection**: Intersection observer for triggering animations
+- **Responsive Layout**: Mobile-first responsive design patterns
 
-#### Act-Specific Content Components
-Each act has specialized components that leverage the shared ActSection wrapper:
-- **FrankieStory**: Personal narrative and timeline presentation
-- **Entrepreneurship**: Venture showcase with card-based layout
-- **MediaHub**: Interactive filtering system for shows, interviews, and press
-- **Creativity**: Artistic works display with GSAP animations
-- **CommunityImpact**: Initiative showcase with parallax effects
-- **FutureVision**: Mission statement and current projects presentation
+#### Enhanced FrankieStory Component with Multi-Section Narrative
+The FrankieStory component now features sophisticated multi-section storytelling with pre-Act 1 introduction and enhanced typography:
+- **Pre-Act 1 Introduction**: Powerful opening statement with intimate, conversational language
+- **Narrative Block Rendering**: Flexible content types including emphasis, centered, and regular text
+- **Intelligent Emphasis Detection**: Automated hierarchy system for major emotional statements
+- **ScrapbookCard Implementation**: Image-based dream cards with animated rotations and hover effects
+- **Grid Layout System**: Responsive grid displaying childhood dreams in organized visual format
+- **Animation Orchestration**: Coordinated animations for staggered card reveals and hover interactions
+- **Performance Optimization**: Lazy loading for images and efficient animation scheduling
 
-#### Heartbeat Integration
-The Heartbeat component provides thematic transitions between acts:
-- Simple animated presentation with dot separators
-- Fade-in animation for smooth transitions
-- Consistent design language across all acts
+#### Heartbeat Transition Component
+The Heartbeat component provides cinematic transitions between acts:
+- **Gradient Morphing**: Smooth background color transitions between acts
+- **Breathing Orb Effect**: Animated radial gradient with pulsing scale and opacity
+- **Accent Line Animation**: Expanding line with fade-in effect
+- **Text Reveal**: Fade-up animation for Frankieism quotes
+- **Dot Indicator**: Scaling dot animation for visual emphasis
 
 ```mermaid
 flowchart TD
 App["App.jsx"] --> ActsLoop["acts.forEach"]
 App --> ActSection["ActSection Wrapper"]
-ActSection --> Header["Act Header<br/>Number, Title, Tagline"]
-ActSection --> Watermark["Watermark<br/>Act Number"]
-ActSection --> Content["Act Content<br/>Specialized Component"]
-FrankieStory["FrankieStory"] --> ActSection
+ActSection --> TitleReveal["Title Reveal Animation"]
+ActSection --> ActNumber["Act Number Display"]
+ActSection --> TaglineAnim["Tagline Animation"]
+ActSection --> ContentArea["Content Area<br/>Specialized Component"]
+FrankieStory["FrankieStory"] --> PreAct1Intro["Pre-Act 1 Introduction"]
+FrankieStory --> NarrativeBlocks["Narrative Blocks"]
+FrankieStory --> ScrapbookCards["ScrapbookCard Grid"]
+ScrapbookCards --> CardAnimations["Card Entry Animations"]
+ScrapbookCards --> HoverEffects["Hover Interactions"]
+ScrapbookCards --> ImageAssets["PNG Image Assets"]
+Heartbeat["Heartbeat"] --> GradientMorph["Gradient Morphing"]
+Heartbeat --> BreathingOrb["Breathing Orb Effect"]
+Heartbeat --> AccentLine["Accent Line Animation"]
+Heartbeat --> TextReveal["Text Reveal Animation"]
 Entrepreneurship["Entrepreneurship"] --> ActSection
-MediaHub["MediaHub"] --> ActSection
+MediaSection["MediaSection"] --> ActSection
 Creativity["Creativity"] --> ActSection
 CommunityImpact["CommunityImpact"] --> ActSection
 FutureVision["FutureVision"] --> ActSection
-Heartbeat["Heartbeat"] --> App
 ```
 
 **Diagram sources**
-- [src/App.jsx:45-76](file://src/App.jsx#L45-L76)
-- [src/components/acts/ActSection.jsx:5-34](file://src/components/acts/ActSection.jsx#L5-L34)
-- [src/components/acts/Heartbeat.jsx:5-21](file://src/components/acts/Heartbeat.jsx#L5-L21)
+- [src/App.jsx:76-152](file://src/App.jsx#L76-L152)
+- [src/components/acts/ActSection.jsx:9-60](file://src/components/acts/ActSection.jsx#L9-L60)
+- [src/components/acts/Heartbeat.jsx:8-70](file://src/components/acts/Heartbeat.jsx#L8-L70)
+- [src/components/story/FrankieStory.jsx:88-205](file://src/components/story/FrankieStory.jsx#L88-L205)
 
 Implementation highlights:
-- ActSection wrapper: [src/components/acts/ActSection.jsx:5-34](file://src/components/acts/ActSection.jsx#L5-L34)
-- Act-specific content rendering: [src/App.jsx:45-76](file://src/App.jsx#L45-L76)
-- Heartbeat integration: [src/App.jsx:48, 53, 58, 64, 69, 75](file://src/App.jsx#L48,L53,L58,L64,L69,L75)
+- ActSection wrapper: [src/components/acts/ActSection.jsx:9-60](file://src/components/acts/ActSection.jsx#L9-L60)
+- Enhanced FrankieStory with multi-section narrative: [src/components/story/FrankieStory.jsx:88-205](file://src/components/story/FrankieStory.jsx#L88-L205)
+- Heartbeat transition component: [src/components/acts/Heartbeat.jsx:8-70](file://src/components/acts/Heartbeat.jsx#L8-L70)
+- Act-specific content rendering: [src/App.jsx:76-152](file://src/App.jsx#L76-L152)
 
 **Section sources**
-- [src/App.jsx:1-87](file://src/App.jsx#L1-L87)
-- [src/components/acts/ActSection.jsx:1-34](file://src/components/acts/ActSection.jsx#L1-L34)
-- [src/components/acts/Heartbeat.jsx:1-21](file://src/components/acts/Heartbeat.jsx#L1-L21)
+- [src/App.jsx:1-171](file://src/App.jsx#L1-L171)
+- [src/components/acts/ActSection.jsx:1-61](file://src/components/acts/ActSection.jsx#L1-L61)
+- [src/components/acts/Heartbeat.jsx:1-71](file://src/components/acts/Heartbeat.jsx#L1-L71)
+- [src/components/story/FrankieStory.jsx:1-206](file://src/components/story/FrankieStory.jsx#L1-L206)
 
-### Act-Specific Component Analysis
+### Enhanced Content Management System
+The application uses a centralized content management approach through the acts array structure with enhanced narrative framework and pre-Act 1 introduction:
+- **Structured Six-Act Content**: Organized narrative blocks with rich metadata
+- **Pre-Act 1 Introduction**: New introductory section with powerful opening statement and welcome message
+- **Narrative Blocks**: Text, emphasis, and centered content types with multi-section support
+- **Visual Breaths**: Standalone large typography statements
+- **Timeline Data**: Year-based career milestone presentations
+- **Childhood Dreams Visualization**: Structured dream data with image assets and descriptive text
+- **Color Theming**: Act-specific color assignments with warm cream palette
+- **Navigation Integration**: Dedicated arrays for navigation and section identification
 
-#### FrankieStory Component
-The FrankieStory component presents Act I's personal narrative:
-- Scroll-reveal animations for narrative and timeline elements
-- Philosophy statement with fade-up animation
-- Timeline presentation with year/title/description structure
-- Pull quote with fade-in animation
-- Act-specific content access through content.acts[0]
+### Enhanced Typography System with Intelligent Emphasis Detection
+The FrankieStory component now features sophisticated typography with intelligent emphasis detection:
+- **Major Emphasis Detection**: Automatic identification of Level 1 emotional peaks with larger typography
+- **Standard Emphasis Recognition**: Supporting reflections with medium emphasis sizing
+- **Mattered Triplet Handling**: Special treatment for tightly grouped emphasis statements
+- **Body Copy Optimization**: Improved readability with enhanced line heights and spacing
+- **Responsive Typography**: Fluid scaling across different screen sizes
+- **Accessibility Improvements**: Better contrast ratios and reading experience
 
-#### Entrepreneurship Component
-The Entrepreneurship component showcases Act II's ventures:
-- Grid-based card layout for venture presentations
-- SVG placeholders with gradient backgrounds
-- Impact indicators with specialized styling
-- Timeline presentation for career milestones
-- Scroll-reveal animations for card elements
-
-#### MediaHub Component
-The MediaHub component presents Act III's media presence:
-- Interactive filtering system for different content types
-- Tab-based navigation for content categories
-- Responsive grid layout for media items
-- SVG placeholders with gradient backgrounds
-- Dynamic content aggregation from shows, interviews, and press arrays
-
-#### Creativity Component
-The Creativity component showcases Act IV's artistic endeavors:
-- GSAP-powered animations for card elements
-- Parallax-style entrance animations
-- Wide and standard card layouts
-- Type-based icon system (book, radio, art, writing)
-- Scroll-triggered animations with reduced motion support
-
-#### CommunityImpact Component
-The CommunityImpact component presents Act V's community work:
-- Parallax image effects with useParallax hook
-- GSAP-powered card animations
-- Layout with image column and initiative cards
-- Quote band with fade-in animation
-- Scroll-triggered animations with toggle actions
-
-#### FutureVision Component
-The FutureVision component presents Act VI's ongoing work:
-- Mission statement with reveal animation
-- Project showcase with accent elements
-- Simple card-based layout for current initiatives
-- Scroll-reveal animations for content elements
-
-**Section sources**
-- [src/components/story/FrankieStory.jsx:1-39](file://src/components/story/FrankieStory.jsx#L1-L39)
-- [src/components/entrepreneurship/Entrepreneurship.jsx:1-48](file://src/components/entrepreneurship/Entrepreneurship.jsx#L1-L48)
-- [src/components/media/MediaHub.jsx:1-73](file://src/components/media/MediaHub.jsx#L1-L73)
-- [src/components/creativity/Creativity.jsx:1-56](file://src/components/creativity/Creativity.jsx#L1-L56)
-- [src/components/community/CommunityImpact.jsx:1-84](file://src/components/community/CommunityImpact.jsx#L1-L84)
-- [src/components/vision/FutureVision.jsx:1-30](file://src/components/vision/FutureVision.jsx#L1-L30)
-
-### Content Management System
-The application uses a centralized content management approach through the acts array structure:
-- Structured six-act content organization
-- Consistent data structure for different content types per act
-- Easy maintenance and updates through single source of truth
-- Integration with components for dynamic content rendering
-- Color theming integration through CSS variables
-- Navigation and section identification through dedicated arrays
+### ScrapbookCard Component Architecture
+The new ScrapbookCard component provides sophisticated image-based dream visualization:
+- **Image Asset Integration**: Loads PNG images from public directory for each dream
+- **Randomized Rotation Effects**: Creates authentic scrapbook aesthetic with varied tilt angles
+- **Scroll-Triggered Animations**: Cards animate into view using intersection observer
+- **Hover Interactions**: Smooth scale and rotation correction on mouse hover
+- **Performance Optimization**: Lazy loading and efficient animation scheduling
+- **Responsive Design**: Adapts gracefully across different screen sizes
 
 ```mermaid
 graph TB
 Content["Content System"] --> ActsArray["acts Array<br/>Six Acts Structure"]
 Content --> Hero["Hero Content"]
-Content --> Closing["Closing Content"]
-Content --> Contact["Contact Information"]
-Content --> SectionIds["sectionIds Array"]
-Content --> NavLinks["navLinks Array"]
-Content --> ActColors["actColors Object"]
-ActsArray --> Becoming["Act I: Becoming"]
+Content --> WhoIsFrankie["Who Is Frankie Content"]
+Content --> PreAct1Intro["preAct1Intro Object<br/>Opening Statement"]
+Content --> SectionIds["sectionIds Array<br/>Complete Navigation Structure"]
+Content --> NavLinks["navLinks Array<br/>Hierarchical Navigation"]
+Content --> ChildhoodDreams["childhoodDreams Array<br/>Image-Based Dreams"]
+ActsArray --> WhereBeliefBegan["Act I: Where Belief Began<br/>Lavender Background #D8C8EE"]
 ActsArray --> Building["Act II: Building"]
 ActsArray --> Amplifying["Act III: Amplifying"]
 ActsArray --> Creating["Act IV: Creating"]
 ActsArray --> Giving["Act V: Giving"]
 ActsArray --> StillBecoming["Act VI: Still Becoming"]
-Becoming --> Philosophy["Philosophy Statement"]
-Becoming --> Timeline["Early Timeline"]
+WhereBeliefBegan --> NarrativeBlocks["Narrative Blocks"]
+WhereBeliefBegan --> VisualBreaths["Visual Breath Statements"]
+WhereBeliefBegan --> TimelineData["Timeline Milestones"]
+WhereBeliefBegan --> ChildhoodDreamsData["Childhood Dreams Data"]
+WhereBeliefBegan --> NarrativePart2["Narrative Part 2"]
+WhereBeliefBegan --> NarrativePart3["Narrative Part 3"]
+ChildhoodDreamsData --> DreamImages["PNG Image Assets"]
+ChildhoodDreamsData --> DreamDescriptions["Dream Descriptions"]
 Building --> Ventures["Venture Showcase"]
-Amplifying --> Shows["Media Content"]
+Amplifying --> Interviews["Interview Content"]
 Creating --> Works["Creative Works"]
 Giving --> Initiatives["Community Initiatives"]
-StillBecoming --> Awards["Recognition Awards"]
+StillBecoming --> FutureProjects["Future Projects"]
 ```
 
 **Diagram sources**
-- [src/data/content.js:11-172](file://src/data/content.js#L11-L172)
-- [src/data/content.js:208-239](file://src/data/content.js#L208-L239)
+- [src/data/content.js:15-28](file://src/data/content.js#L15-28)
+- [src/data/content.js:69-164](file://src/data/content.js#L69-L164)
+- [src/components/story/FrankieStory.jsx:88-177](file://src/components/story/FrankieStory.jsx#L88-L177)
 
 **Section sources**
-- [src/data/content.js:1-239](file://src/data/content.js#L1-L239)
-
-### Animation and Interaction System
-The application leverages GSAP for advanced animations and scroll effects:
-- Scroll-triggered animations for enhanced user experience
-- Smooth transitions and entrance effects
-- Performance-optimized animations with proper cleanup
-- Integration with React component lifecycle
-- Reduced motion support for accessibility
-- Parallax effects with useParallax hook
-- Staggered animations with GSAP stagger functionality
-
-```mermaid
-flowchart TD
-GSAP["GSAP Integration"] --> ScrollTrigger["Scroll Trigger Events"]
-GSAP --> Animations["Component Animations"]
-GSAP --> Transitions["Page Transitions"]
-GSAP --> Parallax["Parallax Effects"]
-ScrollTrigger --> ComponentEffects["Component-Specific Effects"]
-Animations --> Performance["Performance Optimization"]
-Transitions --> UserExperience["Enhanced UX"]
-Parallax --> ImageEffects["Image Movement Effects"]
-ReducedMotion["Reduced Motion Support"] --> Accessibility["Accessibility Features"]
-```
-
-**Diagram sources**
-- [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
-- [src/components/creativity/Creativity.jsx:11-32](file://src/components/creativity/Creativity.jsx#L11-L32)
-- [src/components/community/CommunityImpact.jsx:13-34](file://src/components/community/CommunityImpact.jsx#L13-L34)
-
-**Section sources**
-- [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
-
-### Vite Development and Build System
-Vite orchestrates the development and build lifecycle:
-- Development Server
-  - Port 3000 with automatic browser opening
-  - React plugin enabled for JSX and fast refresh
-- Production Build
-  - Generates optimized static assets to dist/
-- Preview
-  - Serves built assets locally for verification
-
-```mermaid
-flowchart TD
-Start(["Developer runs npm run dev"]) --> ViteStart["Vite starts dev server on port 3000"]
-ViteStart --> ReactPlugin["React plugin active"]
-ReactPlugin --> HotReload["Hot module replacement"]
-HotReload --> Browser["Browser receives React app"]
-Build(["npm run build"]) --> ViteBuild["Vite produces optimized assets"]
-ViteBuild --> Dist["dist/ directory"]
-Preview(["npm run preview"]) --> Dist
-Dist --> PreviewServer["Preview server on port 3000"]
-```
-
-**Diagram sources**
-- [vite.config.js:4-10](file://vite.config.js#L4-L10)
-- [package.json:6-10](file://package.json#L6-L10)
-
-**Section sources**
-- [vite.config.js:1-11](file://vite.config.js#L1-L11)
-- [package.json:1-23](file://package.json#L1-L23)
-
-### Frontend Static Asset Serving
-The frontend relies on a minimal HTML shell located in the public directory:
-- Single HTML file with embedded basic styles
-- Served directly by Vite dev server
-- Ready for React integration and component rendering
-
-```mermaid
-graph LR
-ViteDev["Vite Dev Server"] --> Public["public/index.html"]
-Browser["Browser"] --> Public
-Public --> ReactApp["React Application"]
-ReactApp --> Components["React Components"]
-```
-
-**Diagram sources**
-- [vite.config.js:6-9](file://vite.config.js#L6-L9)
-- [public/index.html:1-21](file://public/index.html#L1-L21)
-
-**Section sources**
-- [public/index.html:1-21](file://public/index.html#L1-L21)
-- [vite.config.js:6-9](file://vite.config.js#L6-L9)
-
-### ES6 Module System and Package Management
-- ES Modules
-  - The project declares module type in package.json enabling native ES modules
-  - React application uses ES module imports and exports
-- Dependencies
-  - React and React DOM for frontend framework
-  - Vite and @vitejs/plugin-react for development and build tooling
-  - GSAP for advanced animations and scroll effects
-- Scripts
-  - Development, build, and preview commands orchestrated via npm scripts
-
-```mermaid
-graph TB
-Pkg["package.json"]
-Deps["Dependencies"]
-DevDeps["Dev Dependencies"]
-Scripts["Scripts"]
-Pkg --> Deps
-Pkg --> DevDeps
-Pkg --> Scripts
-Deps --> React["React Ecosystem"]
-DevDeps --> Vite["Vite Tooling"]
-Deps --> GSAP["Animation Library"]
-```
-
-**Diagram sources**
-- [package.json:11-21](file://package.json#L11-L21)
-- [package.json:6-10](file://package.json#L6-L10)
-
-**Section sources**
-- [package.json:1-23](file://package.json#L1-L23)
+- [src/data/content.js:1-460](file://src/data/content.js#L1-L460)
+- [src/components/story/FrankieStory.jsx:1-206](file://src/components/story/FrankieStory.jsx#L1-L206)
 
 ## Dependency Analysis
-The application maintains clean separation between frontend dependencies with integrated theming:
+The application maintains clean separation between frontend dependencies with integrated theming and enhanced motion:
 - React Application depends on:
   - React and React DOM for component rendering
-  - GSAP for advanced animations and scroll effects
-  - CSS modules for scoped styling with theming integration
+  - Framer Motion for advanced animations and motion effects
+  - Lenis for smooth scrolling experience
+  - Tailwind CSS v4 for utility-first styling
 - Vite configuration depends on:
   - React plugin for JSX support and fast refresh
+  - Tailwind CSS v4 plugin for build-time processing
   - Development server settings
 - Component dependencies:
-  - Shared hooks and utilities
-  - Centralized content management through acts array
-  - Modular CSS architecture with integrated theming system
-- Theming dependencies:
-  - CSS variables for act-specific color schemes
-  - Theme class application through ActSection component
-  - Dynamic color application across all components
+  - Shared hooks and utilities for animations and color management
+  - Centralized content management through acts array, navigation arrays, and preAct1Intro object
+  - Modular architecture with Tailwind CSS integration
+  - Image asset management for childhood dreams visualization
+- Animation dependencies:
+  - Framer Motion for declarative animations
+  - useScrollAnimation hooks for scroll-based effects
+  - Lenis for smooth scrolling engine
+  - ScrapbookCard animation system for dream visualization
+  - Heartbeat transition animations for inter-act transitions
+- Color management dependencies:
+  - Context API for global color state
+  - CSS custom properties for runtime updates
+  - Section-based color palettes with warm cream palette
+- Styling dependencies:
+  - Tailwind CSS v4 with @theme configuration
+  - CSS custom properties for dynamic theming
+  - Global styles with utility classes
 
 ```mermaid
 graph TB
 ReactApp["React Application"]
 Vite["Vite Dev Server"]
 ReactPlugin["@vitejs/plugin-react"]
-GSAP["GSAP Animation Library"]
-CSSModules["CSS Modules"]
-ContentData["Content Data System"]
+TailwindPlugin["@tailwindcss/vite"]
+FramerMotion["Framer Motion Library"]
+Lenis["Lenis Smooth Scrolling"]
+TailwindCSS["Tailwind CSS v4"]
+ContentData["Enhanced Content Data System"]
 Hooks["Custom Hooks"]
-ThemingSystem["Theming System"]
-ResponsiveDesign["Responsive Design System"]
+ColorSystem["Color Management System<br/>Warm Cream Palette"]
+AnimationSystem["Animation System"]
+StylingSystem["Styling System"]
+ImageAssets["Image Assets<br/>PNG Dreams"]
+ScrapbookCard["ScrapbookCard Component"]
+Heartbeat["Heartbeat Component"]
 ReactApp --> ReactPlugin
-ReactApp --> GSAP
-ReactApp --> CSSModules
+ReactApp --> TailwindPlugin
+ReactApp --> FramerMotion
+ReactApp --> Lenis
+ReactApp --> TailwindCSS
 ReactApp --> ContentData
 ReactApp --> Hooks
-ReactApp --> ThemingSystem
-ReactApp --> ResponsiveDesign
+ReactApp --> ColorSystem
+ReactApp --> AnimationSystem
+ReactApp --> StylingSystem
+ReactApp --> ImageAssets
+ReactApp --> ScrapbookCard
+ReactApp --> Heartbeat
 Vite --> ReactPlugin
-ContentData --> ThemingSystem
-CSSModules --> ThemingSystem
+Vite --> TailwindPlugin
+ContentData --> ColorSystem
+ContentData --> AnimationSystem
+ContentData --> ImageAssets
+TailwindCSS --> StylingSystem
+ColorSystem --> StylingSystem
+AnimationSystem --> StylingSystem
+ScrapbookCard --> ImageAssets
+ScrapbookCard --> AnimationSystem
+Heartbeat --> AnimationSystem
 ```
 
 **Diagram sources**
 - [src/main.jsx:1-3](file://src/main.jsx#L1-L3)
-- [vite.config.js:2](file://vite.config.js#L2)
-- [src/hooks/useGsap.js:1-4](file://src/hooks/useGsap.js#L1-L4)
-- [src/data/content.js:11-172](file://src/data/content.js#L11-L172)
-- [src/styles/_variables.css:50-56](file://src/styles/_variables.css#L50-L56)
+- [vite.config.js:2-6](file://vite.config.js#L2-L6)
+- [src/hooks/useColorSystem.js:1-3](file://src/hooks/useColorSystem.js#L1-L3)
+- [src/hooks/useLenis.js:1-2](file://src/hooks/useLenis.js#L1-L2)
+- [src/hooks/useScrollAnimation.js:1-2](file://src/hooks/useScrollAnimation.js#L1-L2)
+- [src/data/content.js:1](file://src/data/content.js#L1)
+- [src/components/layout/Nav.jsx:1-2](file://src/components/layout/Nav.jsx#L1-L2)
+- [src/components/story/FrankieStory.jsx:1-3](file://src/components/story/FrankieStory.jsx#L1-L3)
+- [src/components/acts/Heartbeat.jsx:1-2](file://src/components/acts/Heartbeat.jsx#L1-L2)
 
 **Section sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [vite.config.js:1-11](file://vite.config.js#L1-L11)
-- [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
-- [src/data/content.js:1-239](file://src/data/content.js#L1-L239)
-- [src/styles/_variables.css:1-72](file://src/styles/_variables.css#L1-L72)
+- [vite.config.js:1-12](file://vite.config.js#L1-L12)
+- [src/hooks/useColorSystem.js:1-184](file://src/hooks/useColorSystem.js#L1-L184)
+- [src/hooks/useLenis.js:1-38](file://src/hooks/useLenis.js#L1-L38)
+- [src/hooks/useScrollAnimation.js:1-118](file://src/hooks/useScrollAnimation.js#L1-L118)
+- [src/data/content.js:1-460](file://src/data/content.js#L1-L460)
+- [src/components/layout/Nav.jsx:1-172](file://src/components/layout/Nav.jsx#L1-L172)
+- [src/components/story/FrankieStory.jsx:1-206](file://src/components/story/FrankieStory.jsx#L1-L206)
+- [src/components/acts/Heartbeat.jsx:1-71](file://src/components/acts/Heartbeat.jsx#L1-L71)
 
 ## Performance Considerations
 - Development Performance
   - Vite's fast refresh and optimized bundling minimize rebuild times
   - Hot reloading reduces iteration cycles during development
   - React Fast Refresh provides instant component updates
+  - Tailwind CSS v4 provides efficient build-time processing
 - Production Performance
   - Vite's build process generates optimized assets suitable for deployment
-  - CSS modules provide scoped styling without global conflicts
-  - Integrated theming system reduces runtime calculations
-  - Responsive approach reduces unnecessary CSS for smaller devices
-  - Utility classes minimize custom CSS bloat
+  - Tailwind CSS purges unused styles for smaller bundle sizes
+  - Framer Motion provides hardware-accelerated animations
+  - Lenis optimizes scroll performance with requestAnimationFrame
+  - CSS custom properties reduce runtime calculations
+  - Utility-first approach minimizes custom CSS bloat
   - Component lazy loading opportunities for future optimization
+  - **Enhanced Image Loading**: Lazy loading for childhood dreams images improves initial page load performance
 - Animation Performance
-  - GSAP provides hardware-accelerated animations
-  - Proper cleanup of event listeners and animations
-  - Optimized scroll event handling with throttling
-  - Backdrop filter effects optimized for modern browsers
+  - Framer Motion provides GPU-accelerated animations with proper cleanup
+  - Scroll-based animations use transform properties for optimal performance
+  - Staggered animations use efficient animation scheduling
   - Reduced motion support prevents unnecessary animations
-- Theming Performance
-  - CSS variables provide efficient color switching
-  - Theme class application minimizes style recalculation
-  - Act-specific colors cached through CSS variables
-  - Efficient watermark rendering with transform optimization
+  - AnimatePresence handles mount/unmount animations efficiently
+  - **ScrapbookCard Optimization**: Efficient rotation calculations and hover state management
+  - **Heartbeat Optimization**: Lightweight gradient morphing with minimal reflows
+- Smooth Scrolling Performance
+  - Lenis provides hardware-accelerated smooth scrolling
+  - RequestAnimationFrame-based rendering for smooth frame rates
+  - Gesture optimization for touch and wheel interactions
+  - Memory-efficient cleanup on component unmount
+- Color Management Performance
+  - CSS custom properties provide efficient color switching
+  - Context-based color state minimizes re-renders
+  - Section-based color updates reduce unnecessary calculations
+  - Fallback values prevent style recalculation errors
+  - **Enhanced Contrast Optimization**: Improved color contrast ratios reduce visual strain
 - Responsive Performance
-  - Responsive design reduces CSS parsing overhead on smaller devices
+  - Tailwind CSS v4 provides efficient responsive utilities
+  - Mobile-first approach reduces CSS parsing overhead on smaller devices
   - Responsive images and optimized asset loading
   - Touch-friendly interactive elements
   - Reduced JavaScript bundle size through modular architecture
 - Scalability Notes
-  - Six-act framework supports easy content expansion
+  - Cinematic narrative framework supports easy content expansion
   - Component-based architecture supports easy scaling
-  - CSS modules enable maintainable styling at scale
-  - Integrated theming system supports new act additions
-  - Responsive approach ensures future-proof design
+  - Tailwind CSS enables maintainable styling at scale
+  - Integrated color system supports new section additions
+  - Animation system provides consistent motion patterns
+  - **Enhanced Image Asset Management**: Structured approach to managing visual storytelling assets
+  - **Multi-Section Narrative Support**: Scalable architecture for complex storytelling frameworks
+  - **Typography System Scalability**: Intelligent emphasis detection scales with content complexity
 
 ## Troubleshooting Guide
 Common issues and resolutions:
@@ -782,52 +986,95 @@ Common issues and resolutions:
 - Component Rendering Issues
   - Verify React and React DOM versions match
   - Check component imports and export statements
-  - Ensure CSS modules are properly imported
-  - Validate ActSection component props and theming classes
+  - Ensure Tailwind CSS classes are properly applied
+  - Validate ActSection component props and color applications
+- Animation System Problems
+  - Verify Framer Motion installation and imports
+  - Check for proper cleanup of scroll triggers and observers
+  - Ensure component unmounting removes event listeners
+  - Validate reduced motion support implementation
+- ScrapbookCard Specific Issues
+  - Verify childhood dreams image files exist in public directory
+  - Check image file paths in content.js match actual filenames
+  - Ensure image assets are properly loaded and accessible
+  - Validate animation performance with large image sets
+- Heartbeat Transition Issues
+  - Verify gradient color transitions are working correctly
+  - Check breathing orb animation performance
+  - Ensure accent line animations trigger properly
+  - Validate text reveal animations for Frankieism quotes
+- Smooth Scrolling Issues
+  - Verify Lenis installation and initialization
+  - Check for proper cleanup of scroll event listeners
+  - Ensure component unmounting destroys Lenis instance
+  - Validate prefers-reduced-motion media query handling
+- Color Management Problems
+  - Verify CSS custom properties are properly defined
+  - Check color context provider wrapping
+  - Ensure section-based color updates are working
+  - Validate fallback color values
+  - **Enhanced Contrast Issues**: Verify WCAG compliance for new warm cream palette
+- Navigation System Problems
+  - Verify active section detection logic
+  - Check sectionIds array matches actual section element ids
+  - Ensure navLinks array structure matches expected navigation format
+  - Validate mobile menu Framer Motion animations
 - Act-Specific Component Problems
   - Verify content.acts array structure and indexing
   - Check act.id values match expected values
-  - Ensure theme classes are properly applied
+  - Ensure background colors are properly applied
   - Validate act-specific content arrays exist
-- Theming Issues
-  - Verify CSS variables are properly defined
-  - Check theme class application in ActSection
-  - Ensure act-specific color tokens exist
-  - Validate CSS variable fallbacks
-- Animation Problems
-  - Verify GSAP and @gsap/react installations
-  - Check for proper cleanup of scroll triggers
-  - Ensure component unmounting removes event listeners
-  - Validate reduced motion support implementation
-- Mobile Menu Problems
-  - Verify GSAP and @gsap/react installations
-  - Check for proper cleanup of scroll triggers
-  - Ensure component unmounting removes event listeners
-  - Validate mobile menu accessibility attributes
+- Enhanced Narrative Framework Issues
+  - Verify preAct1Intro object structure and data fields
+  - Check multi-section narrative rendering in FrankieStory component
+  - Ensure narrative block types (text, emphasis, centered) are handled correctly
+  - Validate visual breaths and reflection sections render properly
+- Child Dreams Visualization Issues
+  - Verify childhoodDreams array structure in content.js
+  - Check image file extensions and paths are correct
+  - Ensure responsive grid layout works across screen sizes
+  - Validate hover interactions and animation timing
+- Typography System Issues
+  - Verify intelligent emphasis detection is working correctly
+  - Check major emphasis statements are properly identified
+  - Ensure proper contrast ratios for all text levels
+  - Validate responsive typography scaling
+- Tailwind CSS Issues
+  - Verify Tailwind CSS v4 plugin is properly configured
+  - Check for proper @theme directive usage
+  - Ensure CSS custom properties are accessible in Tailwind classes
+  - Validate responsive breakpoint syntax
 - Development Server Not Starting
   - Check Node.js and npm versions meet project requirements
   - Run installation steps and review script commands in package.json
-- CSS Module Issues
-  - Verify CSS files are properly imported with .module.css extension
-  - Check for naming conventions and class name conflicts
-  - Ensure CSS variables are properly defined in global styles
-  - Validate theme class application syntax
-- Responsive Design Issues
-  - Verify responsive CSS is properly structured
-  - Check media query breakpoints and specificity
-  - Validate utility class usage and ordering
-  - Ensure container classes are applied correctly
-  - Check act-specific responsive overrides
+- Performance Issues
+  - Monitor Framer Motion animation performance
+  - Check for memory leaks in scroll event listeners
+  - Verify Lenis smooth scrolling doesn't cause jank
+  - Optimize large content blocks for better rendering
+  - **Enhanced Image Loading Optimization**: Monitor image loading performance and consider additional optimization techniques
+  - **Multi-Section Narrative Performance**: Ensure narrative blocks render efficiently without causing layout shifts
+  - **Typography Performance**: Validate emphasis detection doesn't impact rendering performance
+- Mobile Menu Problems
+  - Verify Framer Motion AnimatePresence usage
+  - Check for proper z-index layering
+  - Ensure body overflow control during menu transitions
+  - Validate mobile menu accessibility attributes
 
 **Section sources**
-- [vite.config.js:6-9](file://vite.config.js#L6-L9)
+- [vite.config.js:6-10](file://vite.config.js#L6-L10)
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/hooks/useGsap.js:1-14](file://src/hooks/useGsap.js#L1-L14)
-- [src/components/acts/ActSection.jsx:1-34](file://src/components/acts/ActSection.jsx#L1-L34)
-- [src/styles/_variables.css:50-56](file://src/styles/_variables.css#L50-L56)
+- [src/hooks/useLenis.js:1-38](file://src/hooks/useLenis.js#L1-L38)
+- [src/hooks/useColorSystem.js:1-184](file://src/hooks/useColorSystem.js#L1-L184)
+- [src/components/layout/Nav.jsx:1-172](file://src/components/layout/Nav.jsx#L1-L172)
+- [src/components/acts/ActSection.jsx:1-61](file://src/components/acts/ActSection.jsx#L1-L61)
+- [src/components/acts/Heartbeat.jsx:1-71](file://src/components/acts/Heartbeat.jsx#L1-L71)
+- [src/components/story/FrankieStory.jsx:1-206](file://src/components/story/FrankieStory.jsx#L1-L206)
+- [src/data/content.js:1-460](file://src/data/content.js#L1-L460)
+- [src/styles/globals.css:1-340](file://src/styles/globals.css#L1-L340)
 - [package.json:6-10](file://package.json#L6-L10)
 
 ## Conclusion
-The Frankie Picasso application exemplifies modern React SPA architecture with a revolutionary six-act narrative framework. The implementation demonstrates sophisticated data-driven content organization, integrated theming system with CSS custom properties, and advanced animation techniques using GSAP. The six-act framework transforms traditional component-based architecture into a cohesive storytelling experience where each act represents a distinct phase of Frankie's journey with its own color scheme, themes, and specialized content presentation.
+The Frankie Picasso application exemplifies modern React SPA architecture with a cinematic narrative framework and sophisticated animation system. The implementation demonstrates advanced data-driven content organization, integrated theming system with Tailwind CSS v4, and comprehensive motion techniques using Framer Motion. The enhanced architecture provides seamless user experience with smooth scrolling, dynamic color transitions, and responsive design patterns that adapt to various screen sizes.
 
-**Updated**: The application has successfully transitioned from a traditional component-based section system to a six-act narrative framework that organizes content around Frankie Picasso's life story. The new architecture provides a scalable foundation for content management while maintaining the responsive design principles and educational focus that make this implementation an excellent example of contemporary web development patterns. The integrated theming system using CSS variables ensures consistent visual identity across all acts, while the component-based approach supports maintainable and extensible code architecture. This implementation serves as a comprehensive demonstration of modern web development practices including data-driven architecture, responsive design, accessibility considerations, and performance optimization.
+**Updated**: The application has successfully implemented a comprehensive visual design transformation, transitioning from purple gradient themes to a sophisticated warm neutral cream palette throughout Act 1. The new color system features lavender backgrounds (#D8C8EE) with complementary warm accents (#FFB400, #FF7C15), creating a more accessible and emotionally resonant visual experience. The typography system has been significantly enhanced with intelligent emphasis detection that automatically identifies major emotional statements, standard emphasis, and special "mattered" triplets, providing improved readability and accessibility. The FrankieStory component now features sophisticated multi-section narrative framework with pre-Act 1 introduction, enhanced ScrapbookCard implementation with image-based dream visualization, and responsive design patterns. The integrated theming system using Tailwind CSS v4 ensures consistent visual identity across all acts while maintaining WCAG-compliant contrast ratios. The component-based approach supports maintainable and extensible code architecture with the Heartbeat transition component providing cinematic inter-act transitions. This implementation serves as a comprehensive demonstration of contemporary web development practices including data-driven architecture, responsive design, accessibility considerations, performance optimization, and advanced animation techniques using modern libraries like Framer Motion and Lenis. The enhanced visual storytelling through image-based dream cards and multi-section narrative framework creates a more emotionally engaging user experience while maintaining excellent performance through lazy loading and optimized animations. The sophisticated content management system with preAct1Intro object and expanded data fields supports the enhanced narrative flow and provides a scalable foundation for future storytelling enhancements. The warm cream palette and lavender accents create a cohesive, accessible design that better serves the intimate, personal nature of the narrative content.

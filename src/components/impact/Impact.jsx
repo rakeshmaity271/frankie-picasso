@@ -25,17 +25,17 @@ export default function Impact() {
   const isInView = useInView(statsRef, { once: true, amount: 0.3 })
 
   return (
-    <section id="impact" className="relative py-12 md:py-20 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#F5EFE6' }}>
+    <section id="impact" className="relative py-8 md:py-14 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#F5EFE6' }}>
       <div className="max-w-[1000px] mx-auto">
         <ScrollReveal variant="fadeUp">
           <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#FFB400] mb-4">{data.title}</p>
-          <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#2C2C2C] mb-10 md:mb-14 max-w-[700px]">
+          <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#2C2C2C] mb-6 md:mb-10 max-w-[700px]">
             {data.subtitle}
           </h2>
         </ScrollReveal>
 
         {/* Stats */}
-        <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-14 md:mb-20">
+        <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10 md:mb-14">
           {data.stats.map((stat, i) => (
             <div key={i} className="text-center">
               <CountUp target={stat.number} isInView={isInView} />

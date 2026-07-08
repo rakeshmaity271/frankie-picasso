@@ -53,7 +53,7 @@ export default function HeroExperience() {
       />
 
       {/* ── Hero Viewport: Eyebrow + Headline ── */}
-      <div className="relative z-10 max-w-[900px] mx-auto text-center min-h-screen flex flex-col items-center justify-center">
+      <div className="relative z-10 max-w-[900px] mx-auto text-center min-h-[55vh] flex flex-col items-center justify-center pt-14 md:pt-16">
         {/* Eyebrow — enlarged per client request */}
         <motion.p
           className="font-serif text-lg md:text-2xl lg:text-3xl font-light tracking-[0.15em] text-[#7A6545] mb-3 md:mb-4"
@@ -65,7 +65,7 @@ export default function HeroExperience() {
         </motion.p>
 
         {/* Headline — "This isn't a résumé!" */}
-        <h1 className="font-serif font-semibold text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.1] tracking-[-0.02em] text-[#2C2C2C] mb-6 md:mb-8">
+        <h1 className="font-serif font-semibold text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.1] tracking-[-0.02em] text-[#2C2C2C] mb-4 md:mb-5">
           <TextReveal
             text={hero.headline}
             mode="word"
@@ -93,10 +93,12 @@ export default function HeroExperience() {
       </div>
 
       {/* ── Intro Script: "It's the story of an ordinary girl..." ── */}
-      <div className="relative z-10 max-w-[760px] mx-auto text-center py-12 md:py-20">
+      <div className="relative z-10 max-w-[760px] mx-auto text-center py-5 md:py-8">
         {preIntro.lines.map((line, i) => (
           <ScrollReveal key={i} variant="fadeIn" duration={1}>
-            <p className={`font-serif leading-[1.6] text-[#2C2C2C] mb-3 md:mb-4 ${
+            <p className={`font-serif leading-[1.5] text-[#2C2C2C] ${
+              i === preIntro.lines.length - 1 ? 'mb-0' : 'mb-1.5 md:mb-2'
+            } ${
               i === 1 ? 'text-[clamp(1.5rem,3.5vw,2.5rem)] font-semibold text-center italic text-[#7A6545]' :
               'text-lg md:text-xl lg:text-[1.35rem]'
             }`}>
@@ -107,7 +109,7 @@ export default function HeroExperience() {
 
         {/* Frankieism — "Belief is where every dream begins." */}
         <ScrollReveal variant="fadeIn" duration={1.2}>
-          <div className="py-6 md:py-8 text-center">
+          <div className="text-center mt-2 md:mt-3">
             <p className="font-serif italic text-[clamp(1.25rem,2.5vw,1.75rem)] text-[#2C2C2C]/70">
               {preIntro.frankieism}
             </p>
@@ -116,7 +118,7 @@ export default function HeroExperience() {
 
         {/* "Let's Begin..." transition */}
         <ScrollReveal variant="fadeIn" duration={1}>
-          <div className="py-4 md:py-6 text-center">
+          <div className="text-center mt-2 md:mt-3">
             <p className="font-serif font-light text-[clamp(1.5rem,3vw,2.25rem)] tracking-[0.05em] text-[#7A6545]/80">
               {preIntro.actTransition}
             </p>

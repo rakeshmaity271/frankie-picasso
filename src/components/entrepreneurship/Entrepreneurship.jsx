@@ -8,17 +8,17 @@ const act = content.acts[1] // Building
 
 export default function Entrepreneurship() {
   return (
-    <div className="pb-12 md:pb-16 px-6 md:px-10 lg:px-16">
+    <div className="pb-8 md:pb-12 px-6 md:px-10 lg:px-16">
       <div className="max-w-[1100px] mx-auto">
         {/* Intro */}
         <ScrollReveal variant="fadeUp">
-          <p className="font-serif text-lg md:text-xl lg:text-2xl leading-relaxed text-[#2C2C2C]/80 max-w-[700px] mb-10 md:mb-14">
+          <p className="font-serif text-lg md:text-xl lg:text-2xl leading-relaxed text-[#2C2C2C]/80 max-w-[700px] mb-6 md:mb-10">
             {act.intro}
           </p>
         </ScrollReveal>
 
         {/* Ventures — split layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 mb-10 md:mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mb-8 md:mb-10">
           {act.ventures.map((venture, i) => (
             <ScrollReveal key={i} variant="fadeUp" delay={i * 0.08}>
               <div className="group p-6 md:p-8 rounded-xl bg-white/30 backdrop-blur-sm border border-white/40 hover:bg-white/50 transition-all duration-500">
@@ -40,7 +40,7 @@ export default function Entrepreneurship() {
         </div>
 
         {/* Timeline */}
-        <div className="mb-10 md:mb-14">
+        <div className="mb-8 md:mb-10">
           <ScrollReveal variant="fadeUp">
             <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#2C2C2C]/40 mb-8">
               Key Milestones
@@ -48,7 +48,7 @@ export default function Entrepreneurship() {
           </ScrollReveal>
           {act.timeline.map((entry, i) => (
             <ScrollReveal key={i} variant="fadeLeft" delay={i * 0.1}>
-              <div className="flex gap-6 md:gap-8 mb-8 pb-8 border-b border-[#2C2C2C]/8">
+              <div className="flex gap-6 md:gap-8 mb-5 pb-5 border-b border-[#2C2C2C]/8">
                 <span className="font-serif italic text-[#EE5802] text-sm min-w-[80px] pt-1">
                   {entry.year}
                 </span>

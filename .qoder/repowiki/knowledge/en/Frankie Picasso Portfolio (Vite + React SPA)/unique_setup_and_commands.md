@@ -1,0 +1,1 @@
+Dev server runs on port 3000 and auto-opens the browser (`vite.config.js` server config). Standard scripts: `npm run dev` / `npm run build` / `npm run preview`.
