@@ -11,9 +11,30 @@ const act = content.acts[0]
 const MAJOR_EMPHASIS = [
   'Because he believed it, I believed it too.',
   'He was my best friend.',
-  'Because when someone believes in you, they don\u2019t just change your future, they change your idea of what\u2019s possible.',
-  'Our childhood dreams don\u2019t disappear. They simply wait for us to remember them. Midlife isn\u2019t about finding yourself. It\u2019s about returning to the parts of yourself you left behind.',
 ]
+
+/**
+ * Render inline content — supports string or array of segments
+ * with optional bold/underline formatting.
+ */
+function InlineContent({ content }) {
+  if (typeof content === 'string') return <>{content}</>
+  return (
+    <>
+      {content.map((seg, i) => (
+        <span
+          key={i}
+          className={[
+            seg.bold ? 'font-semibold text-[#2C2C2C]' : '',
+            seg.underline ? 'underline decoration-[#8B5FB0] decoration-2 underline-offset-2' : '',
+          ].filter(Boolean).join(' ')}
+        >
+          {seg.text}
+        </span>
+      ))}
+    </>
+  )
+}
 
 /**
  * Render a narrative block with clear typographic hierarchy.
@@ -23,6 +44,41 @@ const MAJOR_EMPHASIS = [
  * Body    — Storytelling paragraphs
  */
 function NarrativeBlock({ block, index }) {
+  // Bold emphasis — client-specified bold statements (e.g. "To me, it was perfect!")
+  if (block.type === 'bold-emphasis') {
+    return (
+      <ScrollReveal variant="fadeIn" duration={1.2}>
+        <div className="py-2.5 md:py-4 text-center overflow-hidden">
+          <p className="font-serif font-semibold leading-[1.35] text-[#2C2C2C] italic whitespace-nowrap text-[clamp(1.05rem,2.3vw,1.5rem)]">
+            {block.content}
+          </p>
+        </div>
+      </ScrollReveal>
+    )
+  }
+
+  // Boxed quote — visually distinct block with border
+  if (block.type === 'boxed') {
+    return (
+      <ScrollReveal variant="fadeIn" duration={1.2}>
+        <div className="my-5 md:my-7 mx-auto max-w-[680px] border-2 border-[#8B5FB0]/30 rounded-xl px-6 md:px-8 py-5 md:py-7 bg-white/20">
+          <p className="font-serif italic font-light text-[clamp(1.05rem,2.3vw,1.5rem)] leading-[1.5] text-[#2C2C2C] text-center">
+            {block.content}
+          </p>
+        </div>
+      </ScrollReveal>
+    )
+  }
+
+  // Separator — visual break between narrative thoughts
+  if (block.type === 'separator') {
+    return (
+      <div className="py-4 md:py-6 text-center">
+        <span className="font-serif text-[#2C2C2C]/30 text-2xl tracking-[0.5em]">&hellip;&hellip;&hellip;</span>
+      </div>
+    )
+  }
+
   if (block.type === 'emphasis') {
     const isMattered = block.content.endsWith('mattered.')
     const isMajor = MAJOR_EMPHASIS.includes(block.content)
@@ -73,7 +129,7 @@ function NarrativeBlock({ block, index }) {
   return (
     <ScrollReveal variant="fadeUp" duration={0.9}>
       <p className="font-serif text-[clamp(1.1rem,1.5vw,1.4rem)] leading-[1.7] text-[#2C2C2C]/85 mb-3 md:mb-5">
-        {block.content}
+        <InlineContent content={block.content} />
       </p>
     </ScrollReveal>
   )
@@ -158,7 +214,7 @@ export default function FrankieStory() {
         <ScrollReveal variant="fadeUp">
           <div className="py-6 md:py-10">
             <p className="font-serif text-[clamp(1.25rem,3vw,2rem)] font-light text-[#2C2C2C]/70 text-center mb-4">
-              Little Frankie wanted to be&hellip;
+              Little Frankie dreamed of being&hellip;
             </p>
             <div className="grid grid-cols-2 gap-6 md:gap-8 max-w-[900px] mx-auto mt-4">
               {act.childhoodDreams.map((item, i) => (
@@ -190,7 +246,7 @@ export default function FrankieStory() {
         )}
 
         {/* ── Frankieism — recurring visual signature ── */}
-        <Frankieism text={act.frankieism} accentColor="#FF7C15" />
+        <Frankieism text={act.frankieism} accentColor="#8B5FB0" />
       </div>
     </div>
   )

@@ -56,7 +56,7 @@ export default function HeroExperience() {
       <div className="relative z-10 max-w-[900px] mx-auto text-center min-h-screen flex flex-col items-center justify-center">
         {/* Eyebrow — enlarged per client request */}
         <motion.p
-          className="font-serif text-lg md:text-2xl lg:text-3xl font-light tracking-[0.15em] text-[#7A6545] mb-6 md:mb-8"
+          className="font-serif text-lg md:text-2xl lg:text-3xl font-light tracking-[0.15em] text-[#7A6545] mb-3 md:mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
