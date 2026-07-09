@@ -53,7 +53,7 @@ export default function HeroExperience() {
       />
 
       {/* ── Hero Viewport: Eyebrow + Headline ── */}
-      <div className="relative z-10 max-w-[900px] mx-auto text-center min-h-[55vh] flex flex-col items-center justify-center pt-14 md:pt-16">
+      <div className="relative z-10 max-w-[760px] mx-auto text-center min-h-[55vh] flex flex-col items-center justify-center pt-14 md:pt-16">
         {/* Eyebrow — enlarged per client request */}
         <motion.p
           className="font-serif text-lg md:text-2xl lg:text-3xl font-light tracking-[0.15em] text-[#7A6545] mb-3 md:mb-4"

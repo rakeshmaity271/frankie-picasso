@@ -5,7 +5,7 @@ import { motion, useInView } from 'framer-motion'
  * Frankieism — the recurring visual signature quote at the end of each Act.
  * A stylized italic quote with an accent line and breathing animation.
  */
-export default function Frankieism({ text, accentColor = '#FFB400', className = '' }) {
+export default function Frankieism({ text, accentColor = '#FFB400', textColor, className = '' }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.4 })
 
@@ -26,7 +26,7 @@ export default function Frankieism({ text, accentColor = '#FFB400', className = 
       {/* Quote text */}
       <motion.p
         className="font-serif italic text-center text-xl md:text-2xl lg:text-3xl max-w-2xl leading-relaxed tracking-wide"
-        style={{ color: 'var(--text-primary, #2C2C2C)', opacity: 0.85 }}
+        style={{ color: textColor || 'var(--text-primary, #2C2C2C)', opacity: 0.85 }}
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 0.85, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}

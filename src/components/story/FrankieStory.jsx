@@ -246,7 +246,7 @@ export default function FrankieStory() {
         )}
 
         {/* ── Frankieism — recurring visual signature ── */}
-        <Frankieism text={act.frankieism} accentColor="#8B5FB0" />
+        <Frankieism text={act.frankieism} accentColor="#8B5FB0" textColor="#8B5FB0" />
       </div>
     </div>
   )
