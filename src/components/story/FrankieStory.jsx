@@ -241,7 +241,7 @@ export default function FrankieStory() {
               <p className="font-serif text-[clamp(1.4rem,3vw,2.25rem)] font-medium tracking-[0.05em] text-[#2C2C2C] mb-1">
                 Reflection
               </p>
-              <p className="font-serif italic font-light text-[clamp(1.05rem,2vw,1.35rem)] leading-[1.5] text-[#2C2C2C]/65">
+              <p className="font-serif italic font-light text-[clamp(1.3rem,2.5vw,1.75rem)] leading-[1.5] text-[#2C2C2C]/65">
                 {act.reflection}
               </p>
             </div>
@@ -249,7 +249,14 @@ export default function FrankieStory() {
         )}
 
         {/* ─ Frankieism — recurring visual signature ── */}
-        {act.frankieism && <Frankieism text={act.frankieism} accentColor="#8B5FB0" textColor="#8B5FB0" />}
+        {act.frankieism && (
+          <div className="pt-2 md:pt-4">
+            <p className="font-sans text-[0.65rem] uppercase tracking-[0.35em] text-[#8B5FB0]/50 text-center mb-2">
+              Frankie'ism
+            </p>
+            <Frankieism text={act.frankieism} accentColor="#8B5FB0" textColor="#8B5FB0" />
+          </div>
+        )}
       </div>
     </div>
   )
