@@ -192,7 +192,7 @@ export default function FrankieStory() {
           {act.visualBreaths.map((line, i) => (
             <ScrollReveal key={i} variant="fadeIn" duration={1.3}>
               <div className="py-1 md:py-1.5 text-center">
-                <p className="font-serif font-light text-[clamp(1.35rem,3vw,2.5rem)] leading-[1.15] tracking-[-0.02em] text-[#2C2C2C] whitespace-nowrap">
+                <p className="font-serif font-light text-[clamp(1.35rem,3vw,2.5rem)] leading-[1.15] tracking-[-0.02em] text-[#2C2C2C]">
                   <TextReveal
                     text={line}
                     mode="word"
@@ -213,8 +213,11 @@ export default function FrankieStory() {
         {/* ── "Little Frankie wanted to be..." — Scrapbook style ── */}
         <ScrollReveal variant="fadeUp">
           <div className="py-4 md:py-6">
+            <p className="font-serif text-[clamp(1.05rem,1.5vw,1.3rem)] leading-[1.6] text-[#2C2C2C]/85 mb-1.5 md:mb-2.5">
+              Every new dream opened another door, and my parents never asked me to choose only one. They encouraged me to explore them all, but they also gave me a nick name, “Iwanna”… as in I wanna this and I wanna that!
+            </p>
             <p className="font-serif text-[clamp(1.25rem,3vw,2rem)] font-light text-[#2C2C2C]/70 text-center mb-3">
-              Little Frankie dreamed of being&hellip;
+              Little Frankie dreamed of becoming&hellip;
             </p>
             <div className="grid grid-cols-2 gap-5 md:gap-7 max-w-[900px] mx-auto mt-3">
               {act.childhoodDreams.map((item, i) => (
@@ -245,8 +248,8 @@ export default function FrankieStory() {
           </ScrollReveal>
         )}
 
-        {/* ── Frankieism — recurring visual signature ── */}
-        <Frankieism text={act.frankieism} accentColor="#8B5FB0" textColor="#8B5FB0" />
+        {/* ─ Frankieism — recurring visual signature ── */}
+        {act.frankieism && <Frankieism text={act.frankieism} accentColor="#8B5FB0" textColor="#8B5FB0" />}
       </div>
     </div>
   )

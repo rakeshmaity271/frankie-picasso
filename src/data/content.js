@@ -90,7 +90,8 @@ export const content = {
         { type: 'emphasis', content: 'It was where a little girl became a princess every night\u2026 and where dreams were born.' },
         { type: 'text', content: 'The only thing missing was a puppy.' },
         { type: 'text', content: 'That would come next.' },
-        { type: 'bold-emphasis', content: 'Looking back, I realize it was also where I experienced the joy of autonomy for the very first time. I learned that making decisions was exciting\u2026. and that paint isn\u2019t permanent.' },
+        { type: 'bold-emphasis', content: 'I learned that making decisions was exciting….and that paint isn’t permanent.' },
+        { type: 'text', content: 'It was just one of those moments where Dad and I shared a language of freedom disguised as creativity.' },
         { type: 'text', content: 'My dad refused to let other people\u2019s fears become his reality and he never measured my dreams against what seemed practical. Did he ever tell me to be realistic? To dream smaller because I was a girl?' },
         { type: 'bold-emphasis', content: 'Not on your life!' },
         { type: 'emphasis', content: 'Instead, he simply believed I could do whatever I set my mind to.' },
@@ -106,19 +107,17 @@ export const content = {
         { type: 'text', content: 'Years later, I realized the greatest gift wasn\u2019t Cavalier, although he was pretty wonderful.' },
         { type: 'text', content: 'The real gift was watching my father embrace my dream as though it were his own. He didn\u2019t just buy me a horse. He spent months driving country roads looking for the right farm. He gave up weekends. He invested his time, his money, and his heart so a little girl\u2019s dream could become reality.' },
         { type: 'text', content: 'Looking back now, as a parent myself, I understand it in a completely different way. There is something deeply satisfying about helping your children experience the joy of a dream fulfilled.' },
-        { type: 'emphasis', content: 'It was the lesson my father had been teaching me all along.' },
+        { type: 'emphasis', content: 'Only later did I understand what my father had quietly shown me all along.' },
         { type: 'emphasis', content: 'Keep your promises.' },
-        { type: 'emphasis', content: 'Dreams require commitment.' },
-        { type: 'emphasis', content: 'Refuse to let other people\u2019s fears become your reality.' },
+        { type: 'emphasis', content: 'Dreams require space to breathe and commitment to bring into reality.' },
+        { type: 'emphasis', content: 'Refuse to let other people’s fears redefine your reality.' },
       ],
       // Visual breaths — standalone lines rendered in large typography
       visualBreaths: [
         'With that kind of encouragement, it\u2019s no wonder my dreams kept multiplying.',
       ],
       // Second half of the narrative (after visual breaths)
-      narrativePart2: [
-        { type: 'text', content: 'As I grew older, my dreams changed, as dreams often do.' },
-      ],
+      narrativePart2: [],
       // Playful childhood dreams section (scrapbook style)
       childhoodDreams: [
         { dream: 'veterinarian', image: '/veterinarian.png' },
@@ -132,7 +131,6 @@ export const content = {
       ],
       // Post-scrapbook narrative
       narrativePart3: [
-        { type: 'text', content: 'Every new dream opened another door, and my parents never asked me to choose only one. They encouraged me to explore them all, but they also gave me a nick name, \u201cIwanna\u201d\u2026 as in I wanna this and I wanna that!' },
         { type: 'text', content: 'I played records on my little suitcase record player and imagined introducing songs to listeners I couldn\u2019t see. I sent away for the National Institute of Broadcasting Record so I could learn how to be on the radio. I filled diaries with stories, dreaming about the books I would write of my own.' },
         { type: 'text', content: 'I wasn\u2019t just dreaming about these things\u2014I was already trying to become them.' },
         { type: 'text', content: 'As I grew older, the circle of people who believed in me grew too.' },
@@ -165,7 +163,7 @@ export const content = {
         { type: 'centered', lines: ['A Builder and A Believer.'] },
         { type: 'text', content: 'I think that Believing in someone is one of the purest expressions of love.' },
       ],
-      frankieism: 'Belief is the birthplace of every dream.',
+      frankieism: '',
       reflection: 'Who first believed in you?',
       heartbeat: 'Love expressed through belief.',
       timeline: [

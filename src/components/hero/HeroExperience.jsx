@@ -110,6 +110,9 @@ export default function HeroExperience() {
         {/* Frankieism — "Belief is where every dream begins." */}
         <ScrollReveal variant="fadeIn" duration={1.2}>
           <div className="text-center mt-2 md:mt-3">
+            <p className="font-sans text-[0.65rem] uppercase tracking-[0.35em] text-[#7A6545]/50 mb-1.5">
+              Frankie'ism
+            </p>
             <p className="font-serif italic text-[clamp(1.25rem,2.5vw,1.75rem)] text-[#2C2C2C]/70">
               {preIntro.frankieism}
             </p>
