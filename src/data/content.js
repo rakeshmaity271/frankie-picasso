@@ -21,7 +21,7 @@ export const content = {
       'I\u2019ll tell you my story.',
       'Maybe it\u2019ll remind you to write the next chapter of yours.',
     ],
-    frankieism: 'Belief is where every dream begins.',
+    frankieism: '\u201cBelief is where every dream begins.\u201d',
     actTransition: 'Let\u2019s Begin\u2026',
     welcomeLine: 'Welcome to the Journey',
   },

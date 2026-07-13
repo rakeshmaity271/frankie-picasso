@@ -113,7 +113,7 @@ export default function HeroExperience() {
             <p className="font-sans text-[0.65rem] uppercase tracking-[0.35em] text-[#7A6545]/50 mb-1.5">
               Frankie'ism
             </p>
-            <p className="font-serif italic text-[clamp(1.25rem,2.5vw,1.75rem)] text-[#2C2C2C]/70">
+            <p className="font-serif italic text-[clamp(1.25rem,2.5vw,1.75rem)] text-[#2C2C2C]/70 whitespace-nowrap">
               {preIntro.frankieism}
             </p>
           </div>
