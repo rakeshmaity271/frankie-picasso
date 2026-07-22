@@ -7,7 +7,7 @@ import HeroExperience from './components/hero/HeroExperience'
 import WhoIsFrankie from './components/who/WhoIsFrankie'
 import ActSection from './components/acts/ActSection'
 import FrankieStory from './components/story/FrankieStory'
-import Entrepreneurship from './components/entrepreneurship/Entrepreneurship'
+import FrankieStoryActTwo from './components/story/FrankieStoryActTwo'
 import Creativity from './components/creativity/Creativity'
 import CommunityImpact from './components/community/CommunityImpact'
 import FutureVision from './components/vision/FutureVision'
@@ -94,9 +94,9 @@ function App() {
           accentColor={heartbeatColors[1].accent}
         />
 
-        {/* Act II - Building */}
+        {/* Act II - Becoming (narrative chapter) */}
         <ActSection act={acts[1]}>
-          <Entrepreneurship />
+          <FrankieStoryActTwo />
         </ActSection>
 
         {/* Heartbeat transition: Act II -> Act III */}
