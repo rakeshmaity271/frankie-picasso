@@ -1,13 +1,15 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { content } from '../../data/content'
+import { content, mapOfLife } from '../../data/content'
 import TextReveal from '../common/TextReveal'
 import MagneticButton from '../common/MagneticButton'
 import ScrollReveal from '../common/ScrollReveal'
+import { useMap } from '../../context/MapContext'
 
 const data = content.closing
 
 export default function ClosingSection() {
+  const { isComplete, triggerReveal } = useMap()
   const scrollToContact = () => {
     const el = document.getElementById('contact')
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -70,6 +72,27 @@ export default function ClosingSection() {
             {data.cta}
           </MagneticButton>
         </motion.div>
+
+        {/* The Bigger Picture — closing line + reveal trigger */}
+        {isComplete && (
+          <motion.div
+            className="mt-10 md:mt-14"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 1.2, duration: 1 }}
+          >
+            <p className="font-serif italic text-base md:text-lg text-[#FFF8F0]/60 max-w-[480px] mx-auto mb-4">
+              &ldquo;{mapOfLife.closingLine}&rdquo;
+            </p>
+            <button
+              onClick={triggerReveal}
+              className="px-5 py-2 rounded-full border border-[#FFB400]/40 text-[#FFB400] font-sans text-sm tracking-wide hover:bg-[#FFB400]/10 transition-colors cursor-pointer"
+            >
+              See The Bigger Picture
+            </button>
+          </motion.div>
+        )}
       </div>
     </section>
   )

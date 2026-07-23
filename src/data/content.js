@@ -703,3 +703,24 @@ export const actColors = {
   giving: '#E8F0E0',
   'still-becoming': '#FFF8F0'
 }
+
+// ── The Map of a Life ─────────────────────────────────────────────
+// 9 lessons collected across the Acts. Each unlocks a constellation star
+// and a puzzle piece. Positions are in a 100x100 SVG viewBox.
+export const mapOfLife = {
+  title: 'The Map of a Life',
+  subtitle: 'A life is not a straight line. It is a collection of lessons, choices, people, risks, losses, and opportunities that only make complete sense when we step back and see the whole picture.',
+  closingLine: 'At the time, none of it seemed connected. Years later, every piece fit.',
+  paintingSrc: '/painting-placeholder.png',
+  lessons: [
+    { id: 1, word: 'Responsibility', chapter: 'The Farm', meaning: 'Caring for something larger than yourself.', emoji: '\ud83c\udfc7', act: 'where-belief-began', x: 15, y: 72 },
+    { id: 2, word: 'Observation', chapter: 'Photography', meaning: 'Learn to see before you learn to judge.', emoji: '\ud83d\udcf7', act: 'building', x: 28, y: 45 },
+    { id: 3, word: 'Courage', chapter: 'Racism & Journalism', meaning: 'Some lessons cannot be taught. They have to be witnessed.', emoji: '\u270a', act: 'building', x: 38, y: 68 },
+    { id: 4, word: 'Human Nature', chapter: 'Sales', meaning: 'People buy for their reasons, not yours.', emoji: '\ud83d\udcbc', act: 'building', x: 50, y: 38 },
+    { id: 5, word: 'Self-Care', chapter: 'Esthetics', meaning: 'Taking care of yourself is not vanity. It is maintenance.', emoji: '\ud83d\udc84', act: 'building', x: 55, y: 62 },
+    { id: 6, word: 'Resilience', chapter: 'Boxing & Kickboxing', meaning: 'Getting knocked down is not the lesson. Getting back up is.', emoji: '\ud83e\udd4a', act: 'creating', x: 65, y: 30 },
+    { id: 7, word: 'Connection', chapter: 'Radio', meaning: 'Every person has a story worth hearing.', emoji: '\ud83c\udf99\ufe0f', act: 'amplifying', x: 72, y: 55 },
+    { id: 8, word: 'Perspective', chapter: 'Motorcycle Accident', meaning: 'Everything can change in a heartbeat. So can you.', emoji: '\ud83d\ude91', act: 'giving', x: 82, y: 40 },
+    { id: 9, word: 'Collaboration', chapter: 'World Supply Tent', meaning: 'The problem is not scarcity. It is connection.', emoji: '\ud83c\udf0d', act: 'still-becoming', x: 90, y: 65 },
+  ],
+}

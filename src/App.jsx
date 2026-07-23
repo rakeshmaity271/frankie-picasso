@@ -20,9 +20,15 @@ import TimelineSection from './components/timeline/TimelineSection'
 import ClosingSection from './components/closing/ClosingSection'
 import Contact from './components/contact/Contact'
 import { useLenis } from './hooks/useLenis'
-import { content } from './data/content'
+import { content, mapOfLife } from './data/content'
+import { MapProvider } from './context/MapContext'
+import LessonGlow from './components/map/LessonGlow'
+import MapOfLife from './components/map/MapOfLife'
+import PuzzleReveal from './components/map/PuzzleReveal'
+import MapProgress from './components/map/MapProgress'
 
 const acts = content.acts
+const lessons = mapOfLife.lessons
 
 // Color pairs for heartbeat transitions (from -> to)
 const heartbeatColors = [
@@ -51,6 +57,7 @@ function App() {
   }, [handleScroll])
 
   return (
+    <MapProvider>
     <div className="min-h-screen">
       <SiteLoader />
 
@@ -86,6 +93,9 @@ function App() {
           <FrankieStory />
         </ActSection>
 
+        {/* Lesson 1: Responsibility (The Farm) */}
+        <LessonGlow lesson={lessons[0]} />
+
         {/* Heartbeat transition: Act I -> Act II */}
         <Heartbeat
           line={acts[1].frankieism}
@@ -98,6 +108,12 @@ function App() {
         <ActSection act={acts[1]}>
           <FrankieStoryActTwo />
         </ActSection>
+
+        {/* Lessons 2-5: Observation, Courage, Human Nature, Self-Care */}
+        <LessonGlow lesson={lessons[1]} />
+        <LessonGlow lesson={lessons[2]} />
+        <LessonGlow lesson={lessons[3]} />
+        <LessonGlow lesson={lessons[4]} />
 
         {/* Heartbeat transition: Act II -> Act III */}
         <Heartbeat
@@ -112,6 +128,9 @@ function App() {
           <MediaSection />
         </ActSection>
 
+        {/* Lesson 7: Connection (Radio) */}
+        <LessonGlow lesson={lessons[6]} />
+
         {/* Heartbeat transition: Act III -> Act IV */}
         <Heartbeat
           line={acts[3].frankieism}
@@ -124,6 +143,9 @@ function App() {
         <ActSection act={acts[3]}>
           <Creativity />
         </ActSection>
+
+        {/* Lesson 6: Resilience (Boxing & Kickboxing) */}
+        <LessonGlow lesson={lessons[5]} />
 
         {/* Heartbeat transition: Act IV -> Act V */}
         <Heartbeat
@@ -138,6 +160,9 @@ function App() {
           <CommunityImpact />
         </ActSection>
 
+        {/* Lesson 8: Perspective (Motorcycle Accident) */}
+        <LessonGlow lesson={lessons[7]} />
+
         {/* Heartbeat transition: Act V -> Act VI */}
         <Heartbeat
           line={acts[5].frankieism}
@@ -151,6 +176,9 @@ function App() {
           <FutureVision />
         </ActSection>
 
+        {/* Lesson 9: Collaboration (World Supply Tent) */}
+        <LessonGlow lesson={lessons[8]} />
+
         {/* Supporting sections */}
         <Impact />
         <BooksPublications />
@@ -163,7 +191,13 @@ function App() {
       </main>
 
       <Footer />
+
+      {/* The Map of a Life — global overlays */}
+      <MapOfLife />
+      <PuzzleReveal />
+      <MapProgress />
     </div>
+    </MapProvider>
   )
 }
 
