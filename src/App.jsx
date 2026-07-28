@@ -19,6 +19,7 @@ import Art from './components/art/Art'
 import TimelineSection from './components/timeline/TimelineSection'
 import ClosingSection from './components/closing/ClosingSection'
 import Contact from './components/contact/Contact'
+import MamaBearFinale from './components/finale/MamaBearFinale'
 import { useLenis } from './hooks/useLenis'
 import { content, mapOfLife } from './data/content'
 import { MapProvider } from './context/MapContext'
@@ -178,6 +179,9 @@ function App() {
 
         {/* Lesson 9: Collaboration (World Supply Tent) */}
         <LessonGlow lesson={lessons[8]} />
+
+        {/* Act VI Finale — Mama Bear (emotional conclusion of the journey) */}
+        <MamaBearFinale />
 
         {/* Supporting sections */}
         <Impact />
