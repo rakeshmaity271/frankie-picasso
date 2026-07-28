@@ -711,7 +711,7 @@ export const mapOfLife = {
   title: 'The Map of a Life',
   subtitle: 'A life is not a straight line. It is a collection of lessons, choices, people, risks, losses, and opportunities that only make complete sense when we step back and see the whole picture.',
   closingLine: 'At the time, none of it seemed connected. Years later, every piece fit.',
-  paintingSrc: '/painting-placeholder.png',
+  paintingSrc: '/mama-bear.jpg',
   lessons: [
     { id: 1, word: 'Responsibility', chapter: 'The Farm', meaning: 'Caring for something larger than yourself.', emoji: '\ud83c\udfc7', act: 'where-belief-began', x: 15, y: 72 },
     { id: 2, word: 'Observation', chapter: 'Photography', meaning: 'Learn to see before you learn to judge.', emoji: '\ud83d\udcf7', act: 'building', x: 28, y: 45 },

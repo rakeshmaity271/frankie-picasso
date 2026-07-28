@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useMap } from '../../context/MapContext'
 import { mapOfLife } from '../../data/content'
+import { PuzzlePreview } from './PuzzleReveal'
 
 const lessons = mapOfLife.lessons
 
@@ -87,7 +88,7 @@ export default function MapOfLife() {
             <svg
               viewBox="0 0 100 100"
               className="w-full h-auto"
-              style={{ maxHeight: '60vh' }}
+              style={{ maxHeight: '46vh' }}
               aria-hidden="true"
             >
               {/* Connecting lines */}
@@ -174,6 +175,9 @@ export default function MapOfLife() {
               })}
             </svg>
           </div>
+
+          {/* The Bigger Picture — the bear assembling piece by piece */}
+          <PuzzlePreview />
 
           {/* Selected lesson detail */}
           <AnimatePresence>

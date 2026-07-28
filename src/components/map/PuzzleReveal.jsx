@@ -112,25 +112,34 @@ export default function PuzzleReveal() {
  * Displays which pieces have been collected.
  */
 export function PuzzlePreview() {
-  const { unlockedLessons } = useMap()
+  const { unlockedLessons, count, total } = useMap()
 
   return (
     <div className="mt-6 flex flex-col items-center">
-      <p className="mb-2 font-sans text-[0.6rem] uppercase tracking-[0.3em] text-[#FFF8F0]/40">
+      <p className="mb-2 font-sans text-[0.6rem] uppercase tracking-[0.3em] text-[#FFB400]/60">
         The Bigger Picture
       </p>
-      <div className="relative w-[120px] h-[120px] rounded-lg overflow-hidden border border-[#FFF8F0]/10">
+      <div
+        className="relative w-[132px] h-[132px] rounded-lg overflow-hidden border border-[#FFB400]/20"
+        style={{ boxShadow: '0 0 26px rgba(255,180,0,0.12)' }}
+      >
+        {/* Ghost of the full painting — the picture waiting to be assembled */}
+        <img
+          src={mapOfLife.paintingSrc}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.08, filter: 'grayscale(0.4)' }}
+          aria-hidden="true"
+        />
+        {/* Revealed pieces */}
         {PIECE_CLIPS.map((clip, i) => {
           const lesson = lessons[i]
           const unlocked = unlockedLessons.has(lesson.id)
           return (
             <div
               key={i}
-              className="absolute inset-0 transition-opacity duration-700"
-              style={{
-                clipPath: clip,
-                opacity: unlocked ? 1 : 0,
-              }}
+              className="absolute inset-0 transition-opacity duration-1000"
+              style={{ clipPath: clip, opacity: unlocked ? 1 : 0 }}
             >
               <img
                 src={mapOfLife.paintingSrc}
@@ -141,9 +150,20 @@ export function PuzzlePreview() {
             </div>
           )
         })}
-        {/* Dark background for empty pieces */}
-        <div className="absolute inset-0 -z-10 bg-[#1a2744]" />
+        {/* Subtle grid lines so the pieces read as a puzzle */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          aria-hidden="true"
+          style={{
+            backgroundImage:
+              'linear-gradient(to right, rgba(13,27,42,0.55) 1px, transparent 1px), linear-gradient(to bottom, rgba(13,27,42,0.55) 1px, transparent 1px)',
+            backgroundSize: '33.33% 33.33%',
+          }}
+        />
       </div>
+      <p className="mt-2 font-sans text-[0.6rem] tracking-wide text-[#FFF8F0]/40">
+        {count} / {total} pieces revealed
+      </p>
     </div>
   )
 }
