@@ -432,8 +432,24 @@ export const content = {
       ]
     },
     {
-      id: 'amplifying',
+      id: 'building-through-boxing',
       number: 'III',
+      title: 'The Builder',
+      tagline: 'Every opportunity is built on multiple chances.',
+      color: '#FFF0CC',
+      cssVar: '--act-building-boxing',
+      intro: 'From boxing gyms to kickboxing promotion, from Condom Sense to construction companies, Frankie discovered that entrepreneurship wasn\'t about chasing one perfect business—it was about recognizing opportunities and having the courage to build them. But success came with a price.',
+      heartbeatLine: 'Some victories come with sacrifices.',
+      frankieism: 'If I saw an opportunity, I wanted to build it.',
+      timeline: [
+        { year: '1970s–1980s', title: 'Multiple Ventures', description: 'Founded Connalin Development (insulation & sandblasting), earned private investigator license, opened esthetics business, launched Condom Sense (customized condom company with public health mission).' },
+        { year: '1980s–1990s', title: 'Boxing & Kickboxing Promotion', description: 'Promoted the Furlano–Pryor World Title fight at age 22, later managed ISKA World Champion Paul Biafore and organized the first professional female kickboxing championship event in Toronto.' },
+        { year: '1990s', title: 'Sports Promotion Pioneer', description: 'Founded Roundhouse Promotions, becoming the first professional female kickboxing promoter in the world. Produced championship events and managed an ISKA World Champion.' }
+      ]
+    },
+    {
+      id: 'amplifying',
+      number: 'IV',
       title: 'Amplifying',
       tagline: 'Every voice deserves to be heard.',
       color: '#E0F4F4',
@@ -452,7 +468,7 @@ export const content = {
     },
     {
       id: 'creating',
-      number: 'IV',
+      number: 'V',
       title: 'Creating',
       tagline: 'Art changes the way we see the world.',
       color: '#FDE8EF',
@@ -484,7 +500,7 @@ export const content = {
     },
     {
       id: 'giving',
-      number: 'V',
+      number: 'VI',
       title: 'Giving',
       tagline: 'Success means little unless it lifts someone else.',
       color: '#E8F0E0',
@@ -503,7 +519,7 @@ export const content = {
     },
     {
       id: 'still-becoming',
-      number: 'VI',
+      number: 'VII',
       title: 'Still Becoming',
       tagline: 'Your story is still unfolding.',
       color: '#FFF8F0',

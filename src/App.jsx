@@ -8,6 +8,7 @@ import WhoIsFrankie from './components/who/WhoIsFrankie'
 import ActSection from './components/acts/ActSection'
 import FrankieStory from './components/story/FrankieStory'
 import FrankieStoryActTwo from './components/story/FrankieStoryActTwo'
+import FrankieStoryActThree from './components/story/FrankieStoryActThree'
 import Creativity from './components/creativity/Creativity'
 import CommunityImpact from './components/community/CommunityImpact'
 import FutureVision from './components/vision/FutureVision'
@@ -35,10 +36,11 @@ const lessons = mapOfLife.lessons
 const heartbeatColors = [
   { from: '#E8DCC8', to: '#D8C8EE', accent: '#8B5FB0' },    // hero -> act I (neutral -> purple)
   { from: '#D8C8EE', to: '#FFF0CC', accent: '#EE5802' },     // act I (purple) -> act II
-  { from: '#FFF0CC', to: '#E0F4F4', accent: '#01B2D4' },     // act II -> act III
-  { from: '#E0F4F4', to: '#FDE8EF', accent: '#DF3CB5' },     // act III -> act IV
-  { from: '#FDE8EF', to: '#E8F0E0', accent: '#629E46' },     // act IV -> act V
-  { from: '#E8F0E0', to: '#FFF8F0', accent: '#FFB400' },     // act V -> act VI
+  { from: '#FFF0CC', to: '#FFF0CC', accent: '#C24E1A' },     // act II -> act III (The Builder, orange)
+  { from: '#FFF0CC', to: '#E0F4F4', accent: '#01B2D4' },     // act III (Builder) -> act IV (Amplifying)
+  { from: '#E0F4F4', to: '#FDE8EF', accent: '#DF3CB5' },     // act IV (Amplifying) -> act V (Creating)
+  { from: '#FDE8EF', to: '#E8F0E0', accent: '#629E46' },     // act V (Creating) -> act VI (Giving)
+  { from: '#E8F0E0', to: '#FFF8F0', accent: '#FFB400' },     // act VI (Giving) -> act VII (Still Becoming)
 ]
 
 function App() {
@@ -116,7 +118,7 @@ function App() {
         <LessonGlow lesson={lessons[3]} />
         <LessonGlow lesson={lessons[4]} />
 
-        {/* Heartbeat transition: Act II -> Act III */}
+        {/* Heartbeat transition: Act II -> Act III (The Builder) */}
         <Heartbeat
           line={acts[2].frankieism}
           fromColor={heartbeatColors[2].from}
@@ -124,15 +126,12 @@ function App() {
           accentColor={heartbeatColors[2].accent}
         />
 
-        {/* Act III - Amplifying (Media Section) */}
+        {/* Act III - The Builder (Boxing, entrepreneurship, kickboxing) */}
         <ActSection act={acts[2]}>
-          <MediaSection />
+          <FrankieStoryActThree />
         </ActSection>
 
-        {/* Lesson 7: Connection (Radio) */}
-        <LessonGlow lesson={lessons[6]} />
-
-        {/* Heartbeat transition: Act III -> Act IV */}
+        {/* Heartbeat transition: Act III -> Act IV (Amplifying) */}
         <Heartbeat
           line={acts[3].frankieism}
           fromColor={heartbeatColors[3].from}
@@ -140,13 +139,13 @@ function App() {
           accentColor={heartbeatColors[3].accent}
         />
 
-        {/* Act IV - Creating */}
+        {/* Act IV - Amplifying (Media Section) */}
         <ActSection act={acts[3]}>
-          <Creativity />
+          <MediaSection />
         </ActSection>
 
-        {/* Lesson 6: Resilience (Boxing & Kickboxing) */}
-        <LessonGlow lesson={lessons[5]} />
+        {/* Lesson 7: Connection (Radio) */}
+        <LessonGlow lesson={lessons[6]} />
 
         {/* Heartbeat transition: Act IV -> Act V */}
         <Heartbeat
@@ -156,13 +155,13 @@ function App() {
           accentColor={heartbeatColors[4].accent}
         />
 
-        {/* Act V - Giving */}
+        {/* Act V - Creating */}
         <ActSection act={acts[4]}>
-          <CommunityImpact />
+          <Creativity />
         </ActSection>
 
-        {/* Lesson 8: Perspective (Motorcycle Accident) */}
-        <LessonGlow lesson={lessons[7]} />
+        {/* Lesson 6: Resilience (Boxing & Kickboxing) */}
+        <LessonGlow lesson={lessons[5]} />
 
         {/* Heartbeat transition: Act V -> Act VI */}
         <Heartbeat
@@ -172,8 +171,24 @@ function App() {
           accentColor={heartbeatColors[5].accent}
         />
 
-        {/* Act VI - Still Becoming */}
+        {/* Act VI - Giving */}
         <ActSection act={acts[5]}>
+          <CommunityImpact />
+        </ActSection>
+
+        {/* Lesson 8: Perspective (Motorcycle Accident) */}
+        <LessonGlow lesson={lessons[7]} />
+
+        {/* Heartbeat transition: Act VI -> Act VII */}
+        <Heartbeat
+          line={acts[6].frankieism}
+          fromColor={heartbeatColors[6].from}
+          toColor={heartbeatColors[6].to}
+          accentColor={heartbeatColors[6].accent}
+        />
+
+        {/* Act VII - Still Becoming */}
+        <ActSection act={acts[6]}>
           <FutureVision />
         </ActSection>
 
