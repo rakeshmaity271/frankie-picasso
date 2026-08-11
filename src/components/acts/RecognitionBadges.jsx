@@ -7,8 +7,8 @@ export default function RecognitionBadges() {
   const sectionRef = useRef(null)
   useScrollReveal(sectionRef, { animation: 'fade-up' })
 
-  const act = content.acts[5] // still-becoming
-  const awards = act.awards
+  const act = content.acts?.[6] // still-becoming (Act VII)
+  const awards = act?.awards || []
 
   return (
     <div className={styles.content} ref={sectionRef}>

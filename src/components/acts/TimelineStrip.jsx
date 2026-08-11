@@ -7,8 +7,8 @@ export default function TimelineStrip() {
   const sectionRef = useRef(null)
   useScrollReveal(sectionRef, { animation: 'fade-up' })
 
-  const act = content.acts[5] // still-becoming
-  const events = act.legacyEvents
+  const act = content.acts?.[6] // still-becoming (Act VII)
+  const events = act?.legacyEvents || []
 
   return (
     <div className={styles.content} ref={sectionRef}>

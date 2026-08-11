@@ -4,9 +4,8 @@ import { content } from '../../data/content'
 import ScrollReveal from '../common/ScrollReveal'
 import Frankieism from '../common/Frankieism'
 
-const act = content.acts[5] // Still Becoming
-
 export default function FutureVision() {
+  const act = content.acts?.[6] // Still Becoming (Act VII)
   return (
     <div className="pb-8 md:pb-12 px-6 md:px-10 lg:px-16">
       <div className="max-w-[1000px] mx-auto">

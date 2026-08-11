@@ -1,9 +1,8 @@
 import { content } from '../../data/content'
 import ScrollReveal from '../common/ScrollReveal'
 
-const events = content.acts[5].legacyEvents
-
 export default function TimelineSection() {
+  const events = content.acts?.[6]?.legacyEvents || []
   return (
     <section id="timeline" className="relative py-8 md:py-14 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#F5EFE6' }}>
       <div className="max-w-[800px] mx-auto">

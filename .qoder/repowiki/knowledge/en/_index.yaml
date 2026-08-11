@@ -3,11 +3,11 @@ schema_version: 1
 locale: en-US
 branch: dev
 nodes_managed: true
-exported_at: "2026-08-11T06:28:27Z"
+exported_at: "2026-08-11T08:24:23Z"
 modules:
     "":
-        dir_name: Frankie Picasso Life Portfolio (Vite + React SPA)
-        title: Frankie Picasso Life Portfolio (Vite + React SPA)
+        dir_name: Frankie Picasso Single-Page Portfolio (Vite + React)
+        title: Frankie Picasso Single-Page Portfolio (Vite + React)
         scope:
             - .gitignore
             - index.html

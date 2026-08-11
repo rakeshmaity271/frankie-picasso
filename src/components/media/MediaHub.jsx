@@ -8,13 +8,13 @@ export default function MediaHub() {
   const [filter, setFilter] = useState('all')
   useScrollReveal(sectionRef, { animation: 'fade-up' })
 
-  const act = content.acts[2] // amplifying
+  const act = content.acts?.[3] // amplifying (Act IV)
   const filters = ['all', 'radio', 'podcast', 'interviews', 'press']
 
   const allItems = [
-    ...act.shows.map((s) => ({ ...s, category: s.type })),
-    ...act.interviews.map((i) => ({ ...i, category: 'interviews', description: i.outlet })),
-    ...act.press.map((p) => ({ ...p, category: 'press', description: p.outlet }))
+    ...(act?.shows || []).map((s) => ({ ...s, category: s.type })),
+    ...(act?.interviews || []).map((i) => ({ ...i, category: 'interviews', description: i.outlet })),
+    ...(act?.press || []).map((p) => ({ ...p, category: 'press', description: p.outlet }))
   ]
 
   const filtered = filter === 'all' ? allItems : allItems.filter((item) => item.category === filter)

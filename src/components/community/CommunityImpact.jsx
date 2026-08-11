@@ -5,9 +5,8 @@ import ScrollReveal from '../common/ScrollReveal'
 import TextReveal from '../common/TextReveal'
 import Frankieism from '../common/Frankieism'
 
-const act = content.acts[4] // Giving
-
 export default function CommunityImpact() {
+  const act = content.acts?.[5] // Giving (Act VI)
   return (
     <div className="pb-8 md:pb-12 px-6 md:px-10 lg:px-16">
       <div className="max-w-[800px] mx-auto">

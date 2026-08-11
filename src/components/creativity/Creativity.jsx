@@ -4,9 +4,8 @@ import { content } from '../../data/content'
 import ScrollReveal from '../common/ScrollReveal'
 import Frankieism from '../common/Frankieism'
 
-const act = content.acts[3] // Creating
-
 export default function Creativity() {
+  const act = content.acts?.[4] // Creating (Act V)
   return (
     <div className="pb-8 md:pb-12 px-6 md:px-10 lg:px-16">
       <div className="max-w-[1000px] mx-auto">

@@ -3,9 +3,8 @@ import { motion, useInView } from 'framer-motion'
 import { content } from '../../data/content'
 import ScrollReveal from '../common/ScrollReveal'
 
-const books = content.acts[3].books // Creating act's books data
-
 export default function BooksPublications() {
+  const books = content.acts?.[4]?.books ?? { featured: { title: '', description: '', quote: '' }, other: [] }
   return (
     <section id="books" className="relative py-8 md:py-14 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#FFF0CC' }}>
       <div className="max-w-[1000px] mx-auto">
