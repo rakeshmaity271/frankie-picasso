@@ -4,14 +4,13 @@ import { useMap } from '../../context/MapContext'
 import { mapOfLife } from '../../data/content'
 import { PuzzlePreview } from './PuzzleReveal'
 
-const lessons = mapOfLife.lessons
-
 /**
  * MapOfLife — full-screen constellation overlay.
  * 9 stars in a dark navy sky; unlocked stars glow gold and connect with lines.
  * Locked stars are dim. Click a star to see its lesson details.
  */
 export default function MapOfLife() {
+  const lessons = mapOfLife.lessons
   const { mapOpen, closeMap, unlockedLessons, count, total } = useMap()
   const [selected, setSelected] = useState(null)
   const overlayRef = useRef(null)
