@@ -44,6 +44,7 @@ const heartbeatColors = [
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0)
+  const lessons = mapOfLife.lessons
   useLenis()
 
   const handleScroll = useCallback(() => {
