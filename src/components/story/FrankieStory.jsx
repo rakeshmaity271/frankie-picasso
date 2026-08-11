@@ -17,6 +17,7 @@ const MAJOR_EMPHASIS = [
  */
 function InlineContent({ content }) {
   if (typeof content === 'string') return <>{content}</>
+  if (!Array.isArray(content)) return null
   return (
     <>
       {content.map((seg, i) => (
