@@ -1,1 +1,0 @@
-Vite 6 with `@vitejs/plugin-react` and `@tailwindcss/vite` (Tailwind v4); React 18; GSAP 3 with ScrollTrigger via `@gsap/react` for scroll-triggered timelines; Lenis for smooth scrolling; Framer Motion for lightweight motion primitives; normalize.css as base reset.

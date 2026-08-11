@@ -1,1 +1,0 @@
-A Vite + React single-page portfolio that narrates Frankie Picasso's life across six thematic acts, driven by GSAP scroll animations and a centralized content data layer.

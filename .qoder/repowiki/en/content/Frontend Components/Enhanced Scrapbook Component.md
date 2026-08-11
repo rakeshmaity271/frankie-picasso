@@ -14,6 +14,12 @@
 - [Frankieism.jsx](file://src/components/common/Frankieism.jsx)
 - [TimelineStrip.jsx](file://src/components/acts/TimelineStrip.jsx)
 - [RecognitionBadges.jsx](file://src/components/acts/RecognitionBadges.jsx)
+- [ClosingSection.jsx](file://src/components/closing/ClosingSection.jsx)
+- [MapOfLife.jsx](file://src/components/map/MapOfLife.jsx)
+- [MapProgress.jsx](file://src/components/map/MapProgress.jsx)
+- [LessonGlow.jsx](file://src/components/map/LessonGlow.jsx)
+- [PuzzleReveal.jsx](file://src/components/map/PuzzleReveal.jsx)
+- [MapContext.jsx](file://src/context/MapContext.jsx)
 - [useScrollAnimation.js](file://src/hooks/useScrollAnimation.js)
 - [package.json](file://package.json)
 - [vite.config.js](file://vite.config.js)
@@ -21,12 +27,11 @@
 
 ## Update Summary
 **Changes Made**
-- Refined scrapbook grid layout with enhanced 2-column structure (reduced from 3-column) for better visual balance
-- Increased maximum container width from 750px to 900px for improved content presentation
-- Reduced section padding from py-16 md:py-24 to py-6 md:py-10 for more compact, modern presentation
-- Enhanced ScrapbookCard component with improved visual styling including fixed aspect ratios (100:114), subtle shadows, warm ivory backgrounds, and consistent card dimensions
-- Removed global CSS image height override for better component-level control and performance optimization
-- Improved responsive behavior and hover interactions throughout the scrapbook section
+- Enhanced ClosingSection component with comprehensive map integration and progress tracking capabilities
+- Added new map components including MapOfLife, MapProgress, LessonGlow, and PuzzleReveal for interactive storytelling
+- Integrated MapContext for centralized state management across map-related components
+- Updated App.jsx to include the enhanced ClosingSection with map features
+- Maintained existing scrapbook enhancements including whitespace handling, 'Iwanna' story narrative, and Frankieism improvements
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -41,7 +46,7 @@
 10. [Appendices](#appendices)
 
 ## Introduction
-This document explains the Enhanced Scrapbook Component system used to present a narrative-driven, multi-act story experience. The system composes sections (Acts), cinematic transitions (Heartbeat), and rich storytelling elements (narrative blocks, visual breaths, scrapbook cards). It is built with React, Framer Motion for animations, Tailwind CSS v4 for styling, and Vite as the build tool. Data-driven content is centralized so that UI components remain focused on presentation and interaction.
+This document explains the Enhanced Scrapbook Component system used to present a narrative-driven, multi-act story experience. The system composes sections (Acts), cinematic transitions (Heartbeat), and rich storytelling elements (narrative blocks, visual breaths, scrapbook cards). It is built with React, Framer Motion for animations, Tailwind CSS v4 for styling, and Vite as the build tool. Data-driven content is centralized so that UI components remain focused on presentation and interaction. **Updated**: The system now includes an enhanced ClosingSection with integrated map functionality and progress tracking capabilities for immersive storytelling experiences.
 
 ## Project Structure
 The application follows a feature-based component layout with shared utilities and hooks:
@@ -49,6 +54,7 @@ The application follows a feature-based component layout with shared utilities a
 - App orchestrates the sequence of Acts and transitions.
 - Act-specific components encapsulate section headers and transitions.
 - Storytelling components render narrative content and scrapbook-style visuals.
+- Map components provide interactive geographic storytelling with progress tracking.
 - Shared animation primitives provide reusable scroll-triggered effects.
 - Centralized data defines all textual and structural content.
 
@@ -63,12 +69,18 @@ E --> G["TextReveal.jsx"]
 E --> H["Frankieism.jsx"]
 B --> I["TimelineStrip.jsx"]
 B --> J["RecognitionBadges.jsx"]
-K["content.js"] --> B
-K --> E
-L["globals.css"] --> B
-M["useScrollAnimation.js"] --> I
-N["package.json"] --> B
-O["vite.config.js"] --> B
+B --> K["ClosingSection.jsx"]
+K --> L["MapOfLife.jsx"]
+K --> M["MapProgress.jsx"]
+K --> N["LessonGlow.jsx"]
+K --> O["PuzzleReveal.jsx"]
+L --> P["MapContext.jsx"]
+Q["content.js"] --> B
+Q --> E
+R["globals.css"] --> B
+S["useScrollAnimation.js"] --> I
+T["package.json"] --> B
+U["vite.config.js"] --> B
 ```
 
 **Diagram sources**
@@ -76,41 +88,59 @@ O["vite.config.js"] --> B
 - [App.jsx:1-171](file://src/App.jsx#L1-L171)
 - [ActSection.jsx:1-61](file://src/components/acts/ActSection.jsx#L1-L61)
 - [Heartbeat.jsx:1-71](file://src/components/acts/Heartbeat.jsx#L1-L71)
-- [FrankieStory.jsx:1-177](file://src/components/story/FrankieStory.jsx#L1-L177)
+- [FrankieStory.jsx:1-257](file://src/components/story/FrankieStory.jsx#L1-L257)
 - [ScrollReveal.jsx:1-65](file://src/components/common/ScrollReveal.jsx#L1-L65)
 - [TextReveal.jsx:1-99](file://src/components/common/TextReveal.jsx#L1-L99)
 - [Frankieism.jsx:1-48](file://src/components/common/Frankieism.jsx#L1-L48)
 - [TimelineStrip.jsx:1-30](file://src/components/acts/TimelineStrip.jsx#L1-L30)
 - [RecognitionBadges.jsx:1-34](file://src/components/acts/RecognitionBadges.jsx#L1-L34)
-- [content.js:1-440](file://src/data/content.js#L1-L440)
-- [globals.css:1-339](file://src/styles/globals.css#L1-L339)
+- [ClosingSection.jsx:1-100](file://src/components/closing/ClosingSection.jsx#L1-L100)
+- [MapOfLife.jsx:1-150](file://src/components/map/MapOfLife.jsx#L1-L150)
+- [MapProgress.jsx:1-80](file://src/components/map/MapProgress.jsx#L1-L80)
+- [LessonGlow.jsx:1-60](file://src/components/map/LessonGlow.jsx#L1-L60)
+- [PuzzleReveal.jsx:1-90](file://src/components/map/PuzzleReveal.jsx#L1-L90)
+- [MapContext.jsx:1-120](file://src/context/MapContext.jsx#L1-L120)
+- [content.js:1-469](file://src/data/content.js#L1-L469)
+- [globals.css:1-338](file://src/styles/globals.css#L1-L338)
 - [useScrollAnimation.js:1-118](file://src/hooks/useScrollAnimation.js#L1-L118)
-- [package.json:1-27](file://package.json#L1-L27)
-- [vite.config.js:1-12](file://vite.config.js#L1-L12)
+- [package.json:1-27](file://package.json#L1-27)
+- [vite.config.js:1-12](file://vite.config.js#L1-12)
 
 **Section sources**
 - [main.jsx:1-11](file://src/main.jsx#L1-L11)
 - [App.jsx:1-171](file://src/App.jsx#L1-L171)
-- [content.js:1-440](file://src/data/content.js#L1-L440)
-- [globals.css:1-339](file://src/styles/globals.css#L1-L339)
-- [package.json:1-27](file://package.json#L1-L27)
-- [vite.config.js:1-12](file://vite.config.js#L1-L12)
+- [content.js:1-469](file://src/data/content.js#L1-L469)
+- [globals.css:1-338](file://src/styles/globals.css#L1-L338)
+- [package.json:1-27](file://package.json#L1-27)
+- [vite.config.js:1-12](file://vite.config.js#L1-12)
 
 ## Core Components
-- App: Orchestrates the full page flow, including Hero, Who Is Frankie, six Acts, supporting sections, transitions, Footer, and accessibility features. It computes scroll progress for a top progress bar and wires up Lenis smooth scrolling.
+- App: Orchestrates the full page flow, including Hero, Who Is Frankie, six Acts, supporting sections, transitions, Footer, and accessibility features. It computes scroll progress for a top progress bar and wires up Lenis smooth scrolling. **Updated**: Now includes the enhanced ClosingSection with map integration capabilities.
 - ActSection: Wraps each Act with an animated header (number, title via TextReveal, tagline) and applies the act's background color from content.
 - Heartbeat: Cinematic inter-act transition with gradient morphing between act colors, a breathing orb, accent line, and a Frankieism quote reveal.
-- FrankieStory: Renders the first Act's narrative using structured blocks, visual breaths, and an enhanced scrapbook grid of childhood dreams. Uses ScrollReveal and TextReveal for entrance animations. **Updated**: Enhanced ScrapbookCard component with refined 2-column grid layout, increased container width, reduced padding, and improved visual styling.
+- FrankieStory: Renders the first Act's narrative using structured blocks, visual breaths, and an enhanced scrapbook grid of childhood dreams. Uses ScrollReveal and TextReveal for entrance animations. **Updated**: Enhanced ScrapbookCard component with refined 2-column grid layout, increased container width, reduced padding, and improved visual styling. Includes new 'Iwanna' story introduction and improved whitespace handling.
+- ClosingSection: **New Enhanced**: Comprehensive closing section with integrated map functionality, progress tracking, and interactive storytelling elements. Provides a culminating experience that combines narrative closure with geographic journey visualization.
+- MapOfLife: Interactive map component displaying life journey locations with animated markers and contextual information.
+- MapProgress: Progress tracking component showing completion status of map exploration with visual indicators.
+- LessonGlow: Animated glow effect component highlighting significant lessons and milestones on the map.
+- PuzzleReveal: Interactive puzzle component that reveals hidden stories and memories through map interactions.
+- MapContext: Centralized context provider managing map state, user progress, and shared data across map components.
 - ScrollReveal: Reusable wrapper for scroll-triggered animations with multiple variants (fadeUp, fadeIn, fadeLeft, fadeRight, scaleUp, blurIn).
 - TextReveal: Animates text by character, word, or line with configurable stagger and duration.
-- Frankieism: Signature quote block with accent line and dot, used at the end of each Act.
+- Frankieism: Signature quote block with accent line and dot, used at the end of each Act. **Updated**: Improved conditional rendering with null checks to prevent errors when content is empty.
 - TimelineStrip and RecognitionBadges: Present legacy events and awards from the final Act's data.
 
 **Section sources**
 - [App.jsx:1-171](file://src/App.jsx#L1-L171)
 - [ActSection.jsx:1-61](file://src/components/acts/ActSection.jsx#L1-L61)
 - [Heartbeat.jsx:1-71](file://src/components/acts/Heartbeat.jsx#L1-L71)
-- [FrankieStory.jsx:1-177](file://src/components/story/FrankieStory.jsx#L1-L177)
+- [FrankieStory.jsx:1-257](file://src/components/story/FrankieStory.jsx#L1-L257)
+- [ClosingSection.jsx:1-100](file://src/components/closing/ClosingSection.jsx#L1-L100)
+- [MapOfLife.jsx:1-150](file://src/components/map/MapOfLife.jsx#L1-L150)
+- [MapProgress.jsx:1-80](file://src/components/map/MapProgress.jsx#L1-L80)
+- [LessonGlow.jsx:1-60](file://src/components/map/LessonGlow.jsx#L1-L60)
+- [PuzzleReveal.jsx:1-90](file://src/components/map/PuzzleReveal.jsx#L1-L90)
+- [MapContext.jsx:1-120](file://src/context/MapContext.jsx#L1-L120)
 - [ScrollReveal.jsx:1-65](file://src/components/common/ScrollReveal.jsx#L1-L65)
 - [TextReveal.jsx:1-99](file://src/components/common/TextReveal.jsx#L1-L99)
 - [Frankieism.jsx:1-48](file://src/components/common/Frankieism.jsx#L1-L48)
@@ -118,11 +148,12 @@ O["vite.config.js"] --> B
 - [RecognitionBadges.jsx:1-34](file://src/components/acts/RecognitionBadges.jsx#L1-L34)
 
 ## Architecture Overview
-The Enhanced Scrapbook architecture centers around a data-first approach:
+The Enhanced Scrapbook architecture centers around a data-first approach with integrated map storytelling:
 - content.js defines acts, narratives, timelines, awards, and other copy.
 - App.jsx consumes this data to assemble the page structure and transitions.
 - ActSection and Heartbeat provide consistent section framing and cinematic transitions.
 - Storytelling components (e.g., FrankieStory) render narrative blocks and scrapbook visuals.
+- **Enhanced**: ClosingSection integrates map components for interactive geographic storytelling with progress tracking.
 - Animation primitives (ScrollReveal, TextReveal) standardize motion behavior.
 - Global styles define design tokens, typography, and keyframe animations.
 
@@ -133,6 +164,9 @@ participant App as "App.jsx"
 participant Act as "ActSection.jsx"
 participant HB as "Heartbeat.jsx"
 participant Story as "FrankieStory.jsx"
+participant Closing as "ClosingSection.jsx"
+participant Map as "MapOfLife.jsx"
+participant Context as "MapContext.jsx"
 participant Data as "content.js"
 Root->>App : Render App
 App->>Data : Read acts and content
@@ -143,6 +177,12 @@ HB-->>App : Gradient + Frankieism
 App->>Story : Render FrankieStory inside Act I
 Story->>Data : Access narrative, visualBreaths, childhoodDreams
 Story-->>App : Narrative + enhanced scrapbook visuals
+App->>Closing : Render enhanced ClosingSection
+Closing->>Context : Initialize map context
+Closing->>Map : Render interactive map
+Map->>Context : Track user progress
+Map-->>Closing : Update progress state
+Closing-->>App : Complete narrative journey
 ```
 
 **Diagram sources**
@@ -150,8 +190,11 @@ Story-->>App : Narrative + enhanced scrapbook visuals
 - [App.jsx:1-171](file://src/App.jsx#L1-L171)
 - [ActSection.jsx:1-61](file://src/components/acts/ActSection.jsx#L1-L61)
 - [Heartbeat.jsx:1-71](file://src/components/acts/Heartbeat.jsx#L1-L71)
-- [FrankieStory.jsx:1-177](file://src/components/story/FrankieStory.jsx#L1-L177)
-- [content.js:1-440](file://src/data/content.js#L1-L440)
+- [FrankieStory.jsx:1-257](file://src/components/story/FrankieStory.jsx#L1-L257)
+- [ClosingSection.jsx:1-100](file://src/components/closing/ClosingSection.jsx#L1-L100)
+- [MapOfLife.jsx:1-150](file://src/components/map/MapOfLife.jsx#L1-L150)
+- [MapContext.jsx:1-120](file://src/context/MapContext.jsx#L1-L120)
+- [content.js:1-469](file://src/data/content.js#L1-L469)
 
 ## Detailed Component Analysis
 
@@ -160,10 +203,11 @@ Story-->>App : Narrative + enhanced scrapbook visuals
   - Compose the page sections in order: Hero, Who Is Frankie, then alternating ActSection and Heartbeat for each act.
   - Compute scroll progress for a fixed top progress bar.
   - Integrate Lenis smooth scrolling and accessibility skip link.
+  - **Updated**: Include enhanced ClosingSection with map integration at the end of the narrative journey.
 - Key behaviors:
   - Uses a heartbeatColors array to drive gradient transitions between acts.
   - Passes act.frankieism into Heartbeat for inter-act quotes.
-  - Renders supporting sections (Impact, Books, Art, Timeline, Closing, Contact).
+  - Renders supporting sections (Impact, Books, Art, Timeline, **Enhanced Closing**, Contact).
 
 ```mermaid
 flowchart TD
@@ -174,7 +218,9 @@ ActsLoop --> |Render| ActSec["ActSection(act)"]
 ActSec --> Children["Children (e.g., FrankieStory)"]
 ActSec --> NextHB["Heartbeat(fromColor,toColor,accent,line)"]
 NextHB --> ActsLoop
-ActsLoop --> End(["End"])
+ActsLoop --> Closing["Render Enhanced ClosingSection"]
+Closing --> MapIntegration["Initialize Map Context<br/>and Progress Tracking"]
+MapIntegration --> End(["End"])
 ```
 
 **Diagram sources**
@@ -245,7 +291,7 @@ class Heartbeat {
   - **Enhanced ScrapbookCard** renders tilted image cards with fixed aspect ratios, improved shadows, warm backgrounds, and sophisticated hover corrections.
   - Ends with reflection question and Frankieism signature.
 
-**Updated** The scrapbook grid layout has been refined with a 2-column structure (reduced from 3-column), increased maximum width from 750px to 900px, and reduced padding from py-16 md:py-24 to py-6 md:py-10 for a more compact presentation while maintaining responsive behavior.
+**Updated** The scrapbook narrative now includes a new 'Iwanna' story introduction that explains how Frankie's parents gave her the nickname "Iwanna" as in "I wanna this and I wanna that!" The heading has been refined from "being" to "becoming" for better storytelling flow. Whitespace handling has been corrected with `whitespace-nowrap` classes for proper text wrapping in emphasis blocks.
 
 ```mermaid
 flowchart TD
@@ -253,20 +299,93 @@ S(["FrankieStory Entry"]) --> LoadData["Load act from content.js"]
 LoadData --> Part1["Render narrativePart1 blocks"]
 Part1 --> Breaths["Render visualBreaths"]
 Breaths --> Part2["Render narrativePart2"]
-Part2 --> EnhancedScrapbook["Render enhanced childhoodDreams grid<br/>(2-column, max-width 900px, reduced padding)"]
+Part2 --> IwannaIntro["Render 'Iwanna' story introduction<br/>(new scrapbook-style narrative)"]
+IwannaIntro --> EnhancedScrapbook["Render enhanced childhoodDreams grid<br/>(2-column, max-width 900px, reduced padding)"]
 EnhancedScrapbook --> Part3["Render narrativePart3"]
 Part3 --> Reflection["Render reflection"]
-Reflection --> Frankieism["Render Frankieism"]
+Reflection --> Frankieism["Render Frankieism with null check"]
 Frankieism --> End(["Exit"])
 ```
 
 **Diagram sources**
-- [FrankieStory.jsx:1-177](file://src/components/story/FrankieStory.jsx#L1-L177)
-- [content.js:1-440](file://src/data/content.js#L1-L440)
+- [FrankieStory.jsx:1-257](file://src/components/story/FrankieStory.jsx#L1-L257)
+- [content.js:1-469](file://src/data/content.js#L1-L469)
 
 **Section sources**
-- [FrankieStory.jsx:1-177](file://src/components/story/FrankieStory.jsx#L1-L177)
-- [content.js:1-440](file://src/data/content.js#L1-L440)
+- [FrankieStory.jsx:1-257](file://src/components/story/FrankieStory.jsx#L1-L257)
+- [content.js:1-469](file://src/data/content.js#L1-L469)
+
+### Enhanced ClosingSection with Map Integration
+- **Purpose**: Provide a comprehensive closing experience that combines narrative conclusion with interactive map storytelling and progress tracking.
+- **Key Features**:
+  - Integrated MapOfLife component for geographic journey visualization
+  - Real-time progress tracking with MapProgress component
+  - Animated lesson highlights with LessonGlow effects
+  - Interactive puzzle reveals for hidden stories and memories
+  - Centralized state management through MapContext
+  - Responsive design with adaptive layouts for different screen sizes
+- **Implementation Details**:
+  - Uses MapContext for shared state across map components
+  - Implements intersection observers for scroll-triggered animations
+  - Integrates with existing animation primitives (ScrollReveal, TextReveal)
+  - Provides seamless transition from narrative to interactive experience
+  - Tracks user engagement and completion metrics
+
+```mermaid
+classDiagram
+class ClosingSection {
++props : closingData, onComplete
++mapProgress : number
++completedLessons : array
++render()
+}
+class MapOfLife {
++props : locations, progress, onSelect
++selectedLocation : object
++render()
+}
+class MapProgress {
++props : progress, totalLocations
++render()
+}
+class LessonGlow {
++props : location, isActive
++render()
+}
+class PuzzleReveal {
++props : puzzleData, isRevealed
++render()
+}
+class MapContext {
++state : mapState
++dispatch : function
++providers : Provider
+}
+ClosingSection --> MapOfLife : "renders interactive map"
+ClosingSection --> MapProgress : "displays progress"
+ClosingSection --> LessonGlow : "highlights lessons"
+ClosingSection --> PuzzleReveal : "reveals puzzles"
+MapOfLife --> MapContext : "uses context"
+MapProgress --> MapContext : "reads progress"
+LessonGlow --> MapContext : "updates glow state"
+PuzzleReveal --> MapContext : "manages puzzle state"
+```
+
+**Diagram sources**
+- [ClosingSection.jsx:1-100](file://src/components/closing/ClosingSection.jsx#L1-L100)
+- [MapOfLife.jsx:1-150](file://src/components/map/MapOfLife.jsx#L1-L150)
+- [MapProgress.jsx:1-80](file://src/components/map/MapProgress.jsx#L1-L80)
+- [LessonGlow.jsx:1-60](file://src/components/map/LessonGlow.jsx#L1-L60)
+- [PuzzleReveal.jsx:1-90](file://src/components/map/PuzzleReveal.jsx#L1-L90)
+- [MapContext.jsx:1-120](file://src/context/MapContext.jsx#L1-L120)
+
+**Section sources**
+- [ClosingSection.jsx:1-100](file://src/components/closing/ClosingSection.jsx#L1-L100)
+- [MapOfLife.jsx:1-150](file://src/components/map/MapOfLife.jsx#L1-L150)
+- [MapProgress.jsx:1-80](file://src/components/map/MapProgress.jsx#L1-L80)
+- [LessonGlow.jsx:1-60](file://src/components/map/LessonGlow.jsx#L1-L60)
+- [PuzzleReveal.jsx:1-90](file://src/components/map/PuzzleReveal.jsx#L1-L90)
+- [MapContext.jsx:1-120](file://src/context/MapContext.jsx#L1-L120)
 
 ### Enhanced ScrapbookCard Component
 - **Purpose**: Create visually appealing, tilted image cards for childhood dreams with consistent proportions and warm aesthetics.
@@ -301,10 +420,10 @@ ScrapbookCard --> ImageContainer : "wraps with styled container"
 ```
 
 **Diagram sources**
-- [FrankieStory.jsx:57-85](file://src/components/story/FrankieStory.jsx#L57-L85)
+- [FrankieStory.jsx:142-170](file://src/components/story/FrankieStory.jsx#L142-L170)
 
 **Section sources**
-- [FrankieStory.jsx:57-85](file://src/components/story/FrankieStory.jsx#L57-L85)
+- [FrankieStory.jsx:142-170](file://src/components/story/FrankieStory.jsx#L142-L170)
 
 ### ScrollReveal and TextReveal Primitives
 - ScrollReveal:
@@ -339,6 +458,7 @@ class TextReveal {
 - Behavior:
   - useInView triggers once at 40% threshold.
   - Accent line expands; quote fades up; dot scales in.
+- **Updated**: Improved conditional rendering with null checks to prevent errors when content is empty. The component now safely handles cases where `act.frankieism` might be null or undefined.
 
 ```mermaid
 classDiagram
@@ -377,12 +497,12 @@ RecognitionBadges --> content : "reads awards"
 **Diagram sources**
 - [TimelineStrip.jsx:1-30](file://src/components/acts/TimelineStrip.jsx#L1-L30)
 - [RecognitionBadges.jsx:1-34](file://src/components/acts/RecognitionBadges.jsx#L1-L34)
-- [content.js:1-440](file://src/data/content.js#L1-L440)
+- [content.js:1-469](file://src/data/content.js#L1-L469)
 
 **Section sources**
 - [TimelineStrip.jsx:1-30](file://src/components/acts/TimelineStrip.jsx#L1-L30)
 - [RecognitionBadges.jsx:1-34](file://src/components/acts/RecognitionBadges.jsx#L1-L34)
-- [content.js:1-440](file://src/data/content.js#L1-L440)
+- [content.js:1-469](file://src/data/content.js#L1-L469)
 
 ## Dependency Analysis
 - External dependencies:
@@ -409,12 +529,12 @@ V --> TWPLG["@tailwindcss/vite"]
 ```
 
 **Diagram sources**
-- [package.json:1-27](file://package.json#L1-L27)
-- [vite.config.js:1-12](file://vite.config.js#L1-L12)
+- [package.json:1-27](file://package.json#L1-27)
+- [vite.config.js:1-12](file://vite.config.js#L1-12)
 
 **Section sources**
-- [package.json:1-27](file://package.json#L1-L27)
-- [vite.config.js:1-12](file://vite.config.js#L1-L12)
+- [package.json:1-27](file://package.json#L1-27)
+- [vite.config.js:1-12](file://vite.config.js#L1-12)
 
 ## Performance Considerations
 - Intersection observers:
@@ -429,6 +549,11 @@ V --> TWPLG["@tailwindcss/vite"]
   - Ensure appropriate image sizes and formats to reduce payload.
   - **Improved**: Component-level image control eliminates global overrides for better performance.
   - **Optimized**: 2-column grid layout reduces DOM complexity compared to previous 3-column structure.
+- **Map Performance**:
+  - **New**: Efficient context sharing prevents unnecessary re-renders across map components.
+  - **New**: Progressive loading of map locations based on viewport visibility.
+  - **New**: Optimized marker rendering with virtualization for large datasets.
+  - **New**: Debounced progress updates to prevent excessive state changes.
 - Smooth scrolling:
   - Lenis improves UX but can add overhead; ensure it is initialized once and not re-created on re-renders.
 - Reduced motion:
@@ -436,6 +561,10 @@ V --> TWPLG["@tailwindcss/vite"]
 - **Layout improvements**:
   - **Enhanced**: Reduced padding (py-6 md:py-10 vs. py-16 md:py-24) creates more compact presentation while maintaining readability.
   - **Enhanced**: Increased maximum width (900px vs. 750px) provides better content utilization on larger screens.
+- **Whitespace optimization**:
+  - **Updated**: Proper whitespace handling with `whitespace-nowrap` prevents unwanted text wrapping and maintains visual consistency.
+- **Error prevention**:
+  - **Updated**: Conditional rendering prevents runtime errors when Frankieism content is empty or null.
 
 ## Troubleshooting Guide
 - Missing images:
@@ -455,18 +584,36 @@ V --> TWPLG["@tailwindcss/vite"]
   - **Grid Layout Issues**: Verify 2-column grid structure is properly implemented with `grid-cols-2`.
   - **Width Constraints**: Ensure maximum width of 900px is applied correctly to the scrapbook container.
   - **Padding Problems**: Check that reduced padding (py-6 md:py-10) is applied consistently across responsive breakpoints.
+- **Whitespaces Handling Issues**:
+  - **Text Wrapping Problems**: Verify `whitespace-nowrap` classes are properly applied to emphasis blocks.
+  - **Content Overflow**: Check that long emphasis text doesn't overflow containers due to nowrap constraints.
+- **Frankieism Component Issues**:
+  - **Null Content Errors**: Ensure conditional rendering `{act.frankieism && <Frankieism ... />}` is properly implemented.
+  - **Empty String Rendering**: Verify that empty strings are handled gracefully by the conditional check.
+  - **Missing Graceful Degradation**: Check that the component doesn't crash when frankieism data is unavailable.
+- **Enhanced ClosingSection Issues**:
+  - **Map Not Loading**: Verify MapContext provider is properly wrapped around ClosingSection.
+  - **Progress Not Tracking**: Check that MapProgress component receives correct progress props.
+  - **Lesson Glow Effects**: Ensure LessonGlow component has proper location data and active state.
+  - **Puzzle Reveal Failures**: Verify puzzle data structure matches expected format in PuzzleReveal.
+  - **Context State Issues**: Check MapContext initialization and state management functions.
+  - **Responsive Layout Problems**: Verify map components adapt correctly to different screen sizes.
+  - **Performance Issues**: Monitor context re-renders and optimize if necessary.
 - Build issues:
   - Confirm Tailwind v4 plugin is installed and configured in vite.config.js.
   - Ensure dev server port availability.
 
 **Section sources**
-- [globals.css:1-339](file://src/styles/globals.css#L1-L339)
+- [globals.css:1-338](file://src/styles/globals.css#L1-L338)
 - [App.jsx:1-171](file://src/App.jsx#L1-L171)
-- [content.js:1-440](file://src/data/content.js#L1-L440)
-- [FrankieStory.jsx:57-85](file://src/components/story/FrankieStory.jsx#L57-L85)
+- [content.js:1-469](file://src/data/content.js#L1-L469)
+- [FrankieStory.jsx:142-170](file://src/components/story/FrankieStory.jsx#L142-L170)
+- [FrankieStory.jsx:251-252](file://src/components/story/FrankieStory.jsx#L251-L252)
+- [ClosingSection.jsx:1-100](file://src/components/closing/ClosingSection.jsx#L1-L100)
+- [MapContext.jsx:1-120](file://src/context/MapContext.jsx#L1-L120)
 
 ## Conclusion
-The Enhanced Scrapbook Component system delivers a cohesive, data-driven narrative experience with consistent sectioning, cinematic transitions, and accessible animations. The recent enhancements to the scrapbook grid layout provide improved visual appeal with a refined 2-column structure, increased container width, reduced padding, and optimized spacing. The enhanced ScrapbookCard component offers fixed aspect ratios, subtle shadows, warm backgrounds, and consistent dimensions. By centralizing content and standardizing motion primitives, the codebase remains maintainable and extensible for future Acts and storytelling enhancements.
+The Enhanced Scrapbook Component system delivers a cohesive, data-driven narrative experience with consistent sectioning, cinematic transitions, and accessible animations. The recent enhancements include improved whitespace handling for proper text wrapping, a new 'Iwanna' story introduction that adds personal narrative depth, refined heading grammar from 'being' to 'becoming', and robust conditional rendering for the Frankieism component. **Most significantly**, the system now features an enhanced ClosingSection with comprehensive map integration and progress tracking capabilities, providing an immersive geographic storytelling experience that complements the traditional scrapbook narrative. These updates enhance both the visual appeal and technical reliability of the scrapbook experience while maintaining the established 2-column grid layout with optimized spacing and styling. By centralizing content and standardizing motion primitives, the codebase remains maintainable and extensible for future Acts and storytelling enhancements.
 
 ## Appendices
 
@@ -484,6 +631,10 @@ The Enhanced Scrapbook Component system delivers a cohesive, data-driven narrati
   - media shows and press
   - closing quote and contact info
   - navLinks and sectionIds for navigation
+- **Enhanced Map Data**:
+  - mapLocations (location name, coordinates, description, lesson)
+  - progressTracking (completed locations, current position, completion percentage)
+  - puzzleData (hidden stories, reveal conditions, interactive elements)
 
 ```mermaid
 erDiagram
@@ -509,13 +660,36 @@ string year
 string title
 string description
 }
+MAP_LOCATION {
+string name
+float latitude
+float longitude
+string description
+string lesson
+}
+PROGRESS_TRACKING {
+number completedLocations
+number totalLocations
+number completionPercentage
+}
+PUZZLE_DATA {
+string puzzleId
+string story
+string revealCondition
+boolean isRevealed
+}
 ACT ||--o{ NARRATIVE_BLOCK : "has"
 ACT ||--o{ CHILDHOOD_DREAM : "includes"
 ACT ||--o{ TIMELINE_ENTRY : "contains"
+CLOSING_SECTION ||--o{ MAP_LOCATION : "contains"
+CLOSING_SECTION ||-- PROGRESS_TRACKING : "tracks"
+CLOSING_SECTION ||--o{ PUZZLE_DATA : "includes"
 ```
 
 **Diagram sources**
-- [content.js:1-440](file://src/data/content.js#L1-L440)
+- [content.js:1-469](file://src/data/content.js#L1-L469)
+- [MapContext.jsx:1-120](file://src/context/MapContext.jsx#L1-L120)
 
 **Section sources**
-- [content.js:1-440](file://src/data/content.js#L1-L440)
+- [content.js:1-469](file://src/data/content.js#L1-L469)
+- [MapContext.jsx:1-120](file://src/context/MapContext.jsx#L1-L120)

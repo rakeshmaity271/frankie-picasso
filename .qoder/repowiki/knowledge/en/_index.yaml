@@ -3,11 +3,11 @@ schema_version: 1
 locale: en-US
 branch: dev
 nodes_managed: true
-exported_at: "2026-07-08T17:07:30Z"
+exported_at: "2026-08-11T05:54:24Z"
 modules:
     "":
-        dir_name: Frankie Picasso Portfolio (Vite + React SPA)
-        title: Frankie Picasso Portfolio (Vite + React SPA)
+        dir_name: Frankie Picasso Life-in-Acts Portfolio (Vite + React SPA)
+        title: Frankie Picasso Life-in-Acts Portfolio (Vite + React SPA)
         scope:
             - .gitignore
             - index.html
@@ -16,84 +16,6 @@ modules:
             - vite.config.js
             - src/
         source_files: []
-        children: []
-        depends_on: []
-        related_to: []
-    build_system:
-        dir_name: Vite-based Build and CI_CD Deployment
-        title: Vite-based Build and CI/CD Deployment
-        scope: []
-        source_files:
-            - package.json
-            - vite.config.js
-            - .github/workflows/deploy.yml
-            - scripts/deploy.sh
-        children: []
-        depends_on: []
-        related_to: []
-    configuration_system:
-        dir_name: Static Content and Build Configuration
-        title: Static Content and Build Configuration
-        scope: []
-        source_files:
-            - vite.config.js
-            - src/data/content.js
-            - scripts/deploy.sh
-            - package.json
-            - .gitignore
-        children: []
-        depends_on: []
-        related_to: []
-    dependency_management:
-        dir_name: NPM and Vite Dependency Management
-        title: NPM and Vite Dependency Management
-        scope: []
-        source_files:
-            - package.json
-            - package-lock.json
-            - vite.config.js
-            - .gitignore
-        children: []
-        depends_on: []
-        related_to: []
-    error_handling:
-        dir_name: Minimal Error Handling — Basic Try_Catch in Deployment Scripts Only
-        title: Minimal Error Handling — Basic Try/Catch in Deployment Scripts Only
-        scope: []
-        source_files:
-            - scripts/check_server.py
-            - scripts/fix_server.py
-            - scripts/setup_server.py
-            - scripts/deploy.sh
-            - .github/workflows/deploy.yml
-            - src/main.jsx
-            - src/App.jsx
-        children: []
-        depends_on: []
-        related_to: []
-    frontend_style:
-        dir_name: CSS Modules with Design Token System
-        title: CSS Modules with Design Token System
-        scope: []
-        source_files:
-            - src/styles/_variables.css
-            - src/styles/_global.css
-            - src/styles/_typography.css
-            - src/styles/_utilities.css
-            - src/App.module.css
-            - src/components/hero/HeroExperience.module.css
-            - src/components/layout/Nav.module.css
-            - src/components/common/SectionHeading.module.css
-            - src/main.jsx
-        children: []
-        depends_on: []
-        related_to: []
-    logging_system:
-        dir_name: No Logging System — Console Output Only in Deployment Scripts
-        title: No Logging System — Console Output Only in Deployment Scripts
-        scope: []
-        source_files:
-            - scripts/deploy.sh
         children: []
         depends_on: []
         related_to: []

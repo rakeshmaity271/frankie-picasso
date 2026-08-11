@@ -29,8 +29,6 @@ import MapOfLife from './components/map/MapOfLife'
 import PuzzleReveal from './components/map/PuzzleReveal'
 import MapProgress from './components/map/MapProgress'
 
-const acts = content.acts
-
 // Color pairs for heartbeat transitions (from -> to)
 const heartbeatColors = [
   { from: '#E8DCC8', to: '#D8C8EE', accent: '#8B5FB0' },    // hero -> act I (neutral -> purple)
@@ -44,6 +42,7 @@ const heartbeatColors = [
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0)
+  const acts = content.acts
   const lessons = mapOfLife.lessons
   useLenis()
 
