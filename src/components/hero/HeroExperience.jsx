@@ -4,10 +4,9 @@ import TextReveal from '../common/TextReveal'
 import ScrollReveal from '../common/ScrollReveal'
 import { useParallax } from '../../hooks/useScrollAnimation'
 
-const hero = content.hero
-const preIntro = content.preAct1Intro
-
 export default function HeroExperience() {
+  const hero = content?.hero
+  const preIntro = content?.preAct1Intro
   const { ref: parallaxRef1, y: y1 } = useParallax(0.2)
   const { ref: parallaxRef2, y: y2 } = useParallax(0.35)
 
