@@ -168,7 +168,8 @@ function ScrapbookCard({ image, dream, index }) {
 }
 
 export default function FrankieStory() {
-  const act = content.acts[0]
+  const act = content.acts?.[0]
+  if (!act || !act.narrative) return null
   return (
     <div className="pt-0 pb-6 md:pb-10 px-6 md:px-10 lg:px-16">
       <div className="max-w-[760px] mx-auto">

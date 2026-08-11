@@ -227,7 +227,8 @@ function StoryBlock({ block }) {
  * mirroring the storytelling system established in Act I.
  */
 export default function FrankieStoryActTwo() {
-  const act = content.acts[1]
+  const act = content.acts?.[1]
+  if (!act || !act.story) return null
   return (
     <div className="pt-0 pb-8 md:pb-14 px-6 md:px-10 lg:px-16">
       <div className="max-w-[760px] mx-auto">

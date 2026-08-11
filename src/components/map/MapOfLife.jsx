@@ -10,7 +10,7 @@ import { PuzzlePreview } from './PuzzleReveal'
  * Locked stars are dim. Click a star to see its lesson details.
  */
 export default function MapOfLife() {
-  const lessons = mapOfLife.lessons
+  const lessons = mapOfLife?.lessons || []
   const { mapOpen, closeMap, unlockedLessons, count, total } = useMap()
   const [selected, setSelected] = useState(null)
   const overlayRef = useRef(null)

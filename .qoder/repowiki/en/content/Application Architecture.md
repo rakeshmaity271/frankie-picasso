@@ -27,11 +27,10 @@
 
 ## Update Summary
 **Changes Made**
-- Enhanced six-act narrative framework with detailed Act III implementation focusing on Frankie's business ventures and personal growth journey
-- Added comprehensive FrankieStoryActThree component with sophisticated cinematic storytelling architecture
-- Updated content structure with detailed Act III data including timeline, narrative blocks, and emotional peaks
-- Integrated Act III seamlessly into the main application flow with proper heartbeat transitions
-- Enhanced storytelling capabilities with advanced animation patterns and typography hierarchy
+- Enhanced initialization patterns by moving module-level variable declarations into component scopes in App.jsx and story components to prevent initialization errors during React component lifecycle
+- Improved React component lifecycle management with better encapsulation of configuration constants
+- Optimized memory usage and performance through proper scoping of animation and styling constants
+- Strengthened architectural boundaries between module-level and component-level concerns
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -54,7 +53,7 @@
 ## Introduction
 This document describes the architecture of the Frankie Picasso application, a modern React Single Page Application (SPA) designed with an enhanced six-act narrative framework and sophisticated animation system. The application demonstrates contemporary web development patterns through its data-driven content organization, centralized content management system, integrated theming architecture, and advanced motion system powered by Framer Motion. The system emphasizes a narrative-driven approach where content flows through six distinct acts, each with unique theming, storytelling elements, and specialized component implementations. The enhanced architecture provides seamless user experience with smooth scrolling, dynamic color transitions, and responsive design patterns.
 
-**Updated**: The application has undergone significant architectural enhancements with the integration of a comprehensive Act III implementation focused on Frankie's business ventures and personal growth journey. The new FrankieStoryActThree component introduces sophisticated cinematic storytelling with detailed narrative content about boxing, entrepreneurship, kickboxing promotion, and the pivotal choice to prioritize family over ambition. This enhancement includes advanced typography hierarchy, emotional peak detection, and seamless integration with the existing six-act narrative framework while maintaining the established visual design language and animation patterns.
+**Updated**: The application has undergone significant architectural enhancements with improved initialization patterns that move module-level variable declarations into component scopes to prevent initialization errors during React component lifecycle. This optimization ensures better encapsulation of configuration constants, improved memory management, and more robust component lifecycle handling. The enhanced Act III implementation focuses on Frankie's business ventures and personal growth journey with sophisticated cinematic storytelling architecture.
 
 ## Project Structure
 The repository follows a modern React application layout with an enhanced cinematic narrative architecture:
@@ -155,7 +154,7 @@ NAV --> FRAMERMOTION
 ACTS --> MOTIONHOOKS
 ACTS --> SCROLLTRANSFORMS
 ACTS --> DYNAMICCOLORS
-FRANKIESTORY --> SCRAPBOOKANIMS
+FRANKIESTORY --> SCRAPHOOKS
 FRANKIESTORY --> IMAGES
 FRANKIESTORY --> HEARTBEATANIMS
 ACTTHREECOMP --> ACTTHREEANIMS
@@ -169,12 +168,12 @@ LENIS --> SMOOTHSCROLLING
 - [package.json:1-27](file://package.json#L1-L27)
 - [vite.config.js:1-12](file://vite.config.js#L1-L12)
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-224](file://src/App.jsx#L1-L224)
+- [src/App.jsx:1-223](file://src/App.jsx#L1-L223)
 - [src/data/content.js:1-743](file://src/data/content.js#L1-L743)
 - [src/components/layout/Nav.jsx:1-172](file://src/components/layout/Nav.jsx#L1-L172)
 - [src/components/acts/ActSection.jsx:1-58](file://src/components/acts/ActSection.jsx#L1-L58)
 - [src/components/acts/Heartbeat.jsx:1-71](file://src/components/acts/Heartbeat.jsx#L1-L71)
-- [src/components/story/FrankieStory.jsx:1-206](file://src/components/story/FrankieStory.jsx#L1-L206)
+- [src/components/story/FrankieStory.jsx:1-263](file://src/components/story/FrankieStory.jsx#L1-L263)
 - [src/components/story/FrankieStoryActTwo.jsx:1-241](file://src/components/story/FrankieStoryActTwo.jsx#L1-L241)
 - [src/components/story/FrankieStoryActThree.jsx:1-451](file://src/components/story/FrankieStoryActThree.jsx#L1-L451)
 - [src/hooks/useColorSystem.js:1-184](file://src/hooks/useColorSystem.js#L1-L184)
@@ -188,7 +187,7 @@ LENIS --> SMOOTHSCROLLING
 - [package.json:1-27](file://package.json#L1-L27)
 - [vite.config.js:1-12](file://vite.config.js#L1-L12)
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-224](file://src/App.jsx#L1-L224)
+- [src/App.jsx:1-223](file://src/App.jsx#L1-L223)
 - [public/index.html:1-21](file://public/index.html#L1-L21)
 
 ## Enhanced Six-Act Narrative Framework
@@ -237,7 +236,7 @@ The new FrankieStoryActThree component introduces sophisticated cinematic storyt
 - [src/data/content.js:15-28](file://src/data/content.js#L15-L28)
 - [src/data/content.js:68-562](file://src/data/content.js#L68-L562)
 - [src/components/acts/ActSection.jsx:1-58](file://src/components/acts/ActSection.jsx#L1-L58)
-- [src/components/story/FrankieStory.jsx:88-205](file://src/components/story/FrankieStory.jsx#L88-L205)
+- [src/components/story/FrankieStory.jsx:88-262](file://src/components/story/FrankieStory.jsx#L88-L262)
 - [src/components/story/FrankieStoryActThree.jsx:1-451](file://src/components/story/FrankieStoryActThree.jsx#L1-L451)
 
 ## Act III Implementation - The Builder
@@ -429,7 +428,7 @@ NavComponent --> MobileOverlay["Mobile Overlay"]
 - [src/components/layout/Nav.jsx:1-172](file://src/components/layout/Nav.jsx#L1-L172)
 - [src/components/acts/ActSection.jsx:1-58](file://src/components/acts/ActSection.jsx#L1-L58)
 - [src/components/acts/Heartbeat.jsx:1-71](file://src/components/acts/Heartbeat.jsx#L1-L71)
-- [src/components/story/FrankieStory.jsx:1-206](file://src/components/story/FrankieStory.jsx#L1-L206)
+- [src/components/story/FrankieStory.jsx:1-263](file://src/components/story/FrankieStory.jsx#L1-L263)
 - [src/components/story/FrankieStoryActThree.jsx:1-451](file://src/components/story/FrankieStoryActThree.jsx#L1-L451)
 
 ## Dynamic Color Management
@@ -613,7 +612,7 @@ Key implementation references:
 - Enhanced navigation system: [src/components/layout/Nav.jsx:52-171](file://src/components/layout/Nav.jsx#L52-L171)
 - ActSection wrapper component: [src/components/acts/ActSection.jsx:9-57](file://src/components/acts/ActSection.jsx#L9-L57)
 - Heartbeat transition component: [src/components/acts/Heartbeat.jsx:8-70](file://src/components/acts/Heartbeat.jsx#L8-L70)
-- Enhanced FrankieStory with multi-section narrative: [src/components/story/FrankieStory.jsx:88-205](file://src/components/story/FrankieStory.jsx#L88-L205)
+- Enhanced FrankieStory with multi-section narrative: [src/components/story/FrankieStory.jsx:88-262](file://src/components/story/FrankieStory.jsx#L88-L262)
 - Act II narrative component: [src/components/story/FrankieStoryActTwo.jsx:231-241](file://src/components/story/FrankieStoryActTwo.jsx#L231-L241)
 - Act III business journey component: [src/components/story/FrankieStoryActThree.jsx:19-448](file://src/components/story/FrankieStoryActThree.jsx#L19-L448)
 - Map of Life context management: [src/context/MapContext.jsx:1-100](file://src/context/MapContext.jsx#L1-L100)
@@ -627,11 +626,11 @@ Key implementation references:
 
 **Section sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-224](file://src/App.jsx#L1-L224)
+- [src/App.jsx:1-223](file://src/App.jsx#L1-L223)
 - [src/components/layout/Nav.jsx:1-172](file://src/components/layout/Nav.jsx#L1-L172)
 - [src/components/acts/ActSection.jsx:1-58](file://src/components/acts/ActSection.jsx#L1-L58)
 - [src/components/acts/Heartbeat.jsx:1-71](file://src/components/acts/Heartbeat.jsx#L1-L71)
-- [src/components/story/FrankieStory.jsx:1-206](file://src/components/story/FrankieStory.jsx#L1-L206)
+- [src/components/story/FrankieStory.jsx:1-263](file://src/components/story/FrankieStory.jsx#L1-L263)
 - [src/components/story/FrankieStoryActTwo.jsx:1-241](file://src/components/story/FrankieStoryActTwo.jsx#L1-L241)
 - [src/components/story/FrankieStoryActThree.jsx:1-451](file://src/components/story/FrankieStoryActThree.jsx#L1-L451)
 - [src/context/MapContext.jsx:1-100](file://src/context/MapContext.jsx#L1-L100)
@@ -723,7 +722,7 @@ Components --> Tailwind
 - [src/components/layout/Nav.jsx:52-171](file://src/components/layout/Nav.jsx#L52-L171)
 - [src/components/acts/ActSection.jsx:9-57](file://src/components/acts/ActSection.jsx#L9-L57)
 - [src/components/acts/Heartbeat.jsx:8-70](file://src/components/acts/Heartbeat.jsx#L8-L70)
-- [src/components/story/FrankieStory.jsx:88-205](file://src/components/story/FrankieStory.jsx#L88-L205)
+- [src/components/story/FrankieStory.jsx:88-262](file://src/components/story/FrankieStory.jsx#L88-L262)
 - [src/components/story/FrankieStoryActTwo.jsx:231-241](file://src/components/story/FrankieStoryActTwo.jsx#L231-L241)
 - [src/components/story/FrankieStoryActThree.jsx:19-448](file://src/components/story/FrankieStoryActThree.jsx#L19-L448)
 - [src/context/MapContext.jsx:1-100](file://src/context/MapContext.jsx#L1-L100)
@@ -841,7 +840,7 @@ Implementation highlights:
 
 **Section sources**
 - [src/main.jsx:1-11](file://src/main.jsx#L1-L11)
-- [src/App.jsx:1-224](file://src/App.jsx#L1-L224)
+- [src/App.jsx:1-223](file://src/App.jsx#L1-L223)
 
 ### Enhanced Navigation Architecture
 The application implements a sophisticated navigation system with Framer Motion animations:
@@ -968,23 +967,23 @@ FutureVision["FutureVision"] --> ActSection
 - [src/App.jsx:76-193](file://src/App.jsx#L76-L193)
 - [src/components/acts/ActSection.jsx:9-57](file://src/components/acts/ActSection.jsx#L9-L57)
 - [src/components/acts/Heartbeat.jsx:8-70](file://src/components/acts/Heartbeat.jsx#L8-L70)
-- [src/components/story/FrankieStory.jsx:88-205](file://src/components/story/FrankieStory.jsx#L88-L205)
+- [src/components/story/FrankieStory.jsx:88-262](file://src/components/story/FrankieStory.jsx#L88-L262)
 - [src/components/story/FrankieStoryActTwo.jsx:231-241](file://src/components/story/FrankieStoryActTwo.jsx#L231-L241)
 - [src/components/story/FrankieStoryActThree.jsx:19-448](file://src/components/story/FrankieStoryActThree.jsx#L19-L448)
 
 Implementation highlights:
 - ActSection wrapper: [src/components/acts/ActSection.jsx:9-57](file://src/components/acts/ActSection.jsx#L9-L57)
-- Enhanced FrankieStory with multi-section narrative: [src/components/story/FrankieStory.jsx:88-205](file://src/components/story/FrankieStory.jsx#L88-L205)
+- Enhanced FrankieStory with multi-section narrative: [src/components/story/FrankieStory.jsx:88-262](file://src/components/story/FrankieStory.jsx#L88-L262)
 - Act II narrative component: [src/components/story/FrankieStoryActTwo.jsx:231-241](file://src/components/story/FrankieStoryActTwo.jsx#L231-L241)
 - Act III business journey component: [src/components/story/FrankieStoryActThree.jsx:19-448](file://src/components/story/FrankieStoryActThree.jsx#L19-L448)
 - Heartbeat transition component: [src/components/acts/Heartbeat.jsx:8-70](file://src/components/acts/Heartbeat.jsx#L8-L70)
 - Act-specific content rendering: [src/App.jsx:76-193](file://src/App.jsx#L76-L193)
 
 **Section sources**
-- [src/App.jsx:1-224](file://src/App.jsx#L1-L224)
+- [src/App.jsx:1-223](file://src/App.jsx#L1-L223)
 - [src/components/acts/ActSection.jsx:1-58](file://src/components/acts/ActSection.jsx#L1-L58)
 - [src/components/acts/Heartbeat.jsx:1-71](file://src/components/acts/Heartbeat.jsx#L1-L71)
-- [src/components/story/FrankieStory.jsx:1-206](file://src/components/story/FrankieStory.jsx#L1-L206)
+- [src/components/story/FrankieStory.jsx:1-263](file://src/components/story/FrankieStory.jsx#L1-L263)
 - [src/components/story/FrankieStoryActTwo.jsx:1-241](file://src/components/story/FrankieStoryActTwo.jsx#L1-L241)
 - [src/components/story/FrankieStoryActThree.jsx:1-451](file://src/components/story/FrankieStoryActThree.jsx#L1-L451)
 
@@ -1062,7 +1061,7 @@ ChildhoodDreamsData --> DreamDescriptions["Dream Descriptions"]
 
 **Section sources**
 - [src/data/content.js:1-743](file://src/data/content.js#L1-L743)
-- [src/components/story/FrankieStory.jsx:1-206](file://src/components/story/FrankieStory.jsx#L1-L206)
+- [src/components/story/FrankieStory.jsx:1-263](file://src/components/story/FrankieStory.jsx#L1-L263)
 - [src/components/story/FrankieStoryActThree.jsx:1-451](file://src/components/story/FrankieStoryActThree.jsx#L1-L451)
 
 ### Map of Life Component Architecture
@@ -1234,7 +1233,7 @@ ActIIIComponent --> AnimationSystem
 - [src/hooks/useScrollAnimation.js:1-118](file://src/hooks/useScrollAnimation.js#L1-L118)
 - [src/data/content.js:1-743](file://src/data/content.js#L1-L743)
 - [src/components/layout/Nav.jsx:1-172](file://src/components/layout/Nav.jsx#L1-L172)
-- [src/components/story/FrankieStory.jsx:1-206](file://src/components/story/FrankieStory.jsx#L1-L206)
+- [src/components/story/FrankieStory.jsx:1-263](file://src/components/story/FrankieStory.jsx#L1-L263)
 - [src/components/story/FrankieStoryActTwo.jsx:1-241](file://src/components/story/FrankieStoryActTwo.jsx#L1-L241)
 - [src/components/story/FrankieStoryActThree.jsx:1-451](file://src/components/story/FrankieStoryActThree.jsx#L1-L451)
 - [src/components/acts/Heartbeat.jsx:1-71](file://src/components/acts/Heartbeat.jsx#L1-L71)
@@ -1304,6 +1303,7 @@ ActIIIComponent --> AnimationSystem
   - **Context Management Scalability**: Efficient state distribution across growing component trees
   - **Act III Component Scalability**: Specialized component architecture supports additional act implementations
   - **Animation System Scalability**: Modular animation system supports new animation patterns and effects
+- **Improved Initialization Patterns**: Moving module-level variable declarations into component scopes prevents initialization errors during React component lifecycle, ensuring better encapsulation and more robust component behavior
 
 ## Troubleshooting Guide
 Common issues and resolutions:
@@ -1385,6 +1385,7 @@ Common issues and resolutions:
   - Validate scene-based narrative flow and transitions
   - Verify typography hierarchy and responsive scaling
   - Check intersection observer performance for container animations
+- **Initialization Pattern Issues**: If experiencing initialization errors during React component lifecycle, ensure module-level constants are properly scoped within component functions rather than at module level
 - Tailwind CSS Issues
   - Verify Tailwind CSS v4 plugin is properly configured
   - Check for proper @theme directive usage
@@ -1404,6 +1405,7 @@ Common issues and resolutions:
   - **Map of Life Performance**: Monitor context update frequency and localStorage operations
   - **Interactive Element Performance**: Ensure map interactions don't cause excessive re-renders
   - **Act III Animation Performance**: Monitor intersection observer efficiency and animation scheduling
+  - **Component Lifecycle Performance**: Verify proper initialization patterns prevent unnecessary re-renders
 - Mobile Menu Problems
   - Verify Framer Motion AnimatePresence usage
   - Check for proper z-index layering
@@ -1418,7 +1420,7 @@ Common issues and resolutions:
 - [src/components/layout/Nav.jsx:1-172](file://src/components/layout/Nav.jsx#L1-L172)
 - [src/components/acts/ActSection.jsx:1-58](file://src/components/acts/ActSection.jsx#L1-L58)
 - [src/components/acts/Heartbeat.jsx:1-71](file://src/components/acts/Heartbeat.jsx#L1-L71)
-- [src/components/story/FrankieStory.jsx:1-206](file://src/components/story/FrankieStory.jsx#L1-L206)
+- [src/components/story/FrankieStory.jsx:1-263](file://src/components/story/FrankieStory.jsx#L1-L263)
 - [src/components/story/FrankieStoryActTwo.jsx:1-241](file://src/components/story/FrankieStoryActTwo.jsx#L1-L241)
 - [src/components/story/FrankieStoryActThree.jsx:1-451](file://src/components/story/FrankieStoryActThree.jsx#L1-L451)
 - [src/data/content.js:1-743](file://src/data/content.js#L1-L743)
@@ -1430,4 +1432,4 @@ Common issues and resolutions:
 ## Conclusion
 The Frankie Picasso application exemplifies modern React SPA architecture with an enhanced cinematic narrative framework and sophisticated animation system. The implementation demonstrates advanced data-driven content organization, integrated theming system with Tailwind CSS v4, and comprehensive motion techniques using Framer Motion. The enhanced architecture provides seamless user experience with smooth scrolling, dynamic color transitions, and responsive design patterns that adapt to various screen sizes.
 
-**Updated**: The application has successfully implemented a comprehensive architectural enhancement with the addition of a detailed Act III implementation focused on Frankie's business ventures and personal growth journey. The new FrankieStoryActThree component introduces sophisticated cinematic storytelling with advanced typography hierarchy, emotional peak detection, and scene-based narrative flow. This enhancement includes comprehensive coverage of Frankie's entrepreneurial journey from boxing gyms to kickboxing promotion, the development of multiple businesses including Connalin Development and Condom Sense, and the pivotal choice to prioritize family over professional ambition. The Act III implementation seamlessly integrates with the existing six-act narrative framework while maintaining the established visual design language and animation patterns. The sophisticated storytelling architecture demonstrates excellent separation of concerns with clear boundaries between narrative content and specialized act components, while providing unified state management and smooth transitions between different narrative sections. This implementation serves as a comprehensive demonstration of contemporary web development practices including data-driven architecture, responsive design, accessibility considerations, performance optimization, advanced animation techniques using modern libraries like Framer Motion and Lenis, and sophisticated state management patterns. The enhanced visual storytelling through image-based dream cards, multi-section narrative framework, and specialized act components creates a more emotionally engaging user experience while maintaining excellent performance through lazy loading, optimized animations, and efficient context updates. The sophisticated content management system with preAct1Intro object, expanded data fields, and Map of Life state management supports the enhanced narrative flow and provides a scalable foundation for future storytelling and interactive learning enhancements. The warm cream palette and lavender accents create a cohesive, accessible design that better serves the intimate, personal nature of the narrative content while supporting the interactive learning elements. The Act III implementation particularly excels in demonstrating how specialized components can enhance storytelling while maintaining consistency with the overall application architecture.
+**Updated**: The application has successfully implemented a comprehensive architectural enhancement with improved initialization patterns that move module-level variable declarations into component scopes to prevent initialization errors during React component lifecycle. This optimization ensures better encapsulation of configuration constants, improved memory management, and more robust component lifecycle handling. The enhanced Act III implementation focused on Frankie's business ventures and personal growth journey introduces sophisticated cinematic storytelling with advanced typography hierarchy, emotional peak detection, and scene-based narrative flow. This enhancement includes comprehensive coverage of Frankie's entrepreneurial journey from boxing gyms to kickboxing promotion, the development of multiple businesses including Connalin Development and Condom Sense, and the pivotal choice to prioritize family over professional ambition. The Act III implementation seamlessly integrates with the existing six-act narrative framework while maintaining the established visual design language and animation patterns. The sophisticated storytelling architecture demonstrates excellent separation of concerns with clear boundaries between narrative content and specialized act components, while providing unified state management and smooth transitions between different narrative sections. This implementation serves as a comprehensive demonstration of contemporary web development practices including data-driven architecture, responsive design, accessibility considerations, performance optimization, advanced animation techniques using modern libraries like Framer Motion and Lenis, and sophisticated state management patterns. The enhanced visual storytelling through image-based dream cards, multi-section narrative framework, and specialized act components creates a more emotionally engaging user experience while maintaining excellent performance through lazy loading, optimized animations, and efficient context updates. The sophisticated content management system with preAct1Intro object, expanded data fields, and Map of Life state management supports the enhanced narrative flow and provides a scalable foundation for future storytelling and interactive learning enhancements. The warm cream palette and lavender accents create a cohesive, accessible design that better serves the intimate, personal nature of the narrative content while supporting the interactive learning elements. The Act III implementation particularly excels in demonstrating how specialized components can enhance storytelling while maintaining consistency with the overall application architecture. The improved initialization patterns ensure that configuration constants are properly scoped within component lifecycles, preventing potential initialization errors and providing more predictable component behavior across different React environments.
