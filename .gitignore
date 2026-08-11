@@ -38,3 +38,6 @@ workflow_status.png
 
 # Client feedback documents
 feedback/
+
+# Qoder local documentation and wiki
+.qoder/
