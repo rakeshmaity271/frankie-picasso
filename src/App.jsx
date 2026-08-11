@@ -30,7 +30,6 @@ import PuzzleReveal from './components/map/PuzzleReveal'
 import MapProgress from './components/map/MapProgress'
 
 const acts = content.acts
-const lessons = mapOfLife.lessons
 
 // Color pairs for heartbeat transitions (from -> to)
 const heartbeatColors = [
