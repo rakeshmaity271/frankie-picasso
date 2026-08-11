@@ -5,8 +5,6 @@ import ScrollReveal from '../common/ScrollReveal'
 import TextReveal from '../common/TextReveal'
 import Frankieism from '../common/Frankieism'
 
-const act = content.acts[0]
-
 // Emphasis content that should be LARGE — major emotional peaks (Level 1)
 const MAJOR_EMPHASIS = [
   'Because he believed it, I believed it too.',
@@ -170,6 +168,7 @@ function ScrapbookCard({ image, dream, index }) {
 }
 
 export default function FrankieStory() {
+  const act = content.acts[0]
   return (
     <div className="pt-0 pb-6 md:pb-10 px-6 md:px-10 lg:px-16">
       <div className="max-w-[760px] mx-auto">

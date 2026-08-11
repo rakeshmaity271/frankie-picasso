@@ -2,8 +2,6 @@ import { content } from '../../data/content'
 import ScrollReveal from '../common/ScrollReveal'
 import TextReveal from '../common/TextReveal'
 
-const act = content.acts[1]
-
 // Act II accent — warm orange, drawn from the heartbeat palette (#EE5802),
 // deepened slightly for readable contrast on the cream (#FFF0CC) background.
 const ACCENT = '#C24E1A'
@@ -229,6 +227,7 @@ function StoryBlock({ block }) {
  * mirroring the storytelling system established in Act I.
  */
 export default function FrankieStoryActTwo() {
+  const act = content.acts[1]
   return (
     <div className="pt-0 pb-8 md:pb-14 px-6 md:px-10 lg:px-16">
       <div className="max-w-[760px] mx-auto">
