@@ -558,6 +558,39 @@ export const content = {
         { year: '2024', title: 'Woman of the Decade', description: 'Honored by Women\'s Economic Forum for decade of impact.' },
         { year: 'Present', title: 'Still Becoming', description: 'Still building, still creating, still connecting.' }
       ]
+    },
+    {
+      // ADDITIVE — Act IV "The Leader" (full narrative story page at #/act/the-leader).
+      // Appended after the legacy acts so positional content.acts[...] consumers stay intact.
+      id: 'the-leader',
+      number: 'IV',
+      title: 'The Leader',
+      tagline: 'Leadership, I discovered, wasn’t about titles. It was about bringing people together.',
+      color: '#E0F4F4',
+      cssVar: '--act-the-leader',
+      intro: 'Two days after promoting a World Championship fight, Frankie received a call from the Ontario government. One event became a career — and a calling to bring tens of thousands of public servants together.',
+      heartbeatLine: 'You don’t have to be the fastest. You just have to keep climbing.',
+      frankieism: 'You don’t have to be the fastest. You just have to keep climbing.',
+      timeline: [
+        { year: '1990s–2000s', title: 'Government of Ontario', description: 'From organizing a single event for the Ministry of Justice to a full-time career with the Ontario government — seconded to Cabinet Office and eventually Special Advisor for SPIRIT under the Deputy Minister of Labour.' },
+        { year: '2000s', title: 'SPIRIT & Community Programs', description: 'Created Dragon Boat teams, volunteer emergency response programs, mentoring initiatives and community challenges connecting tens of thousands of public servants across the province.' }
+      ]
+    },
+    {
+      // ADDITIVE — Act V "The Survivor" (full narrative story page at #/act/the-survivor).
+      id: 'the-survivor',
+      number: 'V',
+      title: 'The Survivor',
+      tagline: 'Sometimes life doesn’t ask whether you’re ready.',
+      color: '#FDE8EF',
+      cssVar: '--act-the-survivor',
+      intro: 'A motorcycle, a country road, and one summer evening that changed everything. Losing the life she had built became the beginning of discovering who she really was.',
+      heartbeatLine: 'Sometimes losing everything you thought defined you is how you discover who you really are.',
+      frankieism: 'Sometimes losing everything you thought defined you is how you discover who you really are.',
+      timeline: [
+        { year: 'The Accident', title: 'Everything Changed', description: 'Leading a motorcycle ride through the countryside, a car ran a stop sign. Two broken femurs, a broken hip, a fractured pelvis — and months of hospital and rehabilitation.' },
+        { year: 'Rehabilitation', title: 'The Survivor Becomes the Coach', description: 'In rehab, encouraging other patients not to give up, the coach inside Frankie began to emerge.' }
+      ]
     }
   ],
 
@@ -686,6 +719,7 @@ export const sectionIds = [
   'who-is-frankie',
   'where-belief-began',
   'building',
+  'building-through-boxing',
   'amplifying',
   'creating',
   'giving',
@@ -704,7 +738,7 @@ export const navLinks = [
   { id: 'who-is-frankie', label: 'Who is Frankie?' },
   { id: 'where-belief-began', label: 'Journey' },
   { id: 'impact', label: 'Impact' },
-  { id: 'media', label: 'Media' },
+  { id: 'media', label: 'Media', route: '#/act/amplifying' },
   { id: 'books', label: 'Books' },
   { id: 'art', label: 'Art' },
   { id: 'timeline', label: 'Timeline' },

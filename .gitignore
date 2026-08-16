@@ -36,6 +36,9 @@ test_*.png
 verify_*.png
 workflow_status.png
 
+# Raw original photos (WhatsApp originals) — never ship to production
+/images/
+
 # Client feedback documents
 feedback/
 

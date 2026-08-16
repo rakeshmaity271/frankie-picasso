@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { navLinks, sectionIds } from '../../data/content'
 import { useMap } from '../../context/MapContext'
 
@@ -10,7 +11,11 @@ export default function Nav() {
   const [activeSection, setActiveSection] = useState('hero')
   const lastScrollY = useRef(0)
   const navRef = useRef(null)
+  const pendingSection = useRef(null)
   const { openMap, count } = useMap()
+  const location = useLocation()
+  const navigate = useNavigate()
+  const onJourney = location.pathname === '/'
 
   const handleScroll = useCallback(() => {
     const currentY = window.scrollY
@@ -43,12 +48,45 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [handleScroll])
 
+  // After returning to the Journey page from an act route, complete the
+  // pending section scroll once the page has rendered.
+  useEffect(() => {
+    if (location.pathname !== '/' || !pendingSection.current) return
+    const id = pendingSection.current
+    pendingSection.current = null
+    const raf = requestAnimationFrame(() => {
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    })
+    return () => cancelAnimationFrame(raf)
+  }, [location.pathname])
+
   const scrollToSection = (id) => {
     setMenuOpen(false)
+    if (!onJourney) {
+      // Section lives on the Journey page — navigate home first, then scroll.
+      pendingSection.current = id
+      navigate('/')
+      return
+    }
     const el = document.getElementById(id)
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
+  }
+
+  // Nav link handler: links with an explicit `route` (e.g. Media, which
+  // now lives at #/act/amplifying) navigate to that route instead of
+  // scrolling. Works from both '/' and act routes.
+  const handleLinkClick = (link) => {
+    if (link.route) {
+      setMenuOpen(false)
+      navigate(link.route.replace(/^#/, ''))
+      return
+    }
+    scrollToSection(link.id)
   }
 
   return (
@@ -84,7 +122,7 @@ export default function Nav() {
             {navLinks.map((link) => (
               <li key={link.id}>
                 <button
-                  onClick={() => scrollToSection(link.id)}
+                  onClick={() => handleLinkClick(link)}
                   className={`
                     relative text-sm font-sans font-normal tracking-wide
                     transition-colors duration-300 cursor-pointer
@@ -159,7 +197,7 @@ export default function Nav() {
                   transition={{ delay: i * 0.06, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
                   <button
-                    onClick={() => scrollToSection(link.id)}
+                    onClick={() => handleLinkClick(link)}
                     className={`
                       font-serif text-3xl md:text-4xl font-light tracking-wide
                       transition-colors duration-300 cursor-pointer
