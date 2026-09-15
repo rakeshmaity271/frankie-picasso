@@ -607,6 +607,22 @@ export const content = {
         { year: 'Post-Hospital', title: 'The Coach Emerges', description: 'Enrolled at the International Coach Academy before leaving hospital. Graduated with honours, then earned every coaching certification available — personal, business, executive, spiritual, and Master Coach Trainer.' },
         { year: '2007', title: 'Mission Unstoppable', description: 'Launched on BlogTalkRadio. Created multiple shows and founded The Good Radio Network in 2014 — radio could do a world of good.' }
       ]
+    },
+    {
+      // ADDITIVE — Act VII "Beginning Again" (full narrative story page at #/act/beginning-again).
+      id: 'beginning-again',
+      number: 'VII',
+      title: 'Beginning Again',
+      tagline: 'Retirement was supposed to be my closing chapter.',
+      color: '#FDEBD3',
+      cssVar: '--act-beginning-again',
+      intro: 'Retiring at sixty-five should have been peaceful. Instead, grief, drift and thirteen grandchildren led Frankie to Girl Power Talk, Girl Power USA, and G-Woman Media — a new act more ambitious than anything she had imagined.',
+      heartbeatLine: 'Some people are cut out for retirement. Apparently, I am not.',
+      frankieism: 'Some people are cut out for retirement. Apparently, I am not.',
+      timeline: [
+        { year: 'Retirement', title: 'The Intermission', description: 'Retired at sixty-five. Father passed, beloved dog died on her birthday. Grieving, lost, drifting — until an assignment to interview employees at Girl Power Talk flipped the switch back on.' },
+        { year: '2021–2025', title: 'Girl Power USA & G-Woman Media', description: 'Built Girl Power USA as Executive Director — supporting young people in India, Africa and beyond. Co-founded G-Woman Media with Alex Okoroji: a global media ecosystem owned by women, for women.' }
+      ]
     }
   ],
 

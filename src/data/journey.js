@@ -197,6 +197,36 @@ export const journeyActs = [
     accent: '#C4922A',
     fullStoryUrl: '#/act/coming-home',
   },
+  {
+    id: 'beginning-again',
+    number: 'VII',
+    title: 'Beginning Again',
+    tagline: 'Retirement was supposed to be my closing chapter.',
+    shortIntro: 'Retirement was supposed to be my closing chapter.',
+    shortBody: [
+      'I officially retired at sixty-five\u2014and almost immediately discovered that retirement wasn\u2019t all it was cracked up to be.',
+      'I didn\u2019t know what to do with myself.',
+      'My father had passed away three months earlier, and then my beloved dog died on my birthday. I was grieving, lost and, quite honestly, a mess.',
+      'I was still doing radio and painting, but I had stopped coaching and felt as though I were drifting. I wasn\u2019t sleeping. I wasn\u2019t interested in much of anything. For someone who had spent her entire life creating, working, helping and charging headfirst into the next adventure, having nowhere in particular to go was not relaxing.',
+      'It was depressing.',
+      'I had spent years volunteering with different organizations, giving away my time, experience and energy. Eventually, I began to wonder whether it might be nice to get paid again. I didn\u2019t care if it was only one dollar an hour. I simply wanted something that said, We value you. We value your time. What you bring matters.',
+      'Some people are cut out for retirement. Apparently, I am not.',
+      'Besides, I have thirteen grandchildren. Trust me, there is a birthday every month. I needed money to support my Glamma habit.',
+      'Around that time, I reached out to a friend who offered me an opportunity to take a deep dive into his company. He asked me to interview some of his employees and write a report about what I discovered.',
+      'What I discovered was myself.',
+    ],
+    images: [
+      {
+        src: '/images/portrait-leather-jacket-studio.jpg',
+        alt: 'Frankie in a leather jacket, studio portrait, looking directly at the camera with confidence.',
+      },
+    ],
+    highlight: 'Some people are cut out for retirement. Apparently, I am not.',
+    highlightLabel: 'THE HIGHLIGHT',
+    color: '#FDEBD3',
+    accent: '#D4764E',
+    fullStoryUrl: '#/act/beginning-again',
+  },
 ]
 
 // Heartbeat transition pairs between Journey previews — reuses the site's
@@ -208,4 +238,5 @@ export const journeyHeartbeats = [
   { from: '#FFF0CC', to: '#E0F4F4', accent: '#01B2D4' }, // Act III -> Act IV
   { from: '#E0F4F4', to: '#FDE8EF', accent: '#DF3CB5' }, // Act IV -> Act V
   { from: '#FDE8EF', to: '#FFF8E7', accent: '#C4922A' }, // Act V -> Act VI
+  { from: '#FFF8E7', to: '#FDEBD3', accent: '#D4764E' }, // Act VI -> Act VII
 ]
