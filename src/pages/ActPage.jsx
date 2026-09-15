@@ -9,10 +9,10 @@ import FrankieStoryActFour from '../components/story/FrankieStoryActFour'
 import FrankieStoryActFive from '../components/story/FrankieStoryActFive'
 import FrankieStoryActSix from '../components/story/FrankieStoryActSix'
 import FrankieStoryActSeven from '../components/story/FrankieStoryActSeven'
+import FrankieStoryActEight from '../components/story/FrankieStoryActEight'
 import MediaSection from '../components/media/MediaSection'
 import Creativity from '../components/creativity/Creativity'
 import CommunityImpact from '../components/community/CommunityImpact'
-import FutureVision from '../components/vision/FutureVision'
 import { content } from '../data/content'
 import { ScrollTrigger } from '../hooks/useGsap'
 
@@ -29,10 +29,10 @@ const registry = {
   'the-survivor': FrankieStoryActFive,
   'coming-home': FrankieStoryActSix,
   'beginning-again': FrankieStoryActSeven,
+  'still-becoming': FrankieStoryActEight,
   amplifying: MediaSection,
   creating: Creativity,
   giving: CommunityImpact,
-  'still-becoming': FutureVision,
 }
 
 export default function ActPage() {

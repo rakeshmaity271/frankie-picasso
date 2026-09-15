@@ -227,6 +227,30 @@ export const journeyActs = [
     accent: '#D4764E',
     fullStoryUrl: '#/act/beginning-again',
   },
+  {
+    id: 'still-becoming',
+    number: 'VIII',
+    title: 'Still Becoming',
+    tagline: 'I am no longer interested in becoming only one thing.',
+    shortIntro: 'I am no longer interested in becoming only one thing.',
+    shortBody: [
+      'If the first seven acts of my life have taught me anything, it is that I am terrible at standing still.',
+      'Just when I think I have arrived somewhere, another idea appears. Another cause needs help. Another microphone turns on. Another door opens\u2014or remains stubbornly closed until I decide to build my own.',
+      'At this point in my life, I am no longer interested in becoming only one thing. I am a media entrepreneur, radio host, author, artist, social-impact advocate, board chair and, most recently, an actor.',
+      'Apparently, retirement has gone very badly.',
+    ],
+    images: [
+      {
+        src: '/images/portrait-leather-jacket-studio.jpg',
+        alt: 'Frankie in a leather jacket, studio portrait, looking directly at the camera with confidence.',
+      },
+    ],
+    highlight: 'I am no longer interested in becoming only one thing.',
+    highlightLabel: 'THE HIGHLIGHT',
+    color: '#E8EDF8',
+    accent: '#3B5998',
+    fullStoryUrl: '#/act/still-becoming',
+  },
 ]
 
 // Heartbeat transition pairs between Journey previews — reuses the site's
@@ -239,4 +263,5 @@ export const journeyHeartbeats = [
   { from: '#E0F4F4', to: '#FDE8EF', accent: '#DF3CB5' }, // Act IV -> Act V
   { from: '#FDE8EF', to: '#FFF8E7', accent: '#C4922A' }, // Act V -> Act VI
   { from: '#FFF8E7', to: '#FDEBD3', accent: '#D4764E' }, // Act VI -> Act VII
+  { from: '#FDEBD3', to: '#E8EDF8', accent: '#3B5998' }, // Act VII -> Act VIII
 ]
