@@ -127,6 +127,7 @@ export default function ActPreview({ preview, index = 0 }) {
                         src={image.src}
                         alt={image.alt}
                         className="w-full h-full object-cover block"
+                        style={{ objectPosition: 'top center' }}
                         loading="lazy"
                         decoding="async"
                       />
