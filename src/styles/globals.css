@@ -136,6 +136,40 @@ img {
   display: block;
 }
 
+/* ==========================================================================
+   BOOK FLIP CARDS
+   ========================================================================== */
+
+.book-flip {
+  perspective: 800px;
+}
+
+.book-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-style: preserve-3d;
+}
+
+.book-flip:hover .book-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.book-flip-front,
+.book-flip-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.book-flip-back {
+  transform: rotateY(180deg);
+}
+
 a {
   color: inherit;
   text-decoration: none;

@@ -488,13 +488,14 @@ export const content = {
         featured: {
           title: 'Midlife Mojo',
           description: 'An international bestseller that offers wisdom, insight, and inspiration for navigating life\'s transitions with power and purpose. Part personal journey, part empowerment guide, this book speaks to anyone ready to embrace their next chapter.',
-          quote: 'Every platform we build becomes a stage for someone else\'s breakthrough moment.'
+          quote: 'Every platform we build becomes a stage for someone else\'s breakthrough moment.',
+          cover: '/images/book-midlife-mojo-cover.jpg',
         },
         other: [
-          { title: 'For Want of 40 Pounds', year: 'International Bestseller', description: 'A compelling narrative exploring transformation and the power of small changes.' },
-          { title: 'I Bared My Chest', year: 'International Bestseller', description: 'A vulnerable and powerful exploration of authenticity and courage.' },
-          { title: 'No Bull Allowed', year: 'Published', description: 'A direct, no-nonsense guide to living authentically and leading with integrity.' },
-          { title: 'Business, Life and The Universe, Volume 3', year: 'Contributing Author', description: 'Collaborative work exploring the intersections of business, life, and broader perspectives.' }
+          { title: 'For Want of 40 Pounds', year: 'International Bestseller', description: 'A compelling narrative exploring transformation and the power of small changes.', pullQuote: 'Transformation begins with a single decision to change.' },
+          { title: 'I Bared My Chest', year: 'International Bestseller', description: 'A vulnerable and powerful exploration of authenticity and courage.', cover: '/images/book-i-bared-my-chest-cover.jpg', pullQuote: 'Vulnerability is not weakness. It is the birthplace of courage.' },
+          { title: 'No Bull Allowed', year: 'Published', description: 'A direct, no-nonsense guide to living authentically and leading with integrity.', pullQuote: 'Authenticity is the one thing you can never lose by being yourself.' },
+          { title: 'Business, Life and The Universe, Volume 3', year: 'Contributing Author', description: 'Collaborative work exploring the intersections of business, life, and broader perspectives.', cover: '/images/book-business-life-universe-cover.jpg', pullQuote: 'The universe has a funny way of giving you exactly what you need.' }
         ]
       }
     },
