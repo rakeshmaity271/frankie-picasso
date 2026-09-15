@@ -687,9 +687,12 @@ export const content = {
       }
     ],
     gallery: [
-      { title: 'Original Works', description: 'Featured on Fine Art America' },
-      { title: 'Commissioned Portraits', description: 'Custom pet and people portraits' },
-      { title: 'Charity Art', description: 'Supporting animal welfare & children' }
+      { src: '/images/art-bulldog-painting-portrait.jpg', alt: 'Bulldog portrait painting by Frankie', caption: 'Original painting — featured on Fine Art America' },
+      { src: '/images/art-campaign-poster-frankie.jpg', alt: 'Campaign poster featuring Frankie', caption: 'Campaign poster for community advocacy' },
+      { src: '/images/art-gallery-exhibition-sign.jpg', alt: 'Art gallery exhibition signage', caption: 'Gallery exhibition — custom commissioned works' },
+      { src: '/images/portrait-leather-jacket-studio.jpg', alt: 'Frankie studio portrait in leather jacket', caption: 'Studio portrait' },
+      { src: '/images/recent-frankie-playing-drums.jpg', alt: 'Frankie playing drums', caption: 'Music as creative expression' },
+      { src: '/images/recent-frankie-with-mara.jpg', alt: 'Frankie with Mara', caption: 'Family — the thread through every version' },
     ]
   },
 
