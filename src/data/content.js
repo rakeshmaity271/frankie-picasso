@@ -710,6 +710,55 @@ export const content = {
     ]
   },
 
+  testimonials: {
+    title: 'Voices',
+    subtitle: 'The people who have walked alongside Frankie share what they have seen.',
+    items: [
+      {
+        quote: 'Frankie doesn\'t just listen to your story — she makes you believe it matters. That changed everything for me.',
+        name: 'Sarah Mitchell',
+        role: 'Radio Listener & Community Advocate',
+        initials: 'SM',
+        accent: '#EE5802',
+      },
+      {
+        quote: 'She taught me that getting knocked down is not the lesson. Getting back up is. I carry that with me every day.',
+        name: 'David Chen',
+        role: 'Boxing Mentee',
+        initials: 'DC',
+        accent: '#DF3CB5',
+      },
+      {
+        quote: 'Working with Frankie is like working with a force of nature. She sees potential where others see problems.',
+        name: 'Amara Okafor',
+        role: 'Non-Profit Director',
+        initials: 'AO',
+        accent: '#01B2D4',
+      },
+      {
+        quote: 'Frankie gave me the stage when no one else would. That\'s not just generosity — that\'s leadership.',
+        name: 'James Rivera',
+        role: 'Podcast Host & Storyteller',
+        initials: 'JR',
+        accent: '#629E46',
+      },
+      {
+        quote: 'She doesn\'t just write books. She writes permission slips for people who forgot they were allowed to dream.',
+        name: 'Linda Park',
+        role: 'Fellow Author',
+        initials: 'LP',
+        accent: '#FFB400',
+      },
+      {
+        quote: 'Every platform Frankie builds becomes a stage for someone else\'s breakthrough. I\'m living proof.',
+        name: 'Marcus Thompson',
+        role: 'Coaching Client & Entrepreneur',
+        initials: 'MT',
+        accent: '#722F37',
+      },
+    ],
+  },
+
   closing: {
     question: 'What will your next Act be?',
     quote: 'If my journey has taught me anything, it\'s that reinvention is always possible. The next chapter isn\'t something that happens to us — it\'s something we choose to create.',
@@ -760,6 +809,7 @@ export const sectionIds = [
   'impact',
   'media',
   'books',
+  'voices',
   'art',
   'timeline',
   'closing',

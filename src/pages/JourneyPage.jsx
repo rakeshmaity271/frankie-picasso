@@ -6,6 +6,7 @@ import LessonGlow from '../components/map/LessonGlow'
 import MamaBearFinale from '../components/finale/MamaBearFinale'
 import Impact from '../components/impact/Impact'
 import BooksPublications from '../components/books/BooksPublications'
+import Testimonials from '../components/testimonials/Testimonials'
 import Art from '../components/art/Art'
 import TimelineSection from '../components/timeline/TimelineSection'
 import ClosingSection from '../components/closing/ClosingSection'
@@ -86,6 +87,7 @@ export default function JourneyPage() {
       {/* Supporting sections */}
       <Impact />
       <BooksPublications />
+      <Testimonials />
       <Art />
       <TimelineSection />
 
