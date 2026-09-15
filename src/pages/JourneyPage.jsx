@@ -14,7 +14,7 @@ import { mapOfLife } from '../data/content'
 
 /**
  * JourneyPage — the main page ('/').
- * Hero followed by five short-form Act previews (each introduced by a
+ * Hero followed by six short-form Act previews (each introduced by a
  * Heartbeat transition), the Map of a Life lesson markers, and the
  * supporting sections. The full Acts live behind #/act/:actId routes.
  */
@@ -55,7 +55,7 @@ export default function JourneyPage() {
       {/* Who Is Frankie? — preserved for future placement */}
       {/* <WhoIsFrankie /> */}
 
-      {/* The Journey — five Act previews, each preceded by a Heartbeat */}
+      {/* The Journey — six Act previews, each preceded by a Heartbeat */}
       <JourneyPreviews />
 
       {/* Map of a Life lesson markers (original order preserved) */}

@@ -174,6 +174,29 @@ export const journeyActs = [
     accent: '#DF3CB5',
     fullStoryUrl: '#/act/the-survivor',
   },
+  {
+    id: 'coming-home',
+    number: 'VI',
+    title: 'Coming Home',
+    tagline: 'Every morning, I put on my lipstick.',
+    shortIntro: 'Every morning, I put on my lipstick.',
+    shortBody: [
+      'Coming home from the hospital was only the beginning. My days revolved around doctors, lawyers, studying and pain\u2014but every morning, I put on my lipstick.',
+      'One psychologist decided that meant I couldn\u2019t possibly be suffering. He was about to get a lesson.',
+      'As I worked to heal, I began building a new life through coaching, teaching and, eventually, radio.',
+    ],
+    images: [
+      {
+        src: '/images/media-podcast-studio-portrait.jpg',
+        alt: 'Frankie in her podcast studio, headphones on, speaking into the microphone.',
+      },
+    ],
+    highlight: 'Getting dressed, doing my hair and putting on my makeup meant I was still here. Still fighting for my life. Still in the game.',
+    highlightLabel: 'THE HIGHLIGHT',
+    color: '#FFF8E7',
+    accent: '#C4922A',
+    fullStoryUrl: '#/act/coming-home',
+  },
 ]
 
 // Heartbeat transition pairs between Journey previews — reuses the site's
@@ -184,4 +207,5 @@ export const journeyHeartbeats = [
   { from: '#FFF0CC', to: '#FFF0CC', accent: '#C24E1A' }, // Act II -> Act III
   { from: '#FFF0CC', to: '#E0F4F4', accent: '#01B2D4' }, // Act III -> Act IV
   { from: '#E0F4F4', to: '#FDE8EF', accent: '#DF3CB5' }, // Act IV -> Act V
+  { from: '#FDE8EF', to: '#FFF8E7', accent: '#C4922A' }, // Act V -> Act VI
 ]

@@ -591,6 +591,22 @@ export const content = {
         { year: 'The Accident', title: 'Everything Changed', description: 'Leading a motorcycle ride through the countryside, a car ran a stop sign. Two broken femurs, a broken hip, a fractured pelvis — and months of hospital and rehabilitation.' },
         { year: 'Rehabilitation', title: 'The Survivor Becomes the Coach', description: 'In rehab, encouraging other patients not to give up, the coach inside Frankie began to emerge.' }
       ]
+    },
+    {
+      // ADDITIVE — Act VI "Coming Home" (full narrative story page at #/act/coming-home).
+      id: 'coming-home',
+      number: 'VI',
+      title: 'Coming Home',
+      tagline: 'Every morning, I put on my lipstick.',
+      color: '#FFF8E7',
+      cssVar: '--act-coming-home',
+      intro: 'Coming home from the hospital was only the beginning. Between doctors, lawyers, studying and pain, Frankie found her voice — through coaching, teaching and radio.',
+      heartbeatLine: 'Getting dressed, doing my hair and putting on my makeup meant I was still here. Still fighting for my life. Still in the game.',
+      frankieism: 'Getting dressed, doing my hair and putting on my makeup meant I was still here. Still fighting for my life. Still in the game.',
+      timeline: [
+        { year: 'Post-Hospital', title: 'The Coach Emerges', description: 'Enrolled at the International Coach Academy before leaving hospital. Graduated with honours, then earned every coaching certification available — personal, business, executive, spiritual, and Master Coach Trainer.' },
+        { year: '2007', title: 'Mission Unstoppable', description: 'Launched on BlogTalkRadio. Created multiple shows and founded The Good Radio Network in 2014 — radio could do a world of good.' }
+      ]
     }
   ],
 

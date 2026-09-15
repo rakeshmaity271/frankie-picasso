@@ -7,6 +7,7 @@ import FrankieStoryActTwo from '../components/story/FrankieStoryActTwo'
 import FrankieStoryActThree from '../components/story/FrankieStoryActThree'
 import FrankieStoryActFour from '../components/story/FrankieStoryActFour'
 import FrankieStoryActFive from '../components/story/FrankieStoryActFive'
+import FrankieStoryActSix from '../components/story/FrankieStoryActSix'
 import MediaSection from '../components/media/MediaSection'
 import Creativity from '../components/creativity/Creativity'
 import CommunityImpact from '../components/community/CommunityImpact'
@@ -25,6 +26,7 @@ const registry = {
   'building-through-boxing': FrankieStoryActThree,
   'the-leader': FrankieStoryActFour,
   'the-survivor': FrankieStoryActFive,
+  'coming-home': FrankieStoryActSix,
   amplifying: MediaSection,
   creating: Creativity,
   giving: CommunityImpact,
