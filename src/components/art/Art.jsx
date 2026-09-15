@@ -5,16 +5,6 @@ import Lightbox from '../common/Lightbox'
 
 const data = content.art
 
-// Bento grid sizes: first image spans 2 rows, rest fill naturally
-const bentoClasses = [
-  'sm:col-span-2 sm:row-span-2', // large featured
-  '',                              // standard
-  '',                              // standard
-  'sm:col-span-2',               // wide
-  '',                              // standard
-  '',                              // standard
-]
-
 export default function Art() {
   const [lightboxIndex, setLightboxIndex] = useState(-1)
 
@@ -45,26 +35,26 @@ export default function Art() {
           ))}
         </div>
 
-        {/* Gallery — bento grid with lightbox */}
+        {/* Gallery — masonry columns, no cropping */}
         <ScrollReveal variant="fadeUp">
           <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#2C2C2C]/40 mb-8">Gallery</p>
         </ScrollReveal>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4 auto-rows-[180px] sm:auto-rows-[200px]">
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-3 md:gap-4">
           {data.gallery.map((item, i) => (
             <ScrollReveal key={i} variant="scaleUp" delay={i * 0.06}>
               <button
                 onClick={() => openLightbox(i)}
-                className={`relative w-full h-full rounded-xl overflow-hidden group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF3CB5] ${bentoClasses[i] || ''}`}
+                className="relative w-full break-inside-avoid mb-3 md:mb-4 rounded-xl overflow-hidden group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF3CB5]"
               >
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full block rounded-xl transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                   decoding="async"
                 />
                 {/* Hover overlay with caption */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4 rounded-xl">
                   <p className="font-sans text-xs text-white/90 leading-snug">{item.caption}</p>
                 </div>
               </button>
