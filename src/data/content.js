@@ -687,11 +687,15 @@ export const content = {
       }
     ],
     gallery: [
+      { src: '/images/art-the-shy-fox.jpg', alt: 'The Shy Fox — original painting by Frankie Picasso', caption: 'The Shy Fox — original painting' },
+      { src: '/images/art-monument-valley.jpg', alt: 'Monument Valley — original painting by Frankie Picasso', caption: 'Monument Valley — landscape painting' },
+      { src: '/images/art-moonlight-leopard.jpg', alt: 'Moonlight Leopard — original painting by Frankie Picasso', caption: 'Moonlight Leopard — wildlife painting' },
+      { src: '/images/art-sparta.jpg', alt: 'Sparta — bulldog portrait painting by Frankie Picasso', caption: 'Sparta — commissioned pet portrait' },
+      { src: '/images/art-lake-superior-rocks.jpg', alt: 'Lake Superior from the Rocks — original painting by Frankie Picasso', caption: 'Lake Superior from the Rocks — landscape' },
       { src: '/images/art-bulldog-painting-portrait.jpg', alt: 'Bulldog portrait painting by Frankie', caption: 'Original painting — featured on Fine Art America' },
-      { src: '/images/art-campaign-poster-frankie.jpg', alt: 'Campaign poster featuring Frankie', caption: 'Campaign poster for community advocacy' },
-      { src: '/images/art-gallery-exhibition-sign.jpg', alt: 'Art gallery exhibition signage', caption: 'Gallery exhibition — custom commissioned works' },
       { src: '/images/portrait-leather-jacket-studio.jpg', alt: 'Frankie studio portrait in leather jacket', caption: 'Studio portrait' },
       { src: '/images/recent-frankie-playing-drums.jpg', alt: 'Frankie playing drums', caption: 'Music as creative expression' },
+      { src: '/images/art-campaign-poster-frankie.jpg', alt: 'Campaign poster featuring Frankie', caption: 'Campaign poster for community advocacy' },
       { src: '/images/recent-frankie-with-mara.jpg', alt: 'Frankie with Mara', caption: 'Family — the thread through every version' },
     ]
   },
