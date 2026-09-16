@@ -30,6 +30,16 @@ function TestimonialCard({ item, index }) {
           &ldquo;
         </div>
 
+        {/* Category badge */}
+        {item.category && (
+          <p
+            className="relative z-10 font-sans text-[10px] uppercase tracking-[0.15em] mb-3"
+            style={{ color: item.accent }}
+          >
+            {item.category}
+          </p>
+        )}
+
         {/* Quote */}
         <blockquote className="relative z-10 mb-5">
           <p
