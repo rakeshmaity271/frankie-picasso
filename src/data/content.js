@@ -697,6 +697,10 @@ export const content = {
       { src: '/images/recent-frankie-playing-drums.jpg', alt: 'Frankie playing drums', caption: 'Music as creative expression' },
       { src: '/images/art-campaign-poster-frankie.jpg', alt: 'Campaign poster featuring Frankie', caption: 'Campaign poster for community advocacy' },
       { src: '/images/recent-frankie-with-mara.jpg', alt: 'Frankie with Mara', caption: 'Family — the thread through every version' },
+      { src: '/images/art-canyon-landscape.png', alt: 'Canyon landscape — original painting by Frankie Picasso', caption: 'Canyon landscape — original painting' },
+      { src: '/images/art-girls-in-water.png', alt: 'Girls playing in the ocean — original painting by Frankie Picasso', caption: 'Girls playing in the ocean — original painting' },
+      { src: '/images/art-bulldog-thunder.png', alt: 'Thunder the bulldog — original painting by Frankie Picasso', caption: 'Thunder — commissioned pet portrait' },
+      { src: '/images/art-child-bubbles.png', alt: 'Child blowing bubbles — original painting by Frankie Picasso', caption: 'Child blowing bubbles — original painting' },
     ]
   },
 
