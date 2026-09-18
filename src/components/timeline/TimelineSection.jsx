@@ -155,11 +155,11 @@ function MilestoneImage({ milestone }) {
         className="relative w-full max-w-[280px] md:max-w-[240px] p-2 bg-white rounded-sm shadow-[0_8px_24px_rgba(44,44,44,0.1)]"
         style={{ transform: `rotate(${Math.random() > 0.5 ? -1.5 : 1.5}deg)` }}
       >
-        <div className="w-full overflow-hidden rounded-sm" style={{ aspectRatio: '4 / 3' }}>
+        <div className="w-full">
           <img
             src={milestone.image}
             alt={milestone.imageAlt}
-            className="w-full h-full object-cover"
+            className="w-full block rounded-sm"
             loading="lazy"
             decoding="async"
           />

@@ -122,15 +122,11 @@ export default function ActPreview({ preview, index = 0 }) {
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 1, delay: 0.15 + i * 0.12, ease: EASE }}
                   >
-                    <div
-                      className="w-full overflow-hidden"
-                      style={{ aspectRatio: preview.images.length > 1 && i === 1 ? '4 / 3' : '4 / 5', maxHeight: '62vh' }}
-                    >
+                    <div className="w-full">
                       <img
                         src={image.src}
                         alt={image.alt}
-                        className="w-full h-full object-cover block"
-                        style={{ objectPosition: 'top center' }}
+                        className="w-full block rounded-sm"
                         loading="lazy"
                         decoding="async"
                       />
