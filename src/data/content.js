@@ -676,11 +676,6 @@ export const content = {
         style: 'Authentic, vulnerable, transformative'
       },
       {
-        title: 'Broadcasting',
-        description: 'Mission Unstoppable, FrankieSense and More, Conversation with My Shoes, Thoughtatudes — each show a platform for voices that deserve to be heard.',
-        style: 'Conversational, inspiring, community-focused'
-      },
-      {
         title: 'Music',
         description: 'Music as emotional expression and creative outlet — another channel for the stories that need to be told.',
         style: 'Soulful, personal, expressive'
@@ -689,14 +684,9 @@ export const content = {
     gallery: [
       { src: '/images/art-the-shy-fox.jpg', alt: 'The Shy Fox — original painting by Frankie Picasso', caption: 'The Shy Fox — original painting' },
       { src: '/images/art-monument-valley.jpg', alt: 'Monument Valley — original painting by Frankie Picasso', caption: 'Monument Valley — landscape painting' },
-      { src: '/images/art-moonlight-leopard.jpg', alt: 'Moonlight Leopard — original painting by Frankie Picasso', caption: 'Moonlight Leopard — wildlife painting' },
       { src: '/images/art-sparta.jpg', alt: 'Sparta — bulldog portrait painting by Frankie Picasso', caption: 'Sparta — commissioned pet portrait' },
       { src: '/images/art-lake-superior-rocks.jpg', alt: 'Lake Superior from the Rocks — original painting by Frankie Picasso', caption: 'Lake Superior from the Rocks — landscape' },
       { src: '/images/art-bulldog-painting-portrait.jpg', alt: 'Bulldog portrait painting by Frankie', caption: 'Original painting — featured on Fine Art America' },
-      { src: '/images/portrait-leather-jacket-studio.jpg', alt: 'Frankie studio portrait in leather jacket', caption: 'Studio portrait' },
-      { src: '/images/recent-frankie-playing-drums.jpg', alt: 'Frankie playing drums', caption: 'Music as creative expression' },
-      { src: '/images/art-campaign-poster-frankie.jpg', alt: 'Campaign poster featuring Frankie', caption: 'Campaign poster for community advocacy' },
-      { src: '/images/recent-frankie-with-mara.jpg', alt: 'Frankie with Mara', caption: 'Family — the thread through every version' },
       { src: '/images/art-canyon-landscape.png', alt: 'Canyon landscape — original painting by Frankie Picasso', caption: 'Canyon landscape — original painting' },
       { src: '/images/art-girls-in-water.png', alt: 'Girls playing in the ocean — original painting by Frankie Picasso', caption: 'Girls playing in the ocean — original painting' },
       { src: '/images/art-bulldog-thunder.png', alt: 'Thunder the bulldog — original painting by Frankie Picasso', caption: 'Thunder — commissioned pet portrait' },
@@ -841,7 +831,7 @@ export const navLinks = [
   { id: 'media', label: 'Media', route: '#/act/amplifying' },
   { id: 'books', label: 'Books' },
   { id: 'art', label: 'Art' },
-  { id: 'timeline', label: 'Timeline' },
+  { id: 'timeline', label: 'Life Map' },
   { id: 'contact', label: 'Connect' }
 ]
 

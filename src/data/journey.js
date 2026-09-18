@@ -124,12 +124,7 @@ export const journeyActs = [
       'I felt like I was just getting started.',
       'Then, one summer evening, a car ran a stop sign.',
     ],
-    images: [
-      {
-        src: '/images/act4-certified-coach-certificate.jpg',
-        alt: 'International Coach Academy certificate naming Frankie Picasso a Professional Certified Coach, 2004.',
-      },
-    ],
+    images: [],
     highlight: 'You don’t have to be the fastest. You just have to keep climbing.',
     highlightLabel: 'THE HIGHLIGHT',
     color: '#E0F4F4',
@@ -217,8 +212,8 @@ export const journeyActs = [
     ],
     images: [
       {
-        src: '/images/portrait-leather-jacket-studio.jpg',
-        alt: 'Frankie in a leather jacket, studio portrait, looking directly at the camera with confidence.',
+        src: '/images/recent-frankie-with-mara.jpg',
+        alt: 'Frankie with her granddaughter Mara — family is the thread through every version.',
       },
     ],
     highlight: 'Some people are cut out for retirement. Apparently, I am not.',
@@ -241,8 +236,8 @@ export const journeyActs = [
     ],
     images: [
       {
-        src: '/images/portrait-leather-jacket-studio.jpg',
-        alt: 'Frankie in a leather jacket, studio portrait, looking directly at the camera with confidence.',
+        src: '/images/recent-frankie-playing-drums.jpg',
+        alt: 'Frankie playing drums — creative expression as a way of life.',
       },
     ],
     highlight: 'I am no longer interested in becoming only one thing.',

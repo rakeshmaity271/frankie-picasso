@@ -23,7 +23,7 @@ export default function Art() {
         </ScrollReveal>
 
         {/* Mediums */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8 md:mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8 md:mb-10">
           {data.mediums.map((medium, i) => (
             <ScrollReveal key={i} variant="fadeUp" delay={i * 0.08}>
               <div className="p-6 md:p-8 rounded-xl bg-white/30 border border-white/40 hover:bg-white/50 transition-all duration-500">

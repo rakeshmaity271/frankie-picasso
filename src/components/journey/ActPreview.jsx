@@ -65,7 +65,9 @@ export default function ActPreview({ preview, index = 0 }) {
           </div>
 
           {/* ── Editorial composition: narrative + photo ── */}
-          <div className="grid lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] gap-10 lg:gap-16 items-start">
+          <div className={`grid gap-10 lg:gap-16 items-start ${
+            preview.images?.length ? 'lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]' : ''
+          }`}>
             {/* Text column */}
             <div className={`max-w-[760px] ${imageLeft ? 'lg:order-2' : ''}`}>
               {/* Opening line */}
@@ -103,6 +105,7 @@ export default function ActPreview({ preview, index = 0 }) {
             </div>
 
             {/* Photo column */}
+            {preview.images?.length > 0 && (
             <div
               className={`w-full max-w-[480px] mx-auto lg:mx-0 lg:max-w-none ${
                 imageLeft ? 'lg:order-1 lg:sticky lg:top-28' : 'lg:sticky lg:top-28'
@@ -136,6 +139,7 @@ export default function ActPreview({ preview, index = 0 }) {
                 ))}
               </div>
             </div>
+            )}
           </div>
 
           {/* ── THE HIGHLIGHT + CTA ── */}
@@ -149,20 +153,33 @@ export default function ActPreview({ preview, index = 0 }) {
 
             <motion.a
               href={preview.fullStoryUrl}
-              className="group mt-3 md:mt-4 inline-flex items-baseline gap-2 font-serif italic text-lg md:text-xl text-[#2C2C2C] transition-opacity duration-300 hover:opacity-70"
-              style={{ borderBottom: `1px solid ${preview.accent}55` }}
+              className="group mt-5 md:mt-6 inline-flex items-center gap-3 px-7 py-3.5 md:px-9 md:py-4 rounded-sm border transition-all duration-500 hover:shadow-lg"
+              style={{
+                borderColor: `${preview.accent}40`,
+                backgroundColor: 'transparent',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = `${preview.accent}0D`
+                e.currentTarget.style.borderColor = `${preview.accent}80`
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent'
+                e.currentTarget.style.borderColor = `${preview.accent}40`
+              }}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
             >
-              <span>Read the full story</span>
+              <span className="font-sans text-xs md:text-sm uppercase tracking-[0.2em] text-[#2C2C2C]">
+                Read the Full Story
+              </span>
               <span
                 aria-hidden="true"
-                className="not-italic inline-block transition-transform duration-300 group-hover:translate-x-1.5"
+                className="not-italic inline-block text-lg transition-transform duration-500 group-hover:translate-x-2"
                 style={{ color: preview.accent }}
               >
-                →
+                &rarr;
               </span>
             </motion.a>
           </div>

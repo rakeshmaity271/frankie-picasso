@@ -18,6 +18,33 @@ export default function HeroExperience() {
         background: 'linear-gradient(135deg, #F9F5D7 0%, #F5EDDA 40%, #EDE4D3 70%, #E8DCC8 100%)',
       }}
     >
+      {/* Stage spotlight — a soft radial glow from above center */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse 60% 50% at 50% 20%, rgba(245,230,163,0.25) 0%, transparent 70%)',
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Theatrical curtain edges — subtle dark vignette on left and right */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to right, rgba(44,44,44,0.06) 0%, transparent 15%, transparent 85%, rgba(44,44,44,0.06) 100%)',
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Bottom curtain fade — creates depth as story begins below */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to bottom, transparent 0%, rgba(44,44,44,0.04) 100%)',
+        }}
+        aria-hidden="true"
+      />
+
       {/* Floating gradient orbs — warm neutral tones */}
       <motion.div
         ref={parallaxRef1}
@@ -53,7 +80,21 @@ export default function HeroExperience() {
 
       {/* ── Hero Viewport: Eyebrow + Headline ── */}
       <div className="relative z-10 max-w-[760px] mx-auto text-center min-h-[55vh] flex flex-col items-center justify-center pt-14 md:pt-16">
-        {/* Eyebrow — enlarged per client request */}
+        {/* Opening act label — subtle stage curtain call */}
+        <motion.div
+          className="flex items-center gap-3 mb-6 md:mb-8"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <span className="block w-8 md:w-12 h-[1px] bg-[#7A6545]/30" />
+          <span className="font-sans text-[0.6rem] md:text-xs uppercase tracking-[0.3em] text-[#7A6545]/60">
+            Act I
+          </span>
+          <span className="block w-8 md:w-12 h-[1px] bg-[#7A6545]/30" />
+        </motion.div>
+
+        {/* Eyebrow */}
         <motion.p
           className="font-serif text-lg md:text-2xl lg:text-3xl font-light tracking-[0.15em] text-[#7A6545] mb-3 md:mb-4"
           initial={{ opacity: 0, y: 20 }}
@@ -72,6 +113,14 @@ export default function HeroExperience() {
             duration={0.7}
           />
         </h1>
+
+        {/* Decorative divider below headline */}
+        <motion.div
+          className="w-16 h-[1px] bg-[#7A6545]/25 mb-6 md:mb-8"
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ delay: 1.2, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        />
 
         {/* Scroll down indicator */}
         <motion.div
@@ -127,8 +176,6 @@ export default function HeroExperience() {
           </div>
         </ScrollReveal>
       </div>
-
-      {/* CTA buttons removed — "Begin the Journey" replaced by Act 1 heading */}
     </section>
   )
 }
