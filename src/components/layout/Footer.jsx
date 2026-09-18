@@ -46,7 +46,7 @@ export default function Footer() {
           animate={isInView ? { opacity: 0.45 } : { opacity: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
         >
-          &copy; {new Date().getFullYear()} All rights reserved. A life in six acts.
+          &copy; {new Date().getFullYear()} All rights reserved. A life in eight acts.
         </motion.p>
       </div>
     </footer>

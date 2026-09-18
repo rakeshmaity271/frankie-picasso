@@ -44,7 +44,7 @@ export default function SiteLoader() {
               animate={{ opacity: 0.3 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
-              A life in six acts
+              A life in eight acts
             </motion.p>
           </div>
         </motion.div>

@@ -1,6 +1,6 @@
 export const content = {
   hero: {
-    eyebrow: 'A Life in Six Acts',
+    eyebrow: 'A Life in Eight Acts',
     headline: 'This isn\u2019t a r\u00e9sum\u00e9!',
     quote: '\u201cWherever there is a human being, there is an opportunity for a kindness.\u201d',
     quoteAttribution: '\u2014 Lucius Annaeus Seneca',
