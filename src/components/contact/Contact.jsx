@@ -40,13 +40,16 @@ export default function Contact() {
 
         {/* Socials */}
         <ScrollReveal variant="fadeUp" delay={0.2}>
-          <p className="font-sans text-xs uppercase tracking-[0.2em] text-[#FFF8F0]/50 mb-4">Follow</p>
+          <p className="font-sans text-xs uppercase tracking-[0.2em] mb-4" style={{ color: '#FFF8F0' }}>Follow</p>
           <div className="flex gap-6">
             {data.socials.map((social, i) => (
               <a
                 key={i}
                 href={social.url}
-                className="font-sans text-sm text-[#FFF8F0]/70 hover:text-[#FFB400] transition-colors duration-300 relative group"
+                className="font-sans text-sm transition-colors duration-300 relative group"
+                style={{ color: '#FFFFFF' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#FFB400' }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#FFFFFF' }}
               >
                 {social.name}
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#FFB400] group-hover:w-full transition-all duration-500" />
