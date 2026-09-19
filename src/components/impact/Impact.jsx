@@ -25,7 +25,7 @@ export default function Impact() {
   const isInView = useInView(statsRef, { once: true, amount: 0.3 })
 
   return (
-    <section id="impact" className="relative py-8 md:py-14 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#F5EFE6' }}>
+    <section id="impact" className="relative py-10 md:py-16 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#FFF8F0' }}>
       <div className="max-w-[1000px] mx-auto">
         <ScrollReveal variant="fadeUp">
           <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#FFB400] mb-4">{data.title}</p>

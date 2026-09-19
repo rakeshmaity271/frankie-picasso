@@ -83,7 +83,7 @@ export default function Testimonials() {
     <section
       id="voices"
       className="relative py-10 md:py-16 px-6 md:px-10 lg:px-16"
-      style={{ backgroundColor: '#F5EDE3' }}
+      style={{ backgroundColor: '#FDF5ED' }}
     >
       <div className="max-w-[1000px] mx-auto">
         {/* Section header */}

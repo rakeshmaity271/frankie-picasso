@@ -32,9 +32,10 @@ export default function ClosingSection() {
 
       <div className="relative z-10 max-w-[800px] mx-auto">
         <motion.p
-          className="font-sans text-xs uppercase tracking-[0.3em] text-[#FFB400]/80 mb-3"
+          className="font-sans text-xs uppercase tracking-[0.3em] mb-3"
+          style={{ color: '#FFB400' }}
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.8 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
@@ -42,7 +43,7 @@ export default function ClosingSection() {
         </motion.p>
 
         <motion.h2
-          className="font-serif font-light text-[clamp(2.5rem,6vw,5.5rem)] leading-[1.08] tracking-[-0.02em] text-[#FFF8F0] mb-4 md:mb-7"
+          className="font-serif font-light text-[clamp(2.5rem,6vw,5.5rem)] leading-[1.08] tracking-[-0.02em] text-white mb-4 md:mb-7"
           initial={{ opacity: 0.3 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -57,7 +58,7 @@ export default function ClosingSection() {
         </motion.h2>
 
         <ScrollReveal variant="fadeIn" duration={1.2}>
-          <p className="font-serif italic text-lg md:text-xl text-[#FFF8F0]/75 max-w-[600px] mx-auto mb-6">
+          <p className="font-serif italic text-lg md:text-xl text-white/80 max-w-[600px] mx-auto mb-6">
             {data.quote}
           </p>
         </ScrollReveal>
@@ -82,12 +83,12 @@ export default function ClosingSection() {
             viewport={{ once: true }}
             transition={{ delay: 1.2, duration: 1 }}
           >
-            <p className="font-serif italic text-base md:text-lg text-[#FFF8F0]/60 max-w-[480px] mx-auto mb-4">
+            <p className="font-serif italic text-base md:text-lg text-white/70 max-w-[480px] mx-auto mb-4">
               &ldquo;{mapOfLife.closingLine}&rdquo;
             </p>
             <button
               onClick={triggerReveal}
-              className="px-5 py-2 rounded-full border border-[#FFB400]/40 text-[#FFB400] font-sans text-sm tracking-wide hover:bg-[#FFB400]/10 transition-colors cursor-pointer"
+              className="px-5 py-2 rounded-full border border-[#FFB400] text-[#FFB400] font-sans text-sm tracking-wide hover:bg-[#FFB400]/15 transition-colors cursor-pointer"
             >
               See The Bigger Picture
             </button>

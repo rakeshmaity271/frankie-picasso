@@ -2,13 +2,11 @@ import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import HeroExperience from '../components/hero/HeroExperience'
 import JourneyPreviews from '../components/journey/JourneyPreviews'
-import LessonGlow from '../components/map/LessonGlow'
-import MamaBearFinale from '../components/finale/MamaBearFinale'
+import LessonGrid from '../components/map/LessonGrid'
 import Impact from '../components/impact/Impact'
 import BooksPublications from '../components/books/BooksPublications'
 import Testimonials from '../components/testimonials/Testimonials'
 import Art from '../components/art/Art'
-import TimelineSection from '../components/timeline/TimelineSection'
 import ClosingSection from '../components/closing/ClosingSection'
 import Contact from '../components/contact/Contact'
 import { mapOfLife } from '../data/content'
@@ -59,37 +57,14 @@ export default function JourneyPage() {
       {/* The Journey — eight Act previews, each preceded by a Heartbeat */}
       <JourneyPreviews />
 
-      {/* Map of a Life lesson markers (original order preserved) */}
-      {/* Lesson 1: Responsibility (The Farm) */}
-      <LessonGlow lesson={lessons[0]} />
-
-      {/* Lessons 2-5: Observation, Courage, Human Nature, Self-Care */}
-      <LessonGlow lesson={lessons[1]} />
-      <LessonGlow lesson={lessons[2]} />
-      <LessonGlow lesson={lessons[3]} />
-      <LessonGlow lesson={lessons[4]} />
-
-      {/* Lesson 7: Connection (Radio) */}
-      <LessonGlow lesson={lessons[6]} />
-
-      {/* Lesson 6: Resilience (Boxing & Kickboxing) */}
-      <LessonGlow lesson={lessons[5]} />
-
-      {/* Lesson 8: Perspective (Motorcycle Accident) */}
-      <LessonGlow lesson={lessons[7]} />
-
-      {/* Lesson 9: Collaboration (World Supply Tent) */}
-      <LessonGlow lesson={lessons[8]} />
-
-      {/* Act VI Finale — Mama Bear (emotional conclusion of the journey) */}
-      <MamaBearFinale />
+      {/* Map of a Life — compact lesson grid */}
+      <LessonGrid lessons={lessons} />
 
       {/* Supporting sections */}
       <Impact />
       <BooksPublications />
       <Testimonials />
       <Art />
-      <TimelineSection />
 
       {/* Closing & Contact */}
       <ClosingSection />

@@ -14,9 +14,9 @@ export default function Footer() {
       <div className="max-w-[800px] mx-auto text-center">
         {/* Large serif closing statement */}
         <motion.p
-          className="font-serif font-light text-[clamp(1.5rem,3.5vw,2.75rem)] leading-[1.3] text-[#FFF8F0]/50 mb-6"
+          className="font-serif font-light text-[clamp(1.5rem,3.5vw,2.75rem)] leading-[1.3] text-white/70 mb-6"
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 0.5, y: 0 } : { opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 0.7, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
           Visitors should leave here inspired, not impressed.
@@ -32,18 +32,18 @@ export default function Footer() {
 
         {/* Logo / name */}
         <motion.p
-          className="font-serif text-lg text-[#FFF8F0]/55 mb-4"
+          className="font-serif text-lg text-white/70 mb-4"
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 0.55 } : { opacity: 0 }}
+          animate={isInView ? { opacity: 0.7 } : { opacity: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
           Frankie Picasso
         </motion.p>
 
         <motion.p
-          className="font-sans text-xs text-[#FFF8F0]/45"
+          className="font-sans text-xs text-white/60"
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 0.45 } : { opacity: 0 }}
+          animate={isInView ? { opacity: 0.6 } : { opacity: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
         >
           &copy; {new Date().getFullYear()} All rights reserved. A life in eight acts.
