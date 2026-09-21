@@ -26,6 +26,7 @@ export const journeyActs = [
       {
         src: '/images/act1-childhood-with-dog.jpg',
         alt: 'Young Frankie petting the family dog on the front lawn in a vintage black-and-white photo.',
+        caption: 'Family farm • Early days of curiosity and dream-chasing',
       },
     ],
     highlight: 'Believing in someone is one of the purest expressions of love.',
@@ -57,10 +58,12 @@ export const journeyActs = [
       {
         src: '/images/act2-youth-cowboy-hat-puppy.jpg',
         alt: 'A young Frankie in a cowboy hat cradling a puppy, 1970s color snapshot.',
+        caption: 'Louisville, Kentucky • 1970s',
       },
       {
         src: '/images/act2-school-class-portrait.jpg',
         alt: 'A sepia school class portrait of uniformed girls from Frankie’s youth.',
+        caption: 'Class portrait • Learning independence early',
       },
     ],
     highlight: 'Some lessons can’t be taught in a classroom. They have to be experienced.',
@@ -93,6 +96,7 @@ export const journeyActs = [
       {
         src: '/images/act3-kickboxing-championship-poster.jpg',
         alt: 'Poster for the 1997 ISKA World Kickboxing Championships promoted by Frankie Picasso’s Roundhouse Promotions.',
+        caption: '1997 World Championship Fight Night • Roundhouse Promotions',
       },
     ],
     highlight: 'Opportunities come to all of us. The difference is whether we act on them.',
@@ -157,10 +161,12 @@ export const journeyActs = [
       {
         src: '/images/act5-motorcycle-studio-portrait.jpg',
         alt: 'Frankie in black leather astride her silver cruiser motorcycle.',
+        caption: 'Cruiser motorcycle • Fierce independence',
       },
       {
         src: '/images/act5-recovery-speech-crutches.jpg',
         alt: 'Frankie speaking at an outdoor ceremony during recovery, her crutches resting against the podium.',
+        caption: 'Speaking during recovery • Leading through resilience',
       },
     ],
     highlight: 'Sometimes losing everything you thought defined you is how you discover who you really are.',
@@ -184,6 +190,7 @@ export const journeyActs = [
       {
         src: '/images/media-podcast-studio-portrait.jpg',
         alt: 'Frankie in her podcast studio, headphones on, speaking into the microphone.',
+        caption: 'In the studio • Radio as a vehicle for positive impact',
       },
     ],
     highlight: 'Getting dressed, doing my hair and putting on my makeup meant I was still here. Still fighting for my life. Still in the game.',
@@ -214,6 +221,7 @@ export const journeyActs = [
       {
         src: '/images/recent-frankie-with-mara.jpg',
         alt: 'Frankie with her granddaughter Mara — family is the thread through every version.',
+        caption: 'With granddaughter Mara • Family through every chapter',
       },
     ],
     highlight: 'Some people are cut out for retirement. Apparently, I am not.',
@@ -238,6 +246,7 @@ export const journeyActs = [
       {
         src: '/images/recent-frankie-playing-drums.jpg',
         alt: 'Frankie playing drums — creative expression as a way of life.',
+        caption: 'Behind the kit • Drumming & lifelong creative fire',
       },
     ],
     highlight: 'I am no longer interested in becoming only one thing.',

@@ -7,66 +7,128 @@ const data = content.art
 
 export default function Art() {
   const [lightboxIndex, setLightboxIndex] = useState(-1)
+  const [activeCategory, setActiveCategory] = useState('All')
 
   const openLightbox = useCallback((i) => setLightboxIndex(i), [])
   const closeLightbox = useCallback(() => setLightboxIndex(-1), [])
-  const prevImage = useCallback(() => setLightboxIndex((p) => (p > 0 ? p - 1 : data.gallery.length - 1)), [])
-  const nextImage = useCallback(() => setLightboxIndex((p) => (p < data.gallery.length - 1 ? p + 1 : 0)), [])
+  const prevImage = useCallback(
+    () => setLightboxIndex((p) => (p > 0 ? p - 1 : data.gallery.length - 1)),
+    []
+  )
+  const nextImage = useCallback(
+    () => setLightboxIndex((p) => (p < data.gallery.length - 1 ? p + 1 : 0)),
+    []
+  )
+
+  const categories = ['All', 'Landscapes', 'Pet Portraits', 'Wildlife', 'Life & People']
+
+  const filteredGallery =
+    activeCategory === 'All'
+      ? data.gallery
+      : data.gallery.filter((item) => item.category === activeCategory)
 
   return (
-    <section id="art" className="relative py-10 md:py-16 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#FDE8EF' }}>
-      <div className="max-w-[900px] mx-auto">
-        <ScrollReveal variant="fadeUp">
-          <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#DF3CB5] mb-4">{data.title}</p>
-          <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#2C2C2C] mb-2 md:mb-4">{data.subtitle}</h2>
-          <p className="font-serif text-base md:text-lg text-[#2C2C2C]/60 mb-8 md:mb-12 max-w-[600px]">{data.intro}</p>
-        </ScrollReveal>
+    <section
+      id="art"
+      className="relative py-14 md:py-22 px-6 md:px-10 lg:px-16 overflow-hidden"
+      style={{
+        background: 'linear-gradient(180deg, #FFF3DA 0%, #FDF0F4 50%, #FAF3EA 100%)',
+      }}
+    >
+      <div className="max-w-[1140px] mx-auto">
+        {/* Section Header */}
+        <div className="text-center max-w-[760px] mx-auto mb-10 md:mb-14">
+          <ScrollReveal variant="fadeUp">
+            <p className="font-sans text-xs md:text-sm font-semibold uppercase tracking-[0.3em] text-[#DF3CB5] mb-3">
+              Fine Art & Creative Expression
+            </p>
+            <h2 className="font-serif font-light text-[clamp(2.2rem,4.5vw,4rem)] text-[#2C2C2C] leading-[1.12] mb-4">
+              Where Words Meet Colour
+            </h2>
+            <p className="font-serif italic text-base md:text-xl text-[#2C2C2C]/75 leading-relaxed">
+              &ldquo;{data.subtitle}&rdquo;
+            </p>
+            <p className="font-sans text-xs md:text-sm text-[#4A4A4A] mt-3 max-w-[620px] mx-auto leading-relaxed">
+              {data.intro}
+            </p>
+          </ScrollReveal>
 
-        {/* Mediums */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 md:mb-14">
-          {data.mediums.map((medium, i) => (
-            <ScrollReveal key={i} variant="fadeUp" delay={i * 0.08}>
-              <div className="p-5 md:p-6 rounded-lg bg-white/40 border border-white/50">
-                <h4 className="font-serif text-lg md:text-xl font-light text-[#2C2C2C] mb-1">{medium.title}</h4>
-                <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#DF3CB5] mb-2">{medium.style}</p>
-                <p className="font-sans text-xs leading-relaxed text-[#4A4A4A]">{medium.description}</p>
-              </div>
-            </ScrollReveal>
-          ))}
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`font-sans text-xs uppercase tracking-wider px-4 py-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  activeCategory === cat
+                    ? 'bg-[#DF3CB5] text-white shadow-sm font-semibold'
+                    : 'bg-white/60 text-[#4A4A4A] hover:bg-white border border-[#E8DCC8]/60'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Gallery — curated uniform grid, museum framing */}
-        <ScrollReveal variant="fadeUp">
-          <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#2C2C2C]/40 mb-6">Gallery</p>
-        </ScrollReveal>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
-          {data.gallery.map((item, i) => (
-            <ScrollReveal key={i} variant="scaleUp" delay={i * 0.06}>
-              <button
-                onClick={() => openLightbox(i)}
-                className="group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF3CB5] w-full"
-              >
-                {/* Museum-style frame */}
-                <div className="bg-white p-2 md:p-2.5 rounded-sm shadow-[0_6px_20px_rgba(44,44,44,0.08)] transition-all duration-500 group-hover:shadow-[0_10px_30px_rgba(44,44,44,0.15)] group-hover:-translate-y-0.5">
-                  <div className="overflow-hidden rounded-[2px]" style={{ aspectRatio: '4/3' }}>
-                    <img
-                      src={item.src}
-                      alt={item.alt}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      loading="lazy"
-                      decoding="async"
-                    />
+        {/* Museum Gallery Wall — balanced frames, archival mats, intentional sizing */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+          {filteredGallery.map((item, i) => {
+            const originalIndex = data.gallery.findIndex((g) => g.src === item.src)
+
+            return (
+              <ScrollReveal key={item.src} variant="fadeUp" delay={i * 0.05}>
+                <button
+                  onClick={() => openLightbox(originalIndex >= 0 ? originalIndex : i)}
+                  className="group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF3CB5] w-full text-left"
+                >
+                  {/* Museum archival frame & matting */}
+                  <div className="bg-[#FAF6F0] p-3 md:p-3.5 pb-4 md:pb-4.5 rounded-sm shadow-[0_8px_24px_rgba(44,30,20,0.08)] border border-[#E8DCC8] transition-all duration-400 group-hover:shadow-[0_16px_36px_rgba(44,30,20,0.16)] group-hover:-translate-y-1">
+                    {/* Painting Exhibition Frame with Keyline — uncropped presentation */}
+                    <div
+                      className="w-full h-[240px] sm:h-[260px] md:h-[280px] overflow-hidden rounded-[2px] border border-black/[0.08] relative bg-[#F4ECE1]/60 flex items-center justify-center p-2.5 sm:p-3"
+                    >
+                      <img
+                        src={item.src}
+                        alt={item.alt}
+                        className="max-h-full max-w-full w-auto h-auto object-contain rounded-[1px] shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-transform duration-500 group-hover:scale-[1.02]"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      {/* Gentle frame inner shadow */}
+                      <div className="absolute inset-0 shadow-[inset_0_0_10px_rgba(44,28,16,0.05)] pointer-events-none" />
+                    </div>
+
+                    {/* Museum Plaque Caption Plate */}
+                    <div className="mt-3.5 pt-2 border-t border-[#E8DCC8]/70 flex flex-col justify-between">
+                      <div className="flex items-baseline justify-between gap-2">
+                        <h3 className="font-serif text-base md:text-lg font-normal text-[#2C2C2C] leading-snug group-hover:text-[#DF3CB5] transition-colors">
+                          {item.title}
+                        </h3>
+                        <span className="font-sans text-[10px] uppercase tracking-wider text-[#DF3CB5] font-semibold flex-shrink-0">
+                          {item.category}
+                        </span>
+                      </div>
+                      <p className="font-sans text-xs text-[#7A6545] mt-1 truncate">
+                        {item.medium}
+                      </p>
+                    </div>
                   </div>
-                  {/* Caption */}
-                  <p className="font-sans text-[10px] md:text-xs text-[#2C2C2C]/50 mt-1.5 md:mt-2 leading-snug text-center truncate">{item.caption}</p>
-                </div>
-              </button>
-            </ScrollReveal>
-          ))}
+                </button>
+              </ScrollReveal>
+            )
+          })}
+        </div>
+
+        {/* Fine Art America Attribution / Note */}
+        <div className="text-center mt-12 md:mt-16">
+          <p className="font-serif italic text-sm md:text-base text-[#4A4A4A]/80">
+            Original and commissioned works featured through Fine Art America. Custom pet portraits supporting animal welfare causes.
+          </p>
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* Full-Screen Lightbox */}
       {lightboxIndex >= 0 && (
         <Lightbox
           images={data.gallery}

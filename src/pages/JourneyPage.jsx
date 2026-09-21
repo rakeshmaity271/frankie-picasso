@@ -3,10 +3,11 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import HeroExperience from '../components/hero/HeroExperience'
 import JourneyPreviews from '../components/journey/JourneyPreviews'
 import LessonGrid from '../components/map/LessonGrid'
+import MapSection from '../components/map/MapSection'
 import Impact from '../components/impact/Impact'
 import BooksPublications from '../components/books/BooksPublications'
-import Testimonials from '../components/testimonials/Testimonials'
 import Art from '../components/art/Art'
+import Testimonials from '../components/testimonials/Testimonials'
 import ClosingSection from '../components/closing/ClosingSection'
 import Contact from '../components/contact/Contact'
 import { mapOfLife } from '../data/content'
@@ -14,8 +15,9 @@ import { mapOfLife } from '../data/content'
 /**
  * JourneyPage — the main page ('/').
  * Hero followed by eight short-form Act previews (each introduced by a
- * Heartbeat transition), the Map of a Life lesson markers, and the
- * supporting sections. The full Acts live behind #/act/:actId routes.
+ * Heartbeat transition), the Life Lessons editorial showcase, the future-ready
+ * Map architecture, Impact, the Creative Studio (Books + Art), Testimonials,
+ * and the warm high-contrast Closing & Contact experience.
  */
 export default function JourneyPage() {
   const location = useLocation()
@@ -57,16 +59,23 @@ export default function JourneyPage() {
       {/* The Journey — eight Act previews, each preceded by a Heartbeat */}
       <JourneyPreviews />
 
-      {/* Map of a Life — compact lesson grid */}
+      {/* Life Lessons — compact editorial showcase */}
       <LessonGrid lessons={lessons} />
 
-      {/* Supporting sections */}
+      {/* Map Architecture — ready for Frankie's upcoming custom life map asset */}
+      <MapSection />
+
+      {/* Impact & Platform Building */}
       <Impact />
+
+      {/* The Creative Studio — Books + Art unified creative expression */}
       <BooksPublications />
-      <Testimonials />
       <Art />
 
-      {/* Closing & Contact */}
+      {/* Voices & Testimonials */}
+      <Testimonials />
+
+      {/* Closing & Contact — warm high-contrast readable finale */}
       <ClosingSection />
       <Contact />
     </>

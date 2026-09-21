@@ -682,15 +682,15 @@ export const content = {
       }
     ],
     gallery: [
-      { src: '/images/art-the-shy-fox.jpg', alt: 'The Shy Fox — original painting by Frankie Picasso', caption: 'The Shy Fox — original painting' },
-      { src: '/images/art-monument-valley.jpg', alt: 'Monument Valley — original painting by Frankie Picasso', caption: 'Monument Valley — landscape painting' },
-      { src: '/images/art-sparta.jpg', alt: 'Sparta — bulldog portrait painting by Frankie Picasso', caption: 'Sparta — commissioned pet portrait' },
-      { src: '/images/art-lake-superior-rocks.jpg', alt: 'Lake Superior from the Rocks — original painting by Frankie Picasso', caption: 'Lake Superior from the Rocks — landscape' },
-      { src: '/images/art-bulldog-painting-portrait.jpg', alt: 'Bulldog portrait painting by Frankie', caption: 'Original painting — featured on Fine Art America' },
-      { src: '/images/art-canyon-landscape.png', alt: 'Canyon landscape — original painting by Frankie Picasso', caption: 'Canyon landscape — original painting' },
-      { src: '/images/art-girls-in-water.png', alt: 'Girls playing in the ocean — original painting by Frankie Picasso', caption: 'Girls playing in the ocean — original painting' },
-      { src: '/images/art-bulldog-thunder.png', alt: 'Thunder the bulldog — original painting by Frankie Picasso', caption: 'Thunder — commissioned pet portrait' },
-      { src: '/images/art-child-bubbles.png', alt: 'Child blowing bubbles — original painting by Frankie Picasso', caption: 'Child blowing bubbles — original painting' },
+      { src: '/images/art-the-shy-fox.jpg', alt: 'The Shy Fox — original painting by Frankie Picasso', title: 'The Shy Fox', medium: 'Original Acrylic on Canvas', category: 'Wildlife' },
+      { src: '/images/art-monument-valley.jpg', alt: 'Monument Valley — original painting by Frankie Picasso', title: 'Monument Valley', medium: 'Landscape • Acrylic', category: 'Landscapes' },
+      { src: '/images/art-sparta.jpg', alt: 'Sparta — bulldog portrait painting by Frankie Picasso', title: 'Sparta', medium: 'Commissioned Pet Portrait', category: 'Pet Portraits' },
+      { src: '/images/art-lake-superior-rocks.jpg', alt: 'Lake Superior from the Rocks — original painting by Frankie Picasso', title: 'Lake Superior from the Rocks', medium: 'Landscape • Mixed Media', category: 'Landscapes' },
+      { src: '/images/art-bulldog-painting-portrait.jpg', alt: 'Bulldog portrait painting by Frankie', title: 'Bulldog Study', medium: 'Fine Art America Collection', category: 'Pet Portraits' },
+      { src: '/images/art-canyon-landscape.png', alt: 'Canyon landscape — original painting by Frankie Picasso', title: 'Canyon Horizons', medium: 'Expressive Landscape', category: 'Landscapes' },
+      { src: '/images/art-girls-in-water.png', alt: 'Girls playing in the ocean — original painting by Frankie Picasso', title: 'Girls in the Water', medium: 'Figurative • Impressionist', category: 'Life & People' },
+      { src: '/images/art-bulldog-thunder.png', alt: 'Thunder the bulldog — original painting by Frankie Picasso', title: 'Thunder', medium: 'Commissioned Pet Portrait', category: 'Pet Portraits' },
+      { src: '/images/art-child-bubbles.png', alt: 'Child blowing bubbles — original painting by Frankie Picasso', title: 'Child Blowing Bubbles', medium: 'Original Expressionist Painting', category: 'Life & People' },
     ]
   },
 
@@ -851,7 +851,6 @@ export const mapOfLife = {
   title: 'The Map of a Life',
   subtitle: 'A life is not a straight line. It is a collection of lessons, choices, people, risks, losses, and opportunities that only make complete sense when we step back and see the whole picture.',
   closingLine: 'At the time, none of it seemed connected. Years later, every piece fit.',
-  paintingSrc: '/mama-bear.jpg',
   lessons: [
     { id: 1, word: 'Responsibility', chapter: 'The Farm', meaning: 'Caring for something larger than yourself.', emoji: '\ud83c\udfc7', act: 'where-belief-began', x: 15, y: 72 },
     { id: 2, word: 'Observation', chapter: 'Photography', meaning: 'Learn to see before you learn to judge.', emoji: '\ud83d\udcf7', act: 'building', x: 28, y: 45 },

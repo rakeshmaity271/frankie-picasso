@@ -2,7 +2,6 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { navLinks, sectionIds } from '../../data/content'
-import { useMap } from '../../context/MapContext'
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -12,7 +11,6 @@ export default function Nav() {
   const lastScrollY = useRef(0)
   const navRef = useRef(null)
   const pendingSection = useRef(null)
-  const { openMap, count } = useMap()
   const location = useLocation()
   const navigate = useNavigate()
   const onJourney = location.pathname === '/'
@@ -145,15 +143,6 @@ export default function Nav() {
                 </button>
               </li>
             ))}
-            {/* The Map link */}
-            <li>
-              <button
-                onClick={openMap}
-                className="relative text-sm font-sans font-normal tracking-wide transition-colors duration-300 cursor-pointer py-1 text-[var(--text-primary,#2C2C2C)] hover:text-[#FFB400]"
-              >
-                The Map{count > 0 && <span className="ml-1 text-[#FFB400]">({count})</span>}
-              </button>
-            </li>
           </ul>
 
           {/* Mobile Menu Button */}
@@ -211,20 +200,6 @@ export default function Nav() {
                   </button>
                 </motion.li>
               ))}
-              {/* The Map link (mobile) */}
-              <motion.li
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                transition={{ delay: navLinks.length * 0.06, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <button
-                  onClick={() => { setMenuOpen(false); openMap() }}
-                  className="font-serif text-3xl md:text-4xl font-light tracking-wide text-[#2C2C2C] hover:text-[#FFB400] transition-colors duration-300 cursor-pointer"
-                >
-                  The Map{count > 0 && <span className="ml-2 text-[#FFB400] text-xl">({count})</span>}
-                </button>
-              </motion.li>
             </ul>
           </motion.div>
         )}

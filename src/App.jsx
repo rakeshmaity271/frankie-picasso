@@ -6,9 +6,6 @@ import SiteLoader from './components/common/SiteLoader'
 import JourneyPage from './pages/JourneyPage'
 import { useLenis } from './hooks/useLenis'
 import { MapProvider } from './context/MapContext'
-import MapOfLife from './components/map/MapOfLife'
-import PuzzleReveal from './components/map/PuzzleReveal'
-import MapProgress from './components/map/MapProgress'
 import { sectionIds } from './data/content'
 
 // Act pages are lazy-loaded to keep the initial bundle lean;
@@ -93,11 +90,6 @@ function App() {
       </main>
 
       <Footer />
-
-      {/* The Map of a Life — global overlays */}
-      <MapOfLife />
-      <PuzzleReveal />
-      <MapProgress />
     </div>
     </MapProvider>
   )
