@@ -56,6 +56,35 @@ function NarrativeBlock({ block, index }) {
     )
   }
 
+  // Polaroid-framed photo — same album treatment as the journey previews
+  if (block.type === 'image') {
+    return (
+      <ScrollReveal variant="fadeIn" duration={1.2}>
+        <figure
+          className="mx-auto my-6 md:my-8 max-w-[420px] bg-[#FAF6F0] p-3 sm:p-3.5 pb-3.5 sm:pb-4 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70"
+          style={{ transform: `rotate(${block.rotate ?? -1.5}deg)` }}
+        >
+          <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center">
+            <img
+              src={block.src}
+              alt={block.alt}
+              className="w-full h-auto max-h-[440px] object-contain rounded-[2px]"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          {block.caption && (
+            <figcaption className="mt-2.5 sm:mt-3 text-center px-1">
+              <p className="font-serif italic text-xs sm:text-sm text-[#4A4A4A] leading-snug">
+                {block.caption}
+              </p>
+            </figcaption>
+          )}
+        </figure>
+      </ScrollReveal>
+    )
+  }
+
   // Boxed quote — visually distinct block with border
   if (block.type === 'boxed') {
     return (
