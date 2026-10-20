@@ -30,10 +30,10 @@ const frankieNotes = {
 function PhotoFigure({ image, delay = 0, rotate = -1.2, large = false, className = '' }) {
   return (
     <motion.figure
-      className={`bg-[#FAF6F0] ${large ? 'p-3 sm:p-3.5 pb-3.5 sm:pb-4' : 'p-2.5 sm:p-3 pb-3 sm:pb-3.5'} rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70 transition-transform duration-500 hover:rotate-0 ${className}`}
-      style={{ transform: `rotate(${rotate}deg)` }}
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      className={`bg-[#FAF6F0] ${large ? 'p-3 sm:p-3.5 pb-3.5 sm:pb-4' : 'p-2.5 sm:p-3 pb-3 sm:pb-3.5'} rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70 ${className}`}
+      initial={{ opacity: 0, y: 28, rotate }}
+      whileHover={{ rotate: 0, transition: { duration: 0.5, ease: EASE } }}
+      whileInView={{ opacity: 1, y: 0, rotate }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.9, delay, ease: EASE }}
     >
