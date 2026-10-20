@@ -19,9 +19,18 @@ export default function MediaSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8 md:mb-10">
           {data.shows.map((show, i) => (
             <ScrollReveal key={i} variant="fadeUp" delay={i * 0.08}>
-              <div className="p-6 md:p-8 rounded-xl bg-white/40 backdrop-blur-sm border border-white/50 hover:bg-white/60 transition-all duration-500">
+              <div className="p-6 md:p-8 rounded-xl bg-white/40 backdrop-blur-sm border border-white/50 hover:bg-white/60 transition-all duration-500 h-full">
                 <span className="font-sans text-xs uppercase tracking-wider text-[#01B2D4] mb-2 block">{show.type}</span>
                 <h4 className="font-serif text-xl md:text-2xl font-light text-[#1a2e2e] mb-2">{show.title}</h4>
+                {show.image && (
+                  <img
+                    src={show.image}
+                    alt={`${show.title} cover art`}
+                    className="w-20 h-20 md:w-24 md:h-24 rounded-lg object-cover border border-white/70 shadow-[0_4px_14px_rgba(26,46,46,0.18)] my-3 -rotate-[2deg] transition-transform duration-500 hover:rotate-0"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                )}
                 <p className="font-sans text-sm text-[#1a2e2e]/50 mb-3">{show.years}</p>
                 <p className="font-sans text-sm leading-relaxed text-[#1a2e2e]/70">{show.description}</p>
               </div>

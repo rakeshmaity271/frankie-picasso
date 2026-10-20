@@ -30,6 +30,24 @@ export default function WhoIsFrankie() {
           </p>
         </ScrollReveal>
 
+        {/* Behind-the-curtain moment: her own campaign panel at the bus stop */}
+        <ScrollReveal variant="fadeUp" delay={0.15}>
+          <figure className="mb-8 md:mb-12 -rotate-[1.5deg] transition-transform duration-500 hover:rotate-0">
+            <div className="bg-[#FAF6F0] p-2.5 pb-3 rounded-sm shadow-[0_12px_32px_rgba(44,28,16,0.14)] border border-[#E8DCC8]">
+              <img
+                src="/images/art-campaign-poster-frankie.jpg"
+                alt="Transit panel reading “Not every Picasso is the same — Frankie Picasso, Cambridge, Ontario” beside a painted portrait of her."
+                className="w-full h-auto rounded-[2px] border border-black/[0.08]"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption className="mt-2 text-center font-serif italic text-xs text-[#4A4A4A]">
+                “Not every Picasso is the same” • Cambridge, Ontario
+              </figcaption>
+            </div>
+          </figure>
+        </ScrollReveal>
+
         {/* Built list — staggered with lines */}
         <div className="mb-8 md:mb-10 space-y-0">
           {data.builtList.map((item, i) => (

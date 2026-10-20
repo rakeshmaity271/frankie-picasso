@@ -24,6 +24,40 @@ const frankieNotes = {
 }
 
 /**
+ * PhotoFigure — one polaroid-framed photo in the act's photo column.
+ * `large` controls the album rhythm: one dominant print vs tucked snapshots.
+ */
+function PhotoFigure({ image, delay = 0, rotate = -1.2, large = false, className = '' }) {
+  return (
+    <motion.figure
+      className={`bg-[#FAF6F0] ${large ? 'p-3 sm:p-3.5 pb-3.5 sm:pb-4' : 'p-2.5 sm:p-3 pb-3 sm:pb-3.5'} rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70 transition-transform duration-500 hover:rotate-0 ${className}`}
+      style={{ transform: `rotate(${rotate}deg)` }}
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.9, delay, ease: EASE }}
+    >
+      <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center">
+        <img
+          src={image.src}
+          alt={image.alt}
+          className={`w-full h-auto ${large ? 'max-h-[380px] sm:max-h-[440px] md:max-h-[480px]' : 'max-h-[170px] sm:max-h-[200px]'} object-contain rounded-[2px] transition-transform duration-500 hover:scale-[1.01]`}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      {image.caption && (
+        <div className={`text-center px-1 ${large ? 'mt-2.5 sm:mt-3' : 'mt-1.5'}`}>
+          <p className={`font-serif italic text-[#4A4A4A] leading-snug ${large ? 'text-xs sm:text-sm' : 'text-[10px] sm:text-[11px]'}`}>
+            {image.caption}
+          </p>
+        </div>
+      )}
+    </motion.figure>
+  )
+}
+
+/**
  * ActPreview — short-form editorial preview of an Act on the Journey page.
  *
  * DOM order per preview:
@@ -37,6 +71,7 @@ export default function ActPreview({ preview, index = 0 }) {
   const sectionId = preview.anchorId || preview.id
   const legacyId = legacyAnchors[preview.id]
   const imageLeft = index % 2 === 1 // alternate photo side per act
+  const photoLayout = preview.imageLayout || ((preview.images?.length ?? 0) > 1 ? 'hero' : 'single')
 
   return (
     <section
@@ -159,68 +194,42 @@ export default function ActPreview({ preview, index = 0 }) {
                 imageLeft ? 'lg:order-1 lg:sticky lg:top-28' : 'lg:sticky lg:top-28'
               }`}
             >
-              {preview.images.length === 1 ? (
-                <motion.figure
-                  className="max-w-[360px] sm:max-w-[390px] mx-auto lg:mx-0 bg-[#FAF6F0] p-3 sm:p-3.5 pb-4 sm:pb-5 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70 transition-transform duration-500 hover:rotate-0"
-                  style={{ transform: `rotate(${index % 2 === 0 ? -1.2 : 1.2}deg)` }}
-                  initial={{ opacity: 0, y: 28 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.9, ease: EASE }}
-                >
-                  <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center">
-                    <img
-                      src={preview.images[0].src}
-                      alt={preview.images[0].alt}
-                      className="w-full h-auto max-h-[380px] sm:max-h-[440px] md:max-h-[480px] object-contain rounded-[2px] transition-transform duration-500 hover:scale-[1.01]"
-                      loading="lazy"
-                      decoding="async"
-                    />
+              {photoLayout === 'reveal' ? (
+                /* Act I album reveal — the childhood print is the anchor; the dad
+                   photo tucks out from behind it instead of sitting as a twin */
+                <div className="relative max-w-[440px] mx-auto lg:mx-0">
+                  <div className="relative z-10">
+                    <PhotoFigure image={preview.images[0]} rotate={-1.8} large />
                   </div>
-                  {preview.images[0].caption && (
-                    <div className="mt-2.5 sm:mt-3 text-center px-1">
-                      <p className="font-serif italic text-xs sm:text-sm text-[#4A4A4A] leading-snug">
-                        {preview.images[0].caption}
-                      </p>
+                  <div className="relative z-0 -mt-10 sm:-mt-14 w-[74%] ml-auto">
+                    <PhotoFigure image={preview.images[1]} rotate={4.5} delay={0.3} />
+                  </div>
+                </div>
+              ) : photoLayout === 'hero' ? (
+                /* One dominant print with smaller candids tucked below at varied angles */
+                <div className="max-w-[440px] mx-auto lg:mx-0">
+                  <PhotoFigure image={preview.images[0]} rotate={index % 2 === 0 ? -1.5 : 1.5} large />
+                  {preview.images.length > 1 && (
+                    <div className="grid grid-cols-2 items-start gap-3 sm:gap-4 mt-3.5 sm:mt-4">
+                      {preview.images.slice(1).map((image, i, rest) => (
+                        <PhotoFigure
+                          key={image.src}
+                          image={image}
+                          delay={0.15 + i * 0.12}
+                          rotate={i % 2 === 0 ? 3 : -2.5}
+                          className={rest.length % 2 === 1 && i === rest.length - 1 ? 'col-span-2 max-w-[62%] mx-auto' : ''}
+                        />
+                      ))}
                     </div>
                   )}
-                </motion.figure>
+                </div>
               ) : (
-                /* Paired editorial diptych for acts with multiple photos (Acts II & V) — responsive stacking on mobile */
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-[460px] mx-auto lg:mx-0">
-                  {preview.images.map((image, i) => (
-                    <motion.figure
-                      key={image.src}
-                      className="bg-[#FAF6F0] p-2.5 sm:p-3 pb-3 sm:pb-4 rounded-sm shadow-[0_10px_28px_rgba(44,28,16,0.11)] border border-[#E8DCC8]/70 transition-transform duration-500 hover:rotate-0"
-                      style={{
-                        transform: `rotate(${i === 0 ? -1.5 : 1.5}deg)`,
-                        ...(preview.images.length % 2 === 1 && i === preview.images.length - 1
-                          ? { gridColumn: '1 / -1', justifySelf: 'center', maxWidth: '60%' }
-                          : {}),
-                      }}
-                      initial={{ opacity: 0, y: 24 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.2 }}
-                      transition={{ duration: 0.9, delay: i * 0.1, ease: EASE }}
-                    >
-                      <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center">
-                        <img
-                          src={image.src}
-                          alt={image.alt}
-                          className="w-full h-auto max-h-[260px] sm:max-h-[300px] object-contain rounded-[2px] transition-transform duration-500 hover:scale-[1.01]"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </div>
-                      {image.caption && (
-                        <div className="mt-2 text-center px-0.5">
-                          <p className="font-serif italic text-[11px] sm:text-xs text-[#4A4A4A] leading-tight">
-                            {image.caption}
-                          </p>
-                        </div>
-                      )}
-                    </motion.figure>
-                  ))}
+                <div className="max-w-[360px] sm:max-w-[390px] mx-auto lg:mx-0">
+                  <PhotoFigure
+                    image={preview.images[0]}
+                    rotate={index % 2 === 0 ? -1.2 : 1.2}
+                    large
+                  />
                 </div>
               )}
             </div>

@@ -691,6 +691,7 @@ export const content = {
       { src: '/images/art-girls-in-water.png', alt: 'Girls playing in the ocean — original painting by Frankie Picasso', title: 'Girls in the Water', medium: 'Figurative • Impressionist', category: 'Life & People' },
       { src: '/images/art-bulldog-thunder.png', alt: 'Thunder the bulldog — original painting by Frankie Picasso', title: 'Thunder', medium: 'Commissioned Pet Portrait', category: 'Pet Portraits' },
       { src: '/images/art-child-bubbles.png', alt: 'Child blowing bubbles — original painting by Frankie Picasso', title: 'Child Blowing Bubbles', medium: 'Original Expressionist Painting', category: 'Life & People' },
+      { src: '/images/art-moonlight-leopard.jpg', alt: 'Leopard sleeping under a full moon — original nocturnal wildlife painting by Frankie Picasso', title: 'Moonlight Leopard', medium: 'Wildlife • Acrylic', category: 'Wildlife' },
     ]
   },
 
@@ -698,8 +699,8 @@ export const content = {
     title: 'Media',
     subtitle: 'Every voice deserves to be heard.',
     shows: [
-      { title: 'Mission Unstoppable', type: 'radio', description: 'Flagship show on The Good Radio Network featuring conversations with leaders, artists, and community builders.', years: 'Ongoing' },
-      { title: 'FrankieSense and More', type: 'radio', description: 'Dynamic radio program exploring leadership, personal development, and social impact.', years: 'Ongoing' },
+      { title: 'Mission Unstoppable', type: 'radio', description: 'Flagship show on The Good Radio Network featuring conversations with leaders, artists, and community builders.', years: 'Ongoing', image: '/images/media-mission-unstoppable-cover.jpg' },
+      { title: 'FrankieSense and More', type: 'radio', description: 'Dynamic radio program exploring leadership, personal development, and social impact.', years: 'Ongoing', image: '/images/media-good-radio-network-logo.jpg' },
       { title: 'Conversation with My Shoes', type: 'podcast', description: 'Intimate podcast series sharing personal stories of transformation and growth.', years: 'G-Woman Media' },
       { title: 'Thoughtatudes', type: 'podcast', description: 'Thought-provoking content exploring ideas, perspectives, and community dialogue.', years: 'G-Woman Media' }
     ],
