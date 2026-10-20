@@ -89,7 +89,7 @@ export default function HeroExperience() {
         >
           <span className="w-2 h-2 rounded-full bg-[#FF7C15] animate-pulse" />
           <span className="font-sans text-[0.68rem] md:text-xs font-semibold uppercase tracking-[0.25em] text-[#9E3E0C]">
-            Artist • Author • Broadcaster • Champion
+            Artist • Author • Actor • Broadcaster • Champion
           </span>
         </motion.div>
 

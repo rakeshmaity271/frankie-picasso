@@ -28,6 +28,11 @@ export const journeyActs = [
         alt: 'Young Frankie petting the family dog on the front lawn in a vintage black-and-white photo.',
         caption: 'Family farm • Early days of curiosity and dream-chasing',
       },
+      {
+        src: '/images/act1-with-dad.jpg',
+        alt: 'An adult Frankie standing beside her elderly father, both dressed up outside a sunlit home.',
+        caption: 'With my dad • The man who bought me a farm',
+      },
     ],
     highlight: 'Believing in someone is one of the purest expressions of love.',
     highlightLabel: 'THE HIGHLIGHT',
@@ -59,6 +64,11 @@ export const journeyActs = [
         src: '/images/act2-youth-cowboy-hat-puppy.jpg',
         alt: 'A young Frankie in a cowboy hat cradling a puppy, 1970s color snapshot.',
         caption: 'Louisville, Kentucky • 1970s',
+      },
+      {
+        src: '/images/act2-first-car-age-sixteen.jpg',
+        alt: 'Frankie at sixteen in a flowing white dress, barefoot beside her first car in a vintage black-and-white photo.',
+        caption: 'My first car • Sixteen & fearless',
       },
       {
         src: '/images/act2-school-class-portrait.jpg',
@@ -128,7 +138,13 @@ export const journeyActs = [
       'I felt like I was just getting started.',
       'Then, one summer evening, a car ran a stop sign.',
     ],
-    images: [],
+    images: [
+      {
+        src: '/images/act4-dragon-boat-team.jpg',
+        alt: 'Frankie’s Government of Ontario dragon boat team — twenty paddlers in team jerseys posing with their paddles beside the water.',
+        caption: 'Dragon boat team • Government of Ontario',
+      },
+    ],
     highlight: 'You don’t have to be the fastest. You just have to keep climbing.',
     highlightLabel: 'THE HIGHLIGHT',
     color: '#E0F4F4',
@@ -167,6 +183,11 @@ export const journeyActs = [
         src: '/images/act5-recovery-speech-crutches.jpg',
         alt: 'Frankie speaking at an outdoor ceremony during recovery, her crutches resting against the podium.',
         caption: 'Speaking during recovery • Leading through resilience',
+      },
+      {
+        src: '/images/act5-rehab-wheelchair-friends.jpg',
+        alt: 'Frankie seated in a wheelchair during rehab, surrounded by four friends from her motorcycle club.',
+        caption: 'In rehab • My motorcycle club had my back',
       },
     ],
     highlight: 'Sometimes losing everything you thought defined you is how you discover who you really are.',

@@ -192,7 +192,12 @@ export default function ActPreview({ preview, index = 0 }) {
                     <motion.figure
                       key={image.src}
                       className="bg-[#FAF6F0] p-2.5 sm:p-3 pb-3 sm:pb-4 rounded-sm shadow-[0_10px_28px_rgba(44,28,16,0.11)] border border-[#E8DCC8]/70 transition-transform duration-500 hover:rotate-0"
-                      style={{ transform: `rotate(${i === 0 ? -1.5 : 1.5}deg)` }}
+                      style={{
+                        transform: `rotate(${i === 0 ? -1.5 : 1.5}deg)`,
+                        ...(preview.images.length % 2 === 1 && i === preview.images.length - 1
+                          ? { gridColumn: '1 / -1', justifySelf: 'center', maxWidth: '60%' }
+                          : {}),
+                      }}
                       initial={{ opacity: 0, y: 24 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, amount: 0.2 }}
