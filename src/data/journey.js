@@ -22,6 +22,7 @@ export const journeyActs = [
       'Decades later, I became almost every woman that little girl had imagined.',
       'Turns out, childhood dreams don’t always disappear. Sometimes they just wait for us to come back for them.',
     ],
+    imageLayout: 'reveal',
     images: [
       {
         src: '/images/act1-childhood-with-dog.jpg',
@@ -59,16 +60,17 @@ export const journeyActs = [
       'And very soon, all of those lessons would lead me somewhere I never expected.',
       'Into the ring.',
     ],
+    imageLayout: 'hero',
     images: [
-      {
-        src: '/images/act2-youth-cowboy-hat-puppy.jpg',
-        alt: 'A young Frankie in a cowboy hat cradling a puppy, 1970s color snapshot.',
-        caption: 'Louisville, Kentucky • 1970s',
-      },
       {
         src: '/images/act2-first-car-age-sixteen.jpg',
         alt: 'Frankie at sixteen in a flowing white dress, barefoot beside her first car in a vintage black-and-white photo.',
         caption: 'My first car • Sixteen & fearless',
+      },
+      {
+        src: '/images/act2-youth-cowboy-hat-puppy.jpg',
+        alt: 'A young Frankie in a cowboy hat cradling a puppy, 1970s color snapshot.',
+        caption: 'Louisville, Kentucky • 1970s',
       },
       {
         src: '/images/act2-school-class-portrait.jpg',
@@ -173,6 +175,7 @@ export const journeyActs = [
       'But somewhere between learning to move my leg again and encouraging other patients not to give up, something new began to emerge.',
       'The survivor was becoming the coach.',
     ],
+    imageLayout: 'hero',
     images: [
       {
         src: '/images/act5-motorcycle-studio-portrait.jpg',
@@ -188,6 +191,11 @@ export const journeyActs = [
         src: '/images/act5-rehab-wheelchair-friends.jpg',
         alt: 'Frankie seated in a wheelchair during rehab, surrounded by four friends from her motorcycle club.',
         caption: 'In rehab • My motorcycle club had my back',
+      },
+      {
+        src: '/images/act5-motorcycle-training-certificate.jpg',
+        alt: 'Canada Safety Council Gearing Up motorcycle training certificate issued to Frankie Picasso.',
+        caption: 'Licensed & trained • Canada Safety Council',
       },
     ],
     highlight: 'Sometimes losing everything you thought defined you is how you discover who you really are.',
@@ -207,11 +215,17 @@ export const journeyActs = [
       'One psychologist decided that meant I couldn\u2019t possibly be suffering. He was about to get a lesson.',
       'As I worked to heal, I began building a new life through coaching, teaching and, eventually, radio.',
     ],
+    imageLayout: 'hero',
     images: [
       {
         src: '/images/media-podcast-studio-portrait.jpg',
         alt: 'Frankie in her podcast studio, headphones on, speaking into the microphone.',
         caption: 'In the studio • Radio as a vehicle for positive impact',
+      },
+      {
+        src: '/images/act4-certified-coach-certificate.jpg',
+        alt: 'International Coach Academy certificate certifying Frankie Picasso graduated from the Professional Certified Coach Program.',
+        caption: 'Certified Coach • International Coach Academy, 2004',
       },
     ],
     highlight: 'Getting dressed, doing my hair and putting on my makeup meant I was still here. Still fighting for my life. Still in the game.',
@@ -263,7 +277,13 @@ export const journeyActs = [
       'At this point in my life, I am no longer interested in becoming only one thing. I am a media entrepreneur, radio host, author, artist, social-impact advocate, board chair and, most recently, an actor.',
       'Apparently, retirement has gone very badly.',
     ],
+    imageLayout: 'hero',
     images: [
+      {
+        src: '/images/portrait-leather-jacket-studio.jpg',
+        alt: 'Frankie laughing in a black leather jacket against a colourful circle backdrop — her current-day studio portrait.',
+        caption: 'Still becoming • The latest one of me',
+      },
       {
         src: '/images/recent-frankie-playing-drums.jpg',
         alt: 'Frankie playing drums — creative expression as a way of life.',

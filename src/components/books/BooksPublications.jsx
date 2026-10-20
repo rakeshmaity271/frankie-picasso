@@ -49,6 +49,13 @@ export default function BooksPublications() {
             <p className="font-serif italic text-base md:text-lg text-[#2C2C2C]/75 leading-relaxed">
               International bestsellers and empowerment guides. Each book is an intimate conversation with the reader.
             </p>
+            <img
+              src="/images/act4-amazon-bestseller-badge.jpg"
+              alt="Amazon.com Best Selling Author badge"
+              className="w-24 md:w-28 mx-auto mt-5 rotate-[-4deg] drop-shadow-[0_4px_10px_rgba(44,30,20,0.18)] transition-transform duration-500 hover:rotate-0"
+              loading="lazy"
+              decoding="async"
+            />
           </ScrollReveal>
         </div>
 
