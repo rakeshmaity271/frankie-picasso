@@ -104,6 +104,7 @@ export const content = {
         { type: 'emphasis', content: 'He wasn\u2019t simply my horse.' },
         { type: 'emphasis', content: 'He was my best friend.' },
         { type: 'text', content: 'He also had a sense of humour only a horse could appreciate\u2026.' },
+        { type: 'image', src: '/images/act1-cavalier-laughing.jpg', alt: 'Cavalier, Frankie\u2019s white gelding with blue eyes, mid-laugh in the pasture.', caption: 'Cavalier \u2022 The horse with the sense of humour', rotate: 1.8 },
         { type: 'text', content: 'Years later, I realized the greatest gift wasn\u2019t Cavalier, although he was pretty wonderful.' },
         { type: 'text', content: 'The real gift was watching my father embrace my dream as though it were his own. He didn\u2019t just buy me a horse. He spent months driving country roads looking for the right farm. He gave up weekends. He invested his time, his money, and his heart so a little girl\u2019s dream could become reality.' },
         { type: 'text', content: 'Looking back now, as a parent myself, I understand it in a completely different way. There is something deeply satisfying about helping your children experience the joy of a dream fulfilled.' },
