@@ -19,3 +19,28 @@ Thumbs.db
 
 # Build
 dist/
+
+# MCP (contains secrets)
+.mcp.json
+
+# Scripts with credentials
+scripts/setup_server.py
+
+# Audit/design screenshots
+audit_*.png
+desktop_*.png
+mobile_*.png
+ssl_error*.png
+screenshot_*.png
+test_*.png
+verify_*.png
+workflow_status.png
+
+# Raw original photos (WhatsApp originals) — never ship to production
+/images/
+
+# Client feedback documents
+feedback/
+
+# Qoder local documentation and wiki
+.qoder/

@@ -1,0 +1,312 @@
+/**
+ * Journey preview data layer — additive to content.js.
+ *
+ * Short-form Act previews for the main Journey page. Copy extracted VERBATIM
+ * from the client's "shorted webparagraphsfinalversion.pdf" (curly quotes,
+ * apostrophes and dramatic single-line beats preserved).
+ */
+
+export const journeyActs = [
+  {
+    id: 'where-belief-began',
+    number: 'I',
+    title: 'Welcome to the Journey',
+    tagline: 'Every life has an origin story.',
+    shortIntro: 'Every life has an origin story.',
+    shortBody: [
+      'Mine began with people who believed I could be or do anything I set my mind to.',
+      'My mother taught me to read at three. My father bought a farm because his horse-crazy daughter dreamed of owning a horse. And one formidable English teacher handed out enough D’s to teach me that talent means very little without perseverance.',
+      'I dreamed constantly. Writer. Broadcaster. Artist. Drummer. Animal lover. My parents even nicknamed me “Iwanna” because apparently one dream at a time was never going to be enough.',
+      'Then life happened, and many of those childhood dreams disappeared into the background.',
+      'Or so I thought.',
+      'Decades later, I became almost every woman that little girl had imagined.',
+      'Turns out, childhood dreams don’t always disappear. Sometimes they just wait for us to come back for them.',
+    ],
+    imageLayout: 'reveal',
+    images: [
+      {
+        src: '/images/act1-childhood-with-dog.jpg',
+        alt: 'Young Frankie petting the family dog on the front lawn in a vintage black-and-white photo.',
+        caption: 'Family farm • Early days of curiosity and dream-chasing',
+      },
+      {
+        src: '/images/act1-with-dad.jpg',
+        alt: 'An adult Frankie standing beside her elderly father, both dressed up outside a sunlit home.',
+        caption: 'With my dad • The man who bought me a farm',
+      },
+    ],
+    highlight: 'Believing in someone is one of the purest expressions of love.',
+    highlightLabel: 'THE HIGHLIGHT',
+    color: '#D8C8EE',
+    accent: '#8B5FB0',
+    fullStoryUrl: '#/act/where-belief-began',
+  },
+  {
+    id: 'becoming',
+    number: 'II',
+    title: 'Becoming',
+    tagline: 'Some lessons can’t be taught in a classroom.',
+    shortIntro: 'Some lessons can’t be taught in a classroom.',
+    shortBody: [
+      'At fourteen, I left Toronto, my horses, my best friend and the only life I knew for Louisville, Kentucky.',
+      'I thought I was simply moving to another city.',
+      'Instead, I landed in the middle of desegregation, racial violence, Vietnam-era America and a culture I barely understood. I saw prejudice up close, discovered photography, left school at sixteen, earned my GED, scored in the top 16 percent on the SATs, studied photojournalism and somehow found myself interviewing Reverend Jesse Jackson.',
+      'Then came sales, fast cars, bad decisions, better decisions, sexism, entrepreneurship—and one memorable boss who actually asked me to sell less because I was “demoralizing the men.”',
+      'I didn’t know it then, but I wasn’t bouncing from one thing to another.',
+      'I was collecting tools.',
+      'Photography taught me to observe.',
+      'Sales taught me to understand people.',
+      'Entrepreneurship taught me to trust myself.',
+      'And very soon, all of those lessons would lead me somewhere I never expected.',
+      'Into the ring.',
+    ],
+    imageLayout: 'hero',
+    images: [
+      {
+        src: '/images/act2-first-car-age-sixteen.jpg',
+        alt: 'Frankie at sixteen in a flowing white dress, barefoot beside her first car in a vintage black-and-white photo.',
+        caption: 'My first car • Sixteen & fearless',
+      },
+      {
+        src: '/images/act2-youth-cowboy-hat-puppy.jpg',
+        alt: 'A young Frankie in a cowboy hat cradling a puppy, 1970s color snapshot.',
+        caption: 'Louisville, Kentucky • 1970s',
+      },
+      {
+        src: '/images/act2-school-class-portrait.jpg',
+        alt: 'A sepia school class portrait of uniformed girls from Frankie’s youth.',
+        caption: 'Class portrait • Learning independence early',
+      },
+    ],
+    highlight: 'Some lessons can’t be taught in a classroom. They have to be experienced.',
+    highlightLabel: 'THE HIGHLIGHT',
+    color: '#FFF0CC',
+    accent: '#EE5802',
+    fullStoryUrl: '#/act/building',
+  },
+  {
+    id: 'the-builder',
+    number: 'III',
+    title: 'The Builder',
+    tagline: 'If I saw an opportunity, I wanted to build it.',
+    shortIntro: 'If I saw an opportunity, I wanted to build it.',
+    shortBody: [
+      'I never set out to become an entrepreneur. I just kept seeing possibilities everywhere.',
+      'Boxing introduced me to promotion, negotiation and the business behind the spectacle. Along the way I became a private investigator, started a construction company, built an esthetics business and launched a condom company called Condom Sense—complete with a promotional bicycle named the Dickie Delight Condom Cart.',
+      'Then a world champion kickboxer asked me a deceptively simple question:',
+      '“Will you promote my title fight?”',
+      'I had never even been to a kickboxing event.',
+      'Naturally, I said yes.',
+      'Nine months later, I had secured a stadium, an ESPN broadcast, Michael Buffer as ring announcer, thousands of spectators—and even needed a little help from Canadian heavyweight legend George Chuvalo when things got unexpectedly dangerous.',
+      'Fight night was a triumph. My fighter won his twelfth world championship.',
+      'But my children taught me something that success never could:',
+      'Not every victory is worth the price it asks you to pay.',
+      'Two days later, the Government of Ontario called.',
+      'And once again, my life was about to go somewhere I never saw coming.',
+    ],
+    images: [
+      {
+        src: '/images/act3-kickboxing-championship-poster.jpg',
+        alt: 'Poster for the 1997 ISKA World Kickboxing Championships promoted by Frankie Picasso’s Roundhouse Promotions.',
+        caption: '1997 World Championship Fight Night • Roundhouse Promotions',
+      },
+    ],
+    highlight: 'Opportunities come to all of us. The difference is whether we act on them.',
+    highlightLabel: 'THE HIGHLIGHT',
+    color: '#FFF0CC',
+    accent: '#C24E1A',
+    fullStoryUrl: '#/act/building-through-boxing',
+  },
+  {
+    id: 'the-leader',
+    number: 'IV',
+    title: 'The Leader',
+    tagline: 'Leadership, I discovered, wasn’t about titles. It was about bringing people together.',
+    shortIntro: 'Leadership, I discovered, wasn’t about titles. It was about bringing people together.',
+    shortBody: [
+      'Two days after promoting a World Championship fight, I received a call from the Ontario government asking if I could organize an event for the Ministry of Justice.',
+      'Of course, I said yes.',
+      'One event became a career. Eventually, I became Special Advisor for SPIRIT, creating programs designed to connect tens of thousands of public servants across the province.',
+      'I built Dragon Boat teams, volunteer emergency response programs, mentoring initiatives and community challenges—all with one goal:',
+      'Help people remember what becomes possible when we stop working in silos and start moving together.',
+      'One of those challenges took me 144 flights up the CN Tower.',
+      'My colleague finished in fourteen minutes.',
+      'It took me forty-five.',
+      'I didn’t care.',
+      'I finished.',
+      'That became one of the greatest lessons of my leadership years: you don’t have to be the fastest, strongest or most important person in the room.',
+      'You just have to keep climbing.',
+      'Life was meaningful. The work mattered. I truly believed I was exactly where I was supposed to be.',
+      'I felt like I was just getting started.',
+      'Then, one summer evening, a car ran a stop sign.',
+    ],
+    images: [
+      {
+        src: '/images/act4-dragon-boat-team.jpg',
+        alt: 'Frankie’s Government of Ontario dragon boat team — twenty paddlers in team jerseys posing with their paddles beside the water.',
+        caption: 'Dragon boat team • Government of Ontario',
+      },
+    ],
+    highlight: 'You don’t have to be the fastest. You just have to keep climbing.',
+    highlightLabel: 'THE HIGHLIGHT',
+    color: '#E0F4F4',
+    accent: '#01B2D4',
+    fullStoryUrl: '#/act/the-leader',
+  },
+  {
+    id: 'the-survivor',
+    number: 'V',
+    title: 'The Survivor',
+    tagline: 'Sometimes life doesn’t ask whether you’re ready.',
+    shortIntro: 'Sometimes life doesn’t ask whether you’re ready.',
+    shortBody: [
+      'I was leading a motorcycle ride through the countryside when a car ran a stop sign and hit me broadside.',
+      'In a matter of seconds, the life I knew disappeared.',
+      'I broke both femurs, my hip and pelvis. I spent months in hospital and rehabilitation. My career changed. My band disappeared. My independence vanished. Even the simplest things—bathing, eating, getting to the bathroom—required help.',
+      'For someone fiercely accustomed to doing everything herself, dependence may have been one of the hardest injuries of all.',
+      'Then, one quiet night in rehab, I realized that nearly everything I had used to define myself was gone.',
+      'My marriage.',
+      'My work.',
+      'My music.',
+      'My plans.',
+      'And I had to ask a terrifying question:',
+      'Who am I when I am no longer what I do?',
+      'I didn’t find the answer that night.',
+      'But somewhere between learning to move my leg again and encouraging other patients not to give up, something new began to emerge.',
+      'The survivor was becoming the coach.',
+    ],
+    imageLayout: 'hero',
+    images: [
+      {
+        src: '/images/act5-motorcycle-studio-portrait.jpg',
+        alt: 'Frankie in black leather astride her silver cruiser motorcycle.',
+        caption: 'Cruiser motorcycle • Fierce independence',
+      },
+      {
+        src: '/images/act5-recovery-speech-crutches.jpg',
+        alt: 'Frankie speaking at an outdoor ceremony during recovery, her crutches resting against the podium.',
+        caption: 'Speaking during recovery • Leading through resilience',
+      },
+      {
+        src: '/images/act5-rehab-wheelchair-friends.jpg',
+        alt: 'Frankie seated in a wheelchair during rehab, surrounded by four friends from her motorcycle club.',
+        caption: 'In rehab • My motorcycle club had my back',
+      },
+      {
+        src: '/images/act5-motorcycle-training-certificate.jpg',
+        alt: 'Canada Safety Council Gearing Up motorcycle training certificate issued to Frankie Picasso.',
+        caption: 'Licensed & trained • Canada Safety Council',
+      },
+    ],
+    highlight: 'Sometimes losing everything you thought defined you is how you discover who you really are.',
+    highlightLabel: 'THE HIGHLIGHT',
+    color: '#FDE8EF',
+    accent: '#DF3CB5',
+    fullStoryUrl: '#/act/the-survivor',
+  },
+  {
+    id: 'coming-home',
+    number: 'VI',
+    title: 'Coming Home',
+    tagline: 'Every morning, I put on my lipstick.',
+    shortIntro: 'Every morning, I put on my lipstick.',
+    shortBody: [
+      'Coming home from the hospital was only the beginning. My days revolved around doctors, lawyers, studying and pain\u2014but every morning, I put on my lipstick.',
+      'One psychologist decided that meant I couldn\u2019t possibly be suffering. He was about to get a lesson.',
+      'As I worked to heal, I began building a new life through coaching, teaching and, eventually, radio.',
+    ],
+    imageLayout: 'hero',
+    images: [
+      {
+        src: '/images/media-podcast-studio-portrait.jpg',
+        alt: 'Frankie in her podcast studio, headphones on, speaking into the microphone.',
+        caption: 'In the studio • Radio as a vehicle for positive impact',
+      },
+      {
+        src: '/images/act4-certified-coach-certificate.jpg',
+        alt: 'International Coach Academy certificate certifying Frankie Picasso graduated from the Professional Certified Coach Program.',
+        caption: 'Certified Coach • International Coach Academy, 2004',
+      },
+    ],
+    highlight: 'Getting dressed, doing my hair and putting on my makeup meant I was still here. Still fighting for my life. Still in the game.',
+    highlightLabel: 'THE HIGHLIGHT',
+    color: '#FFF8E7',
+    accent: '#C4922A',
+    fullStoryUrl: '#/act/coming-home',
+  },
+  {
+    id: 'beginning-again',
+    number: 'VII',
+    title: 'Beginning Again',
+    tagline: 'Retirement was supposed to be my closing chapter.',
+    shortIntro: 'Retirement was supposed to be my closing chapter.',
+    shortBody: [
+      'I officially retired at sixty-five\u2014and almost immediately discovered that retirement wasn\u2019t all it was cracked up to be.',
+      'I didn\u2019t know what to do with myself.',
+      'My father had passed away three months earlier, and then my beloved dog died on my birthday. I was grieving, lost and, quite honestly, a mess.',
+      'I was still doing radio and painting, but I had stopped coaching and felt as though I were drifting. I wasn\u2019t sleeping. I wasn\u2019t interested in much of anything. For someone who had spent her entire life creating, working, helping and charging headfirst into the next adventure, having nowhere in particular to go was not relaxing.',
+      'It was depressing.',
+      'I had spent years volunteering with different organizations, giving away my time, experience and energy. Eventually, I began to wonder whether it might be nice to get paid again. I didn\u2019t care if it was only one dollar an hour. I simply wanted something that said, We value you. We value your time. What you bring matters.',
+      'Some people are cut out for retirement. Apparently, I am not.',
+      'Besides, I have thirteen grandchildren. Trust me, there is a birthday every month. I needed money to support my Glamma habit.',
+      'Around that time, I reached out to a friend who offered me an opportunity to take a deep dive into his company. He asked me to interview some of his employees and write a report about what I discovered.',
+      'What I discovered was myself.',
+    ],
+    images: [
+      {
+        src: '/images/recent-frankie-with-mara.jpg',
+        alt: 'Frankie with her granddaughter Mara — family is the thread through every version.',
+        caption: 'With granddaughter Mara • Family through every chapter',
+      },
+    ],
+    highlight: 'Some people are cut out for retirement. Apparently, I am not.',
+    highlightLabel: 'THE HIGHLIGHT',
+    color: '#FDEBD3',
+    accent: '#D4764E',
+    fullStoryUrl: '#/act/beginning-again',
+  },
+  {
+    id: 'still-becoming',
+    number: 'VIII',
+    title: 'Still Becoming',
+    tagline: 'I am no longer interested in becoming only one thing.',
+    shortIntro: 'I am no longer interested in becoming only one thing.',
+    shortBody: [
+      'If the first seven acts of my life have taught me anything, it is that I am terrible at standing still.',
+      'Just when I think I have arrived somewhere, another idea appears. Another cause needs help. Another microphone turns on. Another door opens\u2014or remains stubbornly closed until I decide to build my own.',
+      'At this point in my life, I am no longer interested in becoming only one thing. I am a media entrepreneur, radio host, author, artist, social-impact advocate, board chair and, most recently, an actor.',
+      'Apparently, retirement has gone very badly.',
+    ],
+    imageLayout: 'hero',
+    images: [
+      {
+        src: '/images/portrait-leather-jacket-studio.jpg',
+        alt: 'Frankie laughing in a black leather jacket against a colourful circle backdrop — her current-day studio portrait.',
+        caption: 'Still becoming • The latest one of me',
+      },
+      {
+        src: '/images/recent-frankie-playing-drums.jpg',
+        alt: 'Frankie playing drums — creative expression as a way of life.',
+        caption: 'Behind the kit • Drumming & lifelong creative fire',
+      },
+    ],
+    highlight: 'I am no longer interested in becoming only one thing.',
+    highlightLabel: 'THE HIGHLIGHT',
+    color: '#E8EDF8',
+    accent: '#3B5998',
+    fullStoryUrl: '#/act/still-becoming',
+  },
+]
+
+// Heartbeat transition pairs between Journey previews — reuses the site's
+// heartbeat palette (App.jsx heartbeatColors values 0–4).
+export const journeyHeartbeats = [
+  { from: '#E8DCC8', to: '#D8C8EE', accent: '#8B5FB0' }, // hero -> Act I
+  { from: '#D8C8EE', to: '#FFF0CC', accent: '#EE5802' }, // Act I -> Act II
+  { from: '#FFF0CC', to: '#FFF0CC', accent: '#C24E1A' }, // Act II -> Act III
+  { from: '#FFF0CC', to: '#E0F4F4', accent: '#01B2D4' }, // Act III -> Act IV
+  { from: '#E0F4F4', to: '#FDE8EF', accent: '#DF3CB5' }, // Act IV -> Act V
+  { from: '#FDE8EF', to: '#FFF8E7', accent: '#C4922A' }, // Act V -> Act VI
+  { from: '#FFF8E7', to: '#FDEBD3', accent: '#D4764E' }, // Act VI -> Act VII
+  { from: '#FDEBD3', to: '#E8EDF8', accent: '#3B5998' }, // Act VII -> Act VIII
+]
