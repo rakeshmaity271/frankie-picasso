@@ -201,8 +201,8 @@ export default function ActPreview({ preview, index = 0 }) {
                   <div className="relative z-10">
                     <PhotoFigure image={preview.images[0]} rotate={-1.8} large />
                   </div>
-                  <div className="relative z-0 -mt-10 sm:-mt-14 w-[74%] ml-auto">
-                    <PhotoFigure image={preview.images[1]} rotate={4.5} delay={0.3} />
+                  <div className="relative z-0 -mt-10 sm:-mt-14 w-[78%] ml-auto">
+                    <PhotoFigure image={preview.images[1]} rotate={4.5} delay={0.3} large />
                   </div>
                 </div>
               ) : photoLayout === 'hero' ? (
