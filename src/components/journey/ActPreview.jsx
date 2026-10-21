@@ -30,18 +30,18 @@ const frankieNotes = {
 function PhotoFigure({ image, delay = 0, rotate = -1.2, large = false, className = '' }) {
   return (
     <motion.figure
-      className={`bg-[#FAF6F0] ${large ? 'p-3 sm:p-3.5 pb-3.5 sm:pb-4' : 'p-2.5 sm:p-3 pb-3 sm:pb-3.5'} rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70 ${className}`}
+      className={`w-fit mx-auto bg-[#FAF6F0] ${large ? 'p-3 sm:p-3.5 pb-3.5 sm:pb-4' : 'p-2.5 sm:p-3 pb-3 sm:pb-3.5'} rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70 ${className}`}
       initial={{ opacity: 0, y: 28, rotate }}
       whileHover={{ rotate: 0, transition: { duration: 0.5, ease: EASE } }}
       whileInView={{ opacity: 1, y: 0, rotate }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.9, delay, ease: EASE }}
     >
-      <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center">
+      <div className="w-fit mx-auto overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center">
         <img
           src={image.src}
           alt={image.alt}
-          className={`w-full h-auto ${large ? 'max-h-[380px] sm:max-h-[440px] md:max-h-[480px]' : 'max-h-[170px] sm:max-h-[200px]'} object-contain rounded-[2px] transition-transform duration-500 hover:scale-[1.01]`}
+          className={`w-auto max-w-full ${large ? 'max-h-[340px] sm:max-h-[420px] md:max-h-[500px]' : 'max-h-[230px] sm:max-h-[280px]'} rounded-[2px] transition-transform duration-500 hover:scale-[1.01]`}
           loading="lazy"
           decoding="async"
         />
@@ -149,7 +149,7 @@ export default function ActPreview({ preview, index = 0 }) {
 
           {/* ── Editorial composition: narrative + photo ── */}
           <div className={`grid gap-10 lg:gap-16 items-start ${
-            preview.images?.length ? 'lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]' : ''
+            preview.images?.length ? 'lg:grid-cols-[minmax(0,6.5fr)_minmax(0,5.5fr)]' : ''
           }`}>
             {/* Text column */}
             <div className={`max-w-[760px] ${imageLeft ? 'lg:order-2' : ''}`}>
@@ -190,14 +190,14 @@ export default function ActPreview({ preview, index = 0 }) {
             {/* Photo column — uncropped archival presentation, mobile-friendly */}
             {preview.images?.length > 0 && (
             <div
-              className={`w-full max-w-[420px] mx-auto lg:mx-0 lg:max-w-none ${
+              className={`w-full max-w-[480px] mx-auto lg:mx-0 lg:max-w-none ${
                 imageLeft ? 'lg:order-1 lg:sticky lg:top-28' : 'lg:sticky lg:top-28'
               }`}
             >
               {photoLayout === 'reveal' ? (
                 /* Act I album reveal — the childhood print is the anchor; the dad
                    photo tucks out from behind it instead of sitting as a twin */
-                <div className="relative max-w-[440px] mx-auto lg:mx-0">
+                <div className="relative max-w-[500px] mx-auto lg:mx-0">
                   <div className="relative z-10">
                     <PhotoFigure image={preview.images[0]} rotate={-1.8} large />
                   </div>
@@ -207,7 +207,7 @@ export default function ActPreview({ preview, index = 0 }) {
                 </div>
               ) : photoLayout === 'hero' ? (
                 /* One dominant print with smaller candids tucked below at varied angles */
-                <div className="max-w-[440px] mx-auto lg:mx-0">
+                <div className="max-w-[500px] mx-auto lg:mx-0">
                   <PhotoFigure image={preview.images[0]} rotate={index % 2 === 0 ? -1.5 : 1.5} large />
                   {preview.images.length > 1 && (
                     <div className="grid grid-cols-2 items-start gap-3 sm:gap-4 mt-3.5 sm:mt-4">
@@ -224,7 +224,7 @@ export default function ActPreview({ preview, index = 0 }) {
                   )}
                 </div>
               ) : (
-                <div className="max-w-[360px] sm:max-w-[390px] mx-auto lg:mx-0">
+                <div className="max-w-[440px] sm:max-w-[480px] mx-auto lg:mx-0">
                   <PhotoFigure
                     image={preview.images[0]}
                     rotate={index % 2 === 0 ? -1.2 : 1.2}
