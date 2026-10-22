@@ -1,18 +1,99 @@
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { content } from '../../data/content'
 import ScrollReveal from '../common/ScrollReveal'
 
 const data = content.media
 
+function VideoLightbox({ video, onClose }) {
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [onClose])
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-[9999] flex items-center justify-center"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      role="dialog"
+      aria-modal="true"
+      aria-label={video.title}
+    >
+      <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" onClick={onClose} />
+
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200"
+        aria-label="Close video"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+
+      <motion.div
+        className="relative z-10 w-full max-w-[90vw] md:max-w-[900px]"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="relative aspect-video rounded-lg overflow-hidden bg-black shadow-2xl">
+          <iframe
+            className="absolute inset-0 w-full h-full"
+            src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1`}
+            title={video.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+        <p className="mt-4 font-sans text-sm text-white/70 text-center">{video.title}</p>
+      </motion.div>
+    </motion.div>
+  )
+}
+
 export default function MediaSection() {
+  const [activeVideo, setActiveVideo] = useState(null)
+
   return (
     <section id="media" className="relative py-8 md:py-14 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#E0F4F4' }}>
       <div className="max-w-[1000px] mx-auto">
         <ScrollReveal variant="fadeUp">
-          <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#01B2D4] mb-4">{data.title}</p>
-          <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#1a2e2e] mb-4">{data.subtitle}</h2>
-          <p className="font-serif text-lg text-[#1a2e2e]/60 mb-6 md:mb-10 max-w-[600px]">Through radio, podcasts, and media platforms, Frankie amplified voices that deserved to be heard.</p>
+          <div className="flex flex-col md:flex-row md:items-end gap-8 md:gap-10 mb-6 md:mb-10">
+            <div>
+              <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#01B2D4] mb-4">{data.title}</p>
+              <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#1a2e2e] mb-4">{data.subtitle}</h2>
+              <p className="font-serif text-lg text-[#1a2e2e]/60 max-w-[600px]">Through radio, podcasts, and media platforms, Frankie amplified voices that deserved to be heard.</p>
+            </div>
+            {data.officeCandid && (
+              <figure className="shrink-0 mx-auto md:mx-0 max-w-[240px] bg-[#FAF6F0] p-3 pb-4 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70 rotate-[2deg]">
+                <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white">
+                  <img
+                    src={data.officeCandid.src}
+                    alt="Frankie at the office."
+                    className="w-full h-auto rounded-[2px]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption className="mt-2.5 text-center px-1">
+                  <p className="font-serif italic text-sm text-[#4A4A4A] leading-snug">{data.officeCandid.caption}</p>
+                </figcaption>
+              </figure>
+            )}
+          </div>
         </ScrollReveal>
 
         {/* Shows grid */}
@@ -38,6 +119,43 @@ export default function MediaSection() {
           ))}
         </div>
 
+        {/* Watch — YouTube episodes */}
+        <ScrollReveal variant="fadeUp">
+          <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#01B2D4] mb-4">Watch</p>
+          <h3 className="font-serif font-light text-[clamp(1.5rem,3vw,2.25rem)] text-[#1a2e2e] mb-6">Frankie on screen.</h3>
+        </ScrollReveal>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8 md:mb-10">
+          {data.videos.map((video, i) => (
+            <ScrollReveal key={video.id} variant="fadeUp" delay={i * 0.06}>
+              <button
+                type="button"
+                onClick={() => setActiveVideo(video)}
+                aria-label={`Play video: ${video.title}`}
+                className="text-left w-full p-0 rounded-xl bg-white/40 backdrop-blur-sm border border-white/50 hover:bg-white/60 transition-all duration-500 h-full overflow-hidden group"
+              >
+                <div className="relative aspect-video overflow-hidden">
+                  <img
+                    src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+                    alt=""
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+                    <span className="w-12 h-12 rounded-full bg-white/85 group-hover:bg-[#01B2D4] flex items-center justify-center transition-colors duration-300 shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+                      <svg width="18" height="18" viewBox="0 0 24 24" className="fill-[#1a2e2e] group-hover:fill-white"><polygon points="8,5 20,12 8,19" /></svg>
+                    </span>
+                  </span>
+                </div>
+                <div className="p-4">
+                  <p className="font-sans text-xs uppercase tracking-wider text-[#01B2D4] mb-1">{video.channel}</p>
+                  <h4 className="font-serif text-lg font-light text-[#1a2e2e] leading-snug">{video.title}</h4>
+                </div>
+              </button>
+            </ScrollReveal>
+          ))}
+        </div>
+
         {/* Press highlights */}
         <ScrollReveal variant="fadeUp">
           <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#1a2e2e]/40 mb-8">Press & Recognition</p>
@@ -55,6 +173,10 @@ export default function MediaSection() {
             </ScrollReveal>
           ))}
         </div>
+
+        <AnimatePresence>
+          {activeVideo && <VideoLightbox video={activeVideo} onClose={() => setActiveVideo(null)} />}
+        </AnimatePresence>
       </div>
     </section>
   )
