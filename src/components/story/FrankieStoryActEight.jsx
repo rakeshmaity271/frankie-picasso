@@ -313,6 +313,26 @@ export default function FrankieStoryActEight() {
         I was cast in an outdoor production of A Christmas Carol with Penny &amp; Pound Theatre and landed a paid role in a dinner-theatre production. I continued auditioning, developing characters and practising for increasingly ambitious roles.
       </motion.p>
 
+      <motion.div variants={fadeInUp} style={{ marginBottom: 'clamp(2rem, 4vh, 3rem)' }}>
+        <figure
+          className="mx-auto max-w-[420px] bg-[#FAF6F0] p-3 sm:p-3.5 pb-3.5 sm:pb-4 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70"
+          style={{ transform: 'rotate(-1.5deg)' }}
+        >
+          <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center">
+            <img
+              src="/images/act8-backstage-waiting.jpg"
+              alt="Frankie seated between two fellow cast members in the dressing room, waiting backstage to go on."
+              className="w-full h-auto max-h-[440px] object-contain rounded-[2px]"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption className="mt-2.5 sm:mt-3 text-center px-1">
+            <p className="font-serif italic text-xs sm:text-sm text-[#4A4A4A] leading-snug">Waiting backstage to go on.</p>
+          </figcaption>
+        </figure>
+      </motion.div>
+
       <motion.div
         variants={fadeInUp}
         style={{

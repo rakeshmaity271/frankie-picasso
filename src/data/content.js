@@ -700,11 +700,20 @@ export const content = {
     title: 'Media',
     subtitle: 'Every voice deserves to be heard.',
     shows: [
-      { title: 'Mission Unstoppable', type: 'radio', description: 'Flagship show on The Good Radio Network featuring conversations with leaders, artists, and community builders.', years: 'Ongoing', image: '/images/media-mission-unstoppable-cover.jpg' },
-      { title: 'FrankieSense and More', type: 'radio', description: 'Dynamic radio program exploring leadership, personal development, and social impact.', years: 'Ongoing', image: '/images/media-good-radio-network-logo.jpg' },
+      { title: 'Mission Unstoppable', type: 'podcast', description: 'Frankie’s flagship podcast on The Good Radio Network featuring conversations with leaders, artists, and community builders.', years: 'Ongoing', image: '/images/media-mission-unstoppable-cover.jpg' },
+      { title: 'FrankieSense and More', type: 'podcast', description: 'Frankie’s podcast exploring leadership, personal development, and social impact.', years: 'Ongoing', image: '/images/media-frankiesense-cover.jpg' },
       { title: 'Conversation with My Shoes', type: 'podcast', description: 'Intimate podcast series sharing personal stories of transformation and growth.', years: 'G-Woman Media' },
       { title: 'Thoughtatudes', type: 'podcast', description: 'Thought-provoking content exploring ideas, perspectives, and community dialogue.', years: 'G-Woman Media' }
     ],
+    // Titles/channels verified via YouTube oEmbed, 2026-10-22.
+    videos: [
+      { id: 'I1OjdmdSsTA', title: 'Collaboration Over Competition: A Pathway For Women to Win', channel: 'G-Woman Media' },
+      { id: 'I5405IASfhs', title: 'Meet Gutsy Woman — Mindy Gibbins Klein', channel: 'G-Woman Media' },
+      { id: 'UzJV9nBkIbw', title: 'Meet Gutsy Woman — Sandra Beck', channel: 'G-Woman Media' },
+      { id: '9iw8HJnxFao', title: 'Descending Thirds — A Story of Grief, Grace and Reinvention', channel: 'Frankiesense & More • The Good Radio Network' },
+      { id: 'HuM-CSNYl04', title: 'Feng Shui Your Life | Marie Diamond on Energy, Success and Prosperity', channel: 'Mission Unstoppable • The Good Radio Network' }
+    ],
+    officeCandid: { src: '/images/media-office-candid.jpg', caption: 'From the office.' },
     press: [
       { title: 'Woman of the Decade', outlet: 'Women\'s Economic Forum', year: '2024' },
       { title: 'International Bestselling Author', outlet: 'Multiple Publications', year: '2020s' },
