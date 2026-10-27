@@ -64,6 +64,26 @@ export default function WhoIsFrankie() {
           ))}
         </div>
 
+        {/* Behind-the-scenes candid — Frankie in her element at the office */}
+        {data.officeCandid && (
+          <ScrollReveal variant="fadeUp" delay={0.12}>
+            <figure className="mb-8 md:mb-12 mx-auto max-w-[320px] rotate-[1.5deg] transition-transform duration-500 hover:rotate-0">
+              <div className="bg-[#FAF6F0] p-2.5 pb-3 rounded-sm shadow-[0_12px_32px_rgba(44,28,16,0.14)] border border-[#E8DCC8]">
+                <img
+                  src={data.officeCandid.src}
+                  alt="Frankie at the office."
+                  className="w-full h-auto rounded-[2px] border border-black/[0.08]"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption className="mt-2 text-center font-serif italic text-xs text-[#4A4A4A]">
+                  {data.officeCandid.caption}
+                </figcaption>
+              </div>
+            </figure>
+          </ScrollReveal>
+        )}
+
         {/* Belief — visual breath */}
         <ScrollReveal variant="fadeIn" duration={1.2}>
           <div className="py-5 md:py-8">

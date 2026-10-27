@@ -71,28 +71,10 @@ export default function MediaSection() {
     <section id="media" className="relative py-8 md:py-14 px-6 md:px-10 lg:px-16" style={{ backgroundColor: '#E0F4F4' }}>
       <div className="max-w-[1000px] mx-auto">
         <ScrollReveal variant="fadeUp">
-          <div className="flex flex-col md:flex-row md:items-end gap-8 md:gap-10 mb-6 md:mb-10">
-            <div>
-              <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#01B2D4] mb-4">{data.title}</p>
-              <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#1a2e2e] mb-4">{data.subtitle}</h2>
-              <p className="font-serif text-lg text-[#1a2e2e]/60 max-w-[600px]">Through radio, podcasts, and media platforms, Frankie amplified voices that deserved to be heard.</p>
-            </div>
-            {data.officeCandid && (
-              <figure className="shrink-0 mx-auto md:mx-0 max-w-[240px] bg-[#FAF6F0] p-3 pb-4 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70 rotate-[2deg]">
-                <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white">
-                  <img
-                    src={data.officeCandid.src}
-                    alt="Frankie at the office."
-                    className="w-full h-auto rounded-[2px]"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <figcaption className="mt-2.5 text-center px-1">
-                  <p className="font-serif italic text-sm text-[#4A4A4A] leading-snug">{data.officeCandid.caption}</p>
-                </figcaption>
-              </figure>
-            )}
+          <div className="mb-6 md:mb-10">
+            <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#01B2D4] mb-4">{data.title}</p>
+            <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#1a2e2e] mb-4">{data.subtitle}</h2>
+            <p className="font-serif text-lg text-[#1a2e2e]/60 max-w-[600px]">Through radio, podcasts, and media platforms, Frankie amplified voices that deserved to be heard.</p>
           </div>
         </ScrollReveal>
 

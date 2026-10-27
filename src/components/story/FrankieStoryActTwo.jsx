@@ -12,7 +12,37 @@ const ACCENT = '#C24E1A'
  * asset arrives, swap this for an <img src=... loading="lazy" alt={alt} />.
  * The `hint` documents the intended visual for whoever supplies the art.
  */
-function ImagePlaceholder({ alt, caption, hint }) {
+function ImagePlaceholder({ src, alt, caption, hint, rotate }) {
+  // Real asset supplied — render the same polaroid treatment used across the site.
+  if (src) {
+    return (
+      <ScrollReveal variant="scaleUp" duration={1.1}>
+        <figure
+          className="my-6 md:my-9 mx-auto max-w-[420px] bg-[#FAF6F0] p-3 sm:p-3.5 pb-3.5 sm:pb-4 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70"
+          style={{ transform: `rotate(${rotate ?? -1.5}deg)` }}
+        >
+          <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center">
+            <img
+              src={src}
+              alt={alt}
+              className="w-full h-auto max-h-[440px] object-contain rounded-[2px]"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          {caption && (
+            <figcaption className="mt-2.5 sm:mt-3 text-center px-1">
+              <p className="font-serif italic text-xs sm:text-sm text-[#4A4A4A] leading-snug">
+                {caption}
+              </p>
+            </figcaption>
+          )}
+        </figure>
+      </ScrollReveal>
+    )
+  }
+
+  // No asset yet — dignified archival slot documenting the intended visual.
   return (
     <ScrollReveal variant="scaleUp" duration={1.1}>
       <figure
@@ -20,8 +50,6 @@ function ImagePlaceholder({ alt, caption, hint }) {
         role="img"
         aria-label={alt}
       >
-        {/* TODO: replace this placeholder with the archival asset described in `hint`.
-            Suggested markup: <img src="/act2-..." alt={alt} loading="lazy" className="w-full rounded-2xl object-cover" /> */}
         <div
           className="relative aspect-[3/2] w-full rounded-2xl overflow-hidden border border-[#C24E1A]/20"
           style={{
@@ -115,7 +143,7 @@ function StoryBlock({ block }) {
       )
 
     case 'image':
-      return <ImagePlaceholder alt={block.alt} caption={block.caption} hint={block.hint} />
+      return <ImagePlaceholder src={block.src} alt={block.alt} caption={block.caption} hint={block.hint} rotate={block.rotate} />
 
     case 'frankieism':
       return <FrankieismCard text={block.content} />

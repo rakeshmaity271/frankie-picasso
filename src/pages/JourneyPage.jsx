@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import HeroExperience from '../components/hero/HeroExperience'
+import WhoIsFrankie from '../components/who/WhoIsFrankie'
 import JourneyPreviews from '../components/journey/JourneyPreviews'
 import LessonGrid from '../components/map/LessonGrid'
 import MapSection from '../components/map/MapSection'
@@ -53,8 +54,8 @@ export default function JourneyPage() {
       {/* Hero */}
       <HeroExperience />
 
-      {/* Who Is Frankie? — preserved for future placement */}
-      {/* <WhoIsFrankie /> */}
+      {/* Who Is Frankie? — About section (office candid lives here) */}
+      <WhoIsFrankie />
 
       {/* The Journey — eight Act previews, each preceded by a Heartbeat */}
       <JourneyPreviews />
