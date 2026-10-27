@@ -30,6 +30,7 @@ export const content = {
     title: 'Who Is Frankie?',
     opening: 'I have spent my life building things.',
     openingFollow: 'Not because I wanted more businesses, more titles, or more recognition — but because I saw possibilities where others saw obstacles.',
+    officeCandid: { src: '/images/media-office-candid.jpg', caption: 'From the office.' },
     builtList: [
       'I\'ve built companies.',
       'I\'ve built media platforms.',
@@ -96,6 +97,7 @@ export const content = {
         { type: 'bold-emphasis', content: 'Not on your life!' },
         { type: 'emphasis', content: 'Instead, he simply believed I could do whatever I set my mind to.' },
         { type: 'emphasis', content: 'Because he believed it, I believed it too.' },
+        { type: 'image', src: '/images/act1-with-dad.jpg', alt: 'An adult Frankie standing beside her elderly father, both dressed up outside a sunlit home.', caption: 'The Man who gave me the Gift of Belief in myself', rotate: -1.5 },
         { type: 'text', content: 'When I was eight years old, my father promised his horse-crazy daughter that when she turned ten, he\u2019d buy her a horse. There was just one tiny problem. Horses don\u2019t fit very well in suburban backyards. You can\u2019t have a horse without a farm.' },
         { type: 'text', content: 'So every weekend, the two of us climbed into his dark green Thunderbird and drove through the countryside looking at farms for sale.' },
         { type: 'text', content: 'My father dreamed of rolling hills that reminded him of the English countryside and the farm where he had worked as a young immigrant.' },
@@ -193,7 +195,7 @@ export const content = {
         { type: 'text', content: 'Culture shock? That wasn\u2019t the half of it. Football? Homecoming queen? I had never heard of these things. Then this happened.' },
 
         { type: 'heading', content: 'When History Walked Into My Classroom' },
-        { type: 'image', id: 'act2-desegregation', alt: 'An empty school hallway lined with lockers', caption: 'The first year of desegregation, Louisville, Kentucky.', hint: 'Suggested: old school hallway, a classroom door, lockers, or a school bus. Documentary tone, dignified \u2014 no graphic imagery.' },
+        { type: 'image', id: 'act2-desegregation', src: '/images/act2-school-class-portrait.jpg', alt: 'A sepia school class portrait of uniformed girls from Frankie\u2019s youth.', caption: 'Learning independence early \u2014 Louisville, Kentucky.', rotate: -1.5 },
         { type: 'text', content: 'It was the first year of desegregation, and our school was no exception.' },
         { type: 'text', content: 'What do you think happens when you put 1,000 inner-city Black students on school buses and drop them into the richest, whitest neighborhood in Louisville?' },
         { type: 'emphasis', content: 'Kumbaya? Not even close.' },
@@ -713,7 +715,6 @@ export const content = {
       { id: '9iw8HJnxFao', title: 'Descending Thirds — A Story of Grief, Grace and Reinvention', channel: 'Frankiesense & More • The Good Radio Network' },
       { id: 'HuM-CSNYl04', title: 'Feng Shui Your Life | Marie Diamond on Energy, Success and Prosperity', channel: 'Mission Unstoppable • The Good Radio Network' }
     ],
-    officeCandid: { src: '/images/media-office-candid.jpg', caption: 'From the office.' },
     press: [
       { title: 'Woman of the Decade', outlet: 'Women\'s Economic Forum', year: '2024' },
       { title: 'International Bestselling Author', outlet: 'Multiple Publications', year: '2020s' },

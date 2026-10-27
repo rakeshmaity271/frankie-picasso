@@ -304,6 +304,29 @@ export default function FrankieStoryActSix() {
         </p>
       </motion.div>
 
+      {/* In-story photo break — the certification that started it all */}
+      <motion.div variants={fadeInUp} style={{ marginBottom: 'clamp(2rem, 4vh, 3rem)' }}>
+        <figure
+          className="mx-auto max-w-[420px] bg-[#FAF6F0] p-3 sm:p-3.5 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70"
+          style={{ transform: 'rotate(-1.5deg)' }}
+        >
+          <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center">
+            <img
+              src="/images/act4-certified-coach-certificate.jpg"
+              alt="International Coach Academy certificate certifying Frankie Picasso graduated from the Professional Certified Coach Program."
+              className="w-full h-auto max-h-[440px] object-contain rounded-[2px]"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption className="mt-2.5 sm:mt-3 text-center px-1">
+            <p className="font-serif italic text-xs sm:text-sm text-[#4A4A4A] leading-snug">
+              Certified Coach &bull; International Coach Academy, 2004.
+            </p>
+          </figcaption>
+        </figure>
+      </motion.div>
+
       <motion.div
         variants={fadeInUp}
         style={{

@@ -350,6 +350,29 @@ export default function FrankieStoryActFive() {
         Instead, I lay in a hospital bed, wondering what my future would look like.
       </motion.p>
 
+      {/* In-story photo break — the friends who showed up in rehab */}
+      <motion.div variants={fadeInUp} style={{ marginBottom: 'clamp(2rem, 4vh, 3rem)' }}>
+        <figure
+          className="mx-auto max-w-[420px] bg-[#FAF6F0] p-3 sm:p-3.5 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70"
+          style={{ transform: 'rotate(-1.5deg)' }}
+        >
+          <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center">
+            <img
+              src="/images/act5-rehab-wheelchair-friends.jpg"
+              alt="Frankie seated in a wheelchair during rehab, surrounded by four friends from her motorcycle club."
+              className="w-full h-auto max-h-[440px] object-contain rounded-[2px]"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption className="mt-2.5 sm:mt-3 text-center px-1">
+            <p className="font-serif italic text-xs sm:text-sm text-[#4A4A4A] leading-snug">
+              In rehab &bull; My motorcycle club had my back.
+            </p>
+          </figcaption>
+        </figure>
+      </motion.div>
+
       {/* ============================================================
           LEARNING TO LIVE AGAIN
           ============================================================ */}
@@ -702,6 +725,29 @@ export default function FrankieStoryActFive() {
         </p>
       </motion.div>
 
+      {/* In-story photo break — speaking again, crutches and all */}
+      <motion.div variants={fadeInUp} style={{ marginBottom: 'clamp(2rem, 4vh, 3rem)' }}>
+        <figure
+          className="mx-auto max-w-[420px] bg-[#FAF6F0] p-3 sm:p-3.5 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70"
+          style={{ transform: 'rotate(1.5deg)' }}
+        >
+          <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center">
+            <img
+              src="/images/act5-recovery-speech-crutches.jpg"
+              alt="Frankie speaking at an outdoor ceremony during recovery, her crutches resting against the podium."
+              className="w-full h-auto max-h-[440px] object-contain rounded-[2px]"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption className="mt-2.5 sm:mt-3 text-center px-1">
+            <p className="font-serif italic text-xs sm:text-sm text-[#4A4A4A] leading-snug">
+              Speaking during recovery &bull; Leading through resilience.
+            </p>
+          </figcaption>
+        </figure>
+      </motion.div>
+
       {/* ============================================================
           REMEMBERING WHY
           ============================================================ */}
@@ -856,6 +902,29 @@ export default function FrankieStoryActFive() {
       <motion.p variants={fadeInUp} className="font-sans" style={{ fontSize: 'clamp(1.1rem, 1.5vw, 1.4rem)', marginBottom: 'clamp(1.75rem, 3vh, 2.5rem)', lineHeight: 1.6 }}>
         But I was home. I was alive. And for the first time, I could begin deciding what the rest of my life might become.
       </motion.p>
+
+      {/* In-story photo break — licensed and back in the saddle */}
+      <motion.div variants={fadeInUp} style={{ marginBottom: 'clamp(2rem, 4vh, 3rem)' }}>
+        <figure
+          className="mx-auto max-w-[420px] bg-[#FAF6F0] p-3 sm:p-3.5 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70"
+          style={{ transform: 'rotate(-1.5deg)' }}
+        >
+          <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center">
+            <img
+              src="/images/act5-motorcycle-training-certificate.jpg"
+              alt="Canada Safety Council Gearing Up motorcycle training certificate issued to Frankie Picasso."
+              className="w-full h-auto max-h-[440px] object-contain rounded-[2px]"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption className="mt-2.5 sm:mt-3 text-center px-1">
+            <p className="font-serif italic text-xs sm:text-sm text-[#4A4A4A] leading-snug">
+              Licensed &amp; trained &bull; Back in the saddle.
+            </p>
+          </figcaption>
+        </figure>
+      </motion.div>
 
       {/* ─ Frankie&rsquo;ism — recurring section divider ─ */}
       <div className="pt-2 md:pt-4">

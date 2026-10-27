@@ -1,11 +1,17 @@
 import { motion } from 'framer-motion'
 import TextReveal from '../common/TextReveal'
+import { journeyActs } from '../../data/journey'
 
 /**
  * ActSection — wraps each Act with a title reveal animation.
  * Uses the Act's color for background.
+ * Opens with a hero photo (the act's primary journey-preview image) so every
+ * section leads with a face before the writing starts.
  */
 export default function ActSection({ act, children, overrideTitle }) {
+  const preview = journeyActs.find((p) => p.fullStoryUrl === `#/act/${act.id}`)
+  const hero = preview?.images?.[0]
+
   return (
     <section
       id={act.id}
@@ -49,6 +55,29 @@ export default function ActSection({ act, children, overrideTitle }) {
           </motion.p>
         </div>
       </div>
+
+      {/* Hero photo — fixed-height band, frame hugs the photo's width */}
+      {hero && (
+        <div className="px-6 md:px-10 lg:px-16 mb-7 md:mb-10">
+          <motion.figure
+            className="w-fit max-w-full mx-auto bg-[#FAF6F0] p-3 sm:p-3.5 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center">
+              <img
+                src={hero.src}
+                alt={hero.alt || ''}
+                className="block max-w-full h-[44vh] sm:h-[50vh] w-auto object-contain rounded-[2px]"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </motion.figure>
+        </div>
+      )}
 
       {/* Act content */}
       {children}

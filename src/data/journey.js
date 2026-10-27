@@ -32,7 +32,7 @@ export const journeyActs = [
       {
         src: '/images/act1-with-dad.jpg',
         alt: 'An adult Frankie standing beside her elderly father, both dressed up outside a sunlit home.',
-        caption: 'With my dad • The man who bought me a farm',
+        caption: 'With my dad • The Man who gave me the Gift of Belief in myself',
       },
     ],
     highlight: 'Believing in someone is one of the purest expressions of love.',

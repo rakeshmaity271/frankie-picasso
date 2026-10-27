@@ -82,6 +82,22 @@ export default function ActPage() {
       <ActSection act={act} overrideTitle={actId === 'where-belief-began' ? 'Welcome to the Journey' : undefined}>
         <Story />
       </ActSection>
+
+      {/* Return link at page end — the nav hides on scroll down, so deep
+          readers need a way back without climbing 8,000px to the top. */}
+      <div
+        className="px-6 md:px-10 lg:px-16 pb-14 pt-2"
+        style={{ backgroundColor: act.color }}
+      >
+        <div className="max-w-[760px] mx-auto text-center">
+          <a
+            href="#/"
+            className="inline-block font-sans text-sm tracking-wide text-[#2C2C2C]/60 hover:text-[#2C2C2C] transition-colors duration-300"
+          >
+            ← Back to the Journey
+          </a>
+        </div>
+      </div>
     </div>
   )
 }
