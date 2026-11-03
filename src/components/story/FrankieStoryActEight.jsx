@@ -426,6 +426,17 @@ export default function FrankieStoryActEight() {
             </span>
           </div>
           <h4 className="font-serif font-light text-[clamp(1.5rem,3.5vw,2.25rem)] leading-tight text-[#2C2C2C] text-center mb-2">What&rsquo;s My Q</h4>
+          <img
+            src="/images/act8-whatsmyq-logo.jpg"
+            alt="What's My Q logo — neon script over bold MY Q with the tagline Your Production. Connected."
+            className="mx-auto mb-4 block w-full rounded-[2px] border border-black/[0.08]"
+            style={{ maxWidth: '340px' }}
+            loading="lazy"
+            decoding="async"
+          />
+          <p className="font-serif italic text-sm sm:text-base text-[#4A4A4A] text-center mb-4 leading-relaxed">
+            &ldquo;I couldn&rsquo;t find a program to help me learn lines the way I wanted so my acting partner and I created one&hellip;&rdquo;
+          </p>
           <p className="font-sans text-sm text-[#4A4A4A]/80 text-center mb-4 leading-relaxed">
             From learning lines to opening night, What&rsquo;s My Q helps theatre teams stay connected, prepared, and ready to bring their production to life.
           </p>
