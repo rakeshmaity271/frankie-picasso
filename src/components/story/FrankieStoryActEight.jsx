@@ -415,6 +415,34 @@ export default function FrankieStoryActEight() {
       )}
 
       {/* ============================================================
+          PROJECT — What's My Q (Coming Soon)
+          ============================================================ */}
+      <motion.div variants={fadeInUp} style={{ marginBottom: 'clamp(2rem, 4vh, 3rem)' }}>
+        <div className="mx-auto max-w-[560px] bg-[#FAF6F0] p-4 sm:p-5 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70">
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 mb-2">
+            <p className="font-sans text-[0.62rem] uppercase tracking-[0.4em] text-[#2C2C2C]/50 text-center">Acting · Project</p>
+            <span className="font-sans text-[0.58rem] uppercase tracking-[0.2em] text-[#2C2C2C]/60 border border-[#2C2C2C]/20 rounded-full px-2.5 py-0.5">
+              Coming Soon
+            </span>
+          </div>
+          <h4 className="font-serif font-light text-[clamp(1.5rem,3.5vw,2.25rem)] leading-tight text-[#2C2C2C] text-center mb-2">What&rsquo;s My Q</h4>
+          <p className="font-sans text-sm text-[#4A4A4A]/80 text-center mb-4 leading-relaxed">
+            From learning lines to opening night, What&rsquo;s My Q helps theatre teams stay connected, prepared, and ready to bring their production to life.
+          </p>
+          <div className="text-center">
+            <a
+              href="https://whatsmyq.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-[#2C2C2C] border border-[#2C2C2C]/25 rounded-full px-6 py-2.5 hover:bg-[#2C2C2C] hover:text-[#FAF6F0] transition-colors duration-300"
+            >
+              Explore What&rsquo;s My Q
+            </a>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* ============================================================
           WE ARE NOT FINISHED BECOMING
           ============================================================ */}
       <motion.p variants={fadeInUp} className="font-sans" style={{ fontSize: 'clamp(1.1rem, 1.5vw, 1.4rem)', marginBottom: 'clamp(1.75rem, 3vh, 2.5rem)', lineHeight: 1.6 }}>
