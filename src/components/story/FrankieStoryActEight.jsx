@@ -1,6 +1,7 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Frankieism from '../common/Frankieism'
+import Lightbox from '../common/Lightbox'
 
 /**
  * FrankieStoryActEight — "Still Becoming"
@@ -20,6 +21,7 @@ const EASE = [0.22, 1, 0.36, 1]
 export default function FrankieStoryActEight() {
   const containerRef = useRef(null)
   const isInView = useInView(containerRef, { once: true, amount: 0 })
+  const [lightboxOpen, setLightboxOpen] = useState(false)
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 24 },
@@ -358,6 +360,59 @@ export default function FrankieStoryActEight() {
       <motion.p variants={fadeInUp} className="font-sans italic" style={{ fontSize: 'clamp(1.1rem, 1.5vw, 1.4rem)', marginBottom: 'clamp(2rem, 4vh, 3rem)', lineHeight: 1.6, opacity: 0.85 }}>
         Not bad for a retired woman.
       </motion.p>
+
+      {/* ============================================================
+          PROJECT — A Brush with Murder
+          ============================================================ */}
+      <motion.div variants={fadeInUp} style={{ marginBottom: 'clamp(2rem, 4vh, 3rem)' }}>
+        <div className="mx-auto max-w-[560px] bg-[#FAF6F0] p-4 sm:p-5 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70">
+          <p className="font-sans text-[0.62rem] uppercase tracking-[0.4em] text-[#2C2C2C]/50 mb-2 text-center">Acting · Project</p>
+          <h4 className="font-serif font-light text-[clamp(1.5rem,3.5vw,2.25rem)] leading-tight text-[#2C2C2C] text-center mb-1">A Brush with Murder</h4>
+          <p className="font-serif italic text-sm text-[#4A4A4A]/80 text-center mb-1">A new mystery by Marcus Ogilvy</p>
+          <p className="font-sans text-xs uppercase tracking-[0.2em] text-[#4A4A4A]/60 text-center mb-4">Frankie Picasso as Wanda Gladstone</p>
+
+          <button
+            type="button"
+            onClick={() => setLightboxOpen(true)}
+            aria-label="Enlarge headshot of Frankie Picasso"
+            className="group mx-auto mb-4 block w-full max-w-[300px] overflow-hidden rounded-[2px] border border-black/[0.08] bg-white cursor-zoom-in transition-shadow duration-300 hover:shadow-[0_10px_28px_rgba(44,28,16,0.18)]"
+          >
+            <img
+              src="/images/act8-brush-with-murder.jpg"
+              alt="Studio headshot of Frankie Picasso — blonde bob, black off-shoulder top and black flower statement necklace."
+              className="block w-full h-auto transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+
+          <video
+            controls
+            preload="metadata"
+            poster="/images/act8-brush-with-murder-poster.jpg"
+            playsInline
+            className="block w-full h-auto rounded-[2px] border border-black/[0.08] bg-black"
+          >
+            <source src="/videos/a-brush-with-murder.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </motion.div>
+
+      {lightboxOpen && (
+        <Lightbox
+          images={[
+            {
+              src: '/images/act8-brush-with-murder.jpg',
+              alt: 'Studio headshot of Frankie Picasso — blonde bob, black off-shoulder top and black flower statement necklace.',
+              caption: 'Frankie Picasso as Wanda Gladstone',
+            },
+          ]}
+          index={0}
+          onClose={() => setLightboxOpen(false)}
+          onPrev={() => {}}
+          onNext={() => {}}
+        />
+      )}
 
       {/* ============================================================
           WE ARE NOT FINISHED BECOMING
