@@ -798,7 +798,7 @@ export const content = {
 
   contact: {
     intro: 'Interested in collaborating, booking Frankie for a speaking engagement, or featuring her in media? Let\'s connect.',
-    email: 'hello@frankiepicasso.com',
+    email: 'frankie@frankiepicasso.com',
     speakingTopics: [
       'Platform Building for Impact',
       'Community Leadership in the Digital Age',
