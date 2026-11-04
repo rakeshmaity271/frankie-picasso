@@ -27,7 +27,7 @@ export const journeyActs = [
       {
         src: '/images/act1-childhood-with-dog.jpg',
         alt: 'Young Frankie petting the family dog on the front lawn in a vintage black-and-white photo.',
-        caption: 'Family farm • Early days of curiosity and dream-chasing',
+        caption: 'Frankie with her second ‘Mickey’',
       },
       {
         src: '/images/act1-with-dad.jpg',
