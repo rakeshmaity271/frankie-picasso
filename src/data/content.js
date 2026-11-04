@@ -182,14 +182,14 @@ export const content = {
       cssVar: '--act-building',
       // Act II narrative — Frankie’s teen years: Kentucky, desegregation, photography, sales, first ventures.
       // Words preserved exactly from "Act Two Revised and Ready"; only formatting/hierarchy/pacing applied.
-      // Image blocks are styled placeholders; replace `src` when archival assets arrive (see suggestions in each caption).
       story: [
         { type: 'emphasis', content: 'It\u2019s one thing to think something and another to experience it.' },
         { type: 'text', content: 'I was 14 when we moved from Toronto to Louisville, Kentucky.' },
         { type: 'text', content: 'My father was given a big promotion and asked to make a newly acquired company in the USA profitable for its new owners.' },
         { type: 'text', content: 'We didn\u2019t know how long we would be gone, so my dad sold most of the farm, all the animals, and our home. He kept 100 acres for a future time.' },
         { type: 'text', content: 'As for me, I left everything I loved behind: my horses, my best friend, and the only world I knew.' },
-        { type: 'image', id: 'act2-move', alt: 'A vintage moving truck on the long road from Canada to Kentucky', caption: 'Leaving Canada \u2014 the farm, the horses, and the only world she knew.', hint: 'Suggested: vintage moving truck, a Canada\u2192Kentucky map, farm and horses.' },
+        { type: 'image', id: 'act2-move', src: '/images/act2-leaving-farm.jpg', alt: 'A white horse standing beside a brown cow in a green pasture.', caption: 'Leaving Canada \u2014 the farm, the horses, and the only world she knew.', rotate: -1.5 },
+        { type: 'image', id: 'act2-move-map', src: '/images/act2-toronto-to-louisville.jpg', alt: 'Map of the route from Toronto to Louisville via Detroit, Toledo, Cincinnati, and I-71.', rotate: 1.8 },
         { type: 'text', content: 'We moved into a beautiful home in a lovely gated community with a country club where I could go with my friends, order food, and sign a tab whenever I wanted. Sounds horrible, right?' },
         { type: 'text', content: 'I went from a school with 10 girls in a class to a high school of more than 3,000 students. My English class consisted of 10 televisions that seemed to be tuned to The Beverly Hillbillies at all times. I don\u2019t even remember seeing an English teacher.' },
         { type: 'text', content: 'Culture shock? That wasn\u2019t the half of it. Football? Homecoming queen? I had never heard of these things. Then this happened.' },
@@ -245,7 +245,7 @@ export const content = {
         { type: 'frankieism', content: 'Some lessons can\u2019t be taught in a classroom. They have to be experienced.' },
 
         { type: 'heading', content: 'Finding My Eye' },
-        { type: 'image', id: 'act2-photography', alt: 'A vintage Voigtl\u00e4nder camera resting beside strips of film', caption: 'Her father\u2019s old Voigtl\u00e4nder \u2014 and the school darkroom where she found her eye.', hint: 'Suggested: Voigtl\u00e4nder camera, negatives, darkroom, contact sheets, film strips.' },
+        { type: 'image', id: 'act2-photography', src: '/images/act2-voigtlander-camera.jpg', alt: 'A vintage Voigtl\u00e4nder folding bellows camera.', caption: 'Her father\u2019s old Voigtl\u00e4nder \u2014 and the school darkroom where she found her eye.', rotate: -1.2 },
         { type: 'text', content: 'I began spending more and more time in the school darkroom. It kept me out of the classroom while feeding my growing love of photography.' },
         { type: 'text', content: 'Most of the wealthy kids had expensive SLR cameras. I had my dad\u2019s old Voigtl\u00e4nder.' },
         { type: 'bold-emphasis', content: 'It didn\u2019t matter.' },
@@ -287,7 +287,6 @@ export const content = {
         { type: 'bold-emphasis', content: 'I was jealous.' },
 
         { type: 'heading', content: 'Journalism Meets Reality' },
-        { type: 'image', id: 'act2-journalism', alt: 'A vintage typewriter beside an open reporter\u2019s notebook', caption: 'Notebooks, a typewriter, and the conviction to shine a light.', hint: 'Suggested: newspaper textures, notebooks, vintage typewriter, interview notes, a microphone.' },
         { type: 'text', content: 'My dad drove me to St. Louis so I\u2019d have my car, then flew back to Toronto.' },
         { type: 'text', content: 'Within five minutes I thought I was going to die.' },
         { type: 'text', content: 'I\u2019d never experienced heat and humidity like that before. It was August, the dorms had no air conditioning, and I couldn\u2019t imagine surviving four years.' },
@@ -378,8 +377,8 @@ export const content = {
         { type: 'text', content: 'No one ever gave my brain much credit.' },
         { type: 'separator' },
         { type: 'text', content: 'Photography never completely let go of me.' },
-        { type: 'image', id: 'act2-racing', alt: 'A film camera at the edge of a Formula One pit lane', caption: 'A summer with Team EST \u2014 Formula One, from Bowmanville to Watkins Glen.', hint: 'Suggested: vintage race photography, pit-lane atmosphere, a film camera.' },
         { type: 'text', content: 'For one unforgettable summer I travelled with Werner Gerhard\u2019s Team EST Formula One racing team, photographing races from Bowmanville to Watkins Glen.' },
+        { type: 'image', id: 'act2-racing', src: '/images/act2-formula-one-racing.jpg', alt: 'Formula One racecar speeding on a wet track during a race.', caption: 'A summer with Team EST \u2014 Formula One, from Bowmanville to Watkins Glen.', rotate: 1.5 },
         { type: 'emphasis', content: 'It was exciting, loud, fast, and everything I\u2019d imagined.' },
         { type: 'text', content: 'Unfortunately, excitement doesn\u2019t always pay the rent.' },
         { type: 'text', content: 'So I became a travelling baby photographer across Ontario.' },
@@ -395,7 +394,6 @@ export const content = {
         { type: 'bold-emphasis', content: 'I misjudged the daddy gene.' },
         { type: 'separator' },
         { type: 'text', content: 'Eventually I left photography to study makeup artistry and esthetics, another passion of mine.' },
-        { type: 'image', id: 'act2-entrepreneurship', alt: 'A small salon storefront with a hand-lettered sign', caption: 'Her first real taste of entrepreneurship \u2014 a business of her own inside a salon.', hint: 'Suggested: salon, storefront, business cards, small-business details.' },
         { type: 'text', content: 'I bartended while I studied, then managed a women\u2019s fashion store before opening my own esthetics business inside a hair salon.' },
         { type: 'bold-emphasis', content: 'It was my first real taste of entrepreneurship.' },
         { type: 'emphasis', content: 'Creating something that belonged to me.' },

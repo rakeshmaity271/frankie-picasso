@@ -7,73 +7,37 @@ import TextReveal from '../common/TextReveal'
 const ACCENT = '#C24E1A'
 
 /**
- * ImagePlaceholder — a styled, dignified archival-image slot.
- * Renders as a semantic <figure> with an accessible label. When a real
- * asset arrives, swap this for an <img src=... loading="lazy" alt={alt} />.
- * The `hint` documents the intended visual for whoever supplies the art.
+ * ImagePlaceholder — styled polaroid photo figure.
+ * Returns null if no src is provided, preventing empty frames.
  */
-function ImagePlaceholder({ src, alt, caption, hint, rotate }) {
-  // Real asset supplied — render the same polaroid treatment used across the site.
-  if (src) {
-    return (
-      <ScrollReveal variant="scaleUp" duration={1.1}>
-        <figure
-          className="my-6 md:my-9 mx-auto max-w-[420px] bg-[#FAF6F0] p-3 sm:p-3.5 pb-3.5 sm:pb-4 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70"
-          style={{ transform: `rotate(${rotate ?? -1.5}deg)` }}
-        >
-          <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center">
-            <img
-              src={src}
-              alt={alt}
-              className="w-full h-auto max-h-[440px] object-contain rounded-[2px]"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          {caption && (
-            <figcaption className="mt-2.5 sm:mt-3 text-center px-1">
-              <p className="font-serif italic text-xs sm:text-sm text-[#4A4A4A] leading-snug">
-                {caption}
-              </p>
-            </figcaption>
-          )}
-        </figure>
-      </ScrollReveal>
-    )
-  }
+function ImagePlaceholder({ src, alt, caption, rotate }) {
+  if (!src) return null;
 
-  // No asset yet — dignified archival slot documenting the intended visual.
   return (
     <ScrollReveal variant="scaleUp" duration={1.1}>
       <figure
-        className="my-6 md:my-9 mx-auto max-w-[620px]"
-        role="img"
-        aria-label={alt}
+        className="my-6 md:my-9 mx-auto max-w-[420px] bg-[#FAF6F0] p-3 sm:p-3.5 pb-3.5 sm:pb-4 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70"
+        style={{ transform: `rotate(${rotate ?? -1.5}deg)` }}
       >
-        <div
-          className="relative aspect-[3/2] w-full rounded-2xl overflow-hidden border border-[#C24E1A]/20"
-          style={{
-            background:
-              'linear-gradient(135deg, #FBE7C6 0%, #F7D9A8 45%, #F1C98A 100%)',
-          }}
-        >
-          {/* subtle film-grain / frame decoration */}
-          <div className="absolute inset-3 rounded-xl border border-white/40" aria-hidden="true" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-            <span className="font-sans text-[0.6rem] uppercase tracking-[0.4em] text-[#8A4A1C]/70 mb-2">
-              Archival&nbsp;&middot;&nbsp;Image
-            </span>
-            <span className="font-serif italic text-[clamp(0.95rem,2vw,1.2rem)] leading-snug text-[#7A3E14]/85 max-w-[85%]">
-              {hint}
-            </span>
-          </div>
+        <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center">
+          <img
+            src={src}
+            alt={alt}
+            className="w-full h-auto max-h-[440px] object-contain rounded-[2px]"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
-        <figcaption className="mt-2.5 font-sans text-[0.8rem] md:text-sm tracking-wide text-[#2C2C2C]/55 text-center italic">
-          {caption}
-        </figcaption>
+        {caption && (
+          <figcaption className="mt-2.5 sm:mt-3 text-center px-1">
+            <p className="font-serif italic text-xs sm:text-sm text-[#4A4A4A] leading-snug">
+              {caption}
+            </p>
+          </figcaption>
+        )}
       </figure>
     </ScrollReveal>
-  )
+  );
 }
 
 /**
@@ -143,7 +107,7 @@ function StoryBlock({ block }) {
       )
 
     case 'image':
-      return <ImagePlaceholder src={block.src} alt={block.alt} caption={block.caption} hint={block.hint} rotate={block.rotate} />
+      return <ImagePlaceholder src={block.src} alt={block.alt} caption={block.caption} rotate={block.rotate} />
 
     case 'frankieism':
       return <FrankieismCard text={block.content} />

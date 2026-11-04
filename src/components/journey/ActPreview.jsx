@@ -30,6 +30,7 @@ const frankieNotes = {
  * aspect ratio, so letterboxing is impossible either way).
  */
 function PhotoFigure({ image, delay = 0, rotate = -1.2, large = false, fill = false, className = '' }) {
+  if (!image || !image.src) return null;
   return (
     <motion.figure
       className={`${fill ? 'w-full' : 'w-fit mx-auto'} bg-[#FAF6F0] ${large ? 'p-3 sm:p-3.5 pb-3.5 sm:pb-4' : 'p-2.5 sm:p-3 pb-3 sm:pb-3.5'} rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70 ${className}`}
