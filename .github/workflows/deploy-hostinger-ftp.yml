@@ -1,0 +1,96 @@
+name: Deploy to Hostinger (FTP)
+
+on:
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '20'
+  FTP_HOST: '82.29.157.176'
+  FTP_PORT: '21'
+
+jobs:
+  deploy:
+    name: Build & Upload via FTP
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      # ── Checkout ──────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── Node.js setup ─────────────────────────────────────────
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      # ── Install dependencies ──────────────────────────────────
+      - name: Install dependencies
+        run: npm ci
+
+      # ── Build ─────────────────────────────────────────────────
+      - name: Build production bundle
+        run: npm run build
+
+      # ── Verify build output ───────────────────────────────────
+      - name: Verify dist exists
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "Build failed: dist/ directory not found"
+            exit 1
+          fi
+          echo "Build output: $(find dist -type f | wc -l) files, $(du -sh dist | cut -f1)"
+
+      # ── Upload over ONE reused FTP connection (Hostinger rate-limits per-login) ──
+      - name: Upload dist over a single FTP connection
+        env:
+          FTP_USER: ${{ secrets.HOSTINGER_FTP_USER }}
+          FTP_PASS: ${{ secrets.HOSTINGER_FTP_PASS }}
+        run: |
+          cd dist
+          args=()
+          first=1
+          while IFS= read -r -d '' f; do
+            rel="${f#./}"
+            enc="${rel// /%20}"
+            if [ "$first" -eq 0 ]; then args+=(--next); fi
+            first=0
+            args+=(--ssl -k --connect-timeout 20 --max-time 300 --user "$FTP_USER:$FTP_PASS" --ftp-create-dirs -T "$f" "ftp://$FTP_HOST:$FTP_PORT/$enc" -o /dev/null -w "$enc -> %{http_code}\n")
+          done < <(find . -type f -print0)
+          curl -sS "${args[@]}"
+
+      # ── Verify: SPA index served (renames WordPress index.php if it shadows) ──
+      - name: Verify site serves the SPA
+        env:
+          FTP_USER: ${{ secrets.HOSTINGER_FTP_USER }}
+          FTP_PASS: ${{ secrets.HOSTINGER_FTP_PASS }}
+        run: |
+          fetch_home() {
+            curl -s --max-time 30 -H 'Cache-Control: no-cache' "https://frankiepicasso.com/?t=$(date +%s)"
+          }
+          html=$(fetch_home)
+          if ! echo "$html" | grep -q 'id="root"'; then
+            echo "SPA index not served — renaming WordPress index.php to index.php.wp-bak"
+            curl -sS --ssl -k --user "$FTP_USER:$FTP_PASS" --quote "RNFR index.php" --quote "RNTO index.php.wp-bak" "ftp://$FTP_HOST:$FTP_PORT/" -o /dev/null
+            sleep 5
+            html=$(fetch_home)
+          fi
+          echo "$html" | grep -q 'id="root"' || { echo "STILL NOT SERVED — needs manual investigation"; exit 1; }
+          echo "✓ SPA index served"
+          asset=$(echo "$html" | grep -oE 'assets/index-[A-Za-z0-9_-]+\.js' | head -1)
+          if [ -z "$asset" ]; then echo "no bundle referenced in index.html"; exit 1; fi
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 "https://frankiepicasso.com/$asset?t=$(date +%s)")
+          echo "bundle $asset -> $code"
+          [ "$code" = "200" ] || exit 1
+
+      # ── Deployment status ─────────────────────────────────────
+      - name: Report success
+        if: success()
+        run: echo "✅ Deployment to frankiepicasso.com via FTP succeeded!"
+
+      - name: Report failure
+        if: failure()
+        run: echo "❌ Deployment to frankiepicasso.com via FTP failed!"
