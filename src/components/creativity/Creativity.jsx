@@ -16,30 +16,20 @@ export default function Creativity() {
           </p>
         </ScrollReveal>
 
-        {/* Creative works — right-emphasis with overlapping layout */}
-        <div className="space-y-6 md:space-y-8 mb-8 md:mb-10">
+        {/* Creative works — editorial text column */}
+        <div className="space-y-6 md:space-y-8 mb-8 md:mb-10 max-w-[700px]">
           {act.works.map((work, i) => (
             <ScrollReveal key={i} variant={i % 2 === 0 ? 'fadeRight' : 'fadeLeft'} delay={0.05}>
-              <div className={`flex flex-col md:flex-row gap-6 md:gap-10 items-start ${i % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
-                {/* Placeholder image area */}
-                <div className={`w-full md:w-2/5 aspect-[4/3] rounded-xl overflow-hidden flex-shrink-0 ${i % 2 === 0 ? '' : 'md:order-2'}`}
-                  style={{
-                    background: `linear-gradient(135deg, #FDE8EF 0%, #DF3CB5 50%, #ED4672 100%)`,
-                    opacity: 0.6 + (i * 0.05),
-                  }}
-                />
-                {/* Content */}
-                <div className="flex-1 pt-2">
-                  <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#DF3CB5] mb-2 block">
-                    {work.type}
-                  </span>
-                  <h4 className="font-serif text-xl md:text-2xl font-light text-[#2C2C2C] mb-3">
-                    {work.title}
-                  </h4>
-                  <p className="font-sans text-sm md:text-base leading-relaxed text-[#4A4A4A]">
-                    {work.description}
-                  </p>
-                </div>
+              <div className="pt-2">
+                <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#DF3CB5] mb-2 block">
+                  {work.type}
+                </span>
+                <h4 className="font-serif text-xl md:text-2xl font-light text-[#2C2C2C] mb-3">
+                  {work.title}
+                </h4>
+                <p className="font-sans text-sm md:text-base leading-relaxed text-[#4A4A4A]">
+                  {work.description}
+                </p>
               </div>
             </ScrollReveal>
           ))}

@@ -58,6 +58,7 @@ function NarrativeBlock({ block, index }) {
 
   // Polaroid-framed photo — same album treatment as the journey previews
   if (block.type === 'image') {
+    if (!block.src) return null;
     return (
       <ScrollReveal variant="fadeIn" duration={1.2}>
         <figure
