@@ -20,7 +20,7 @@ const ActPage = lazy(() => import('./pages/ActPage'))
 function LegacySectionRedirect() {
   const location = useLocation()
   const segment = location.pathname.replace(/^\//, '')
-  if (segment && sectionIds.includes(segment)) {
+  if (segment === 'media') return <Navigate to="/act/amplifying" replace />; if (segment && sectionIds.includes(segment)) {
     return <Navigate to="/" replace state={{ scrollTo: segment }} />
   }
   return <Navigate to="/" replace />

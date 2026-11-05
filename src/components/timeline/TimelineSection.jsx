@@ -64,8 +64,8 @@ const milestones = [
     period: 'Recognition',
     title: 'Woman of the Decade',
     description: 'Honored by Women\'s Economic Forum for a decade of impact across media, advocacy, and community building.',
-    image: '/images/recent-frankie-with-mara.jpg',
-    imageAlt: 'Frankie with family — legacy is what we awaken in others.',
+    image: '/images/portrait-leather-jacket-studio.jpg',
+    imageAlt: 'Frankie Picasso — honored as Woman of the Decade by the Women\'s Economic Forum.',
     accent: '#D4764E',
   },
   {
@@ -180,13 +180,13 @@ export default function TimelineSection() {
         {/* Section header */}
         <ScrollReveal variant="fadeUp">
           <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#FFB400] mb-4">
-            The Journey
+            Life Map & Milestones
           </p>
           <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.5rem)] text-[#2C2C2C] mb-3">
             A Life in Chapters
           </h2>
           <p className="font-sans text-base md:text-lg text-[#4A4A4A] max-w-[600px] mb-10 md:mb-14">
-            Every chapter built on the one before it. Every lesson led to the next.
+            Every chapter built on the one before it. A visual winding path through Frankie’s milestones, breakthroughs, and reinventions.
           </p>
         </ScrollReveal>
 

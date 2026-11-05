@@ -260,9 +260,9 @@ export const journeyActs = [
     ],
     images: [
       {
-        src: '/images/recent-frankie-with-mara.jpg',
-        alt: 'Frankie with her granddaughter Mara — family is the thread through every version.',
-        caption: 'With granddaughter Mara • Family through every chapter',
+        src: '/images/recent-frankie-with-capybara.jpg',
+        alt: 'Frankie cuddling a friendly capybara — animal lover through every chapter.',
+        caption: 'Frankie with a capybara • Animal lover through every chapter',
       },
     ],
     highlight: 'Some people are cut out for retirement. Apparently, I am not.',
@@ -283,6 +283,14 @@ export const journeyActs = [
       'At this point in my life, I am no longer interested in becoming only one thing. I am a media entrepreneur, radio host, author, artist, social-impact advocate, board chair and, most recently, an actor.',
       'Apparently, retirement has gone very badly.',
     ],
+    project: {
+      title: "What's My Q",
+      tagline: 'Your Production. Connected.',
+      description: 'From learning lines to opening night, What’s My Q helps theatre teams stay connected, prepared, and ready to bring their production to life.',
+      image: '/images/act8-whatsmyq-logo.jpg',
+      url: 'https://whatsmyq.com',
+      cta: 'Explore What’s My Q',
+    },
     imageLayout: 'hero',
     images: [
       {

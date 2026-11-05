@@ -172,6 +172,51 @@ export default function ActPreview({ preview, index = 0 }) {
                 {preview.shortIntro}
               </motion.p>
 
+              {/* Featured Project Spotlight (e.g. What's My Q) */}
+              {preview.project && (
+                <motion.div
+                  className="mt-6 mb-2 p-4 sm:p-5 rounded-xl bg-white/90 border border-[#3B5998]/30 shadow-[0_4px_20px_rgba(44,28,16,0.06)]"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.8, ease: EASE }}
+                >
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                    {preview.project.image && (
+                      <img
+                        src={preview.project.image}
+                        alt={preview.project.title}
+                        className="w-24 sm:w-28 h-auto rounded-lg shadow-xs flex-shrink-0"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    )}
+                    <div className="text-center sm:text-left">
+                      <div className="flex items-center justify-center sm:justify-start gap-2 mb-1.5 flex-wrap">
+                        <span className="text-[10px] uppercase font-bold tracking-widest text-[#3B5998] bg-[#3B5998]/10 px-2 py-0.5 rounded-full">
+                          Featured Project
+                        </span>
+                        <h4 className="font-serif font-medium text-lg text-[#2C2C2C]">
+                          {preview.project.title}
+                        </h4>
+                      </div>
+                      <p className="font-sans text-xs md:text-sm text-[#4A4A4A] leading-relaxed mb-3">
+                        {preview.project.description}
+                      </p>
+                      <a
+                        href={preview.project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#3B5998] hover:text-[#241E1A] transition-colors"
+                      >
+                        <span>{preview.project.cta || 'Explore What’s My Q'}</span>
+                        <span aria-hidden="true">&rarr;</span>
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
               {/* Short-form story paragraphs */}
               <div className="space-y-[clamp(1.1rem,2.2vh,1.6rem)]">
                 {preview.shortBody.map((paragraph, i) => (

@@ -5,6 +5,7 @@ import WhoIsFrankie from '../components/who/WhoIsFrankie'
 import JourneyPreviews from '../components/journey/JourneyPreviews'
 import LessonGrid from '../components/map/LessonGrid'
 import MapSection from '../components/map/MapSection'
+import TimelineSection from '../components/timeline/TimelineSection'
 import Impact from '../components/impact/Impact'
 import BooksPublications from '../components/books/BooksPublications'
 import Art from '../components/art/Art'
@@ -65,6 +66,9 @@ export default function JourneyPage() {
 
       {/* Map Architecture — ready for Frankie's upcoming custom life map asset */}
       <MapSection />
+
+      {/* Life Map & Milestones — A Life in Chapters */}
+      <TimelineSection />
 
       {/* Impact & Platform Building */}
       <Impact />
