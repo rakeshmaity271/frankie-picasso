@@ -23,12 +23,17 @@ export const journeyActs = [
       'Decades later, I became almost every woman that little girl had imagined.',
       'Turns out, childhood dreams don’t always disappear. Sometimes they just wait for us to come back for them.',
     ],
-    imageLayout: 'reveal',
+    imageLayout: 'hero',
     images: [
       {
         src: '/images/act1-childhood-with-dog.jpg',
         alt: 'Young Frankie petting the family dog on the front lawn in a vintage black-and-white photo.',
         caption: 'Frankie with her second ‘Mickey’',
+      },
+      {
+        src: '/images/act1-mom-in-salzburg.jpg',
+        alt: 'Frankie’s mother in Salzburg, Austria, sitting on a stone balustrade in a vintage 1950s checkered dress.',
+        caption: 'My mother in Salzburg, Austria',
       },
       {
         src: '/images/act1-with-dad.jpg',

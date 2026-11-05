@@ -306,11 +306,12 @@ async function runTests() {
     const hasDad = text.includes('Belief in myself') || text.includes('dark green Thunderbird');
     const hasSalzburgOrigin = text.includes('Salzburg, Austria') && text.includes('He chose Canada!') && text.includes('I grew up surrounded by people who believed');
     const imgElements = Array.from(document.querySelectorAll('img'));
+    const hasMomPhoto = imgElements.some((s) => s.src.includes('act1-mom-in-salzburg'));
     const checks = await Promise.all(imgElements.map((i) => fetch(i.src).then((r) => r.status === 200).catch(() => false)));
     const hasBackLink = Array.from(document.querySelectorAll('a')).some((a) => a.textContent.includes('Back to the Journey'));
     return {
-      passed: hasDad && hasSalzburgOrigin && checks.every(Boolean) && hasBackLink,
-      details: `Story narrative present: ${hasDad}, Salzburg origin present: ${hasSalzburgOrigin}, Images verified 200: ${checks.length}, Backlink present: ${hasBackLink}`,
+      passed: hasDad && hasSalzburgOrigin && hasMomPhoto && checks.every(Boolean) && hasBackLink,
+      details: `Story narrative present: ${hasDad}, Salzburg origin: ${hasSalzburgOrigin}, Mom photo in Salzburg: ${hasMomPhoto}, Images verified 200: ${checks.length}, Backlink present: ${hasBackLink}`,
     };
   });
 

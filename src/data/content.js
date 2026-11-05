@@ -78,6 +78,7 @@ export const content = {
       narrative: [
         { type: 'text', content: 'Every life has an origin story.' },
         { type: 'text', content: 'Mine began in Salzburg, Austria, where I was born in 1957 to an Austrian father and an American mother. When headlines in the American papers raised fears of war, my mother\u2019s parents urged my family to leave Europe and come to the United States. My father had other ideas. He chose Canada!' },
+        { type: 'image', src: '/images/act1-mom-in-salzburg.jpg', alt: 'Frankie\u2019s mother in Salzburg, Austria, sitting gracefully on an ornamental stone balustrade in a vintage 1950s checkered dress.', caption: 'My Mother in Salzburg, Austria', rotate: 1.2 },
         { type: 'text', content: 'I grew up surrounded by people who believed I could be or do anything I set my mind to. Being a girl was never presented as a limitation.' },
         { type: 'emphasis', content: 'For a little girl growing up in the late 1950s, that was a remarkable gift.' },
         { type: 'emphasis', content: 'It allowed me to imagine a life filled with possibilities.' },
