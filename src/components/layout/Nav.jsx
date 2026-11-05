@@ -2,15 +2,18 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { navLinks, sectionIds } from '../../data/content'
+import { journeyActs } from '../../data/journey'
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [hidden, setHidden] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [journeyDropdownOpen, setJourneyDropdownOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
   const lastScrollY = useRef(0)
   const navRef = useRef(null)
   const pendingSection = useRef(null)
+  const dropdownTimer = useRef(null)
   const location = useLocation()
   const navigate = useNavigate()
   const onJourney = location.pathname === '/'
@@ -63,6 +66,7 @@ export default function Nav() {
 
   const scrollToSection = (id) => {
     setMenuOpen(false)
+    setJourneyDropdownOpen(false)
     if (!onJourney) {
       // Section lives on the Journey page — navigate home first, then scroll.
       pendingSection.current = id
@@ -79,12 +83,25 @@ export default function Nav() {
   // now lives at #/act/amplifying) navigate to that route instead of
   // scrolling. Works from both '/' and act routes.
   const handleLinkClick = (link) => {
+    setJourneyDropdownOpen(false)
     if (link.route) {
       setMenuOpen(false)
       navigate(link.route.replace(/^#/, ''))
       return
     }
     scrollToSection(link.id)
+  }
+
+  const navigateToAct = (actId) => {
+    setMenuOpen(false)
+    setJourneyDropdownOpen(false)
+    if (onJourney) {
+      const el = document.getElementById(actId)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } else {
+      pendingSection.current = actId
+      navigate('/')
+    }
   }
 
   return (
@@ -116,33 +133,109 @@ export default function Nav() {
           </button>
 
           {/* Desktop Nav Links */}
-          <ul className="hidden md:flex items-center gap-8 lg:gap-10">
-            {navLinks.map((link) => (
-              <li key={link.id}>
-                <button
-                  onClick={() => handleLinkClick(link)}
-                  className={`
-                    relative text-sm font-sans font-normal tracking-wide
-                    transition-colors duration-300 cursor-pointer
-                    py-1
-                    ${activeSection === link.id
-                      ? 'text-[var(--accent,#FFB400)]'
-                      : 'text-[var(--text-primary,#2C2C2C)] hover:text-[var(--accent,#FFB400)]'
+          <ul className="hidden md:flex items-center gap-7 lg:gap-9">
+            {navLinks.map((link) => {
+              const isJourney = link.id === 'where-belief-began'
+
+              return (
+                <li
+                  key={link.id}
+                  className="relative"
+                  onMouseEnter={() => {
+                    if (isJourney) {
+                      if (dropdownTimer.current) clearTimeout(dropdownTimer.current)
+                      setJourneyDropdownOpen(true)
                     }
-                  `}
+                  }}
+                  onMouseLeave={() => {
+                    if (isJourney) {
+                      dropdownTimer.current = setTimeout(() => {
+                        setJourneyDropdownOpen(false)
+                      }, 180)
+                    }
+                  }}
                 >
-                  {link.label}
-                  {/* Animated underline */}
-                  <span
+                  <button
+                    onClick={() => handleLinkClick(link)}
                     className={`
-                      absolute bottom-0 left-0 h-[1.5px] bg-[var(--accent,#FFB400)]
-                      transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-                      ${activeSection === link.id ? 'w-full' : 'w-0'}
+                      relative text-sm font-sans font-normal tracking-wide
+                      transition-colors duration-300 cursor-pointer
+                      py-1 inline-flex items-center gap-1
+                      ${activeSection === link.id
+                        ? 'text-[var(--accent,#FFB400)]'
+                        : 'text-[var(--text-primary,#2C2C2C)] hover:text-[var(--accent,#FFB400)]'
+                      }
                     `}
-                  />
-                </button>
-              </li>
-            ))}
+                  >
+                    <span>{link.label}</span>
+                    {isJourney && (
+                      <svg
+                        className={`w-3 h-3 opacity-60 transition-transform duration-200 ${journeyDropdownOpen ? 'rotate-180' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    )}
+                    {/* Animated underline */}
+                    <span
+                      className={`
+                        absolute bottom-0 left-0 h-[1.5px] bg-[var(--accent,#FFB400)]
+                        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+                        ${activeSection === link.id ? 'w-full' : 'w-0'}
+                      `}
+                    />
+                  </button>
+
+                  {/* Acts I–VIII Desktop Dropdown */}
+                  {isJourney && (
+                    <AnimatePresence>
+                      {journeyDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                          transition={{ duration: 0.18 }}
+                          className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-72 z-[1050]"
+                        >
+                          <div className="bg-white/98 backdrop-blur-xl border border-[#E8DCC8] rounded-xl shadow-[0_16px_48px_rgba(44,28,16,0.14)] p-2">
+                            <div className="px-3 py-1.5 border-b border-[#E8DCC8]/60 mb-1 flex items-center justify-between">
+                              <span className="text-[10px] uppercase font-bold tracking-widest text-[#8B5FB0]">The Eight Acts</span>
+                              <span className="text-[10px] text-[#4A4A4A]/60">Jump to Act</span>
+                            </div>
+                            <div className="space-y-0.5 max-h-[360px] overflow-y-auto">
+                              {journeyActs.map((act) => (
+                                <button
+                                  key={act.id}
+                                  onClick={() => navigateToAct(act.id)}
+                                  className="w-full text-left px-3 py-2 rounded-lg text-xs font-sans hover:bg-[#FAF3EA] transition-colors flex items-center justify-between group/act cursor-pointer"
+                                >
+                                  <div className="flex items-center gap-2">
+                                    <span className="font-semibold text-[11px] px-1.5 py-0.5 rounded-sm bg-[#FAF3EA] text-[#8B5FB0] group-hover/act:bg-[#8B5FB0] group-hover/act:text-white transition-colors">
+                                      Act {act.number}
+                                    </span>
+                                    <span className="text-[#2C2C2C] font-medium group-hover/act:text-[#EE5802] transition-colors truncate max-w-[155px]">
+                                      {act.title}
+                                    </span>
+                                  </div>
+                                  {act.id === 'still-becoming' && (
+                                    <span className="text-[9px] uppercase px-1.5 py-0.5 rounded-full bg-[#3B5998]/12 text-[#3B5998] font-bold">
+                                      Latest
+                                    </span>
+                                  )}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  )}
+                </li>
+              )
+            })}
           </ul>
 
           {/* Mobile Menu Button */}
@@ -170,25 +263,26 @@ export default function Nav() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-[999] bg-[#FFF8F0]/98 backdrop-blur-xl flex flex-col items-center justify-center"
+            className="fixed inset-0 z-[999] bg-[#FFF8F0]/98 backdrop-blur-xl flex flex-col items-center justify-center overflow-y-auto py-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <ul className="flex flex-col items-center gap-6">
+            <ul className="flex flex-col items-center gap-4 sm:gap-5 w-full max-w-[360px] px-6">
               {navLinks.map((link, i) => (
                 <motion.li
                   key={link.id}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ delay: i * 0.06, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={{ delay: i * 0.04, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  className="w-full text-center flex flex-col items-center"
                 >
                   <button
                     onClick={() => handleLinkClick(link)}
                     className={`
-                      font-serif text-3xl md:text-4xl font-light tracking-wide
+                      font-serif text-2xl sm:text-3xl font-light tracking-wide
                       transition-colors duration-300 cursor-pointer
                       ${activeSection === link.id
                         ? 'text-[#FFB400]'
@@ -198,6 +292,23 @@ export default function Nav() {
                   >
                     {link.label}
                   </button>
+                  {link.id === 'where-belief-began' && (
+                    <div className="grid grid-cols-4 gap-1.5 w-full mt-2 mb-1 px-1">
+                      {journeyActs.map((act) => (
+                        <button
+                          key={act.id}
+                          onClick={() => navigateToAct(act.id)}
+                          className={`px-2 py-1.5 rounded-lg text-xs font-sans text-center transition-colors cursor-pointer ${
+                            act.id === 'still-becoming'
+                              ? 'bg-[#3B5998]/15 border border-[#3B5998]/40 text-[#3B5998] font-bold'
+                              : 'bg-white/80 border border-[#E8DCC8] text-[#2C2C2C]'
+                          }`}
+                        >
+                          Act {act.number}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </motion.li>
               ))}
             </ul>

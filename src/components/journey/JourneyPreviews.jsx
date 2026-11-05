@@ -1,15 +1,17 @@
 import Heartbeat from '../acts/Heartbeat'
 import ActPreview from './ActPreview'
+import JourneyActBar from './JourneyActBar'
 import { journeyActs, journeyHeartbeats } from '../../data/journey'
 
 /**
- * JourneyPreviews — the five short-form Act previews on the main Journey page.
- * Each preview is introduced by a Heartbeat transition carrying the upcoming
- * act's highlight line (mirrors the original inter-act behavior).
+ * JourneyPreviews — the eight short-form Act previews on the main Journey page.
+ * Includes JourneyActBar (sticky Acts I–VIII quick jump navigation) and Heartbeat
+ * transitions between chapters.
  */
 export default function JourneyPreviews() {
   return (
     <>
+      <JourneyActBar />
       {journeyActs.map((preview, i) => {
         const hb = journeyHeartbeats[i]
         return (
