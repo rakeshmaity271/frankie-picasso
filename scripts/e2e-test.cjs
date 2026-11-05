@@ -199,6 +199,9 @@ async function runTests() {
       awaitPromise: true,
     });
 
+    if (evalResult.exceptionDetails) {
+      console.error('      [CDP EVAL ERROR]:', evalResult.exceptionDetails.text, evalResult.exceptionDetails.exception?.description);
+    }
     const passed = evalResult.result?.value?.passed;
     const details = evalResult.result?.value?.details || '';
 
@@ -256,15 +259,17 @@ async function runTests() {
     const hasArchivalPlaceholder = /archival\s*[·•\.]\s*image/i.test(bodyText);
     const hasSuggestedHint = /suggested:\s*/i.test(bodyText);
 
-    // Verify all 5 story images exist in the DOM
-    const imgElements = Array.from(document.querySelectorAll('img'));
+    // Verify all story images exist in the DOM
+    const imgElements = Array.from(document.querySelectorAll("img"));
     const srcs = imgElements.map((i) => i.src);
 
-    const hasFarm = srcs.some((s) => s.includes('act2-leaving-farm'));
-    const hasMap = srcs.some((s) => s.includes('act2-toronto-to-louisville'));
-    const hasCamera = srcs.some((s) => s.includes('act2-voigtlander-camera'));
-    const hasRacing = srcs.some((s) => s.includes('act2-formula-one-racing'));
-    const hasSchool = srcs.some((s) => s.includes('act2-school-class-portrait'));
+    const hasFarm = srcs.some((s) => s.includes("act2-leaving-farm"));
+    const hasMap = srcs.some((s) => s.includes("act2-toronto-to-louisville"));
+    const hasCamera = srcs.some((s) => s.includes("act2-voigtlander-camera"));
+    const hasRacing = srcs.some((s) => s.includes("act2-formula-one-racing"));
+    const hasSchool = srcs.some((s) => s.includes("act2-school-class-portrait"));
+    const hasBusingProtest = srcs.some((s) => s.includes("act2-louisville-busing-protest"));
+    const hasDamagedBuses = srcs.some((s) => s.includes("act2-louisville-damaged-buses"));
 
     // Verify every image returns HTTP 200
     const checks = await Promise.all(
@@ -284,11 +289,13 @@ async function runTests() {
       hasCamera &&
       hasRacing &&
       hasSchool &&
+      hasBusingProtest &&
+      hasDamagedBuses &&
       all200;
 
     return {
       passed,
-      details: `Archival Box in DOM: ${hasArchivalPlaceholder ? 'YES (REGRESSION!)' : 'NO (CLEAN)'}, Farm: ${hasFarm}, Map: ${hasMap}, Voigtländer: ${hasCamera}, F1: ${hasRacing}, School: ${hasSchool}, HTTP 200 for all: ${all200}`,
+      details: `Archival Box in DOM: ${hasArchivalPlaceholder ? "YES (REGRESSION!)" : "NO (CLEAN)"}, Farm: ${hasFarm}, Map: ${hasMap}, Voigtländer: ${hasCamera}, F1: ${hasRacing}, Toronto School: ${hasSchool}, Busing Protest: ${hasBusingProtest}, Damaged Buses: ${hasDamagedBuses}, HTTP 200 for all: ${all200}`,
     };
   });
 

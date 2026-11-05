@@ -74,8 +74,8 @@ export const journeyActs = [
       },
       {
         src: '/images/act2-school-class-portrait.jpg',
-        alt: 'A sepia school class portrait of uniformed girls from Frankie’s youth.',
-        caption: 'Class portrait • Learning independence early',
+        alt: 'A sepia class portrait of uniformed girls from Frankie’s private school in Toronto.',
+        caption: 'Class portrait • Private school in Toronto',
       },
     ],
     highlight: 'Some lessons can’t be taught in a classroom. They have to be experienced.',
