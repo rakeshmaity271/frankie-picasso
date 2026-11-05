@@ -89,7 +89,7 @@ export default function MediaSection() {
                   <img
                     src={show.image}
                     alt={`${show.title} cover art`}
-                    className="w-20 h-20 md:w-24 md:h-24 rounded-lg object-cover border border-white/70 shadow-[0_4px_14px_rgba(26,46,46,0.18)] my-3 -rotate-[2deg] transition-transform duration-500 hover:rotate-0"
+                    className="w-24 h-24 md:w-28 md:h-28 rounded-lg object-contain bg-white/90 p-1.5 border border-white/70 shadow-[0_4px_14px_rgba(26,46,46,0.18)] my-3 transition-transform duration-500 hover:scale-105"
                     loading="lazy"
                     decoding="async"
                   />

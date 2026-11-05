@@ -26,7 +26,8 @@ const MIME = {
 function startServer() {
   return new Promise((resolve, reject) => {
     const server = http.createServer((req, res) => {
-      const url = new URL(req.url, `http://localhost:${PORT}`);
+      const sanitized = (req.url || '/').replace(/^\/{2,}/, '/');
+      const url = new URL(sanitized, `http://localhost:${PORT}`);
       let filePath = path.join(DIST_DIR, decodeURIComponent(url.pathname));
 
       if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
@@ -397,7 +398,36 @@ async function runTests() {
     };
   });
 
-  // 4. Clean up
+  
+  // --- Test 12: Business Logos & Platforms Showcase (Impact) ---
+  await navigateAndEvaluate('#impact', 'Business Logos & Platforms Showcase', async () => {
+    const text = document.body.innerText;
+    const hasRentTheBeliever = text.includes('Rent The Believer');
+    const hasShoes = text.includes('Conversation with My Shoes');
+    const hasWhatsMyQ = /What[’']s My Q/i.test(text);
+    const hasUnstoppable = text.includes('The Unstoppable Frankie Picasso');
+    const hasFrankieJohnny = text.includes('Frankie & Johnny');
+
+    const rentLink = document.querySelector('a[href="https://rentthebeliever.com/"]');
+    const imgElements = Array.from(document.querySelectorAll('img')).filter((img) => img.src.includes('logo-'));
+    const checks = await Promise.all(imgElements.map((i) => fetch(i.src).then((r) => r.status === 200).catch(() => false)));
+
+    const passed =
+      hasRentTheBeliever &&
+      hasShoes &&
+      hasWhatsMyQ &&
+      hasUnstoppable &&
+      hasFrankieJohnny &&
+      !!rentLink &&
+      imgElements.length >= 5 &&
+      checks.every(Boolean);
+
+    return {
+      passed,
+      details: `All 5 platforms found: ${hasRentTheBeliever && hasShoes && hasWhatsMyQ && hasUnstoppable && hasFrankieJohnny}, Rent The Believer link: ${!!rentLink}, Logo images count: ${imgElements.length}, All 200 OK: ${checks.every(Boolean)}`,
+    };
+  });
+// 4. Clean up
   console.log('\n[4/5] Checking runtime health...');
   console.log(`Console Errors: ${consoleErrors.length}`);
   if (consoleErrors.length > 0) {

@@ -427,7 +427,7 @@ export const content = {
       ventures: [
         { name: 'The Good Radio Network', role: 'Founder and CEO', description: 'International positive-impact media platform. Host of Mission Unstoppable and FrankieSense and More.', impact: 'International reach' },
         { name: 'G-Woman Media', role: 'Co-Founder and VP, Americas', description: 'Global multimedia platform focused on women\'s leadership, publishing, media, and community initiatives. Home to Conversation with My Shoes and Thoughtatudes.', impact: 'Global platform' },
-        { name: 'Rent A Believer', role: 'Founder • Executive Coach • Master Coach Trainer', description: 'Executive coaching and master coach training focused on leadership, personal development, and transformational growth.', impact: 'Leaders transformed' },
+        { name: 'Rent The Believer', role: 'Founder • Executive Coach • Master Coach Trainer', description: 'Executive coaching and master coach training focused on leadership, personal development, and transformational growth.', impact: 'Leaders transformed', image: '/images/logo-rent-the-believer.jpg', url: 'https://rentthebeliever.com/' },
         { name: 'Roundhouse Promotions', role: 'Founder and Owner', description: 'First professional female kickboxing promoter in the world. Produced championship events, secured media exposure, and managed an ISKA World Champion.', impact: 'World first' },
         { name: 'Traffic Marketing', role: 'Contractor', description: 'Professional boxing management, fight promotion, sponsorship development, and event marketing.', impact: 'Events promoted' },
         { name: 'Government of Ontario', role: 'Strategic Planning and Organizational Development Leader', description: 'Led strategic planning, organizational development, and employee engagement across Ministry of Solicitor General, Cabinet Office, and Ministry of Labour.', impact: 'Multiple ministries' }
@@ -487,7 +487,7 @@ export const content = {
         { type: 'radio', title: 'Radio Broadcasting', description: 'Host of Mission Unstoppable and FrankieSense and More on The Good Radio Network, creating positive-impact programming.' },
         { type: 'art', title: 'Professional Artist', description: 'Original and commissioned works featured through Fine Art America. Creator of custom pet portraits and artwork supporting animal welfare and children\'s causes.' },
         { type: 'writing', title: 'Thought Leadership', description: 'Creator of Conversation with My Shoes and Thoughtatudes — platforms for voice, reflection, and community dialogue.' },
-        { type: 'radio', title: 'Executive Coaching', description: 'Master Coach Trainer and ICF Accredited Coach, developing leaders and facilitating transformational growth through Rent A Believer.' },
+        { type: 'radio', title: 'Executive Coaching', description: 'Master Coach Trainer and ICF Accredited Coach, developing leaders and facilitating transformational growth through Rent The Believer.' },
         { type: 'art', title: 'Event Production', description: 'From championship kickboxing events to media productions, creating experiences that engage, inspire, and leave lasting impact.' }
       ],
       books: {
@@ -537,7 +537,7 @@ export const content = {
       mission: 'To continue building platforms that empower people, amplify ideas, and create lasting impact — while mentoring the next generation of leaders through coaching, media, and community development.',
       currentProjects: [
         { title: 'The Good Radio Network', description: 'Continuing to expand international positive-impact media programming and amplify voices that matter.' },
-        { title: 'Executive Coaching', description: 'Developing leaders and facilitating transformational growth through Rent A Believer and master coach training.' },
+        { title: 'Executive Coaching', description: 'Developing leaders and facilitating transformational growth through Rent The Believer and master coach training.' },
         { title: 'Writing and Publishing', description: 'Continuing to share wisdom and insight through books, articles, and thought leadership.' },
         { title: 'Visual Art', description: 'Creating original and commissioned artwork supporting animal welfare and children\'s causes through Fine Art America.' }
       ],
@@ -663,6 +663,50 @@ export const content = {
         description: 'From government ministries to international media — leading with belief, not authority. Creating environments where reinvention is possible.',
         icon: 'leadership'
       }
+    ],
+    platforms: [
+      {
+        name: 'Rent The Believer',
+        tagline: 'Until You Believe in Yourself',
+        category: 'Executive Coaching',
+        description: 'Executive coaching and master coach training focused on leadership, personal development, and transformational growth.',
+        image: '/images/logo-rent-the-believer.jpg',
+        url: 'https://rentthebeliever.com/',
+        cta: 'Visit Platform',
+        badge: 'Coaching'
+      },
+      {
+        name: 'Conversation with My Shoes',
+        tagline: 'Life Coaching with Frankie Picasso',
+        category: 'Life Coaching & Media',
+        description: 'Intimate life coaching and empowering multimedia dialogues sharing stories of resilience and growth.',
+        image: '/images/logo-conversation-with-my-shoes.jpg',
+        badge: 'Life Coaching'
+      },
+      {
+        name: 'What’s My Q',
+        tagline: 'The Collaborative Script App for Casts & Directors',
+        category: 'Creative Technology',
+        description: 'Innovative collaborative script application built specifically for theatre and film casts, directors, and actors.',
+        image: '/images/logo-whats-my-q.jpg',
+        badge: 'Coming Soon'
+      },
+      {
+        name: 'The Unstoppable Frankie Picasso',
+        tagline: 'Platform Builder. Broadcaster. Champion.',
+        category: 'Brand & Movement',
+        description: 'The signature mantra and international brand that defined over twenty years of broadcasting, resilience, and advocacy.',
+        image: '/images/logo-unstoppable-frankie-picasso.png',
+        badge: 'Brand'
+      },
+      {
+        name: 'Frankie & Johnny Music Hour',
+        tagline: 'Positive-Impact Music Broadcasting',
+        category: 'Radio Network',
+        description: 'A dynamic radio hour celebrating good music, rhythm, curiosity, and the stories behind the songs.',
+        image: '/images/logo-frankie-and-johnny.png',
+        badge: 'Broadcasting'
+      }
     ]
   },
 
@@ -707,7 +751,8 @@ export const content = {
     shows: [
       { title: 'Mission Unstoppable', type: 'podcast', description: 'Frankie’s flagship podcast on The Good Radio Network featuring conversations with leaders, artists, and community builders.', years: 'Ongoing', image: '/images/media-mission-unstoppable-cover.jpg' },
       { title: 'FrankieSense and More', type: 'podcast', description: 'Frankie’s podcast exploring leadership, personal development, and social impact.', years: 'Ongoing', image: '/images/media-frankiesense-cover.jpg' },
-      { title: 'Conversation with My Shoes', type: 'podcast', description: 'Intimate podcast series sharing personal stories of transformation and growth.', years: 'G-Woman Media' },
+      { title: 'Conversation with My Shoes', type: 'coaching & podcast', description: 'Intimate life coaching and podcast series sharing personal stories of transformation, resilience, and growth.', years: 'G-Woman Media', image: '/images/logo-conversation-with-my-shoes.jpg' },
+      { title: 'Frankie & Johnny Music Hour', type: 'radio show', description: 'Dynamic music broadcasting and artist interviews celebrating rhythm, rock, and the stories behind the songs.', years: 'The Good Radio Network', image: '/images/logo-frankie-and-johnny.png' },
       { title: 'Thoughtatudes', type: 'podcast', description: 'Thought-provoking content exploring ideas, perspectives, and community dialogue.', years: 'G-Woman Media' }
     ],
     // Titles/channels verified via YouTube oEmbed, 2026-10-22.

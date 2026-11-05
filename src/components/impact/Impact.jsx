@@ -120,6 +120,90 @@ export default function Impact() {
             )
           })}
         </div>
+
+        {/* Business Logos & Platforms Showcase */}
+        {data.platforms && (
+          <div className="mt-16 md:mt-24">
+            <div className="text-center max-w-[720px] mx-auto mb-10 md:mb-14">
+              <ScrollReveal variant="fadeUp">
+                <p className="font-sans text-xs md:text-sm font-semibold uppercase tracking-[0.3em] text-[#EE5802] mb-3">
+                  Ventures &amp; Media Platforms
+                </p>
+                <h3 className="font-serif font-light text-[clamp(1.8rem,3.5vw,2.8rem)] text-[#2C2C2C] leading-tight mb-3">
+                  Enterprises Built from Belief
+                </h3>
+                <p className="font-serif italic text-sm md:text-base text-[#2C2C2C]/70">
+                  From executive coaching and script apps to global radio platforms and personal empowerment.
+                </p>
+              </ScrollReveal>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7 items-stretch">
+              {data.platforms.map((platform, i) => (
+                <ScrollReveal key={i} variant="fadeUp" delay={i * 0.08}>
+                  <div className="p-6 rounded-2xl bg-[#FAF6F0] border border-[#E8DCC8] shadow-[0_6px_24px_rgba(44,30,20,0.06)] hover:shadow-[0_12px_36px_rgba(44,30,20,0.12)] hover:-translate-y-1 transition-all duration-400 flex flex-col justify-between h-full group">
+                    <div>
+                      {/* Logo Frame */}
+                      <div className="w-full h-44 sm:h-48 rounded-xl bg-white border border-black/[0.06] flex items-center justify-center p-4 mb-5 overflow-hidden shadow-xs group-hover:border-[#EE5802]/30 transition-colors duration-300">
+                        <img
+                          src={platform.image}
+                          alt={`${platform.name} logo`}
+                          className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+
+                      {/* Header & Badge */}
+                      <div className="flex items-start justify-between gap-2 mb-2">
+                        <h4 className="font-serif text-xl font-light text-[#2C2C2C] leading-snug">
+                          {platform.name}
+                        </h4>
+                        {platform.badge && (
+                          <span className="font-sans text-[10px] uppercase tracking-wider font-semibold px-2.5 py-0.5 rounded-full bg-[#EE5802]/10 text-[#EE5802] shrink-0">
+                            {platform.badge}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Tagline */}
+                      {platform.tagline && (
+                        <p className="font-serif italic text-xs text-[#7A6545] mb-2.5">
+                          {platform.tagline}
+                        </p>
+                      )}
+
+                      {/* Description */}
+                      <p className="font-sans text-xs md:text-sm text-[#4A4A4A] leading-relaxed mb-4">
+                        {platform.description}
+                      </p>
+                    </div>
+
+                    {/* Action / Link */}
+                    {platform.url ? (
+                      <a
+                        href={platform.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-4 rounded-lg bg-[#2C2C2C] hover:bg-[#EE5802] text-white font-sans text-xs font-medium tracking-wider uppercase transition-colors duration-300 mt-2"
+                      >
+                        <span>{platform.cta || 'Visit Platform'}</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="7" y1="17" x2="17" y2="7" />
+                          <polyline points="7 7 17 7 17 17" />
+                        </svg>
+                      </a>
+                    ) : (
+                      <div className="pt-2 border-t border-[#2C2C2C]/5 text-[11px] font-sans uppercase tracking-wider text-[#7A6545]/70">
+                        {platform.category}
+                      </div>
+                    )}
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )

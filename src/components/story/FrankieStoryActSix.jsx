@@ -457,6 +457,29 @@ export default function FrankieStoryActSix() {
         The name became a mantra that helped carry me through the next twenty years. More recently, I let it go. It had served me well, but I no longer needed it in quite the same way.
       </motion.p>
 
+      {/* The Unstoppable Frankie Picasso Emblem */}
+      <motion.div variants={fadeInUp} style={{ marginBottom: 'clamp(2rem, 4vh, 3rem)' }}>
+        <figure
+          className="mx-auto max-w-[340px] bg-[#FAF6F0] p-4 pb-4.5 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70"
+          style={{ transform: 'rotate(1.2deg)' }}
+        >
+          <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center p-3">
+            <img
+              src="/images/logo-unstoppable-frankie-picasso.png"
+              alt="The Unstoppable Frankie Picasso emblem — winged motorcycle figure medallion"
+              className="w-full h-auto max-h-[280px] object-contain rounded-[2px]"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption className="mt-2.5 sm:mt-3 text-center px-1">
+            <p className="font-serif italic text-xs sm:text-sm text-[#4A4A4A] leading-snug">
+              The Unstoppable Frankie Picasso • The name that carried me through the next twenty years
+            </p>
+          </figcaption>
+        </figure>
+      </motion.div>
+
       {/* ============================================================
           RADIO — Finding Her Voice
           ============================================================ */}
@@ -530,6 +553,29 @@ export default function FrankieStoryActSix() {
       <motion.p variants={fadeInUp} className="font-sans" style={{ fontSize: 'clamp(1.1rem, 1.5vw, 1.4rem)', marginBottom: 'clamp(1.75rem, 3vh, 2.5rem)', lineHeight: 1.6 }}>
         Mission Unstoppable became my flagship show. Over time, I also created The Babe and the Bachelor, a dating show; Psycho Babble, with a psychiatrist as my co-host; Marketing Magic; Midlife Mojo; Frankie &amp; Johnny, a music show; and several others. Radio gave my curiosity somewhere to go, and it gave me the chance to meet people whose lives and ideas I wanted to share.
       </motion.p>
+
+      {/* Frankie & Johnny Music Hour Logo */}
+      <motion.div variants={fadeInUp} style={{ marginBottom: 'clamp(2rem, 4vh, 3rem)' }}>
+        <figure
+          className="mx-auto max-w-[340px] bg-[#FAF6F0] p-4 pb-4.5 rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70"
+          style={{ transform: 'rotate(-1.5deg)' }}
+        >
+          <div className="w-full overflow-hidden rounded-[2px] border border-black/[0.08] bg-white flex items-center justify-center p-3">
+            <img
+              src="/images/logo-frankie-and-johnny.png"
+              alt="Frankie & Johnny music hour logo — drums, drumsticks, and retro typography"
+              className="w-full h-auto max-h-[260px] object-contain rounded-[2px]"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption className="mt-2.5 sm:mt-3 text-center px-1">
+            <p className="font-serif italic text-xs sm:text-sm text-[#4A4A4A] leading-snug">
+              Frankie &amp; Johnny Music Hour • Radio gave my curiosity somewhere to go
+            </p>
+          </figcaption>
+        </figure>
+      </motion.div>
 
       {/* ============================================================
           THE GOOD RADIO NETWORK — A Mission
