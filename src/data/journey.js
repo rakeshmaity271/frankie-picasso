@@ -14,7 +14,8 @@ export const journeyActs = [
     tagline: 'Every life has an origin story.',
     shortIntro: 'Every life has an origin story.',
     shortBody: [
-      'Mine began with people who believed I could be or do anything I set my mind to.',
+      'Mine began in Salzburg, Austria, where I was born in 1957 to an Austrian father and an American mother. When headlines in the American papers raised fears of war, my mother\u2019s parents urged my family to leave Europe and come to the United States. My father had other ideas. He chose Canada!',
+      'I grew up surrounded by people who believed I could be or do anything I set my mind to.',
       'My mother taught me to read at three. My father bought a farm because his horse-crazy daughter dreamed of owning a horse. And one formidable English teacher handed out enough D’s to teach me that talent means very little without perseverance.',
       'I dreamed constantly. Writer. Broadcaster. Artist. Drummer. Animal lover. My parents even nicknamed me “Iwanna” because apparently one dream at a time was never going to be enough.',
       'Then life happened, and many of those childhood dreams disappeared into the background.',

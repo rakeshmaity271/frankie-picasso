@@ -235,6 +235,7 @@ async function runTests() {
     const hasBecoming = bodyText.includes('Becoming');
     const hasBuilder = bodyText.includes('The Builder');
     const hasStillBecoming = bodyText.includes('Still Becoming');
+    const hasSalzburgOrigin = bodyText.includes('Salzburg, Austria') && bodyText.includes('He chose Canada!');
 
     const imgElements = Array.from(document.querySelectorAll('img'));
     // Verify each image asset HTTP status via fetch
@@ -248,8 +249,8 @@ async function runTests() {
     const broken = fetchStatuses.filter((s) => !s.ok);
 
     return {
-      passed: hasWelcome && hasBecoming && hasBuilder && hasStillBecoming && broken.length === 0,
-      details: `All 8 Acts found. Total preview images: ${imgElements.length}, Verified 200 OK: ${fetchStatuses.length - broken.length}, Broken: ${broken.length}`,
+      passed: hasWelcome && hasBecoming && hasBuilder && hasStillBecoming && hasSalzburgOrigin && broken.length === 0,
+      details: `All 8 Acts found, Salzburg origin preview: ${hasSalzburgOrigin}. Total preview images: ${imgElements.length}, Verified 200 OK: ${fetchStatuses.length - broken.length}, Broken: ${broken.length}`,
     };
   });
 
@@ -303,12 +304,13 @@ async function runTests() {
   await navigateAndEvaluate('#/act/where-belief-began', 'Act I (Where Belief Began) Story Narrative', async () => {
     const text = document.body.innerText;
     const hasDad = text.includes('Belief in myself') || text.includes('dark green Thunderbird');
+    const hasSalzburgOrigin = text.includes('Salzburg, Austria') && text.includes('He chose Canada!') && text.includes('I grew up surrounded by people who believed');
     const imgElements = Array.from(document.querySelectorAll('img'));
     const checks = await Promise.all(imgElements.map((i) => fetch(i.src).then((r) => r.status === 200).catch(() => false)));
     const hasBackLink = Array.from(document.querySelectorAll('a')).some((a) => a.textContent.includes('Back to the Journey'));
     return {
-      passed: hasDad && checks.every(Boolean) && hasBackLink,
-      details: `Story narrative present: ${hasDad}, Images verified 200: ${checks.length}, Backlink present: ${hasBackLink}`,
+      passed: hasDad && hasSalzburgOrigin && checks.every(Boolean) && hasBackLink,
+      details: `Story narrative present: ${hasDad}, Salzburg origin present: ${hasSalzburgOrigin}, Images verified 200: ${checks.length}, Backlink present: ${hasBackLink}`,
     };
   });
 
