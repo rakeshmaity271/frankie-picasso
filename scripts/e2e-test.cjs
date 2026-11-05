@@ -407,6 +407,7 @@ async function runTests() {
     const hasWhatsMyQ = /What[’']s My Q/i.test(text);
     const hasUnstoppable = text.includes('The Unstoppable Frankie Picasso');
     const hasFrankieJohnny = text.includes('Frankie & Johnny');
+    const hasPAWcasso = text.includes('Original PAWcasso Pet Paintings');
 
     const rentLink = document.querySelector('a[href="https://rentthebeliever.com/"]');
     const imgElements = Array.from(document.querySelectorAll('img')).filter((img) => img.src.includes('logo-'));
@@ -418,13 +419,14 @@ async function runTests() {
       hasWhatsMyQ &&
       hasUnstoppable &&
       hasFrankieJohnny &&
+      hasPAWcasso &&
       !!rentLink &&
-      imgElements.length >= 5 &&
+      imgElements.length >= 6 &&
       checks.every(Boolean);
 
     return {
       passed,
-      details: `All 5 platforms found: ${hasRentTheBeliever && hasShoes && hasWhatsMyQ && hasUnstoppable && hasFrankieJohnny}, Rent The Believer link: ${!!rentLink}, Logo images count: ${imgElements.length}, All 200 OK: ${checks.every(Boolean)}`,
+      details: `All 6 platforms found: ${hasRentTheBeliever && hasShoes && hasWhatsMyQ && hasUnstoppable && hasFrankieJohnny && hasPAWcasso}, Rent The Believer link: ${!!rentLink}, Logo images count: ${imgElements.length}, All 200 OK: ${checks.every(Boolean)}`,
     };
   });
 // 4. Clean up

@@ -138,9 +138,18 @@ export default function Art() {
           })}
         </div>
 
-        {/* Fine Art America Attribution / Note */}
-        <div className="text-center mt-12 md:mt-16">
-          <p className="font-serif italic text-sm md:text-base text-[#4A4A4A]/80">
+        {/* Original PAWcasso Pet Paintings Brand Plaque */}
+        <div className="mx-auto mt-14 md:mt-20 max-w-[620px] p-6 sm:p-7 rounded-2xl bg-[#FAF6F0] border border-[#E8DCC8] shadow-[0_6px_24px_rgba(44,30,20,0.06)] text-center">
+          <div className="w-full max-w-[380px] mx-auto rounded-xl bg-white border border-black/[0.06] p-3.5 mb-4 shadow-xs">
+            <img
+              src="/images/logo-original-pawcasso-pet-paintings.jpg"
+              alt="Original PAWcasso Pet Paintings — because everyone Loves an Original"
+              className="w-full h-auto object-contain"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <p className="font-serif italic text-sm md:text-base text-[#4A4A4A] leading-relaxed">
             Original and commissioned works featured through Fine Art America. Custom pet portraits supporting animal welfare causes.
           </p>
         </div>

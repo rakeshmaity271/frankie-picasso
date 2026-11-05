@@ -706,6 +706,14 @@ export const content = {
         description: 'A dynamic radio hour celebrating good music, rhythm, curiosity, and the stories behind the songs.',
         image: '/images/logo-frankie-and-johnny.png',
         badge: 'Broadcasting'
+      },
+      {
+        name: 'Original PAWcasso Pet Paintings',
+        tagline: 'Because everyone Loves an Original',
+        category: 'Fine Art & Pet Portraits',
+        description: 'Custom fine art pet portraits and original paintings celebrating companion animals while supporting animal welfare causes.',
+        image: '/images/logo-original-pawcasso-pet-paintings.jpg',
+        badge: 'Fine Art'
       }
     ]
   },
@@ -713,6 +721,7 @@ export const content = {
   art: {
     title: 'Art',
     subtitle: 'Creating is how I make sense of the world and express who I am.',
+    brandLogo: '/images/logo-original-pawcasso-pet-paintings.jpg',
     intro: 'Art has always been Frankie\'s first language — before business, before broadcasting, before books. Painting, writing, and music are not hobbies. They are the core of who she is.',
     mediums: [
       {
