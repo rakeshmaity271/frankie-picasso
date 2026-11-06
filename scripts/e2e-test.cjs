@@ -429,7 +429,25 @@ async function runTests() {
       details: `All 6 platforms found: ${hasRentTheBeliever && hasShoes && hasWhatsMyQ && hasUnstoppable && hasFrankieJohnny && hasPAWcasso}, Rent The Believer link: ${!!rentLink}, Logo images count: ${imgElements.length}, All 200 OK: ${checks.every(Boolean)}`,
     };
   });
-// 4. Clean up
+
+  // --- Test 13: Dedicated Life Map Page & Interactive Canvas ---
+  await navigateAndEvaluate('#/life-map', 'Life Map — Dedicated Page, Interactive Canvas & Timeline', () => {
+    const text = document.body.innerText;
+    const hasMapOfLife = text.includes('The Map of a Life');
+    const hasEveryPieceFit = text.includes('Every Piece Fit');
+    const hasCanvas = !!document.getElementById('illustrated-map');
+    const hasTimeline = !!document.getElementById('timeline');
+    const hasLessons = !!document.getElementById('lessons');
+    const hasBackLink = !!Array.from(document.querySelectorAll('a')).find(a => a.innerText.includes('Back to the Main Journey'));
+
+    const passed = hasMapOfLife && hasEveryPieceFit && hasCanvas && hasTimeline && hasLessons && hasBackLink;
+    return {
+      passed,
+      details: `Map of Life title: ${hasMapOfLife}, Every Piece Fit: ${hasEveryPieceFit}, Illustrated Map Canvas: ${hasCanvas}, Timeline: ${hasTimeline}, Lessons: ${hasLessons}, Backlink: ${hasBackLink}`
+    };
+  });
+
+  // 4. Clean up
   console.log('\n[4/5] Checking runtime health...');
   console.log(`Console Errors: ${consoleErrors.length}`);
   if (consoleErrors.length > 0) {

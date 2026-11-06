@@ -68,14 +68,17 @@ export default function Nav() {
     setMenuOpen(false)
     setJourneyDropdownOpen(false)
     if (!onJourney) {
-      // Section lives on the Journey page — navigate home first, then scroll.
       pendingSection.current = id
-      navigate('/')
+      navigate('/', { state: { scrollTo: id } })
       return
     }
-    const el = document.getElementById(id)
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (window.__lenis) {
+      window.__lenis.scrollTo('#' + id, { offset: -70 })
+    } else {
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
     }
   }
 

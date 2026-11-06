@@ -19,7 +19,8 @@ export function useLenis() {
       touchMultiplier: 2,
     })
 
-    lenisRef.current = lenis
+    lenisRef.current = lenis;
+    window.__lenis = lenis;
 
     function raf(time) {
       lenis.raf(time)
@@ -29,7 +30,8 @@ export function useLenis() {
 
     return () => {
       lenis.destroy()
-      lenisRef.current = null
+      lenisRef.current = null;
+      window.__lenis = null;
     }
   }, [])
 

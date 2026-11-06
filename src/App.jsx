@@ -11,6 +11,7 @@ import { sectionIds } from './data/content'
 // Act pages are lazy-loaded to keep the initial bundle lean;
 // JourneyPage stays eager as the landing experience.
 const ActPage = lazy(() => import('./pages/ActPage'))
+const LifeMapPage = lazy(() => import('./pages/LifeMapPage'))
 
 /**
  * LegacySectionRedirect — catch-all for old bookmark-style URLs like
@@ -20,7 +21,11 @@ const ActPage = lazy(() => import('./pages/ActPage'))
 function LegacySectionRedirect() {
   const location = useLocation()
   const segment = location.pathname.replace(/^\//, '')
-  if (segment === 'media') return <Navigate to="/act/amplifying" replace />; if (segment && sectionIds.includes(segment)) {
+  if (segment === 'media') return <Navigate to="/act/amplifying" replace />
+  if (segment === 'life-map' || segment === 'timeline' || segment === 'map' || segment === 'lifemap') {
+    return <Navigate to="/life-map" replace />
+  }
+  if (segment && sectionIds.includes(segment)) {
     return <Navigate to="/" replace state={{ scrollTo: segment }} />
   }
   return <Navigate to="/" replace />
@@ -83,6 +88,7 @@ function App() {
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<JourneyPage />} />
+            <Route path="/life-map" element={<LifeMapPage />} />
             <Route path="/act/:actId" element={<ActPage />} />
             <Route path="*" element={<LegacySectionRedirect />} />
           </Routes>
