@@ -7,6 +7,11 @@
   RewriteRule . /index.html [L]
 </IfModule>
 
+# Enable GZIP / Deflate Compression for all text, assets, fonts, code
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/xml application/rss+xml font/truetype font/opentype font/woff font/woff2 image/svg+xml
+</IfModule>
+
 # Cache-Control Headers to prevent stale HTML and ensure instant updates
 <IfModule mod_headers.c>
   # Never cache index.html

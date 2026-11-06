@@ -14,7 +14,6 @@ import MediaSection from '../components/media/MediaSection'
 import Creativity from '../components/creativity/Creativity'
 import CommunityImpact from '../components/community/CommunityImpact'
 import { content } from '../data/content'
-import { ScrollTrigger } from '../hooks/useGsap'
 
 /**
  * ActPage — full Act experiences behind hash routes (#/act/:actId).
@@ -57,13 +56,6 @@ export default function ActPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    // Re-measure GSAP triggers after the new page settles
-    const raf = requestAnimationFrame(() => {
-      if (ScrollTrigger && typeof ScrollTrigger.refresh === 'function') {
-        ScrollTrigger.refresh()
-      }
-    })
-    return () => cancelAnimationFrame(raf)
   }, [actId])
 
   if (!Story || !act) {
