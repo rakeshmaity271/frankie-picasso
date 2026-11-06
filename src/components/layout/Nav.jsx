@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, Link } from 'react-router-dom'
 import { navLinks, sectionIds } from '../../data/content'
 import { journeyActs } from '../../data/journey'
 
@@ -30,19 +30,21 @@ export default function Nav() {
     }
     lastScrollY.current = currentY
 
-    // Detect active section
-    const sections = sectionIds.map((id) => document.getElementById(id))
-    for (let i = sections.length - 1; i >= 0; i--) {
-      const section = sections[i]
-      if (section) {
-        const rect = section.getBoundingClientRect()
-        if (rect.top <= window.innerHeight * 0.4) {
-          setActiveSection(sectionIds[i])
-          break
+    // Detect active section on landing page
+    if (location.pathname === '/') {
+      const sections = sectionIds.map((id) => document.getElementById(id))
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i]
+        if (section) {
+          const rect = section.getBoundingClientRect()
+          if (rect.top <= window.innerHeight * 0.4) {
+            setActiveSection(sectionIds[i])
+            break
+          }
         }
       }
     }
-  }, [])
+  }, [location.pathname])
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -58,7 +60,11 @@ export default function Nav() {
     const raf = requestAnimationFrame(() => {
       const el = document.getElementById(id)
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        if (window.__lenis) {
+          window.__lenis.scrollTo(el, { offset: -70 })
+        } else {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
       }
     })
     return () => cancelAnimationFrame(raf)
@@ -72,19 +78,16 @@ export default function Nav() {
       navigate('/', { state: { scrollTo: id } })
       return
     }
-    if (window.__lenis) {
-      window.__lenis.scrollTo('#' + id, { offset: -70 })
-    } else {
-      const el = document.getElementById(id)
-      if (el) {
+    const el = document.getElementById(id)
+    if (el) {
+      if (window.__lenis) {
+        window.__lenis.scrollTo(el, { offset: -70 })
+      } else {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
     }
   }
 
-  // Nav link handler: links with an explicit `route` (e.g. Media, which
-  // now lives at #/act/amplifying) navigate to that route instead of
-  // scrolling. Works from both '/' and act routes.
   const handleLinkClick = (link) => {
     setJourneyDropdownOpen(false)
     if (link.route) {
@@ -100,7 +103,13 @@ export default function Nav() {
     setJourneyDropdownOpen(false)
     if (onJourney) {
       const el = document.getElementById(actId)
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      if (el) {
+        if (window.__lenis) {
+          window.__lenis.scrollTo(el, { offset: -70 })
+        } else {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }
     } else {
       pendingSection.current = actId
       navigate('/')
@@ -128,17 +137,25 @@ export default function Nav() {
           aria-label="Main navigation"
         >
           {/* Logo */}
-          <button
-            onClick={() => scrollToSection('hero')}
+          <Link
+            to="/"
+            onClick={() => {
+              if (onJourney) {
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }
+            }}
             className="font-serif text-lg md:text-xl font-medium tracking-wide text-[var(--text-primary,#2C2C2C)] hover:opacity-70 transition-opacity duration-300 cursor-pointer"
           >
             Frankie Picasso
-          </button>
+          </Link>
 
           {/* Desktop Nav Links */}
           <ul className="hidden md:flex items-center gap-7 lg:gap-9">
             {navLinks.map((link) => {
               const isJourney = link.id === 'where-belief-began'
+              const isRouteActive = link.route && location.pathname === link.route.replace(/^#/, '')
+              const isSectionActive = !link.route && onJourney && activeSection === link.id
+              const isActive = isRouteActive || isSectionActive
 
               return (
                 <li
@@ -158,39 +175,66 @@ export default function Nav() {
                     }
                   }}
                 >
-                  <button
-                    onClick={() => handleLinkClick(link)}
-                    className={`
-                      relative text-sm font-sans font-normal tracking-wide
-                      transition-colors duration-300 cursor-pointer
-                      py-1 inline-flex items-center gap-1
-                      ${activeSection === link.id
-                        ? 'text-[var(--accent,#FFB400)]'
-                        : 'text-[var(--text-primary,#2C2C2C)] hover:text-[var(--accent,#FFB400)]'
-                      }
-                    `}
-                  >
-                    <span>{link.label}</span>
-                    {isJourney && (
-                      <svg
-                        className={`w-3 h-3 opacity-60 transition-transform duration-200 ${journeyDropdownOpen ? 'rotate-180' : ''}`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    )}
-                    {/* Animated underline */}
-                    <span
+                  {link.route ? (
+                    <Link
+                      to={link.route.replace(/^#/, '')}
+                      onClick={() => {
+                        setMenuOpen(false)
+                        setJourneyDropdownOpen(false)
+                      }}
                       className={`
-                        absolute bottom-0 left-0 h-[1.5px] bg-[var(--accent,#FFB400)]
-                        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-                        ${activeSection === link.id ? 'w-full' : 'w-0'}
+                        relative text-sm font-sans font-normal tracking-wide
+                        transition-colors duration-300 cursor-pointer
+                        py-1 inline-flex items-center gap-1
+                        ${isActive
+                          ? 'text-[var(--accent,#FFB400)]'
+                          : 'text-[var(--text-primary,#2C2C2C)] hover:text-[var(--accent,#FFB400)]'
+                        }
                       `}
-                    />
-                  </button>
+                    >
+                      <span>{link.label}</span>
+                      <span
+                        className={`
+                          absolute bottom-0 left-0 h-[1.5px] bg-[var(--accent,#FFB400)]
+                          transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+                          ${isActive ? 'w-full' : 'w-0'}
+                        `}
+                      />
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => handleLinkClick(link)}
+                      className={`
+                        relative text-sm font-sans font-normal tracking-wide
+                        transition-colors duration-300 cursor-pointer
+                        py-1 inline-flex items-center gap-1
+                        ${isActive
+                          ? 'text-[var(--accent,#FFB400)]'
+                          : 'text-[var(--text-primary,#2C2C2C)] hover:text-[var(--accent,#FFB400)]'
+                        }
+                      `}
+                    >
+                      <span>{link.label}</span>
+                      {isJourney && (
+                        <svg
+                          className={`w-3 h-3 opacity-60 transition-transform duration-200 ${journeyDropdownOpen ? 'rotate-180' : ''}`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      )}
+                      <span
+                        className={`
+                          absolute bottom-0 left-0 h-[1.5px] bg-[var(--accent,#FFB400)]
+                          transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+                          ${isActive ? 'w-full' : 'w-0'}
+                        `}
+                      />
+                    </button>
+                  )}
 
                   {/* Acts I–VIII Desktop Dropdown */}
                   {isJourney && (
@@ -270,50 +314,77 @@ export default function Nav() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.3 }}
           >
             <ul className="flex flex-col items-center gap-4 sm:gap-5 w-full max-w-[360px] px-6">
-              {navLinks.map((link, i) => (
-                <motion.li
-                  key={link.id}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ delay: i * 0.04, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="w-full text-center flex flex-col items-center"
-                >
-                  <button
-                    onClick={() => handleLinkClick(link)}
-                    className={`
-                      font-serif text-2xl sm:text-3xl font-light tracking-wide
-                      transition-colors duration-300 cursor-pointer
-                      ${activeSection === link.id
-                        ? 'text-[#FFB400]'
-                        : 'text-[#2C2C2C] hover:text-[#FFB400]'
-                      }
-                    `}
+              {navLinks.map((link, i) => {
+                const isRouteActive = link.route && location.pathname === link.route.replace(/^#/, '')
+                const isSectionActive = !link.route && onJourney && activeSection === link.id
+                const isActive = isRouteActive || isSectionActive
+
+                return (
+                  <motion.li
+                    key={link.id}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ delay: i * 0.03, duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                    className="w-full text-center flex flex-col items-center"
                   >
-                    {link.label}
-                  </button>
-                  {link.id === 'where-belief-began' && (
-                    <div className="grid grid-cols-4 gap-1.5 w-full mt-2 mb-1 px-1">
-                      {journeyActs.map((act) => (
-                        <button
-                          key={act.id}
-                          onClick={() => navigateToAct(act.id)}
-                          className={`px-2 py-1.5 rounded-lg text-xs font-sans text-center transition-colors cursor-pointer ${
-                            act.id === 'still-becoming'
-                              ? 'bg-[#3B5998]/15 border border-[#3B5998]/40 text-[#3B5998] font-bold'
-                              : 'bg-white/80 border border-[#E8DCC8] text-[#2C2C2C]'
-                          }`}
-                        >
-                          Act {act.number}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </motion.li>
-              ))}
+                    {link.route ? (
+                      <Link
+                        to={link.route.replace(/^#/, '')}
+                        onClick={() => {
+                          setMenuOpen(false)
+                          setJourneyDropdownOpen(false)
+                        }}
+                        className={`
+                          font-serif text-2xl sm:text-3xl font-light tracking-wide
+                          transition-colors duration-300 cursor-pointer py-1
+                          ${isActive
+                            ? 'text-[#FFB400]'
+                            : 'text-[#2C2C2C] hover:text-[#FFB400]'
+                          }
+                        `}
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() => handleLinkClick(link)}
+                        className={`
+                          font-serif text-2xl sm:text-3xl font-light tracking-wide
+                          transition-colors duration-300 cursor-pointer py-1
+                          ${isActive
+                            ? 'text-[#FFB400]'
+                            : 'text-[#2C2C2C] hover:text-[#FFB400]'
+                          }
+                        `}
+                      >
+                        {link.label}
+                      </button>
+                    )}
+
+                    {link.id === 'where-belief-began' && (
+                      <div className="grid grid-cols-4 gap-1.5 w-full mt-2 mb-1 px-1">
+                        {journeyActs.map((act) => (
+                          <button
+                            key={act.id}
+                            onClick={() => navigateToAct(act.id)}
+                            className={`px-2 py-1.5 rounded-lg text-xs font-sans text-center transition-colors cursor-pointer ${
+                              act.id === 'still-becoming'
+                                ? 'bg-[#3B5998]/15 border border-[#3B5998]/40 text-[#3B5998] font-bold'
+                                : 'bg-white/80 border border-[#E8DCC8] text-[#2C2C2C]'
+                            }`}
+                          >
+                            Act {act.number}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </motion.li>
+                )
+              })}
             </ul>
           </motion.div>
         )}

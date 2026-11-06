@@ -447,6 +447,81 @@ async function runTests() {
     };
   });
 
+  // --- Test 14: Homepage in-page #life-map section verification ---
+  await navigateAndEvaluate('#/', 'Homepage #life-map In-Page Visual Roadmap', () => {
+    const section = document.getElementById('life-map');
+    if (section) section.scrollIntoView();
+    const text = section ? (section.textContent || '') : '';
+    const hasTitle = text.includes("Frankie’s Journey Map") || text.includes("Frankie's Journey Map");
+    const hasCartography = text.includes('The Eight Acts Cartography');
+    const hasAct1 = text.includes('Act I') || text.includes('Act 1');
+    const hasAct8 = text.includes('Act VIII') || text.includes('Act 8');
+    const hasDedicatedLink = !!(section && section.querySelector('a[href="#/life-map"]'));
+
+    const passed = !!section && hasTitle && hasCartography && hasAct1 && hasAct8 && hasDedicatedLink;
+    return {
+      passed,
+      details: `Section exists: ${!!section}, Title: ${hasTitle}, Cartography: ${hasCartography}, Act 1 & 8: ${hasAct1 && hasAct8}, Dedicated link: ${hasDedicatedLink}`
+    };
+  });
+
+  // --- Test 15: Mobile Viewport & Menu Navigation to Life Map ---
+  console.log('  Testing Mobile Viewport (iPhone 375x812) Hamburger Menu -> Life Map...');
+  await cdp.send('Emulation.setDeviceMetricsOverride', {
+    width: 375,
+    height: 812,
+    deviceScaleFactor: 3,
+    mobile: true,
+  });
+
+  await cdp.send('Page.navigate', { url: `http://localhost:${PORT}/#/` });
+  await new Promise((r) => setTimeout(r, 1500));
+
+  // Open mobile menu
+  await cdp.send('Runtime.evaluate', {
+    expression: `(() => {
+      const btn = document.querySelector('button[aria-label="Open menu"]');
+      if (btn) btn.click();
+    })()`,
+  });
+  await new Promise((r) => setTimeout(r, 600));
+
+  // Tap Life Map link in mobile menu
+  const mobileNavResult = await cdp.send('Runtime.evaluate', {
+    expression: `(() => {
+      const link = document.querySelector('a[href="#/life-map"]');
+      if (!link) return { error: 'Life map link not found in mobile menu' };
+      link.click();
+      return { success: true };
+    })()`,
+    returnByValue: true,
+  });
+
+  await new Promise((r) => setTimeout(r, 1200));
+
+  const mobileCheck = await cdp.send('Runtime.evaluate', {
+    expression: `(() => {
+      const hash = window.location.hash;
+      const text = document.body.innerText;
+      const isLifeMap = hash === '#/life-map' || text.includes('Every Piece Fit');
+      return {
+        passed: isLifeMap,
+        details: 'Mobile URL Hash: ' + hash + ', Life Map Page Rendered: ' + text.includes('Every Piece Fit')
+      };
+    })()`,
+    returnByValue: true,
+  });
+
+  await cdp.send('Emulation.clearDeviceMetricsOverride');
+
+  testResults.push({
+    testName: 'Mobile Menu Navigation to Life Map (iPhone Emulation)',
+    route: '#/life-map',
+    passed: mobileCheck.result?.value?.passed,
+    details: mobileCheck.result?.value?.details,
+  });
+  console.log(`  ${mobileCheck.result?.value?.passed ? '✅ PASS' : '❌ FAIL'} [Mobile Menu Navigation to Life Map] (${mobileCheck.result?.value?.details})`);
+
   // 4. Clean up
   console.log('\n[4/5] Checking runtime health...');
   console.log(`Console Errors: ${consoleErrors.length}`);

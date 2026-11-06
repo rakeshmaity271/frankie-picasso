@@ -4,14 +4,14 @@ import Nav from './components/layout/Nav'
 import Footer from './components/layout/Footer'
 import SiteLoader from './components/common/SiteLoader'
 import JourneyPage from './pages/JourneyPage'
+import LifeMapPage from './pages/LifeMapPage'
 import { useLenis } from './hooks/useLenis'
 import { MapProvider } from './context/MapContext'
 import { sectionIds } from './data/content'
 
 // Act pages are lazy-loaded to keep the initial bundle lean;
-// JourneyPage stays eager as the landing experience.
+// JourneyPage and LifeMapPage stay eager for instant navigation.
 const ActPage = lazy(() => import('./pages/ActPage'))
-const LifeMapPage = lazy(() => import('./pages/LifeMapPage'))
 
 /**
  * LegacySectionRedirect — catch-all for old bookmark-style URLs like
@@ -34,7 +34,8 @@ function LegacySectionRedirect() {
 /**
  * App shell — global chrome (loader, scroll progress, nav, footer,
  * Map of a Life overlays) plus hash routing:
- *   '/'          → JourneyPage (hero + 5 Act previews + supporting sections)
+ *   '/'          → JourneyPage (hero + 8 Act previews + supporting sections)
+ *   '/life-map'  → LifeMapPage (dedicated full-resolution life map & milestones)
  *   '/act/:actId' → ActPage (full Act stories and themed sections)
  */
 function App() {

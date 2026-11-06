@@ -882,6 +882,7 @@ export const sectionIds = [
   'creating',
   'giving',
   'still-becoming',
+  'life-map',
   'impact',
   'media',
   'books',
@@ -897,10 +898,10 @@ export const navLinks = [
   { id: 'who-is-frankie', label: 'Who is Frankie?' },
   { id: 'where-belief-began', label: 'Journey' },
   { id: 'impact', label: 'Impact' },
-  { id: 'media', label: 'Media', route: '#/act/amplifying' },
+  { id: 'media', label: 'Media', route: '/act/amplifying' },
   { id: 'books', label: 'Books' },
   { id: 'art', label: 'Art' },
-  { id: 'life-map', label: 'Life Map', route: '#/life-map' },
+  { id: 'life-map', label: 'Life Map', route: '/life-map' },
   { id: 'contact', label: 'Connect' }
 ]
 

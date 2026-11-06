@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import MapSection from '../components/map/MapSection'
 import LessonGrid from '../components/map/LessonGrid'
 import TimelineSection from '../components/timeline/TimelineSection'
 import { mapOfLife } from '../data/content'
@@ -16,7 +17,7 @@ export default function LifeMapPage() {
   return (
     <div className="min-h-screen bg-[#FFF8F0]">
       {/* Visual hierarchy heading for accessibility */}
-      <h1 className="sr-only">Frankie Picasso — The Map of a Life & Milestones</h1>
+      <h1 className="sr-only">Frankie Picasso — The Map of a Life &amp; Milestones</h1>
 
       {/* Top Breadcrumb Header */}
       <div className="bg-[#FAF3EA] border-b border-[#E8DCC8] px-6 md:px-10 lg:px-16 pt-24 md:pt-28 pb-4">
@@ -29,9 +30,9 @@ export default function LifeMapPage() {
             <span>Back to the Main Journey</span>
           </Link>
           <div className="flex items-center gap-2 text-xs font-sans text-[#4A4A4A]/60">
-            <span>Home</span>
+            <Link to="/" className="hover:text-[#EE5802] transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-[#8B5FB0] font-semibold">Life Map & Milestones</span>
+            <span className="text-[#8B5FB0] font-semibold">Life Map &amp; Milestones</span>
           </div>
         </div>
       </div>
@@ -93,38 +94,8 @@ export default function LifeMapPage() {
         </div>
       </section>
 
-      {/* Dedicated Illustrated Life Map Showcase Canvas */}
-      <section id="illustrated-map" className="py-12 md:py-16 px-6 md:px-10 lg:px-16 bg-[#FAF3EA] border-b border-[#E8DCC8]">
-        <div className="max-w-[1080px] mx-auto text-center">
-          <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#8B5FB0] font-semibold mb-2">
-            Visual Journey
-          </p>
-          <h3 className="font-serif font-light text-2xl md:text-4xl text-[#2C2C2C] mb-3">
-            Frankie&rsquo;s Illustrated Life Map
-          </h3>
-          <p className="font-sans text-sm md:text-base text-[#4A4A4A] max-w-[620px] mx-auto mb-8">
-            The visual tapestry connecting every chapter, risk, and breakthrough from Austria and the farm through television, radio, literature, and art.
-          </p>
-
-          <div className="relative rounded-2xl border-2 border-dashed border-[#D4C3A3] bg-gradient-to-b from-white to-[#FFF9F2] p-8 md:p-14 shadow-[0_12px_36px_rgba(44,28,16,0.06)]">
-            <div className="max-w-[640px] mx-auto flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-[#FAF3EA] border border-[#E8DCC8] flex items-center justify-center text-2xl mb-4 text-[#EE5802]">
-                🗺️
-              </div>
-              <h4 className="font-serif text-xl md:text-2xl text-[#2C2C2C] mb-2 font-medium">
-                Illustrated Map Artwork Canvas
-              </h4>
-              <p className="font-sans text-sm text-[#4A4A4A] leading-relaxed mb-6">
-                This dedicated space is reserved for Frankie&rsquo;s custom hand-drawn and illustrated journey artwork. When Frankie provides the finalized map illustration, it will be proudly anchored here at full resolution for visitors to explore interactively.
-              </p>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FAF3EA] border border-[#E8DCC8] text-xs font-sans font-medium text-[#4A4A4A]">
-                <span className="w-2 h-2 rounded-full bg-[#629E46] animate-pulse"></span>
-                <span>Canvas prepared and connected &bull; Ready for artwork integration</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* The Illustrated Life Map Showcase Canvas */}
+      <MapSection id="illustrated-map" showDedicatedPageLink={false} />
 
       {/* The Nine Life Lessons Grid */}
       <LessonGrid lessons={lessons} />
