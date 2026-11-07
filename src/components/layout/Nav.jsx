@@ -18,6 +18,37 @@ export default function Nav() {
   const navigate = useNavigate()
   const onJourney = location.pathname === '/'
 
+  const performScroll = useCallback((id) => {
+    const el = document.getElementById(id)
+    if (!el) {
+      console.warn(`[Nav] Element #${id} not found in DOM`)
+      return
+    }
+
+    const navHeight = 72
+    const rect = el.getBoundingClientRect()
+    const targetY = Math.max(0, rect.top + window.pageYOffset - navHeight)
+
+    // Primary: Native smooth window scroll
+    try {
+      window.scrollTo({
+        top: targetY,
+        behavior: 'smooth'
+      })
+    } catch {
+      window.scrollTo(0, targetY)
+    }
+
+    // Secondary: Lenis smooth scroll if active
+    if (window.__lenis) {
+      try {
+        window.__lenis.scrollTo(targetY, { immediate: false, duration: 1.0 })
+      } catch {
+        /* ignore */
+      }
+    }
+  }, [])
+
   const handleScroll = useCallback(() => {
     const currentY = window.scrollY
     setScrolled(currentY > 80)
@@ -57,35 +88,29 @@ export default function Nav() {
     if (location.pathname !== '/' || !pendingSection.current) return
     const id = pendingSection.current
     pendingSection.current = null
-    const raf = requestAnimationFrame(() => {
-      const el = document.getElementById(id)
-      if (el) {
-        if (window.__lenis) {
-          window.__lenis.scrollTo(el, { offset: -70 })
-        } else {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-      }
-    })
-    return () => cancelAnimationFrame(raf)
-  }, [location.pathname])
+    const timer = setTimeout(() => {
+      performScroll(id)
+    }, 120)
+    return () => clearTimeout(timer)
+  }, [location.pathname, performScroll])
 
   const scrollToSection = (id) => {
     setMenuOpen(false)
     setJourneyDropdownOpen(false)
+
     if (!onJourney) {
       pendingSection.current = id
       navigate('/', { state: { scrollTo: id } })
       return
     }
-    const el = document.getElementById(id)
-    if (el) {
-      if (window.__lenis) {
-        window.__lenis.scrollTo(el, { offset: -70 })
-      } else {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
-    }
+
+    // Trigger scroll immediately
+    performScroll(id)
+
+    // Trigger second pass after 120ms to ensure mobile touch gesture is finished
+    setTimeout(() => {
+      performScroll(id)
+    }, 120)
   }
 
   const handleLinkClick = (link) => {
@@ -102,17 +127,11 @@ export default function Nav() {
     setMenuOpen(false)
     setJourneyDropdownOpen(false)
     if (onJourney) {
-      const el = document.getElementById(actId)
-      if (el) {
-        if (window.__lenis) {
-          window.__lenis.scrollTo(el, { offset: -70 })
-        } else {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-      }
+      performScroll(actId)
+      setTimeout(() => performScroll(actId), 120)
     } else {
       pendingSection.current = actId
-      navigate('/')
+      navigate('/', { state: { scrollTo: actId } })
     }
   }
 
@@ -203,6 +222,7 @@ export default function Nav() {
                     </Link>
                   ) : (
                     <button
+                      type="button"
                       onClick={() => handleLinkClick(link)}
                       className={`
                         relative text-sm font-sans font-normal tracking-wide
@@ -256,6 +276,7 @@ export default function Nav() {
                               {journeyActs.map((act) => (
                                 <button
                                   key={act.id}
+                                  type="button"
                                   onClick={() => navigateToAct(act.id)}
                                   className="w-full text-left px-3 py-2 rounded-lg text-xs font-sans hover:bg-[#FAF3EA] transition-colors flex items-center justify-between group/act cursor-pointer"
                                 >
@@ -287,6 +308,7 @@ export default function Nav() {
 
           {/* Mobile Menu Button */}
           <button
+            type="button"
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden flex flex-col items-center justify-center w-10 h-10 gap-1.5 cursor-pointer z-[1010]"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
@@ -351,7 +373,8 @@ export default function Nav() {
                       </Link>
                     ) : (
                       <button
-                        onClick={() => handleLinkClick(link)}
+                        type="button"
+                        onClick={() => scrollToSection(link.id)}
                         className={`
                           font-serif text-2xl sm:text-3xl font-light tracking-wide
                           transition-colors duration-300 cursor-pointer py-1
@@ -370,6 +393,7 @@ export default function Nav() {
                         {journeyActs.map((act) => (
                           <button
                             key={act.id}
+                            type="button"
                             onClick={() => navigateToAct(act.id)}
                             className={`px-2 py-1.5 rounded-lg text-xs font-sans text-center transition-colors cursor-pointer ${
                               act.id === 'still-becoming'

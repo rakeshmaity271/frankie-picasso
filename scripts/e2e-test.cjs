@@ -486,12 +486,12 @@ async function runTests() {
   });
   await new Promise((r) => setTimeout(r, 600));
 
-  // Tap Life Map link in mobile menu
+  // Tap Life Map button in mobile menu
   const mobileNavResult = await cdp.send('Runtime.evaluate', {
     expression: `(() => {
-      const link = document.querySelector('a[href="#/life-map"]');
-      if (!link) return { error: 'Life map link not found in mobile menu' };
-      link.click();
+      const btn = Array.from(document.querySelectorAll('button')).find(b => b.innerText.trim() === 'Life Map');
+      if (!btn) return { error: 'Life map button not found in mobile menu' };
+      btn.click();
       return { success: true };
     })()`,
     returnByValue: true,
@@ -501,12 +501,14 @@ async function runTests() {
 
   const mobileCheck = await cdp.send('Runtime.evaluate', {
     expression: `(() => {
-      const hash = window.location.hash;
-      const text = document.body.innerText;
-      const isLifeMap = hash === '#/life-map' || text.includes('Every Piece Fit');
+      const section = document.getElementById('life-map');
+      const rect = section ? section.getBoundingClientRect() : null;
+      const scrolled = window.scrollY > 200;
+      const nearSection = rect ? Math.abs(rect.top) < 400 : false;
+      const passed = scrolled && nearSection;
       return {
-        passed: isLifeMap,
-        details: 'Mobile URL Hash: ' + hash + ', Life Map Page Rendered: ' + text.includes('Every Piece Fit')
+        passed,
+        details: 'Scrolled down: ' + scrolled + ' (scrollY: ' + Math.round(window.scrollY) + 'px), Section visible in viewport: ' + nearSection
       };
     })()`,
     returnByValue: true,

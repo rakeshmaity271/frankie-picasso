@@ -33,7 +33,23 @@ export default function JourneyPage() {
     if (!target) return
     const timer = setTimeout(() => {
       const el = document.getElementById(target)
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      if (el) {
+        const navHeight = 72
+        const rect = el.getBoundingClientRect()
+        const targetY = Math.max(0, rect.top + window.pageYOffset - navHeight)
+        try {
+          window.scrollTo({ top: targetY, behavior: 'smooth' })
+        } catch {
+          window.scrollTo(0, targetY)
+        }
+        if (window.__lenis) {
+          try {
+            window.__lenis.scrollTo(targetY, { immediate: false })
+          } catch {
+            /* ignore */
+          }
+        }
+      }
       // Clear the state AFTER the scroll has fired (inside the timeout)
       // so a refresh doesn't re-scroll and cleanup can't cancel the timer.
       navigate(location.pathname, { replace: true, state: {} })
@@ -64,7 +80,7 @@ export default function JourneyPage() {
       {/* Life Lessons — compact editorial showcase */}
       <LessonGrid lessons={lessons} />
 
-      {/* Map Architecture — ready for Frankie's upcoming custom life map asset */}
+      {/* Map Architecture — interactive 8-act journey roadmap & illustrated canvas */}
       <MapSection />
 
       {/* Life Map & Milestones — A Life in Chapters */}
