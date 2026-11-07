@@ -486,12 +486,12 @@ async function runTests() {
   });
   await new Promise((r) => setTimeout(r, 600));
 
-  // Tap Life Map button in mobile menu
+  // Tap Life Map in mobile menu (renders as <Link> or <button>)
   const mobileNavResult = await cdp.send('Runtime.evaluate', {
     expression: `(() => {
-      const btn = Array.from(document.querySelectorAll('button')).find(b => b.innerText.trim() === 'Life Map');
-      if (!btn) return { error: 'Life map button not found in mobile menu' };
-      btn.click();
+      const el = Array.from(document.querySelectorAll('a, button')).find(b => b.innerText.trim() === 'Life Map');
+      if (!el) return { error: 'Life map link/button not found in mobile menu' };
+      el.click();
       return { success: true };
     })()`,
     returnByValue: true,
@@ -501,14 +501,15 @@ async function runTests() {
 
   const mobileCheck = await cdp.send('Runtime.evaluate', {
     expression: `(() => {
-      const section = document.getElementById('life-map');
-      const rect = section ? section.getBoundingClientRect() : null;
-      const scrolled = window.scrollY > 200;
-      const nearSection = rect ? Math.abs(rect.top) < 400 : false;
-      const passed = scrolled && nearSection;
+      const hash = window.location.hash;
+      const onLifeMapPage = hash.includes('life-map');
+      const hasTitle = document.body.innerText.includes('The Map of a Life') || document.body.innerText.includes('Every Piece Fit');
+      const hasIllustratedCanvas = !!document.getElementById('illustrated-map');
+      const atTop = window.scrollY < 100;
+      const passed = onLifeMapPage && hasTitle && hasIllustratedCanvas && atTop;
       return {
         passed,
-        details: 'Scrolled down: ' + scrolled + ' (scrollY: ' + Math.round(window.scrollY) + 'px), Section visible in viewport: ' + nearSection
+        details: 'Navigated to hash: ' + hash + ', On Life Map Page: ' + onLifeMapPage + ', Title visible: ' + hasTitle + ', Canvas present: ' + hasIllustratedCanvas + ', Scroll at top (no hero reset bug): ' + atTop
       };
     })()`,
     returnByValue: true,

@@ -901,7 +901,7 @@ export const navLinks = [
   { id: 'media', label: 'Media', route: '/act/amplifying' },
   { id: 'books', label: 'Books' },
   { id: 'art', label: 'Art' },
-  { id: 'life-map', label: 'Life Map' },
+  { id: 'life-map', label: 'Life Map', route: '/life-map' },
   { id: 'contact', label: 'Connect' }
 ]
 

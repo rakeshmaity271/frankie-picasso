@@ -14,6 +14,29 @@ import { sectionIds } from './data/content'
 const ActPage = lazy(() => import('./pages/ActPage'))
 
 /**
+ * ScrollToTop ensures that when moving across different routes (e.g. from
+ * JourneyPage to /life-map or /act/amplifying), the window immediately resets
+ * to the very top (0, 0), unless a specific section scrollTo intent is active.
+ */
+function ScrollToTop() {
+  const { pathname, state } = useLocation()
+
+  useEffect(() => {
+    if (state?.scrollTo) return
+    window.scrollTo(0, 0)
+    if (window.__lenis) {
+      try {
+        window.__lenis.scrollTo(0, { immediate: true })
+      } catch {
+        /* ignore */
+      }
+    }
+  }, [pathname, state])
+
+  return null
+}
+
+/**
  * LegacySectionRedirect — catch-all for old bookmark-style URLs like
  * site/#contact, #books, #building. If the path segment is a known
  * section id, redirect home with scroll intent; otherwise just go home.
@@ -57,6 +80,7 @@ function App() {
   return (
     <MapProvider>
     <div className="min-h-screen">
+      <ScrollToTop />
       <SiteLoader />
 
       {/* Scroll progress bar */}

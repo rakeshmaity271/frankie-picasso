@@ -28,18 +28,28 @@ export default function Nav() {
     const navHeight = 72
     const rect = el.getBoundingClientRect()
     const targetY = Math.max(0, rect.top + window.pageYOffset - navHeight)
+    const isTouch =
+      typeof window !== 'undefined' &&
+      ('ontouchstart' in window ||
+        navigator.maxTouchPoints > 0 ||
+        window.matchMedia('(pointer: coarse)').matches)
 
-    // Primary: Native smooth window scroll
+    const distance = Math.abs(targetY - window.scrollY)
+    // On touch devices (iPhone, iPad, Android), smooth-scrolling across >2500px
+    // causes WebKit animation timeouts and gesture cancellations.
+    // Use instant scroll for large distances on touch, smooth for nearby or desktop.
+    const behavior = isTouch && distance > 2500 ? 'auto' : 'smooth'
+
     try {
       window.scrollTo({
         top: targetY,
-        behavior: 'smooth'
+        behavior
       })
     } catch {
       window.scrollTo(0, targetY)
     }
 
-    // Secondary: Lenis smooth scroll if active
+    // Secondary: Lenis smooth scroll if active (desktop only)
     if (window.__lenis) {
       try {
         window.__lenis.scrollTo(targetY, { immediate: false, duration: 1.0 })
@@ -82,7 +92,7 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [handleScroll])
 
-  // After returning to the Journey page from an act route, complete the
+  // After returning to the Journey page from another route, complete the
   // pending section scroll once the page has rendered.
   useEffect(() => {
     if (location.pathname !== '/' || !pendingSection.current) return
@@ -94,33 +104,33 @@ export default function Nav() {
     return () => clearTimeout(timer)
   }, [location.pathname, performScroll])
 
-  const scrollToSection = (id) => {
+  const handleLinkClick = (link, e) => {
     setMenuOpen(false)
     setJourneyDropdownOpen(false)
 
-    if (!onJourney) {
-      pendingSection.current = id
-      navigate('/', { state: { scrollTo: id } })
-      return
-    }
-
-    // Trigger scroll immediately
-    performScroll(id)
-
-    // Trigger second pass after 120ms to ensure mobile touch gesture is finished
-    setTimeout(() => {
-      performScroll(id)
-    }, 120)
-  }
-
-  const handleLinkClick = (link) => {
-    setJourneyDropdownOpen(false)
     if (link.route) {
-      setMenuOpen(false)
-      navigate(link.route.replace(/^#/, ''))
+      const target = link.route.replace(/^#/, '')
+      window.scrollTo(0, 0)
+      if (window.__lenis) {
+        try {
+          window.__lenis.scrollTo(0, { immediate: true })
+        } catch {
+          /* ignore */
+        }
+      }
+      navigate(target)
       return
     }
-    scrollToSection(link.id)
+
+    if (!onJourney) {
+      pendingSection.current = link.id
+      navigate('/', { state: { scrollTo: link.id } })
+      return
+    }
+
+    performScroll(link.id)
+    // Extra pass after touch release to guarantee accuracy
+    setTimeout(() => performScroll(link.id), 120)
   }
 
   const navigateToAct = (actId) => {
@@ -159,8 +169,15 @@ export default function Nav() {
           <Link
             to="/"
             onClick={() => {
-              if (onJourney) {
-                window.scrollTo({ top: 0, behavior: 'smooth' })
+              setMenuOpen(false)
+              setJourneyDropdownOpen(false)
+              window.scrollTo(0, 0)
+              if (window.__lenis) {
+                try {
+                  window.__lenis.scrollTo(0, { immediate: true })
+                } catch {
+                  /* ignore */
+                }
               }
             }}
             className="font-serif text-lg md:text-xl font-medium tracking-wide text-[var(--text-primary,#2C2C2C)] hover:opacity-70 transition-opacity duration-300 cursor-pointer"
@@ -197,10 +214,7 @@ export default function Nav() {
                   {link.route ? (
                     <Link
                       to={link.route.replace(/^#/, '')}
-                      onClick={() => {
-                        setMenuOpen(false)
-                        setJourneyDropdownOpen(false)
-                      }}
+                      onClick={(e) => handleLinkClick(link, e)}
                       className={`
                         relative text-sm font-sans font-normal tracking-wide
                         transition-colors duration-300 cursor-pointer
@@ -223,7 +237,7 @@ export default function Nav() {
                   ) : (
                     <button
                       type="button"
-                      onClick={() => handleLinkClick(link)}
+                      onClick={(e) => handleLinkClick(link, e)}
                       className={`
                         relative text-sm font-sans font-normal tracking-wide
                         transition-colors duration-300 cursor-pointer
@@ -356,10 +370,7 @@ export default function Nav() {
                     {link.route ? (
                       <Link
                         to={link.route.replace(/^#/, '')}
-                        onClick={() => {
-                          setMenuOpen(false)
-                          setJourneyDropdownOpen(false)
-                        }}
+                        onClick={(e) => handleLinkClick(link, e)}
                         className={`
                           font-serif text-2xl sm:text-3xl font-light tracking-wide
                           transition-colors duration-300 cursor-pointer py-1
@@ -374,7 +385,7 @@ export default function Nav() {
                     ) : (
                       <button
                         type="button"
-                        onClick={() => scrollToSection(link.id)}
+                        onClick={(e) => handleLinkClick(link, e)}
                         className={`
                           font-serif text-2xl sm:text-3xl font-light tracking-wide
                           transition-colors duration-300 cursor-pointer py-1
