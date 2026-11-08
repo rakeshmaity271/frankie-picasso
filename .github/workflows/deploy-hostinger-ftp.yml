@@ -2,6 +2,9 @@ name: Deploy to Hostinger (FTP)
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - dev
 
 env:
   NODE_VERSION: '20'

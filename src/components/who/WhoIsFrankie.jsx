@@ -32,7 +32,7 @@ export default function WhoIsFrankie() {
 
         {/* Behind-the-curtain moment: her own campaign panel at the bus stop */}
         <ScrollReveal variant="fadeUp" delay={0.15}>
-          <figure className="mb-8 md:mb-12 -rotate-[1.5deg] transition-transform duration-500 hover:rotate-0">
+          <figure className="mb-8 md:mb-12 -rotate-[1.5deg] transition-transform duration-500 ">
             <div className="bg-[#FAF6F0] p-2.5 pb-3 rounded-sm shadow-[0_12px_32px_rgba(44,28,16,0.14)] border border-[#E8DCC8]">
               <img
                 src="/images/art-campaign-poster-frankie.jpg"
@@ -67,7 +67,7 @@ export default function WhoIsFrankie() {
         {/* Behind-the-scenes candid — Frankie in her element at the office */}
         {data.officeCandid && (
           <ScrollReveal variant="fadeUp" delay={0.12}>
-            <figure className="mb-8 md:mb-12 mx-auto max-w-[320px] rotate-[1.5deg] transition-transform duration-500 hover:rotate-0">
+            <figure className="mb-8 md:mb-12 mx-auto max-w-[320px] rotate-[1.5deg] transition-transform duration-500 ">
               <div className="bg-[#FAF6F0] p-2.5 pb-3 rounded-sm shadow-[0_12px_32px_rgba(44,28,16,0.14)] border border-[#E8DCC8]">
                 <img
                   src={data.officeCandid.src}

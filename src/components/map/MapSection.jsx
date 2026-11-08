@@ -41,15 +41,15 @@ export default function MapSection({
           </div>
         </ScrollReveal>
 
-        {/* Featured Custom Illustration (if image asset provided) OR Illustrated Canvas Anchor */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-12 md:mb-16"
-        >
-          {src ? (
+        {/* Featured Custom Illustration (only rendered when artwork file is provided) */}
+        {src && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-12 md:mb-16"
+          >
             <div className="relative rounded-2xl overflow-hidden shadow-[0_16px_48px_rgba(44,30,20,0.12)] border border-[#E8D5B5] bg-[#FFF8F0] p-4 md:p-8">
               <img
                 src={src}
@@ -64,26 +64,8 @@ export default function MapSection({
                 </p>
               )}
             </div>
-          ) : (
-            <div className="relative rounded-2xl border-2 border-dashed border-[#D4C3A3] bg-gradient-to-b from-[#FFFDF8] to-[#F5ECE0] p-8 md:p-12 shadow-[0_12px_36px_rgba(44,28,16,0.06)] text-center">
-              <div className="max-w-[680px] mx-auto flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-[#FAF3EA] border border-[#E8DCC8] flex items-center justify-center text-3xl mb-4 text-[#8B5FB0] shadow-inner">
-                  🗺️
-                </div>
-                <h3 className="font-serif text-xl md:text-2xl text-[#2C2C2C] mb-2 font-medium">
-                  Illustrated Map Artwork Canvas
-                </h3>
-                <p className="font-sans text-xs md:text-sm text-[#4A4A4A] leading-relaxed mb-6">
-                  This showcase is reserved for Frankie&rsquo;s custom hand-illustrated life map artwork. Below is the live, interactive cartography charting the eight defining chapters of her journey.
-                </p>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 border border-[#E8DCC8] text-xs font-sans font-medium text-[#4A4A4A] shadow-sm">
-                  <span className="w-2 h-2 rounded-full bg-[#629E46] animate-pulse"></span>
-                  <span>Interactive Map Live &bull; Ready for Illustrated Artwork File</span>
-                </div>
-              </div>
-            </div>
-          )}
-        </motion.div>
+          </motion.div>
+        )}
 
         {/* 8-Act Interconnected Journey Map Grid */}
         <div className="mb-12">

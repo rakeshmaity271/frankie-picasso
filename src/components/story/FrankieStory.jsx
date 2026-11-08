@@ -178,13 +178,10 @@ function ScrapbookCard({ image, dream, index }) {
     <motion.div
       ref={ref}
       className="rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.08)] cursor-default bg-[#FDF5ED]"
-      style={{
-        transform: `rotate(${rotation}deg)`,
-      }}
       initial={{ opacity: 0, y: 40, rotate: 0 }}
       animate={isInView ? { opacity: 1, y: 0, rotate: rotation } : { opacity: 0, y: 40, rotate: 0 }}
       transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ rotate: 0, scale: 1.05, transition: { duration: 0.3 } }}
+      whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
     >
       <div className="aspect-[100/114] w-full">
         <img

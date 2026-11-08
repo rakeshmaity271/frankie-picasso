@@ -52,7 +52,7 @@ export default function BooksPublications() {
             <img
               src="/images/act4-amazon-bestseller-badge.jpg"
               alt="Amazon.com Best Selling Author badge"
-              className="w-24 md:w-28 mx-auto mt-5 rotate-[-4deg] drop-shadow-[0_4px_10px_rgba(44,30,20,0.18)] transition-transform duration-500 hover:rotate-0"
+              className="w-24 md:w-28 mx-auto mt-5 rotate-[-4deg] drop-shadow-[0_4px_10px_rgba(44,30,20,0.18)] transition-transform duration-500 "
               loading="lazy"
               decoding="async"
             />

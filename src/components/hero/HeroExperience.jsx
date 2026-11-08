@@ -134,7 +134,7 @@ export default function HeroExperience() {
 
         {/* Frankie's personal handwritten welcome note */}
         <motion.div
-          className="my-5 max-w-[620px] mx-auto px-5 py-3.5 rounded-xl bg-white/70 backdrop-blur-sm border border-[#FFB400]/30 shadow-[0_8px_24px_rgba(44,28,16,0.06)] transform -rotate-[0.8deg] hover:rotate-0 transition-transform duration-400"
+          className="my-5 max-w-[620px] mx-auto px-5 py-3.5 rounded-xl bg-white/70 backdrop-blur-sm border border-[#FFB400]/30 shadow-[0_8px_24px_rgba(44,28,16,0.06)] transform -rotate-[0.8deg]  transition-transform duration-400"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}

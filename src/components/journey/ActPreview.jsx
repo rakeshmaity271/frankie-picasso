@@ -33,9 +33,8 @@ function PhotoFigure({ image, delay = 0, rotate = -1.2, large = false, fill = fa
   if (!image || !image.src) return null;
   return (
     <motion.figure
-      className={`${fill ? 'w-full' : 'w-fit mx-auto'} bg-[#FAF6F0] ${large ? 'p-3 sm:p-3.5 pb-3.5 sm:pb-4' : 'p-2.5 sm:p-3 pb-3 sm:pb-3.5'} rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70 ${className}`}
+      className={`${fill ? 'w-full' : 'w-fit mx-auto'} bg-[#FAF6F0] ${large ? 'p-3 sm:p-3.5 pb-3.5 sm:pb-4' : 'p-2.5 sm:p-3 pb-3 sm:pb-3.5'} rounded-sm shadow-[0_12px_36px_rgba(44,28,16,0.12)] border border-[#E8DCC8]/70 transition-shadow duration-300 hover:shadow-[0_16px_44px_rgba(44,28,16,0.18)] ${className}`}
       initial={{ opacity: 0, y: 28, rotate }}
-      whileHover={{ rotate: 0, transition: { duration: 0.5, ease: EASE } }}
       whileInView={{ opacity: 1, y: 0, rotate }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.9, delay, ease: EASE }}

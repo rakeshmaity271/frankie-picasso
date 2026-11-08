@@ -55,7 +55,7 @@ export default function Art() {
 
           {/* Behind-the-curtain candid: Frankie at her gallery exhibition */}
           <ScrollReveal variant="fadeUp" delay={0.15}>
-            <figure className="relative w-full max-w-[340px] mx-auto mt-9 mb-1 rotate-[1.5deg] transition-transform duration-500 hover:rotate-0">
+            <figure className="relative w-full max-w-[340px] mx-auto mt-9 mb-1 rotate-[1.5deg] transition-transform duration-500 ">
               <div className="bg-[#FAF6F0] p-2.5 pb-3 rounded-sm shadow-[0_10px_28px_rgba(44,28,16,0.14)] border border-[#E8DCC8]">
                 <img
                   src="/images/art-gallery-exhibition-sign.jpg"

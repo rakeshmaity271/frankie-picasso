@@ -88,7 +88,7 @@ export default function LifeMapPage() {
               href="#illustrated-map"
               className="px-5 py-2.5 rounded-full bg-[#FFB400]/20 border border-[#FFB400]/40 text-[#9E6500] text-xs font-sans font-semibold tracking-wide hover:bg-[#FFB400]/30 transition-colors"
             >
-              Illustrated Map Canvas ↓
+              The Eight Acts Cartography ↓
             </a>
           </motion.div>
         </div>

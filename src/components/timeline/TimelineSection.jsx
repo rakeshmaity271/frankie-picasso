@@ -98,7 +98,7 @@ function MilestoneNode({ milestone, index, isLeft }) {
         {isLeft ? (
           <MilestoneText milestone={milestone} />
         ) : (
-          <MilestoneImage milestone={milestone} />
+          <MilestoneImage milestone={milestone} index={index} />
         )}
       </div>
 
@@ -117,7 +117,7 @@ function MilestoneNode({ milestone, index, isLeft }) {
       {/* Right content or image */}
       <div className={`${isLeft ? 'md:order-3' : ''}`}>
         {isLeft ? (
-          <MilestoneImage milestone={milestone} />
+          <MilestoneImage milestone={milestone} index={index} />
         ) : (
           <MilestoneText milestone={milestone} />
         )}
@@ -148,12 +148,13 @@ function MilestoneText({ milestone }) {
   )
 }
 
-function MilestoneImage({ milestone }) {
+function MilestoneImage({ milestone, index = 0 }) {
+  const rotation = index % 2 === 0 ? -1.5 : 1.5
   return (
     <div className="flex justify-center md:justify-start">
       <div
         className="relative w-full max-w-[280px] md:max-w-[240px] p-2 bg-white rounded-sm shadow-[0_8px_24px_rgba(44,44,44,0.1)]"
-        style={{ transform: `rotate(${Math.random() > 0.5 ? -1.5 : 1.5}deg)` }}
+        style={{ transform: `rotate(${rotation}deg)` }}
       >
         <div className="w-full">
           <img
