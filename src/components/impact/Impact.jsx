@@ -210,10 +210,11 @@ export default function Impact() {
                         href={platform.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-4 rounded-lg bg-[#2C2C2C] hover:bg-[#EE5802] text-white font-sans text-xs font-medium tracking-wider uppercase transition-colors duration-300 mt-2"
+                        className="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-4 rounded-lg bg-[#2C2C2C] hover:bg-[#EE5802] text-white !text-white font-sans text-xs font-medium tracking-wider uppercase transition-colors duration-300 mt-2 shadow-xs"
+                        style={{ color: '#FFFFFF' }}
                       >
-                        <span>{platform.cta || 'Visit Platform'}</span>
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <span className="text-white !text-white" style={{ color: '#FFFFFF' }}>{platform.cta || 'Visit Platform'}</span>
+                        <svg className="text-white !text-white" style={{ color: '#FFFFFF' }} width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="7" y1="17" x2="17" y2="7" />
                           <polyline points="7 7 17 7 17 17" />
                         </svg>

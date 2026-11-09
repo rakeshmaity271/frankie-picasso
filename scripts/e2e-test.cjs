@@ -192,7 +192,15 @@ async function runTests() {
   async function navigateAndEvaluate(route, testName, evaluator) {
     const fullUrl = `http://localhost:${PORT}/${route}`;
     await cdp.send('Page.navigate', { url: fullUrl });
-    await new Promise((r) => setTimeout(r, 2000));
+    for (let i = 0; i < 25; i++) {
+      const chk = await cdp.send('Runtime.evaluate', {
+        expression: '!!(document.getElementById("root") && document.getElementById("root").children.length > 0)',
+        returnByValue: true,
+      });
+      if (chk.result?.value) break;
+      await new Promise((r) => setTimeout(r, 200));
+    }
+    await new Promise((r) => setTimeout(r, 1500));
 
     const evalResult = await cdp.send('Runtime.evaluate', {
       expression: `(${evaluator.toString()})()`,
