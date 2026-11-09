@@ -366,6 +366,9 @@ async function runTests() {
 
   // --- Test 9: Books & Publications ---
   await navigateAndEvaluate('#/books', 'Books & Publications — 5 Bestsellers & Covers', async () => {
+    const el = document.getElementById('books');
+    if (el) el.scrollIntoView();
+    await new Promise((r) => setTimeout(r, 600));
     const text = document.body.innerText;
     const hasMojo = text.includes('Midlife Mojo');
     const has40Pounds = text.includes('For Want of 40 Pounds');
@@ -408,6 +411,8 @@ async function runTests() {
     const hasUnstoppable = text.includes('The Unstoppable Frankie Picasso');
     const hasFrankieJohnny = text.includes('Frankie & Johnny');
     const hasPAWcasso = text.includes('Original PAWcasso Pet Paintings');
+    const hasGoodRadio = text.includes('The Good Radio Network');
+    const hasThoughtatudes = text.includes('Thoughtatudes');
 
     const rentLink = document.querySelector('a[href="https://rentthebeliever.com/"]');
     const imgElements = Array.from(document.querySelectorAll('img')).filter((img) => img.src.includes('logo-'));
@@ -426,7 +431,7 @@ async function runTests() {
 
     return {
       passed,
-      details: `All 6 platforms found: ${hasRentTheBeliever && hasShoes && hasWhatsMyQ && hasUnstoppable && hasFrankieJohnny && hasPAWcasso}, Rent The Believer link: ${!!rentLink}, Logo images count: ${imgElements.length}, All 200 OK: ${checks.every(Boolean)}`,
+      details: `All 8 platforms found: ${hasRentTheBeliever && hasShoes && hasWhatsMyQ && hasUnstoppable && hasFrankieJohnny && hasPAWcasso}, Rent The Believer link: ${!!rentLink}, Logo images count: ${imgElements.length}, All 200 OK: ${checks.every(Boolean)}`,
     };
   });
 

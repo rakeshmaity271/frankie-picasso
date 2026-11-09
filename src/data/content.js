@@ -676,6 +676,14 @@ export const content = {
         badge: 'Coaching'
       },
       {
+        name: 'The Good Radio Network',
+        tagline: 'Radio That Does a World of Good',
+        category: 'Global Media Network',
+        description: 'International positive-impact media platform founded in 2014, home to Mission Unstoppable, FrankieSense & More, and uplifting broadcasting worldwide.',
+        image: '/images/logo-the-good-radio-network.jpg',
+        badge: 'Broadcasting'
+      },
+      {
         name: 'Conversation with My Shoes',
         tagline: 'Life Coaching with Frankie Picasso',
         category: 'Life Coaching & Media',
@@ -692,6 +700,14 @@ export const content = {
         badge: 'Coming Soon'
       },
       {
+        name: 'Thoughtatudes',
+        tagline: 'Center for Positive Outcomes',
+        category: 'Personal Growth & Healing',
+        description: 'Frankie’s transformative formula: Thought x Attitude = Positive Outcome. Master life coaching, hypnotherapy, and energy healing for personal breakthroughs.',
+        image: '/images/logo-thoughtatudes.jpg',
+        badge: 'Empowerment'
+      },
+      {
         name: 'The Unstoppable Frankie Picasso',
         tagline: 'Platform Builder. Broadcaster. Champion.',
         category: 'Brand & Movement',
@@ -705,14 +721,14 @@ export const content = {
         category: 'Radio Network',
         description: 'A dynamic radio hour celebrating good music, rhythm, curiosity, and the stories behind the songs.',
         image: '/images/logo-frankie-and-johnny.png',
-        badge: 'Broadcasting'
+        badge: 'Radio'
       },
       {
         name: 'Original PAWcasso Pet Paintings',
         tagline: 'Because everyone Loves an Original',
         category: 'Fine Art & Pet Portraits',
         description: 'Custom fine art pet portraits and original paintings celebrating companion animals while supporting animal welfare causes.',
-        image: '/images/logo-original-pawcasso-pet-paintings.jpg',
+        image: '/images/logo-original-pawcasso-pet-paintings.png',
         badge: 'Fine Art'
       }
     ]

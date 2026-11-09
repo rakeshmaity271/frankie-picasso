@@ -138,7 +138,7 @@ export default function Impact() {
               </ScrollReveal>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7 items-stretch">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 items-stretch">
               {data.platforms.map((platform, i) => (
                 <ScrollReveal key={i} variant="fadeUp" delay={i * 0.08}>
                   <div className="p-6 rounded-2xl bg-[#FAF6F0] border border-[#E8DCC8] shadow-[0_6px_24px_rgba(44,30,20,0.06)] hover:shadow-[0_12px_36px_rgba(44,30,20,0.12)] hover:-translate-y-1 transition-all duration-400 flex flex-col justify-between h-full group">
