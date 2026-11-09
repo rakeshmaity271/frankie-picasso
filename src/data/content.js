@@ -900,6 +900,8 @@ export const sectionIds = [
   'still-becoming',
   'life-map',
   'impact',
+  'logos',
+  'platforms',
   'media',
   'books',
   'voices',

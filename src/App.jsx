@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, lazy, Suspense } from 'react'
+import { useEffect, useState, useCallback, useRef, lazy, Suspense } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Nav from './components/layout/Nav'
 import Footer from './components/layout/Footer'
@@ -20,15 +20,19 @@ const ActPage = lazy(() => import('./pages/ActPage'))
  */
 function ScrollToTop() {
   const { pathname, state } = useLocation()
+  const prevPathname = useRef(pathname)
 
   useEffect(() => {
-    if (state?.scrollTo) return
-    window.scrollTo(0, 0)
-    if (window.__lenis) {
-      try {
-        window.__lenis.scrollTo(0, { immediate: true })
-      } catch {
-        /* ignore */
+    if (prevPathname.current !== pathname) {
+      prevPathname.current = pathname
+      if (state?.scrollTo) return
+      window.scrollTo(0, 0)
+      if (window.__lenis) {
+        try {
+          window.__lenis.scrollTo(0, { immediate: true })
+        } catch {
+          /* ignore */
+        }
       }
     }
   }, [pathname, state])
@@ -47,6 +51,9 @@ function LegacySectionRedirect() {
   if (segment === 'media') return <Navigate to="/act/amplifying" replace />
   if (segment === 'life-map' || segment === 'timeline' || segment === 'map' || segment === 'lifemap') {
     return <Navigate to="/life-map" replace />
+  }
+  if (segment === 'logos' || segment === 'platforms') {
+    return <Navigate to="/" replace state={{ scrollTo: 'logos' }} />
   }
   if (segment && sectionIds.includes(segment)) {
     return <Navigate to="/" replace state={{ scrollTo: segment }} />

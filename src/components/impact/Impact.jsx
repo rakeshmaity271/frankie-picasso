@@ -49,9 +49,33 @@ export default function Impact() {
             <h2 className="font-serif font-light text-[clamp(2.2rem,4.5vw,3.8rem)] text-[#2C2C2C] leading-[1.12] mb-4">
               Legacy in Motion
             </h2>
-            <p className="font-serif italic text-base md:text-xl text-[#2C2C2C]/75 leading-relaxed">
+            <p className="font-serif italic text-base md:text-xl text-[#2C2C2C]/75 leading-relaxed mb-5">
               &ldquo;{data.subtitle}&rdquo;
             </p>
+            <a
+              href="#logos"
+              onClick={(e) => {
+                e.preventDefault()
+                const el = document.getElementById('logos')
+                if (el) {
+                  const navHeight = 72
+                  const rect = el.getBoundingClientRect()
+                  const targetY = Math.max(0, rect.top + window.pageYOffset - navHeight)
+                  if (window.__lenis) {
+                    try { window.__lenis.scrollTo(targetY, { duration: 0.8 }) } catch {}
+                  }
+                  try {
+                    window.scrollTo({ top: targetY, behavior: 'smooth' })
+                  } catch {
+                    window.scrollTo(0, targetY)
+                  }
+                }
+              }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs md:text-sm font-sans font-medium text-[#EE5802] bg-[#EE5802]/10 hover:bg-[#EE5802]/20 border border-[#EE5802]/25 shadow-xs transition-all duration-300 group"
+            >
+              <span>Explore All 8 Company &amp; Media Logos</span>
+              <span className="transition-transform duration-300 group-hover:translate-y-0.5" aria-hidden="true">&darr;</span>
+            </a>
           </ScrollReveal>
         </div>
 
@@ -123,7 +147,8 @@ export default function Impact() {
 
         {/* Business Logos & Platforms Showcase */}
         {data.platforms && (
-          <div className="mt-16 md:mt-24">
+          <div id="logos" className="mt-16 md:mt-24 scroll-mt-24">
+            <span id="platforms" className="block -mt-24 pt-24 invisible pointer-events-none" aria-hidden="true" />
             <div className="text-center max-w-[720px] mx-auto mb-10 md:mb-14">
               <ScrollReveal variant="fadeUp">
                 <p className="font-sans text-xs md:text-sm font-semibold uppercase tracking-[0.3em] text-[#EE5802] mb-3">

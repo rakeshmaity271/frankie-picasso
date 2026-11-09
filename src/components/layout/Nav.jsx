@@ -190,7 +190,7 @@ export default function Nav() {
             {navLinks.map((link) => {
               const isJourney = link.id === 'where-belief-began'
               const isRouteActive = link.route && location.pathname === link.route.replace(/^#/, '')
-              const isSectionActive = !link.route && onJourney && activeSection === link.id
+              const isSectionActive = !link.route && onJourney && (activeSection === link.id || (link.id === 'impact' && (activeSection === 'logos' || activeSection === 'platforms')))
               const isActive = isRouteActive || isSectionActive
 
               return (
@@ -355,7 +355,7 @@ export default function Nav() {
             <ul className="flex flex-col items-center gap-4 sm:gap-5 w-full max-w-[360px] px-6">
               {navLinks.map((link, i) => {
                 const isRouteActive = link.route && location.pathname === link.route.replace(/^#/, '')
-                const isSectionActive = !link.route && onJourney && activeSection === link.id
+                const isSectionActive = !link.route && onJourney && (activeSection === link.id || (link.id === 'impact' && (activeSection === 'logos' || activeSection === 'platforms')))
                 const isActive = isRouteActive || isSectionActive
 
                 return (
