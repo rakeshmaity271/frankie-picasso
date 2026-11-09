@@ -664,32 +664,88 @@ export const content = {
         icon: 'leadership'
       }
     ],
-    platforms: [
+        platforms: [
       {
         name: 'Rent The Believer',
         tagline: 'Until You Believe in Yourself',
-        category: 'Executive Coaching',
-        description: 'Executive coaching and master coach training focused on leadership, personal development, and transformational growth.',
+        category: 'Entrepreneurial Coaching',
+        description: 'Frankie’s specialized coaching platform for entrepreneurs, founders, and innovators — providing unwavering belief and strategic mentorship to bring bold ideas to fruition.',
         image: '/images/logo-rent-the-believer.jpg',
         url: 'https://rentthebeliever.com/',
         cta: 'Visit Platform',
-        badge: 'Coaching'
+        badge: 'Entrepreneurial Coaching'
+      },
+      {
+        name: 'Thoughtatudes',
+        tagline: 'Thought x Attitude = Positive Outcome',
+        category: 'Business Coaching',
+        description: 'Frankie’s signature business coaching practice for leadership teams and organizations. Applying the proven formula: Thought x Attitude = Positive Outcome for strategic breakthroughs and workplace empowerment.',
+        image: '/images/logo-thoughtatudes.jpg',
+        badge: 'Business Coaching'
+      },
+      {
+        name: 'Conversation with My Shoes',
+        tagline: 'Life Coaching with Frankie Picasso',
+        category: 'Individual Coaching',
+        description: 'Intimate one-on-one individual life coaching and empowering multimedia dialogues sharing candid journeys of personal resilience, authenticity, and growth.',
+        image: '/images/logo-conversation-with-my-shoes.jpg',
+        badge: 'Individual Coaching'
+      },
+      {
+        name: 'Coach Picasso',
+        tagline: 'Master Certified Life & Executive Coach',
+        category: 'Master Coaching',
+        description: 'Frankie’s foundational master coaching practice, pioneering empowering strategies to help clients dissolve limitations, master resilience, and lead with purpose.',
+        image: '/images/logo-coach-picasso.jpg',
+        badge: 'Master Coaching'
       },
       {
         name: 'The Good Radio Network',
         tagline: 'Radio That Does a World of Good',
         category: 'Global Media Network',
-        description: 'International positive-impact media platform founded in 2014, home to Mission Unstoppable, FrankieSense & More, and uplifting broadcasting worldwide.',
+        description: 'International positive-impact media platform founded by Frankie in 2014, home to Mission Unstoppable, FrankieSense & More, and uplifting broadcasting worldwide.',
         image: '/images/logo-the-good-radio-network.jpg',
+        url: 'https://www.thegoodradionetwork.com/',
+        cta: 'Visit Network',
         badge: 'Broadcasting'
       },
       {
-        name: 'Conversation with My Shoes',
-        tagline: 'Life Coaching with Frankie Picasso',
-        category: 'Life Coaching & Media',
-        description: 'Intimate life coaching and empowering multimedia dialogues sharing stories of resilience and growth.',
-        image: '/images/logo-conversation-with-my-shoes.jpg',
-        badge: 'Life Coaching'
+        name: 'I Changed the World',
+        tagline: 'Everyday People. Extraordinary Impact.',
+        category: 'Radio Show',
+        description: 'Frankie’s inspiring radio show hosted on The Good Radio Network, spotlighting ordinary people creating extraordinary ripple effects around the globe.',
+        image: '/images/logo-i-changed-the-world.jpg',
+        url: 'https://www.thegoodradionetwork.com/',
+        cta: 'Listen on Network',
+        badge: 'Radio Show'
+      },
+      {
+        name: 'The Unstoppable Frankie Picasso',
+        tagline: 'Platform Builder. Broadcaster. Champion.',
+        category: 'Brand & Movement',
+        description: 'The signature international brand and mantra that defined over twenty years of broadcasting, resilience, advocacy, and social impact.',
+        image: '/images/logo-unstoppable-frankie-picasso.png',
+        url: 'https://www.thegoodradionetwork.com/',
+        cta: 'Visit Platform',
+        badge: 'Brand'
+      },
+      {
+        name: 'Frankie & Johnny Music Hour',
+        tagline: 'Positive-Impact Music Broadcasting',
+        category: 'Radio Show',
+        description: 'A dynamic radio hour celebrating good music, rhythm, curiosity, and the memorable stories behind timeless songs.',
+        image: '/images/logo-frankie-and-johnny.png',
+        url: 'https://www.thegoodradionetwork.com/',
+        cta: 'Listen on Network',
+        badge: 'Radio'
+      },
+      {
+        name: 'Card Readings For You',
+        tagline: 'Intuitive Guidance & Grounded Clarity',
+        category: 'Intuitive Guidance',
+        description: 'Intuitive card consultations and grounded guidance bridging spiritual insight, mindfulness, and practical direction for life’s crossroads.',
+        image: '/images/logo-card-readings-for-you.jpg',
+        badge: 'Intuitive Guidance'
       },
       {
         name: 'What’s My Q',
@@ -700,34 +756,10 @@ export const content = {
         badge: 'Coming Soon'
       },
       {
-        name: 'Thoughtatudes',
-        tagline: 'Center for Positive Outcomes',
-        category: 'Personal Growth & Healing',
-        description: 'Frankie’s transformative formula: Thought x Attitude = Positive Outcome. Master life coaching, hypnotherapy, and energy healing for personal breakthroughs.',
-        image: '/images/logo-thoughtatudes.jpg',
-        badge: 'Empowerment'
-      },
-      {
-        name: 'The Unstoppable Frankie Picasso',
-        tagline: 'Platform Builder. Broadcaster. Champion.',
-        category: 'Brand & Movement',
-        description: 'The signature mantra and international brand that defined over twenty years of broadcasting, resilience, and advocacy.',
-        image: '/images/logo-unstoppable-frankie-picasso.png',
-        badge: 'Brand'
-      },
-      {
-        name: 'Frankie & Johnny Music Hour',
-        tagline: 'Positive-Impact Music Broadcasting',
-        category: 'Radio Network',
-        description: 'A dynamic radio hour celebrating good music, rhythm, curiosity, and the stories behind the songs.',
-        image: '/images/logo-frankie-and-johnny.png',
-        badge: 'Radio'
-      },
-      {
         name: 'Original PAWcasso Pet Paintings',
         tagline: 'Because everyone Loves an Original',
         category: 'Fine Art & Pet Portraits',
-        description: 'Custom fine art pet portraits and original paintings celebrating companion animals while supporting animal welfare causes.',
+        description: 'Custom fine art pet portraits and original paintings celebrating companion animals while supporting animal welfare causes worldwide.',
         image: '/images/logo-original-pawcasso-pet-paintings.png',
         badge: 'Fine Art'
       }

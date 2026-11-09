@@ -413,8 +413,12 @@ async function runTests() {
     const hasPAWcasso = text.includes('Original PAWcasso Pet Paintings');
     const hasGoodRadio = text.includes('The Good Radio Network');
     const hasThoughtatudes = text.includes('Thoughtatudes');
+    const hasCoachPicasso = text.includes('Coach Picasso');
+    const hasCardReadings = text.includes('Card Readings For You');
+    const hasIChangedTheWorld = text.includes('I Changed the World');
 
     const rentLink = document.querySelector('a[href="https://rentthebeliever.com/"]');
+    const goodRadioLink = document.querySelector('a[href="https://www.thegoodradionetwork.com/"]');
     const imgElements = Array.from(document.querySelectorAll('img')).filter((img) => img.src.includes('logo-'));
     const checks = await Promise.all(imgElements.map((i) => fetch(i.src).then((r) => r.status === 200).catch(() => false)));
 
@@ -426,7 +430,11 @@ async function runTests() {
       hasFrankieJohnny &&
       hasPAWcasso &&
       !!rentLink &&
-      imgElements.length >= 6 &&
+      imgElements.length >= 10 &&
+      hasCoachPicasso &&
+      hasCardReadings &&
+      hasIChangedTheWorld &&
+      !!goodRadioLink &&
       checks.every(Boolean);
 
     return {

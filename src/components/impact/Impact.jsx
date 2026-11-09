@@ -73,7 +73,7 @@ export default function Impact() {
               }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs md:text-sm font-sans font-medium text-[#EE5802] bg-[#EE5802]/10 hover:bg-[#EE5802]/20 border border-[#EE5802]/25 shadow-xs transition-all duration-300 group"
             >
-              <span>Explore All 8 Company &amp; Media Logos</span>
+              <span>Explore All 11 Ventures &amp; Media Platforms</span>
               <span className="transition-transform duration-300 group-hover:translate-y-0.5" aria-hidden="true">&darr;</span>
             </a>
           </ScrollReveal>
@@ -152,13 +152,13 @@ export default function Impact() {
             <div className="text-center max-w-[720px] mx-auto mb-10 md:mb-14">
               <ScrollReveal variant="fadeUp">
                 <p className="font-sans text-xs md:text-sm font-semibold uppercase tracking-[0.3em] text-[#EE5802] mb-3">
-                  Ventures &amp; Media Platforms
+                  Ventures &amp; Media Platforms • Progression Through Time
                 </p>
                 <h3 className="font-serif font-light text-[clamp(1.8rem,3.5vw,2.8rem)] text-[#2C2C2C] leading-tight mb-3">
                   Enterprises Built from Belief
                 </h3>
                 <p className="font-serif italic text-sm md:text-base text-[#2C2C2C]/70">
-                  From executive coaching and script apps to global radio platforms and personal empowerment.
+                  A progression of former and current businesses, broadcasting networks, and coaching practices — from entrepreneurial scaling and corporate strategy to global radio and creative technology.
                 </p>
               </ScrollReveal>
             </div>
